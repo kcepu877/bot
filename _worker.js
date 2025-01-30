@@ -627,7 +627,7 @@ function getAllConfig(hostName, proxyList) {
               .join("")}
           </div>
           <div class="tab-content">${proxyListElements}</div>
-          <a href="https://t.me/Noir7R" class="watermark" target="_blank">@Noir7R</a>
+          <a href="https://t.me/kcepu_bot" class="watermark" target="_blank">@kcepu_bot</a>
         </div>
          <script>
           function filterTabs() {
