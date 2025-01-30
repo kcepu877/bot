@@ -1,0 +1,49 @@
+name: Replace Subdomain Weekly
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Jalankan setiap minggu pada pukul 00:00 UTC pada hari Minggu
+  workflow_dispatch:
+
+jobs:
+  replace-subdomain:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+
+    - name: Run Python script to replace subdomain
+      run: python replace_subdomain.py
+
+    - name: Display updated _worker.js
+      run: |
+        echo "Displaying _worker.js content after update:"
+        cat _worker.js
+
+    - name: Check if _worker.js is updated
+      run: |
+        echo "Checking if the subdomain is updated in _worker.js"
+        if ! grep -q "ns1.bmkg.xyz" _worker.js; then
+          echo "_worker.js updated successfully"
+        else
+          echo "_worker.js not updated"
+        fi
+
+    - name: Commit changes to _worker.js and subdomain.yml
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add _worker.js subdomain.yml
+        git commit -m "Update subdomain in _worker.js"
+        git push
