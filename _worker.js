@@ -6,7 +6,7 @@ let proxyIP = "";
 let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
 
 const DEFAULT_PROXY_BANK_URL = "https://cf.cepu.us.kg/update_proxyip.txt";
-const TELEGRAM_BOT_TOKEN = '7826108422:AAHzQcdsK2-Sgn4MA_u74PqQiteA2cQTfZ0';
+const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
 const FAKE_HOSTNAME = 'user.ker.us.kg';
