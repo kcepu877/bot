@@ -450,18 +450,18 @@ async function handleListWildcard(chatId) {
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 🎉
 
-`🟢 \ava.game.naver.com.${wildkere}\`
-`🟢 \business.blibli.com.${wildkere}\`
-`🟢 \graph.instagram.com.${wildkere}\`
-`🟢 \quiz.int.vidio.com.${wildkere}\`
-`🟢 \live.iflix.com.${wildkere}\`
-`🟢 \support.zoom.us.${wildkere}\`
-`🟢 \blog.webex.com.${wildkere}\`
-`🟢 \investors.spotify.com.${wildkere}\`
-`🟢 \cache.netflix.com.${wildkere}\`
-`🟢 \zaintest.vuclip.com.${wildkere}\`
-`🟢 \ads.ruangguru.com.${wildkere}\`
-`🟢 \api.midtrans.com.${wildkere}\`
+🟢 `\`ava.game.naver.com.${wildkere}\`
+🟢 `\business.blibli.com.${wildkere}\`
+🟢 `\graph.instagram.com.${wildkere}\`
+🟢 `\quiz.int.vidio.com.${wildkere}\`
+🟢 `\live.iflix.com.${wildkere}\`
+🟢 `\support.zoom.us.${wildkere}\`
+🟢 `\blog.webex.com.${wildkere}\`
+🟢 `\investors.spotify.com.${wildkere}\`
+🟢 `\cache.netflix.com.${wildkere}\`
+🟢 `\zaintest.vuclip.com.${wildkere}\`
+🟢 `\ads.ruangguru.com.${wildkere}\`
+🟢 `\api.midtrans.com.${wildkere}\`
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
