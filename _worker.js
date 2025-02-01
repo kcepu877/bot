@@ -6,7 +6,7 @@ let proxyIP = "";
 let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
 
 const DEFAULT_PROXY_BANK_URL = "https://cf.cepu.us.kg/update_proxyip.txt";
-const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
+const TELEGRAM_BOT_TOKEN = '7826108422:AAHzQcdsK2-Sgn4MA_u74PqQiteA2cQTfZ0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
 const FAKE_HOSTNAME = 'user.ker.us.kg';
@@ -450,22 +450,24 @@ async function handleListWildcard(chatId) {
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 🎉
 
-1️⃣ \`graph.instagram.com.${wildkere}\`
-2️⃣ \`ava.game.naver.com.${wildkere}\`
-3️⃣ \`push.line.me.${wildkere}\`
-4️⃣ \`connect.facebook.net.${wildkere}\`
-5️⃣ \`cache.netflix.com.${wildkere}\`
-6️⃣ \`zaintest.vuclip.com.${wildkere}\`
-7️⃣ \`client.youtube.com.${wildkere}\`
-8️⃣ \`mssdk24-normal-useast2a.tiktokv.com.${wildkere}\`
-9️⃣ \`cdn.appsflayer.com.${wildkere}\`
-🔟 \`support.zoom.us.${wildkere}\`
+🟢 \ava.game.naver.com.${wildkere}\`
+🟢 \business.blibli.com.${wildkere}\`
+🟢 \graph.instagram.com.${wildkere}\`
+🟢 \quiz.int.vidio.com.${wildkere}\`
+🟢 \live.iflix.com.${wildkere}\`
+🟢 \support.zoom.us.${wildkere}\`
+🟢 \blog.webex.com.${wildkere}\`
+🟢 \investors.spotify.com.${wildkere}\`
+🟢 \cache.netflix.com.${wildkere}\`
+🟢 \zaintest.vuclip.com.${wildkere}\`
+🟢 \ads.ruangguru.com.${wildkere}\`
+🟢 \api.midtrans.com.${wildkere}\`
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://vip.rmtq.fun)
-📺 CHANNEL : [Channel](https://t.me/inconigtostore)
-👥 GROUP : [Grup](https://t.me/+kz5Z_vC2M84xY2Q1)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP : [Grup](https://t.me/kdigital877)
 
   `;
   await sendTelegramMessage(chatId, infoMessage);
