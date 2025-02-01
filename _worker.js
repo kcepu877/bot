@@ -463,6 +463,8 @@ async function handleListWildcard(chatId) {
 🟢 \`zaintest.vuclip.com.${wildkere}\`
 🟢 \`ads.ruangguru.com.${wildkere}\`
 🟢 \`api.midtrans.com.${wildkere}\`
+
+
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
