@@ -451,7 +451,7 @@ async function handleListWildcard(chatId) {
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
 
-🟢 `\`ava.game.naver.com.${wildkere}\`
+🟢 \`ava.game.naver.com.${wildkere}\`
 🟢 \`business.blibli.com.${wildkere}\`
 🟢 \`graph.instagram.com.${wildkere}\`
 🟢 \`quiz.int.vidio.com.${wildkere}\`
