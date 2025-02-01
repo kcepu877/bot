@@ -420,7 +420,7 @@ async function handleStartCommand(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://vip.rmtq.fun)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP : [Grup](https://t.me/kdigital877)
   `;
