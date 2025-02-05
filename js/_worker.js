@@ -9,7 +9,7 @@ const DEFAULT_PROXY_BANK_URL = "https://cf.cepu.us.kg/update_proxyip.txt";
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'user.ker.us.kg';
+const FAKE_HOSTNAME = 'freecf.kere.us.kg';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
