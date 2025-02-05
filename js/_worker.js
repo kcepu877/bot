@@ -826,17 +826,17 @@ function getAllConfig(hostName, proxyList) {
     const clashpath = `/${proxyIP}-${proxyPort}`.replace(/\s+/g, '');
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@${hostName}:80?encryption=none&security=none&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@${hostName}:80?encryption=none&security=none&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${hostName}:443?encryption=none&type=ws&host=${hostName}&path=${pathcode}&security=tls&sni=${hostName}#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${hostName}:80?encryption=none&type=ws&host=${hostName}&path=${pathcode}&security=none&sni=${hostName}#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:443?encryption=none&type=ws&host=freecf.kere.us.kg&path=${pathcode}&security=tls&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:80?encryption=none&type=ws&host=freecf.kere.us.kg&path=${pathcode}&security=none&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: ${hostName}
+  server: freecf.kere.us.kg
   port: 443
   type: vless
   uuid: ${crypto.randomUUID()}
@@ -846,7 +846,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: ${hostName}
+  servername: freecf.kere.us.kg
   alpn:
     - h2
     - h3
@@ -854,7 +854,7 @@ proxies:
   ws-opts:
     path: ${clashpath}
     headers:
-      Host: ${hostName}
+      Host: freecf.kere.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -866,7 +866,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: ${hostName}
+  server: freecf.kere.us.kg
   port: 443
   type: trojan
   password: ${crypto.randomUUID()}
@@ -875,7 +875,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: ${hostName}
+  sni: freecf.kere.us.kg
   alpn:
     - h2
     - h3
@@ -883,7 +883,7 @@ proxies:
   ws-opts:
     path: ${clashpath}
     headers:
-      Host: ${hostName}
+      Host: freecf.kere.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -895,7 +895,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: ${hostName}
+  server: freecf.kere.us.kg
   port: 443
   type: ss
   cipher: none
@@ -905,7 +905,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: ${hostName}
+    host: freecf.kere.us.kg
     path: ${clashpath}
     tls: true
     mux: false
