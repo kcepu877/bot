@@ -446,7 +446,7 @@ async function handleGetInfo(chatId) {
  
 
 async function handleListWildcard(chatId) {
-  const wildkere = `user.kere.us.kg`;
+  const wildkere = `freecf.kere.us.kg`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
