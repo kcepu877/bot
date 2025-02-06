@@ -826,12 +826,12 @@ function getAllConfig(hostName, proxyList) {
     const clashpath = `/${proxyIP}-${proxyPort}`.replace(/\s+/g, '');
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:443?encryption=none&type=ws&host=freecf.kere.us.kg&path=${pathcode}&security=tls&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:80?encryption=none&type=ws&host=freecf.kere.us.kg&path=${pathcode}&security=none&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:443?encryption=none&security=tls&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@freecf.kere.us.kg:80?encryption=none&security=none&sni=freecf.kere.us.kg&fp=randomized&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:443?encryption=none&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`&security=tls&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@freecf.kere.us.kg:80?encryption=none&type=ws&host=freecf.kere.us.kg&path=`/${proxyIP}-${proxyPort}`&security=none&sni=freecf.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
