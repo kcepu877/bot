@@ -823,7 +823,7 @@ function getAllConfig(hostName, proxyList) {
     const pathcode = encodePath(proxyIP, proxyPort);
     const encodedCountry = encodeSpace(country);
     const encodedOrg = encodeSpace(org);
-    const clashpath = /${proxyIP}-${proxyPort}.replace(/\s+/g, '');
+    const clashpath = /${proxyIP}-${proxyPort};
 
     const status = `${proxyIP}:${proxyPort}`;
     const vlessTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
