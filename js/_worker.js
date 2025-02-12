@@ -505,7 +505,7 @@ ORDER PREMIUM CONTACT ADMIN
   await sendTelegramMessage(chatId, infoMessage);
 }
 
-async function handleListPremium(chatId, bot) {
+async function handleListPremium(chatId) {
   const infoMessage = `
 🎉 <b>List PREMIUM VPN Tunnel Bot!</b>\n
 <b>READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL</b>\n
@@ -541,11 +541,8 @@ async function handleListPremium(chatId, bot) {
 👤 <b>ADMIN WA :</b> <a href="https://wa.me/6281335135082">ADMIN WA</a>\n
   `;
 
-  try {
-    await bot.sendMessage(chatId, infoMessage, { parse_mode: "HTML", disable_web_page_preview: true });
-  } catch (error) {
-    console.error("Error sending list premium:", error);
-  }
+  
+  await sendTelegramMessage(chatId, infoMessage, { parse_mode: "HTML" });
 }
 
 
