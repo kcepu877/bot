@@ -307,8 +307,8 @@ async function handleMessage(message) {
   } else if (text === '/listwildcard') {
     await handleListWildcard(chatId);
   
-  // Menangani perintah /getrandomip
-  } else if (text === '/listwildcard') {
+  // Menangani perintah /listpremimum
+  } else if (text === '/listpremimum') {
     await handleListPremium(chatId);
     
   // Menangani perintah /getrandomip
