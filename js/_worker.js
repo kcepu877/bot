@@ -505,125 +505,47 @@ ORDER PREMIUM CONTACT ADMIN
   await sendTelegramMessage(chatId, infoMessage);
 }
 
-async function handleListPremium(chatId) {
+async function handleListPremium(chatId, bot) {
   const infoMessage = `
-🎉 List PREMIUM VPN Tunnel Bot! 
+🎉 <b>List PREMIUM VPN Tunnel Bot!</b>\n
+<b>READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL</b>\n
 
+<code>server--🇮🇩ID-BIZNET PRO1 2DEV</code>\n🔹 12K \n🔸 VMESS & TROJAN\n
+<code>server--🇮🇩ID-BIZNET 2</code>\n🔹 10K \n🔸 VMESS & TROJAN\n
+<code>server--🇮🇩ID-UNINET STB1</code>\n🔹 12K \n🔸 TROJAN\n
+<code>server--🇮🇩ID1-RTRWNET VOCUHERAN</code>\n🔹 65K\n🔸 VMESS\n
+<code>server--🇮🇩WIJAYA1</code>\n🔹 10K \n🔸 VMESS & VLESS\n
+<code>server--🇮🇩ID-DEWAWEB2</code>\n🔹 10K \n🔸 VMESS & TROJAN\n
+<code>server--🇮🇩ID-AMS1</code>\n🔹 10K \n🔸 VMESS & VLESS\n
+<code>server--🇸🇬SGGS-2 STB</code>\n🔹 12K \n🔸 TROJAN\n
+<code>server--🇸🇬SGGS-1 STB</code>\n🔹 12K \n🔸 VMESS\n
+<code>server--🇸🇬DO1-NON STB</code>\n🔹 8K \n🔸 TROJAN\n
+<code>server--🇸🇬SG1-RTRWNET SINGAPORE</code>\n🔹 45K \n🔸 VMESS\n
+<code>server--🇸🇬DO3-SSH</code>\n🔹 8K \n🔸 SSH\n
+<code>server--🇸🇬SG1-LINODE</code>\n🔹 10K \n🔸 SSH, VMESS & TROJAN\n
+<code>server--🇸🇬DO2-NON STB</code>\n🔹 8K \n🔸 VMESS & VLESS\n
+<code>server--🇸🇬SGDO-2DEV</code>\n🔹 10K \n🔸 SSH, VLESS, VMESS & TROJAN\n
+<code>server--🇸🇬DO-4 NON STB</code>\n🔹 8K \n🔸 VMESS & VLESS\n
+<code>server--🇸🇬SG-PREM1</code>\n🔹 10K \n🔸 VMESS\n
+<code>server--🇮🇩ID-SANTOSA1 50Mbps</code>\n🔹 8K \n🔸 VMESS & TROJAN\n
+<code>server--🇮🇩ID-NUSA MAX</code>\n🔹 12K \n🔸 SSH & VMESS\n
 
-<b>READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL</b>
+👨‍💻 <b>Dikembangkan oleh:</b> <a href="https://t.me/kstore877">Mode</a>\n
+🌐 <b>WEB VPN TUNNEL :</b> <a href="https://user.kere.us.kg">VPN Tunnel CloudFlare</a>\n
+📺 <b>CHANNEL :</b> <a href="https://t.me/kstore877">Channel</a>\n
+👥 <b>GROUP TELE :</b> <a href="https://t.me/+Rs4HvJtagXZlYTNl">Grup Tele</a>\n
+👥 <b>GROUP WA :</b> <a href="https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh">Grup WA</a>\n
 
-
-<pre>server--🇮🇩ID-BIZNET PRO1 2DEV
-12K 
-VMESS & TROJAN</pre>
-
-  
-<pre>server--🇮🇩ID-BIZNET 2
-10K 
-VMESS & TROJAN</pre>
-
-  
-<pre>server--🇮🇩ID-UNINET STB1
-12K 
-TROJAN</pre>
-
-  
-<pre>server--🇮🇩ID1-RTRWNET VOCUHERAN
-65K
-VMESS</pre>
-
-  
-<pre>server--🇮🇩WIJAYA1
-10K 
-VMESS & VLESS</pre>
-
-  
-<pre>server--🇮🇩ID-DEWAWEB2
-10K 
-VMESS & TROJAN</pre>
-
-  
-<pre>server--🇮🇩ID-AMS1
-10K 
-VMESS & VLESS</pre>
-
-  
-<pre>server--🇸🇬SGGS-2 STB
-12K 
-TROJAN</pre>
-
-  
-<pre>server--🇸🇬SGGS-1 STB
-12K 
-VMESS</pre>
-
-  
-<pre>server--🇸🇬DO1-NON STB
-8K 
-TROJAN</pre>
-
-  
-<pre>server--🇸🇬SG1-RTRWNET SINGAPORE
-45K 
-VMESS</pre>
-
-  
-<pre>server--🇸🇬DO3-SSH
-8K 
-SSH</pre>
-
-  
-<pre>server--🇸🇬SG1-LINODE
-10K 
-SSH, VMESS & TROJAN</pre>
-
-  
-<pre>server--🇸🇬DO2-NON STB
-8K 
-VMESS & VLESS</pre>
-
-  
-<pre>server--🇸🇬 SGDO-2DEV
-10K 
-SSH, VLESS, VMESS & TROJAN</pre>
-
-  
-<pre>server--🇸🇬DO-4 NON STB
-8K 
-VMESS & VLESS</pre>
-
-  
-<pre>server--🇸🇬SG-PREM1
-10K 
-VMESS</pre>
-
-  
-<pre>server--🇮🇩ID-SANTOSA1 50Mbps
-8K 
-VMESS & TROJAN</pre>
-
-  
-<pre>server--🇮🇩ID-NUSA MAX
-12K 
-SSH & VMESS</pre>
-
-ADMIN 1 @kcepu877
-ADMIN 2 @epoenk877
-
-👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-
+🧔 <b>ORDER PREMIUM CONTACT ADMIN</b>\n
+👤 <b>ADMIN TELE :</b> <a href="https://t.me/kcepu877">ADMIN TELE</a>\n
+👤 <b>ADMIN WA :</b> <a href="https://wa.me/6281335135082">ADMIN WA</a>\n
   `;
-  await sendTelegramMessage(chatId, infoMessage, { parse_mode: "HTML" });
+
+  try {
+    await bot.sendMessage(chatId, infoMessage, { parse_mode: "HTML", disable_web_page_preview: true });
+  } catch (error) {
+    console.error("Error sending list premium:", error);
+  }
 }
 
 
