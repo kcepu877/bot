@@ -513,80 +513,99 @@ READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
 
 📌 *Daftar Server:*
 
-*server--🇮🇩ID-BIZNET PRO1 2DEV**
-\`\`\`"12K"
+
+*server--🇮🇩ID-BIZNET PRO1 2DEV*
+\`\`\`
+"12K"
 "VMESS & TROJAN"
 \`\`\`
-*erver--🇮🇩ID-BIZNET 2*
-\`\`\`"10K"
+*server--🇮🇩ID-BIZNET 2*
+\`\`\`
+"10K"
 "VMESS & TROJAN"
 \`\`\`
-*erver--🇮🇩ID-UNINET STB1*
-\`\`\`"12K"
+*server--🇮🇩ID-UNINET STB1*
+\`\`\`
+"12K"
 "TROJAN"
 \`\`\`
-*erver--🇮🇩ID1-RTRWNET VOCUHERAN*
-\`\`\`"65K"
+*server--🇮🇩ID1-RTRWNET VOCUHERAN*
+\`\`\`
+"65K"
 "VMESS"
 \`\`\`
-*erver--🇮🇩WIJAYA1*
-\`\`\`"10K"
+*server--🇮🇩WIJAYA1*
+\`\`\`
+"10K"
 "VMESS & VLESS"
 \`\`\`
-*erver--🇮🇩ID-DEWAWEB2*
-\`\`\`"10K"
+*server--🇮🇩ID-DEWAWEB2*
+\`\`\`
+"10K"
 "VMESS & TROJAN"
 \`\`\`
-*erver--🇮🇩ID-AMS1*
-\`\`\`"10K"
+*server--🇮🇩ID-AMS1*
+\`\`\`
+"10K"
 "VMESS & VLESS"
 \`\`\`
-*erver--🇸🇬SGGS-2 STB*
-\`\`\`"12K"
+*server--🇸🇬SGGS-2 STB*
+\`\`\`
+"12K"
 "TROJAN"
 \`\`\`
-*erver--🇸🇬SGGS-1 STB*
-\`\`\`"12K"
+*server--🇸🇬SGGS-1 STB*
+\`\`\`
+"12K"
 "VMESS"
 \`\`\`
-*erver--🇸🇬DO1-NON STB*
-\`\`\`"8K"
+*server--🇸🇬DO1-NON STB*
+\`\`\`
+"8K"
 "TROJAN"
 \`\`\`
-*erver--🇸🇬SG1-RTRWNET SINGAPORE*
-\`\`\`"45K"
+*server--🇸🇬SG1-RTRWNET SINGAPORE*
+\`\`\`
+"45K"
 "VMESS"
 \`\`\`
-*erver--🇸🇬DO3-SSH*
-\`\`\`"8K"
+*server--🇸🇬DO3-SSH*
+\`\`\`
+"8K"
 "SSH"
 \`\`\`
-*erver--🇸🇬SG1-LINODE*
-\`\`\`"10K"
+*server--🇸🇬SG1-LINODE*
+"10K"
 "SSH, VMESS & TROJAN"
 \`\`\`
-*erver--🇸🇬DO2-NON STB*
-\`\`\`"8K"
+*server--🇸🇬DO2-NON STB*
+\`\`\`
+"8K"
 "VMESS & VLESS"
 \`\`\`
-*erver--🇸🇬SGDO-2DEV*
-\`\`\`"10K"
+*server--🇸🇬SGDO-2DEV*
+\`\`\`
+"10K"
 "SSH, VLESS, VMESS & TROJAN"
 \`\`\`
-*erver--🇸🇬DO-4 NON STB*
-\`\`\`"8K"
+*server--🇸🇬DO-4 NON STB*
+\`\`\`
+"8K"
 "VMESS & VLESS"
 \`\`\`
-*erver--🇸🇬SG-PREM1*
-\`\`\`"10K"
+*server--🇸🇬SG-PREM1*
+\`\`\`
+"10K"
 "VMESS"
 \`\`\`
-*erver--🇮🇩ID-SANTOSA1 50Mbps*
-\`\`\`"8K"
+*server--🇮🇩ID-SANTOSA1 50Mbps*
+\`\`\`
+"8K"
 "VMESS & TROJAN"
 \`\`\`
-*erver--🇮🇩ID-NUSA MAX*
-\`\`\`"12K"
+*server--🇮🇩ID-NUSA MAX*
+\`\`\`
+"12K"
 "SSH & VMESS"
 \`\`\`
 
