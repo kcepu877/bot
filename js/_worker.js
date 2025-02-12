@@ -307,8 +307,8 @@ async function handleMessage(message) {
   } else if (text === '/listwildcard') {
     await handleListWildcard(chatId);
   
-  // Menangani perintah /listpremimum
-  } else if (text === '/listpremimum') {
+  // Menangani perintah /listpremium
+  } else if (text === '/listpremium') {
     await handleListPremium(chatId);
     
   // Menangani perintah /getrandomip
@@ -444,7 +444,7 @@ async function handleGetInfo(chatId) {
 🟢 \`/getrandomip\`
 🟢 \`/getrandom <Country>\`
 🟢 \`/listwildcard\`
-🟢 \`/listpremimum\`
+🟢 \`/listpremium\`
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
