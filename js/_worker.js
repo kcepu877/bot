@@ -422,12 +422,12 @@ async function handleStartCommand(chatId) {
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
   `;
   await sendTelegramMessage(chatId, welcomeMessage);
@@ -445,13 +445,13 @@ async function handleGetInfo(chatId) {
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP : [Grup](https://t.me/kdigital877)
-👥 GROUP TELE : [Grup](https://t.me/kdigital877)
+👥 GROUP : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
   `;
   await sendTelegramMessage(chatId, InfoMessage);
 }
@@ -481,12 +481,12 @@ async function handleListWildcard(chatId) {
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
 
   `;
@@ -609,12 +609,12 @@ async function checkIPPort(ip, port, chatId) {
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
     `;
 
@@ -678,12 +678,12 @@ ${proxies}
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
   `;
 
@@ -738,12 +738,12 @@ proxies:
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
   `;
 
