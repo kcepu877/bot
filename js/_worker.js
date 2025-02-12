@@ -511,15 +511,15 @@ async function handleListPremium(chatId) {
 
 READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
 
-\`\`\`server--🇮🇩ID-BIZNET PRO1 2DEV** 
+\`\`\`server--🇮🇩ID-BIZNET PRO1 2DEV
 12K
 VMESS & TROJAN
 \`\`\`
-\`\`\`server--🇮🇩ID-BIZNET 2**
+\`\`\`server--🇮🇩ID-BIZNET 2
 10K
 VMESS & TROJAN
 \`\`\`
-\`\`\`server--🇮🇩ID-UNINET STB1**
+\`\`\`server--🇮🇩ID-UNINET STB1
 12K  
 TROJAN
 \`\`\`
