@@ -547,7 +547,6 @@ READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
 **12K**  
 **VMESS**
 \`\`\`
-m
 \`\`\`**server--🇸🇬DO1-NON STB**  
 **8K**  
 **TROJAN**
@@ -576,8 +575,7 @@ m
 **8K**  
 **VMESS & VLESS**
 \`\`\`
-\`\`\`
-**server--🇸🇬SG-PREM1**  
+\`\`\`**server--🇸🇬SG-PREM1**  
 **10K**  
 **VMESS**
 \`\`\`
