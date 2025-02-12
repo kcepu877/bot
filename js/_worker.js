@@ -507,42 +507,124 @@ ORDER PREMIUM CONTACT ADMIN
 
 async function handleListPremium(chatId) {
   const infoMessage = `
-🎉 <b>List PREMIUM VPN Tunnel Bot!</b>\n
-<b>READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL</b>\n
+🎉 List PREMIUM VPN Tunnel Bot! 
 
-<code>server--🇮🇩ID-BIZNET PRO1 2DEV</code>\n🔹 12K \n🔸 VMESS & TROJAN\n
-<code>server--🇮🇩ID-BIZNET 2</code>\n🔹 10K \n🔸 VMESS & TROJAN\n
-<code>server--🇮🇩ID-UNINET STB1</code>\n🔹 12K \n🔸 TROJAN\n
-<code>server--🇮🇩ID1-RTRWNET VOCUHERAN</code>\n🔹 65K\n🔸 VMESS\n
-<code>server--🇮🇩WIJAYA1</code>\n🔹 10K \n🔸 VMESS & VLESS\n
-<code>server--🇮🇩ID-DEWAWEB2</code>\n🔹 10K \n🔸 VMESS & TROJAN\n
-<code>server--🇮🇩ID-AMS1</code>\n🔹 10K \n🔸 VMESS & VLESS\n
-<code>server--🇸🇬SGGS-2 STB</code>\n🔹 12K \n🔸 TROJAN\n
-<code>server--🇸🇬SGGS-1 STB</code>\n🔹 12K \n🔸 VMESS\n
-<code>server--🇸🇬DO1-NON STB</code>\n🔹 8K \n🔸 TROJAN\n
-<code>server--🇸🇬SG1-RTRWNET SINGAPORE</code>\n🔹 45K \n🔸 VMESS\n
-<code>server--🇸🇬DO3-SSH</code>\n🔹 8K \n🔸 SSH\n
-<code>server--🇸🇬SG1-LINODE</code>\n🔹 10K \n🔸 SSH, VMESS & TROJAN\n
-<code>server--🇸🇬DO2-NON STB</code>\n🔹 8K \n🔸 VMESS & VLESS\n
-<code>server--🇸🇬SGDO-2DEV</code>\n🔹 10K \n🔸 SSH, VLESS, VMESS & TROJAN\n
-<code>server--🇸🇬DO-4 NON STB</code>\n🔹 8K \n🔸 VMESS & VLESS\n
-<code>server--🇸🇬SG-PREM1</code>\n🔹 10K \n🔸 VMESS\n
-<code>server--🇮🇩ID-SANTOSA1 50Mbps</code>\n🔹 8K \n🔸 VMESS & TROJAN\n
-<code>server--🇮🇩ID-NUSA MAX</code>\n🔹 12K \n🔸 SSH & VMESS\n
 
-👨‍💻 <b>Dikembangkan oleh:</b> <a href="https://t.me/kstore877">Mode</a>\n
-🌐 <b>WEB VPN TUNNEL :</b> <a href="https://user.kere.us.kg">VPN Tunnel CloudFlare</a>\n
-📺 <b>CHANNEL :</b> <a href="https://t.me/kstore877">Channel</a>\n
-👥 <b>GROUP TELE :</b> <a href="https://t.me/+Rs4HvJtagXZlYTNl">Grup Tele</a>\n
-👥 <b>GROUP WA :</b> <a href="https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh">Grup WA</a>\n
+READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
 
-🧔 <b>ORDER PREMIUM CONTACT ADMIN</b>\n
-👤 <b>ADMIN TELE :</b> <a href="https://t.me/kcepu877">ADMIN TELE</a>\n
-👤 <b>ADMIN WA :</b> <a href="https://wa.me/6281335135082">ADMIN WA</a>\n
-  `;
+
+**server--🇮🇩ID-BIZNET PRO1 2DEV
+12K 
+VMESS & TROJAN**
 
   
-  await sendTelegramMessage(chatId, infoMessage, { parse_mode: "HTML" });
+**server--🇮🇩ID-BIZNET 2
+10K 
+VMESS & TROJAN**
+
+  
+**server--🇮🇩ID-UNINET STB1
+12K 
+TROJAN**
+
+  
+**server--🇮🇩ID1-RTRWNET VOCUHERAN
+65K
+VMESS**
+
+  
+**server--🇮🇩WIJAYA1
+10K 
+VMESS & VLESS**
+
+  
+**server--🇮🇩ID-DEWAWEB2
+10K 
+VMESS & TROJAN**
+
+  
+**server--🇮🇩ID-AMS1
+10K 
+VMESS & VLESS**
+
+  
+**server--🇸🇬SGGS-2 STB
+12K 
+TROJAN**
+
+  
+**server--🇸🇬SGGS-1 STB
+12K 
+VMESS**
+
+  
+**server--🇸🇬DO1-NON STB
+8K 
+TROJAN**
+
+  
+**server--🇸🇬SG1-RTRWNET SINGAPORE
+45K 
+VMESS**
+
+  
+**server--🇸🇬DO3-SSH
+8K 
+SSH**
+
+  
+**server--🇸🇬SG1-LINODE
+10K 
+SSH, VMESS & TROJAN**
+
+  
+**server--🇸🇬DO2-NON STB
+8K 
+VMESS & VLESS**
+
+  
+**server--🇸🇬 SGDO-2DEV
+10K 
+SSH, VLESS, VMESS & TROJAN**
+
+  
+**server--🇸🇬DO-4 NON STB
+8K 
+VMESS & VLESS**
+
+  
+**server--🇸🇬SG-PREM1
+10K 
+VMESS**
+
+  
+**server--🇮🇩ID-SANTOSA1 50Mbps
+8K 
+VMESS & TROJAN**
+
+  
+**server--🇮🇩ID-NUSA MAX
+12K 
+SSH & VMESS**
+
+
+ADMIN 1 @kcepu877
+ADMIN 2 @epoenk877
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+
+  `;
+  await sendTelegramMessage(chatId, infoMessage);
 }
 
 
