@@ -514,116 +514,98 @@ READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
 📌 *Daftar Server:*
 
 \`\`\`
-/server--🇮🇩ID-BIZNET PRO1 2DEV
-"Total Account 12K"
+*server--🇮🇩ID-BIZNET PRO1 2DEV**
+"12K"
 "VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-BIZNET 2
-"Total Account 10K"
+*server--🇮🇩ID-BIZNET 2**
+"10K"
 "VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-UNINET STB1
-"Total Account 12K"
+*server--🇮🇩ID-UNINET STB1**
+"12K"
 "TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID1-RTRWNET VOCUHERAN
-"Total Account 65K"
+*server--🇮🇩ID1-RTRWNET VOCUHERAN*
+"65K"
 "VMESS"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩WIJAYA1
-"Total Account 10K"
+*server--🇮🇩WIJAYA1**
+"10K"
 "VMESS & VLESS"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-DEWAWEB2
-"Total Account 10K"
+*server--🇮🇩ID-DEWAWEB2**
+"10K"
 "VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-AMS1
-"Total Account 10K"
+*server--🇮🇩ID-AMS1**
+"10K"
 "VMESS & VLESS"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SGGS-2 STB
-"Total Account 12K"
+*server--🇸🇬SGGS-2 STB**
+"12K"
 "TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SGGS-1 STB
-"Total Account 12K"
+*server--🇸🇬SGGS-1 STB**
+"12K"
 "VMESS"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬DO1-NON STB
-"Total Account 8K"
+*server--🇸🇬DO1-NON STB*
+"8K"
 "TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SG1-RTRWNET SINGAPORE
-"Total Account 45K"
+*server--🇸🇬SG1-RTRWNET SINGAPORE*
+"45K"
 "VMESS"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬DO3-SSH
-"Total Account 8K"
+*server--🇸🇬DO3-SSH*
+"8K"
 "SSH"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SG1-LINODE
-"Total Account 10K"
+*server--🇸🇬SG1-LINODE**
+"10K"
 "SSH, VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬DO2-NON STB
-"Total Account 8K"
+*server--🇸🇬DO2-NON STB*
+"8K"
 "VMESS & VLESS"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SGDO-2DEV
-"Total Account 10K"
+*server--🇸🇬SGDO-2DEV**
+"10K"
 "SSH, VLESS, VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬DO-4 NON STB
-"Total Account 8K"
+*server--🇸🇬DO-4 NON STB*
+"8K"
 "VMESS & VLESS"
 \`\`\`
-
 \`\`\`
-/server--🇸🇬SG-PREM1
-"Total Account 10K"
+*server--🇸🇬SG-PREM1**
+"10K"
 "VMESS"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-SANTOSA1 50Mbps
-"Total Account 8K"
+*server--🇮🇩ID-SANTOSA1 50Mbps*
+"8K"
 "VMESS & TROJAN"
 \`\`\`
-
 \`\`\`
-/server--🇮🇩ID-NUSA MAX
-"Total Account 12K"
+*server--🇮🇩ID-NUSA MAX**
+"12K"
 "SSH & VMESS"
 \`\`\`
 
