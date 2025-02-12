@@ -420,7 +420,14 @@ async function handleStartCommand(chatId) {
 
 🚀 Mulai sekarang dengan mengirimkan Proxy IP:Port Anda!
 
-📌 Daftar Commands : /info
+📌 Daftar Commands : 
+
+/info
+/getrandomip
+/getrandom <Country>
+/listwildcard
+/listpremium
+
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
