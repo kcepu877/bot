@@ -422,7 +422,13 @@ async function handleStartCommand(chatId) {
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP : [Grup](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup](https://t.me/kdigital877)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+
   `;
   await sendTelegramMessage(chatId, welcomeMessage);
 }
@@ -440,6 +446,12 @@ async function handleGetInfo(chatId) {
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP : [Grup](https://t.me/kdigital877)
+👥 GROUP TELE : [Grup](https://t.me/kdigital877)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
   `;
   await sendTelegramMessage(chatId, InfoMessage);
 }
@@ -594,6 +606,16 @@ async function checkIPPort(ip, port, chatId) {
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+
     `;
 
     // Kirim hasil cek
@@ -653,6 +675,16 @@ ${proxies}
 \`\`\`
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+
   `;
 
   // Kirim pesan melalui Telegram
@@ -703,6 +735,16 @@ proxies:
 \`\`\`
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/kdigital877)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/621335135082)
+
   `;
 
   await sendTelegramMessage(chatId, message);
