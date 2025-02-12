@@ -510,103 +510,102 @@ async function handleListPremium(chatId) {
 🎉 List PREMIUM VPN Tunnel Bot! 
 
 
-READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
+<b>READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL</b>
 
 
-"server--🇮🇩ID-BIZNET PRO1 2DEV
+<pre>server--🇮🇩ID-BIZNET PRO1 2DEV
 12K 
-VMESS & TROJAN
+VMESS & TROJAN</pre>
 
   
-server--🇮🇩ID-BIZNET 2
+<pre>server--🇮🇩ID-BIZNET 2
 10K 
-VMESS & TROJAN
+VMESS & TROJAN</pre>
 
   
-server--🇮🇩ID-UNINET STB1
+<pre>server--🇮🇩ID-UNINET STB1
 12K 
-TROJAN
+TROJAN</pre>
 
   
-server--🇮🇩ID1-RTRWNET VOCUHERAN
+<pre>server--🇮🇩ID1-RTRWNET VOCUHERAN
 65K
-VMESS
+VMESS</pre>
 
   
-server--🇮🇩WIJAYA1
+<pre>server--🇮🇩WIJAYA1
 10K 
-VMESS & VLESS
+VMESS & VLESS</pre>
 
   
-server--🇮🇩ID-DEWAWEB2
+<pre>server--🇮🇩ID-DEWAWEB2
 10K 
-VMESS & TROJAN
+VMESS & TROJAN</pre>
 
   
-server--🇮🇩ID-AMS1
+<pre>server--🇮🇩ID-AMS1
 10K 
-VMESS & VLESS
+VMESS & VLESS</pre>
 
   
-server--🇸🇬SGGS-2 STB
+<pre>server--🇸🇬SGGS-2 STB
 12K 
-TROJAN
+TROJAN</pre>
 
   
-server--🇸🇬SGGS-1 STB
+<pre>server--🇸🇬SGGS-1 STB
 12K 
-VMESS
+VMESS</pre>
 
   
-server--🇸🇬DO1-NON STB
+<pre>server--🇸🇬DO1-NON STB
 8K 
-TROJAN
+TROJAN</pre>
 
   
-server--🇸🇬SG1-RTRWNET SINGAPORE
+<pre>server--🇸🇬SG1-RTRWNET SINGAPORE
 45K 
-VMESS
+VMESS</pre>
 
   
-server--🇸🇬DO3-SSH
+<pre>server--🇸🇬DO3-SSH
 8K 
-SSH
+SSH</pre>
 
   
-server--🇸🇬SG1-LINODE
+<pre>server--🇸🇬SG1-LINODE
 10K 
-SSH, VMESS & TROJAN
+SSH, VMESS & TROJAN</pre>
 
   
-server--🇸🇬DO2-NON STB
+<pre>server--🇸🇬DO2-NON STB
 8K 
-VMESS & VLESS
+VMESS & VLESS</pre>
 
   
-server--🇸🇬 SGDO-2DEV
+<pre>server--🇸🇬 SGDO-2DEV
 10K 
-SSH, VLESS, VMESS & TROJAN
+SSH, VLESS, VMESS & TROJAN</pre>
 
   
-server--🇸🇬DO-4 NON STB
+<pre>server--🇸🇬DO-4 NON STB
 8K 
-VMESS & VLESS
+VMESS & VLESS</pre>
 
   
-server--🇸🇬SG-PREM1
+<pre>server--🇸🇬SG-PREM1
 10K 
-VMESS
+VMESS</pre>
 
   
-server--🇮🇩ID-SANTOSA1 50Mbps
+<pre>server--🇮🇩ID-SANTOSA1 50Mbps
 8K 
-VMESS & TROJAN
+VMESS & TROJAN</pre>
 
   
-server--🇮🇩ID-NUSA MAX
+<pre>server--🇮🇩ID-NUSA MAX
 12K 
-SSH & VMESS
-"
+SSH & VMESS</pre>
 
 ADMIN 1 @kcepu877
 ADMIN 2 @epoenk877
