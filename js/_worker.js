@@ -623,7 +623,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
   `;
-  await sendTelegramMessage(chatId, infoMessage);
+  await sendTelegramMessage(chatId, infoMessage, { parse_mode: "HTML" });
 }
 
 
