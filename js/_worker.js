@@ -5,7 +5,7 @@ let cachedProxyList = [];
 let proxyIP = "";
 let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
 
-const DEFAULT_PROXY_BANK_URL = "https://user.kere.us.kg/proxyList.txt";
+const DEFAULT_PROXY_BANK_URL = "https://cf.cepu.us.kg/update_proxyip.txt";
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
@@ -637,7 +637,7 @@ server--🇮🇩ID-NUSA MAX
 async function handleGetRandomIPCommand(chatId) {
   try {
     // Fetching the Proxy IP list from the GitHub raw URL
-    const response = await fetch('https://user.kere.us.kg/proxyList.txt');
+    const response = await fetch('https://cf.cepu.us.kg/update_proxyip.txt');
     const data = await response.text();
 
     // Split the data into an array of Proxy IPs
@@ -670,7 +670,7 @@ async function handleGetRandomIPCommand(chatId) {
 // Function to handle the /getrandom <Country> command
 async function handleGetRandomCountryCommand(chatId, countryId) {
   try {
-    const response = await fetch('https://user.kere.us.kg/proxyList.txt');
+    const response = await fetch('https://cf.cepu.us.kg/update_proxyip.txt');
     const data = await response.text();
     const proxyList = data.split('\n').filter(line => line.trim() !== '');
     const filteredProxies = proxyList.filter(ip => {
