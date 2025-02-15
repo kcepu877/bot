@@ -215,7 +215,7 @@ export default {
       const upgradeHeader = request.headers.get("Upgrade");
 
       if (upgradeHeader === "websocket") {
-        const proxyMatch = url.pathname.match(/^\/(.+[:=-]\d+)$/);
+        const proxyMatch = url.pathname.match(/^\/Free-CF-Proxy-(.+[:=-]\d+)-LifeTime$/);
 
         if (proxyMatch) {
           proxyIP = proxyMatch[1];
@@ -772,8 +772,8 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleShadowSocksCreation(chatId, ip, port, isp, wildkere) {
-  const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2F${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}-LifeTime&security=tls&sni=${wildkere}#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}-LifeTime&security=none&sni=${wildkere}#${isp}`;
 
   const proxies = `
 proxies:
@@ -790,7 +790,7 @@ proxies:
     plugin-opts:
       mode: websocket
       host: ${wildkere}
-      path: /${ip}-${port}
+      path: /Free-CF-Proxy-${ip}-${port}-LifeTime
       tls: true
       mux: false
       skip-cert-verify: true
@@ -831,7 +831,7 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/${ip}-${port}`;
+  const path = `/Free-CF-Proxy-${ip}-${port}-LifeTime`;
   const vlessTLS = `vless://${crypto.randomUUID()}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const vlessNTLS = `vless://${crypto.randomUUID()}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
 
@@ -890,7 +890,7 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/${ip}-${port}`;
+  const path = `/Free-CF-Proxy-${ip}-${port}-LifeTime`;
   const trojanTLS = `trojan://${crypto.randomUUID()}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const trojanNTLS = `trojan://${crypto.randomUUID()}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
 
@@ -1011,12 +1011,12 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:443?encryption=none&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}&security=tls&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:80?encryption=none&type=ws&host=woless.kere.us.kg&path=/${proxyIP}-${proxyPort}&security=none&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:443?encryption=none&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime&security=tls&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:80?encryption=none&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime&security=none&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
@@ -1037,7 +1037,7 @@ proxies:
     - h3
     - http/1.1
   ws-opts:
-    path: /${proxyIP}-${proxyPort}
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime
     headers:
       Host: woless.kere.us.kg
     max-early-data: 0
@@ -1066,7 +1066,7 @@ proxies:
     - h3
     - http/1.1
   ws-opts:
-    path: /${proxyIP}-${proxyPort}
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime
     headers:
       Host: woless.kere.us.kg
     max-early-data: 0
@@ -1091,7 +1091,7 @@ proxies:
   plugin-opts:
     mode: websocket
     host: woless.kere.us.kg
-    path: /${proxyIP}-${proxyPort}
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}-LifeTime
     tls: true
     mux: false
     skip-cert-verify: true
