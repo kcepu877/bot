@@ -456,8 +456,7 @@ async function handleGetInfo(chatId) {
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
@@ -510,6 +509,8 @@ async function handleListPremium(chatId) {
 🎉 *List PREMIUM VPN Tunnel Bot!* 🎉
 
 READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
+[MASA AKTIF 30 HARI & FULL GARANSI]
+
 
 📌 *Daftar Server:*
 
@@ -615,7 +616,7 @@ server--🇮🇩ID-NUSA MAX
 🛠 *ADMIN 1:* @kcepu877  
 🛠 *ADMIN 2:* @epoenk877  
 
-🔗 *Website VPN Tunnel:* [VPN Tunnel CloudFlare](https://user.kere.us.kg)  
+🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://user.kere.us.kg)  
 📢 *Channel Telegram:* [Klik di sini](https://t.me/kstore877)  
 👥 *Grup Telegram:* [Klik di sini](https://t.me/+Rs4HvJtagXZlYTNl)  
 👥 *Grup WhatsApp:* [Klik di sini](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
