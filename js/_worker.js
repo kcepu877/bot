@@ -9,7 +9,7 @@ const DEFAULT_PROXY_BANK_URL = "https://cf.cepu.us.kg/update_proxyip.txt";
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'woless.kere.us.kg';
+const FAKE_HOSTNAME = 'gratisan.kere.us.kg';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -470,7 +470,7 @@ ORDER PREMIUM CONTACT ADMIN
  
 
 async function handleListWildcard(chatId) {
-  const wildkere = `woless.kere.us.kg`;
+  const wildkere = `gratisan.kere.us.kg`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -1011,17 +1011,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:443?encryption=none&security=tls&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@woless.kere.us.kg:80?encryption=none&security=none&sni=woless.kere.us.kg&fp=randomized&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:443?encryption=none&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@woless.kere.us.kg:80?encryption=none&type=ws&host=woless.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=woless.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@gratisan.kere.us.kg:443?encryption=none&security=tls&sni=gratisan.kere.us.kg&fp=randomized&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@gratisan.kere.us.kg:80?encryption=none&security=none&sni=gratisan.kere.us.kg&fp=randomized&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@gratisan.kere.us.kg:443?encryption=none&security=tls&sni=gratisan.kere.us.kg&fp=randomized&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@gratisan.kere.us.kg:80?encryption=none&security=none&sni=gratisan.kere.us.kg&fp=randomized&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@gratisan.kere.us.kg:443?encryption=none&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=gratisan.kere.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@gratisan.kere.us.kg:80?encryption=none&type=ws&host=gratisan.kere.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=gratisan.kere.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: woless.kere.us.kg
+  server: gratisan.kere.us.kg
   port: 443
   type: vless
   uuid: ${crypto.randomUUID()}
@@ -1031,7 +1031,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: woless.kere.us.kg
+  servername: gratisan.kere.us.kg
   alpn:
     - h2
     - h3
@@ -1039,7 +1039,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: woless.kere.us.kg
+      Host: gratisan.kere.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1051,7 +1051,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: woless.kere.us.kg
+  server: gratisan.kere.us.kg
   port: 443
   type: trojan
   password: ${crypto.randomUUID()}
@@ -1060,7 +1060,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: woless.kere.us.kg
+  sni: gratisan.kere.us.kg
   alpn:
     - h2
     - h3
@@ -1068,7 +1068,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: woless.kere.us.kg
+      Host: gratisan.kere.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1080,7 +1080,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: woless.kere.us.kg
+  server: gratisan.kere.us.kg
   port: 443
   type: ss
   cipher: none
@@ -1090,7 +1090,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: woless.kere.us.kg
+    host: gratisan.kere.us.kg
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
