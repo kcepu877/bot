@@ -473,7 +473,7 @@ ORDER PREMIUM CONTACT ADMIN
   await sendTelegramMessage(chatId, InfoMessage);
 }
  
-async function handleGetgetrandomCountry(chatId) {
+async function handlegetrandomCountryCommand(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
