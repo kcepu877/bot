@@ -303,6 +303,10 @@ async function handleMessage(message) {
   } else if (text === '/info') {
     await handleGetInfo(chatId);
 
+    // Menangani perintah /info
+  } else if (text === '/getrandomCountry') {
+    await handleGetgetrandomCountry(chatId);
+
   // Menangani perintah /getrandomip
   } else if (text === '/listwildcard') {
     await handleListWildcard(chatId);
@@ -424,7 +428,7 @@ async function handleStartCommand(chatId) {
 
 /info
 /getrandomip
-/getrandom <Country>
+/getrandomCountry
 /listwildcard
 /listpremium
 
@@ -449,7 +453,7 @@ async function handleGetInfo(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 🟢 \`/getrandomip\`
-🟢 \`/getrandom <Country>\`
+🟢 \`/getrandomCountry\`
 🟢 \`/listwildcard\`
 🟢 \`/listpremium\`
 
@@ -467,6 +471,248 @@ ORDER PREMIUM CONTACT ADMIN
   await sendTelegramMessage(chatId, InfoMessage);
 }
  
+async function handleGetgetrandomCountry(chatId) {
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
+
+\`/getrandom AF\`
+\`/getrandom AL\`
+\`/getrandom DZ\`
+\`/getrandom AS\`
+\`/getrandom AD\`
+\`/getrandom AO\`
+\`/getrandom AI\`
+\`/getrandom AR\`
+\`/getrandom AM\`
+\`/getrandom AW\`
+\`/getrandom AU\`
+\`/getrandom AT\`
+\`/getrandom AZ\`
+\`/getrandom BS\`
+\`/getrandom BH\`
+\`/getrandom BD\`
+\`/getrandom BB\`
+\`/getrandom BY\`
+\`/getrandom BE\`
+\`/getrandom BZ\`
+\`/getrandom BJ\`
+\`/getrandom BM\`
+\`/getrandom BT\`
+\`/getrandom BO\`
+\`/getrandom BA\`
+\`/getrandom BW\`
+\`/getrandom BR\`
+\`/getrandom IO\`
+\`/getrandom BN\`
+\`/getrandom BG\`
+\`/getrandom BF\`
+\`/getrandom BI\`
+\`/getrandom KH\`
+\`/getrandom CM\`
+\`/getrandom CA\`
+\`/getrandom CV\`
+\`/getrandom KY\`
+\`/getrandom CF\`
+\`/getrandom TD\`
+\`/getrandom CL\`
+\`/getrandom CN\`
+\`/getrandom CX\`
+\`/getrandom CC\`
+\`/getrandom CO\`
+\`/getrandom KM\`
+\`/getrandom CD\`
+\`/getrandom CG\`
+\`/getrandom CK\`
+\`/getrandom CR\`
+\`/getrandom CI\`
+\`/getrandom HR\`
+\`/getrandom CU\`
+\`/getrandom CW\`
+\`/getrandom CY\`
+\`/getrandom CZ\`
+\`/getrandom DR\`
+\`/getrandom DJ\`
+\`/getrandom DM\`
+\`/getrandom DO\`
+\`/getrandom EC\`
+\`/getrandom EG\`
+\`/getrandom SV\`
+\`/getrandom GQ\`
+\`/getrandom ER\`
+\`/getrandom EE\`
+\`/getrandom ET\`
+\`/getrandom FK\`
+\`/getrandom FO\`
+\`/getrandom FJ\`
+\`/getrandom FI\`
+\`/getrandom FR\`
+\`/getrandom GA\`
+\`/getrandom GE\`
+\`/getrandom DE\`
+\`/getrandom GH\`
+\`/getrandom GI\`
+\`/getrandom GR\`
+\`/getrandom GL\`
+\`/getrandom GD\`
+\`/getrandom GP\`
+\`/getrandom GU\`
+\`/getrandom GT\`
+\`/getrandom GN\`
+\`/getrandom GW\`
+\`/getrandom GY\`
+\`/getrandom HT\`
+\`/getrandom HM\`
+\`/getrandom VA\`
+\`/getrandom HN\`
+\`/getrandom HK\`
+\`/getrandom HU\`
+\`/getrandom IS\`
+\`/getrandom IN\`
+\`/getrandom ID\`
+\`/getrandom IR\`
+\`/getrandom IQ\`
+\`/getrandom IE\`
+\`/getrandom IL\`
+\`/getrandom IT\`
+\`/getrandom JM\`
+\`/getrandom JP\`
+\`/getrandom JO\`
+\`/getrandom KZ\`
+\`/getrandom KE\`
+\`/getrandom KI\`
+\`/getrandom KP\`
+\`/getrandom KR\`
+\`/getrandom KW\`
+\`/getrandom LA\`
+\`/getrandom LB\`
+\`/getrandom LS\`
+\`/getrandom LR\`
+\`/getrandom LY\`
+\`/getrandom LT\`
+\`/getrandom LU\`
+\`/getrandom MO\`
+\`/getrandom MG\`
+\`/getrandom MW\`
+\`/getrandom MY\`
+\`/getrandom MV\`
+\`/getrandom ML\`
+\`/getrandom MT\`
+\`/getrandom MH\`
+\`/getrandom MQ\`
+\`/getrandom MR\`
+\`/getrandom MU\`
+\`/getrandom YT\`
+\`/getrandom MX\`
+\`/getrandom FM\`
+\`/getrandom MD\`
+\`/getrandom MC\`
+\`/getrandom MN\`
+\`/getrandom ME\`
+\`/getrandom MS\`
+\`/getrandom MA\`
+\`/getrandom MZ\`
+\`/getrandom MM\`
+\`/getrandom NA\`
+\`/getrandom NR\`
+\`/getrandom NP\`
+\`/getrandom NL\`
+\`/getrandom NC\`
+\`/getrandom NZ\`
+\`/getrandom NI\`
+\`/getrandom NE\`
+\`/getrandom NG\`
+\`/getrandom NU\`
+\`/getrandom NF\`
+\`/getrandom MP\`
+\`/getrandom NO\`
+\`/getrandom NP\`
+\`/getrandom NR\`
+\`/getrandom OM\`
+\`/getrandom PK\`
+\`/getrandom PW\`
+\`/getrandom PA\`
+\`/getrandom PG\`
+\`/getrandom PY\`
+\`/getrandom PE\`
+\`/getrandom PH\`
+\`/getrandom PN\`
+\`/getrandom PL\`
+\`/getrandom PT\`
+\`/getrandom PR\`
+\`/getrandom QA\`
+\`/getrandom RO\`
+\`/getrandom RU\`
+\`/getrandom RW\`
+\`/getrandom RE\`
+\`/getrandom BL\`
+\`/getrandom SH\`
+\`/getrandom KN\`
+\`/getrandom LC\`
+\`/getrandom MF\`
+\`/getrandom PM\`
+\`/getrandom VC\`
+\`/getrandom WS\`
+\`/getrandom SM\`
+\`/getrandom ST\`
+\`/getrandom SA\`
+\`/getrandom SN\`
+\`/getrandom RS\`
+\`/getrandom SC\`
+\`/getrandom SL\`
+\`/getrandom SG\`
+\`/getrandom SX\`
+\`/getrandom SY\`
+\`/getrandom SK\`
+\`/getrandom SI\`
+\`/getrandom SO\`
+\`/getrandom ZA\`
+\`/getrandom SS\`
+\`/getrandom ES\`
+\`/getrandom LK\`
+\`/getrandom SD\`
+\`/getrandom SR\`
+\`/getrandom SZ\`
+\`/getrandom SE\`
+\`/getrandom CH\`
+\`/getrandom SY\`
+\`/getrandom TJ\`
+\`/getrandom TH\`
+\`/getrandom TM\`
+\`/getrandom TN\`
+\`/getrandom TR\`
+\`/getrandom TT\`
+\`/getrandom TV\`
+\`/getrandom TZ\`
+\`/getrandom UG\`
+\`/getrandom UA\`
+\`/getrandom GB\`
+\`/getrandom US\`
+\`/getrandom UY\`
+\`/getrandom UZ\`
+\`/getrandom VU\`
+\`/getrandom VA\`
+\`/getrandom VE\`
+\`/getrandom VN\`
+\`/getrandom WF\`
+\`/getrandom YE\`
+\`/getrandom ZM\`
+\`/getrandom ZW\`
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
+}
+
 
 async function handleListWildcard(chatId) {
   const wildkere = `gratisan.kere.us.kg`;
