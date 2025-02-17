@@ -327,7 +327,7 @@ async function handleMessage(message) {
     } else {
         await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
     }
-}
+
 
 
   // Menangani perintah /broadcast
