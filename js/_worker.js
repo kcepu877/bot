@@ -304,8 +304,8 @@ async function handleMessage(message) {
     await handleGetInfo(chatId);
 
     // Menangani perintah /info
-  } else if (text === '/getrandomCountry') {
-    await handleGetgetrandomCountry(chatId);
+  } else if (text === '/GetCountry') {
+    await handleGetCountryCommand(chatId);
 
   // Menangani perintah /getrandomip
   } else if (text === '/listwildcard') {
@@ -473,7 +473,7 @@ ORDER PREMIUM CONTACT ADMIN
   await sendTelegramMessage(chatId, InfoMessage);
 }
  
-async function handlegetrandomCountryCommand(chatId) {
+async function handleGetCountryCommand(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
