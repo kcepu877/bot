@@ -475,6 +475,8 @@ async function handleGetgetrandomCountry(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
+
+\`/getrandom AE\`
 \`/getrandom AF\`
 \`/getrandom AL\`
 \`/getrandom DZ\`
@@ -625,8 +627,6 @@ async function handleGetgetrandomCountry(chatId) {
 \`/getrandom NF\`
 \`/getrandom MP\`
 \`/getrandom NO\`
-\`/getrandom NP\`
-\`/getrandom NR\`
 \`/getrandom OM\`
 \`/getrandom PK\`
 \`/getrandom PW\`
@@ -674,7 +674,6 @@ async function handleGetgetrandomCountry(chatId) {
 \`/getrandom SZ\`
 \`/getrandom SE\`
 \`/getrandom CH\`
-\`/getrandom SY\`
 \`/getrandom TJ\`
 \`/getrandom TH\`
 \`/getrandom TM\`
@@ -690,13 +689,13 @@ async function handleGetgetrandomCountry(chatId) {
 \`/getrandom UY\`
 \`/getrandom UZ\`
 \`/getrandom VU\`
-\`/getrandom VA\`
 \`/getrandom VE\`
 \`/getrandom VN\`
 \`/getrandom WF\`
 \`/getrandom YE\`
 \`/getrandom ZM\`
 \`/getrandom ZW\`
+
 
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
