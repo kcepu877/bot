@@ -321,12 +321,14 @@ async function handleMessage(message) {
 
   // Menangani perintah /getrandom <CountryCode>
   } else if (text.startsWith('/getrandom')) {
-    const countryId = text.split(' ')[1]; // Mengambil kode negara setelah "/getrandom"
+    const countryId = text.slice(10); // Mengambil kode negara setelah "/getrandom" tanpa spasi
     if (countryId) {
-      await handleGetRandomCountryCommand(chatId, countryId);
+        await handleGetRandomCountryCommand(chatId, countryId);
     } else {
-      await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandom ID`, `/getrandom US`).');
+        await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
     }
+}
+
 
   // Menangani perintah /broadcast
   } else if (text.startsWith('/broadcast')) {
@@ -476,226 +478,444 @@ async function handleGetgetrandomCountry(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-\`/getrandom AE\`
-\`/getrandom AF\`
-\`/getrandom AL\`
-\`/getrandom DZ\`
-\`/getrandom AS\`
-\`/getrandom AD\`
-\`/getrandom AO\`
-\`/getrandom AI\`
-\`/getrandom AR\`
-\`/getrandom AM\`
-\`/getrandom AW\`
-\`/getrandom AU\`
-\`/getrandom AT\`
-\`/getrandom AZ\`
-\`/getrandom BS\`
-\`/getrandom BH\`
-\`/getrandom BD\`
-\`/getrandom BB\`
-\`/getrandom BY\`
-\`/getrandom BE\`
-\`/getrandom BZ\`
-\`/getrandom BJ\`
-\`/getrandom BM\`
-\`/getrandom BT\`
-\`/getrandom BO\`
-\`/getrandom BA\`
-\`/getrandom BW\`
-\`/getrandom BR\`
-\`/getrandom IO\`
-\`/getrandom BN\`
-\`/getrandom BG\`
-\`/getrandom BF\`
-\`/getrandom BI\`
-\`/getrandom KH\`
-\`/getrandom CM\`
-\`/getrandom CA\`
-\`/getrandom CV\`
-\`/getrandom KY\`
-\`/getrandom CF\`
-\`/getrandom TD\`
-\`/getrandom CL\`
-\`/getrandom CN\`
-\`/getrandom CX\`
-\`/getrandom CC\`
-\`/getrandom CO\`
-\`/getrandom KM\`
-\`/getrandom CD\`
-\`/getrandom CG\`
-\`/getrandom CK\`
-\`/getrandom CR\`
-\`/getrandom CI\`
-\`/getrandom HR\`
-\`/getrandom CU\`
-\`/getrandom CW\`
-\`/getrandom CY\`
-\`/getrandom CZ\`
-\`/getrandom DR\`
-\`/getrandom DJ\`
-\`/getrandom DM\`
-\`/getrandom DO\`
-\`/getrandom EC\`
-\`/getrandom EG\`
-\`/getrandom SV\`
-\`/getrandom GQ\`
-\`/getrandom ER\`
-\`/getrandom EE\`
-\`/getrandom ET\`
-\`/getrandom FK\`
-\`/getrandom FO\`
-\`/getrandom FJ\`
-\`/getrandom FI\`
-\`/getrandom FR\`
-\`/getrandom GA\`
-\`/getrandom GE\`
-\`/getrandom DE\`
-\`/getrandom GH\`
-\`/getrandom GI\`
-\`/getrandom GR\`
-\`/getrandom GL\`
-\`/getrandom GD\`
-\`/getrandom GP\`
-\`/getrandom GU\`
-\`/getrandom GT\`
-\`/getrandom GN\`
-\`/getrandom GW\`
-\`/getrandom GY\`
-\`/getrandom HT\`
-\`/getrandom HM\`
-\`/getrandom VA\`
-\`/getrandom HN\`
-\`/getrandom HK\`
-\`/getrandom HU\`
-\`/getrandom IS\`
-\`/getrandom IN\`
-\`/getrandom ID\`
-\`/getrandom IR\`
-\`/getrandom IQ\`
-\`/getrandom IE\`
-\`/getrandom IL\`
-\`/getrandom IT\`
-\`/getrandom JM\`
-\`/getrandom JP\`
-\`/getrandom JO\`
-\`/getrandom KZ\`
-\`/getrandom KE\`
-\`/getrandom KI\`
-\`/getrandom KP\`
-\`/getrandom KR\`
-\`/getrandom KW\`
-\`/getrandom LA\`
-\`/getrandom LB\`
-\`/getrandom LS\`
-\`/getrandom LR\`
-\`/getrandom LY\`
-\`/getrandom LT\`
-\`/getrandom LU\`
-\`/getrandom MO\`
-\`/getrandom MG\`
-\`/getrandom MW\`
-\`/getrandom MY\`
-\`/getrandom MV\`
-\`/getrandom ML\`
-\`/getrandom MT\`
-\`/getrandom MH\`
-\`/getrandom MQ\`
-\`/getrandom MR\`
-\`/getrandom MU\`
-\`/getrandom YT\`
-\`/getrandom MX\`
-\`/getrandom FM\`
-\`/getrandom MD\`
-\`/getrandom MC\`
-\`/getrandom MN\`
-\`/getrandom ME\`
-\`/getrandom MS\`
-\`/getrandom MA\`
-\`/getrandom MZ\`
-\`/getrandom MM\`
-\`/getrandom NA\`
-\`/getrandom NR\`
-\`/getrandom NP\`
-\`/getrandom NL\`
-\`/getrandom NC\`
-\`/getrandom NZ\`
-\`/getrandom NI\`
-\`/getrandom NE\`
-\`/getrandom NG\`
-\`/getrandom NU\`
-\`/getrandom NF\`
-\`/getrandom MP\`
-\`/getrandom NO\`
-\`/getrandom OM\`
-\`/getrandom PK\`
-\`/getrandom PW\`
-\`/getrandom PA\`
-\`/getrandom PG\`
-\`/getrandom PY\`
-\`/getrandom PE\`
-\`/getrandom PH\`
-\`/getrandom PN\`
-\`/getrandom PL\`
-\`/getrandom PT\`
-\`/getrandom PR\`
-\`/getrandom QA\`
-\`/getrandom RO\`
-\`/getrandom RU\`
-\`/getrandom RW\`
-\`/getrandom RE\`
-\`/getrandom BL\`
-\`/getrandom SH\`
-\`/getrandom KN\`
-\`/getrandom LC\`
-\`/getrandom MF\`
-\`/getrandom PM\`
-\`/getrandom VC\`
-\`/getrandom WS\`
-\`/getrandom SM\`
-\`/getrandom ST\`
-\`/getrandom SA\`
-\`/getrandom SN\`
-\`/getrandom RS\`
-\`/getrandom SC\`
-\`/getrandom SL\`
-\`/getrandom SG\`
-\`/getrandom SX\`
-\`/getrandom SY\`
-\`/getrandom SK\`
-\`/getrandom SI\`
-\`/getrandom SO\`
-\`/getrandom ZA\`
-\`/getrandom SS\`
-\`/getrandom ES\`
-\`/getrandom LK\`
-\`/getrandom SD\`
-\`/getrandom SR\`
-\`/getrandom SZ\`
-\`/getrandom SE\`
-\`/getrandom CH\`
-\`/getrandom TJ\`
-\`/getrandom TH\`
-\`/getrandom TM\`
-\`/getrandom TN\`
-\`/getrandom TR\`
-\`/getrandom TT\`
-\`/getrandom TV\`
-\`/getrandom TZ\`
-\`/getrandom UG\`
-\`/getrandom UA\`
-\`/getrandom GB\`
-\`/getrandom US\`
-\`/getrandom UY\`
-\`/getrandom UZ\`
-\`/getrandom VU\`
-\`/getrandom VE\`
-\`/getrandom VN\`
-\`/getrandom WF\`
-\`/getrandom YE\`
-\`/getrandom ZM\`
-\`/getrandom ZW\`
 
+/getrandomAE
+/getrandomAF
+/getrandomAL
+/getrandomDZ
+/getrandomAS
+/getrandomAD
+/getrandomAO
+/getrandomAI
+/getrandomAR
+/getrandomAM
+/getrandomAW
+/getrandomAU
+/getrandomAT
+/getrandomAZ
+/getrandomBS
+/getrandomBH
+/getrandomBD
+/getrandomBB
+/getrandomBY
+/getrandomBE
+/getrandomBZ
+/getrandomBJ
+/getrandomBM
+/getrandomBT
+/getrandomBO
+/getrandomBA
+/getrandomBW
+/getrandomBR
+/getrandomIO
+/getrandomBN
+/getrandomBG
+/getrandomBF
+/getrandomBI
+/getrandomKH
+/getrandomCM
+/getrandomCA
+/getrandomCV
+/getrandomKY
+/getrandomCF
+/getrandomTD
+/getrandomCL
+/getrandomCN
+/getrandomCX
+/getrandomCC
+/getrandomCO
+/getrandomKM
+/getrandomCD
+/getrandomCG
+/getrandomCK
+/getrandomCR
+/getrandomCI
+/getrandomHR
+/getrandomCU
+/getrandomCW
+/getrandomCY
+/getrandomCZ
+/getrandomDR
+/getrandomDJ
+/getrandomDM
+/getrandomDO
+/getrandomEC
+/getrandomEG
+/getrandomSV
+/getrandomGQ
+/getrandomER
+/getrandomEE
+/getrandomET
+/getrandomFK
+/getrandomFO
+/getrandomFJ
+/getrandomFI
+/getrandomFR
+/getrandomGA
+/getrandomGE
+/getrandomDE
+/getrandomGH
+/getrandomGI
+/getrandomGR
+/getrandomGL
+/getrandomGD
+/getrandomGP
+/getrandomGU
+/getrandomGT
+/getrandomGN
+/getrandomGW
+/getrandomGY
+/getrandomHT
+/getrandomHM
+/getrandomVA
+/getrandomHN
+/getrandomHK
+/getrandomHU
+/getrandomIS
+/getrandomIN
+/getrandomID
+/getrandomIR
+/getrandomIQ
+/getrandomIE
+/getrandomIL
+/getrandomIT
+/getrandomJM
+/getrandomJP
+/getrandomJO
+/getrandomKZ
+/getrandomKE
+/getrandomKI
+/getrandomKP
+/getrandomKR
+/getrandomKW
+/getrandomLA
+/getrandomLB
+/getrandomLS
+/getrandomLR
+/getrandomLY
+/getrandomLT
+/getrandomLU
+/getrandomMO
+/getrandomMG
+/getrandomMW
+/getrandomMY
+/getrandomMV
+/getrandomML
+/getrandomMT
+/getrandomMH
+/getrandomMQ
+/getrandomMR
+/getrandomMU
+/getrandomYT
+/getrandomMX
+/getrandomFM
+/getrandomMD
+/getrandomMC
+/getrandomMN
+/getrandomME
+/getrandomMS
+/getrandomMA
+/getrandomMZ
+/getrandomMM
+/getrandomNA
+/getrandomNR
+/getrandomNP
+/getrandomNL
+/getrandomNC
+/getrandomNZ
+/getrandomNI
+/getrandomNE
+/getrandomNG
+/getrandomNU
+/getrandomNF
+/getrandomMP
+/getrandomNO
+/getrandomOM
+/getrandomPK
+/getrandomPW
+/getrandomPA
+/getrandomPG
+/getrandomPY
+/getrandomPE
+/getrandomPH
+/getrandomPN
+/getrandomPL
+/getrandomPT
+/getrandomPR
+/getrandomQA
+/getrandomRO
+/getrandomRU
+/getrandomRW
+/getrandomRE
+/getrandomBL
+/getrandomSH
+/getrandomKN
+/getrandomLC
+/getrandomMF
+/getrandomPM
+/getrandomVC
+/getrandomWS
+/getrandomSM
+/getrandomST
+/getrandomSA
+/getrandomSN
+/getrandomRS
+/getrandomSC
+/getrandomSL
+/getrandomSG
+/getrandomSX
+/getrandomSY
+/getrandomSK
+/getrandomSI
+/getrandomSO
+/getrandomZA
+/getrandomSS
+/getrandomES
+/getrandomLK
+/getrandomSD
+/getrandomSR
+/getrandomSZ
+/getrandomSE
+/getrandomCH
+/getrandomTJ
+/getrandomTH
+/getrandomTM
+/getrandomTN
+/getrandomTR
+/getrandomTT
+/getrandomTV
+/getrandomTZ
+/getrandomUG
+/getrandomUA
+/getrandomGB
+/getrandomUS
+/getrandomUY
+/getrandomUZ
+/getrandomVU
+/getrandomVE
+/getrandomVN
+/getrandomWF
+/getrandomYE
+/getrandomZM
+/getrandomZW
+/getrandomAF
+/getrandomAL
+/getrandomDZ
+/getrandomAS
+/getrandomAD
+/getrandomAO
+/getrandomAI
+/getrandomAR
+/getrandomAM
+/getrandomAW
+/getrandomAU
+/getrandomAT
+/getrandomAZ
+/getrandomBS
+/getrandomBH
+/getrandomBD
+/getrandomBB
+/getrandomBY
+/getrandomBE
+/getrandomBZ
+/getrandomBJ
+/getrandomBM
+/getrandomBT
+/getrandomBO
+/getrandomBA
+/getrandomBW
+/getrandomBR
+/getrandomIO
+/getrandomBN
+/getrandomBG
+/getrandomBF
+/getrandomBI
+/getrandomKH
+/getrandomCM
+/getrandomCA
+/getrandomCV
+/getrandomKY
+/getrandomCF
+/getrandomTD
+/getrandomCL
+/getrandomCN
+/getrandomCX
+/getrandomCC
+/getrandomCO
+/getrandomKM
+/getrandomCD
+/getrandomCG
+/getrandomCK
+/getrandomCR
+/getrandomCI
+/getrandomHR
+/getrandomCU
+/getrandomCW
+/getrandomCY
+/getrandomCZ
+/getrandomDR
+/getrandomDJ
+/getrandomDM
+/getrandomDO
+/getrandomEC
+/getrandomEG
+/getrandomSV
+/getrandomGQ
+/getrandomER
+/getrandomEE
+/getrandomET
+/getrandomFK
+/getrandomFO
+/getrandomFJ
+/getrandomFI
+/getrandomFR
+/getrandomGA
+/getrandomGE
+/getrandomDE
+/getrandomGH
+/getrandomGI
+/getrandomGR
+/getrandomGL
+/getrandomGD
+/getrandomGP
+/getrandomGU
+/getrandomGT
+/getrandomGN
+/getrandomGW
+/getrandomGY
+/getrandomHT
+/getrandomHM
+/getrandomVA
+/getrandomHN
+/getrandomHK
+/getrandomHU
+/getrandomIS
+/getrandomIN
+/getrandomID
+/getrandomIR
+/getrandomIQ
+/getrandomIE
+/getrandomIL
+/getrandomIT
+/getrandomJM
+/getrandomJP
+/getrandomJO
+/getrandomKZ
+/getrandomKE
+/getrandomKI
+/getrandomKP
+/getrandomKR
+/getrandomKW
+/getrandomLA
+/getrandomLB
+/getrandomLS
+/getrandomLR
+/getrandomLY
+/getrandomLT
+/getrandomLU
+/getrandomMO
+/getrandomMG
+/getrandomMW
+/getrandomMY
+/getrandomMV
+/getrandomML
+/getrandomMT
+/getrandomMH
+/getrandomMQ
+/getrandomMR
+/getrandomMU
+/getrandomYT
+/getrandomMX
+/getrandomFM
+/getrandomMD
+/getrandomMC
+/getrandomMN
+/getrandomME
+/getrandomMS
+/getrandomMA
+/getrandomMZ
+/getrandomMM
+/getrandomNA
+/getrandomNR
+/getrandomNP
+/getrandomNL
+/getrandomNC
+/getrandomNZ
+/getrandomNI
+/getrandomNE
+/getrandomNG
+/getrandomNU
+/getrandomNF
+/getrandomMP
+/getrandomNO
+/getrandomOM
+/getrandomPK
+/getrandomPW
+/getrandomPA
+/getrandomPG
+/getrandomPY
+/getrandomPE
+/getrandomPH
+/getrandomPN
+/getrandomPL
+/getrandomPT
+/getrandomPR
+/getrandomQA
+/getrandomRO
+/getrandomRU
+/getrandomRW
+/getrandomRE
+/getrandomBL
+/getrandomSH
+/getrandomKN
+/getrandomLC
+/getrandomMF
+/getrandomPM
+/getrandomVC
+/getrandomWS
+/getrandomSM
+/getrandomST
+/getrandomSA
+/getrandomSN
+/getrandomRS
+/getrandomSC
+/getrandomSL
+/getrandomSG
+/getrandomSX
+/getrandomSY
+/getrandomSK
+/getrandomSI
+/getrandomSO
+/getrandomZA
+/getrandomSS
+/getrandomES
+/getrandomLK
+/getrandomSD
+/getrandomSR
+/getrandomSZ
+/getrandomSE
+/getrandomCH
+/getrandomTJ
+/getrandomTH
+/getrandomTM
+/getrandomTN
+/getrandomTR
+/getrandomTT
+/getrandomTV
+/getrandomTZ
+/getrandomUG
+/getrandomUA
+/getrandomGB
+/getrandomUS
+/getrandomUY
+/getrandomUZ
+/getrandomVU
+/getrandomVE
+/getrandomVN
+/getrandomWF
+/getrandomYE
+/getrandomZM
+/getrandomZW
 
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
