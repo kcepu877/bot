@@ -303,9 +303,13 @@ async function handleMessage(message) {
   } else if (text === '/info') {
     await handleGetInfo(chatId);
 
-    // Menangani perintah /info
+    // Menangani perintah /getcountry
   } else if (text === '/getcountry') {
     await handleGetgetcountry(chatId);
+
+    // Menangani perintah /subapi
+  } else if (text === '/subapi') {
+    await handleGetsubapi(chatId);
 
   // Menangani perintah /getrandomip
   } else if (text === '/listwildcard') {
@@ -432,6 +436,7 @@ async function handleStartCommand(chatId) {
 /getcountry
 /listwildcard
 /listpremium
+/subapi
 
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
@@ -457,6 +462,7 @@ async function handleGetInfo(chatId) {
 🟢 \`/getcountry\`
 🟢 \`/listwildcard\`
 🟢 \`/listpremium\`
+🟢 \`/subapi\`
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
@@ -471,7 +477,51 @@ ORDER PREMIUM CONTACT ADMIN
   `;
   await sendTelegramMessage(chatId, InfoMessage);
 }
- 
+
+async function handleGetsubapi(chatId) {
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
+
+
+URL = https://subapi.kere.us.kg/api/
+aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
+Acount = ?type=vless, trojan, ss,
+Bug = &bug=quiz.int.vidio.com ava.game.naver.com',
+    business.blibli.com,
+    graph.instagram.com,
+    quiz.int.vidio.com,
+    live.iflix.com,
+    support.zoom.us,
+    blog.webex.com,
+    investors.spotify.com,
+    cache.netflix.com,
+    zaintest.vuclip.com,
+    ads.ruangguru.com,
+    api.midtrans.com,
+    investor.fb.com,
+tls/ntls = &tls=true, false,
+wildcard = &wildcard=true, false
+limit = &limit=10
+Country = &country=SG, ID, US, DLL
+
+
+https://subapi.kere.us.kg/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://user.kere.us.kg)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
+}
+
+
 async function handleGetgetcountry(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
