@@ -483,26 +483,27 @@ async function handleGetsubapi(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-URL = https://subapi.kere.us.kg/api/
+URL = https://subapi.kere.us.kg/api
 aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
 Acount = ?type=vless, trojan, ss,
-Bug = &bug=quiz.int.vidio.com ava.game.naver.com',
-    business.blibli.com,
-    graph.instagram.com,
-    quiz.int.vidio.com,
-    live.iflix.com,
-    support.zoom.us,
-    blog.webex.com,
-    investors.spotify.com,
-    cache.netflix.com,
-    zaintest.vuclip.com,
-    ads.ruangguru.com,
-    api.midtrans.com,
-    investor.fb.com,
+Bug = &bug=\`quiz.int.vidio.com\`, 
+    \`ava.game.naver.com\`,
+    \`business.blibli.com\`,
+    \`graph.instagram.com\`,
+    \`quiz.int.vidio.com\`,
+    \`live.iflix.com\`,
+    \`support.zoom.us\`,
+    \`blog.webex.com\`,
+    \`investors.spotify.com\`,
+    \`cache.netflix.com\`,
+    \`zaintest.vuclip.com\`,
+    \`ads.ruangguru.com\`,
+    \`api.midtrans.com\`,
+    \`investor.fb.com\`,
 tls/ntls = &tls=true, false,
 wildcard = &wildcard=true, false
 limit = &limit=10
-Country = &country=SG, ID, US, DLL
+Country = &country=RANDOM, all, SG, ID, US, DLL
 
 
 https://subapi.kere.us.kg/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
