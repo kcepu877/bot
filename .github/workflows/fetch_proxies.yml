@@ -2,7 +2,7 @@ name: Fetch Proxies
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Menjalankan setiap 6 jam
+    - cron: ''  # Menjalankan setiap 6 jam
   workflow_dispatch:  # Bisa dijalankan secara manual
 
 jobs:
