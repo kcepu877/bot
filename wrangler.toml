@@ -11,5 +11,5 @@ enabled = true
 
 
 [[routes]]
-pattern = "bot.kere.us.kg"
+pattern = "bot.cloudproxyip.my.id"
 custom_domain = true
