@@ -483,7 +483,7 @@ async function handleGetsubapi(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-URL = https://sublink.cloudproxyip.my.id/api
+URL = https://sublink.bmkg.xyz/api
 aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
 Acount = ?type=vless, trojan, ss,
 Bug = &bug=\`quiz.int.vidio.com\`, 
@@ -506,7 +506,7 @@ limit = &limit=10
 Country = &country=RANDOM, all, SG, ID, US, DLL
 
 
-https://sublink.cloudproxyip.my.id/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
+https://sublink.bmkg.xyz/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
