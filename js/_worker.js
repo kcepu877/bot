@@ -441,7 +441,7 @@ async function handleStartCommand(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -466,7 +466,7 @@ async function handleGetInfo(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -510,7 +510,7 @@ https://subapi.kere.us.kg/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&w
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -751,7 +751,7 @@ async function handleGetgetcountry(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -786,7 +786,7 @@ async function handleListWildcard(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -912,7 +912,7 @@ server--🇮🇩ID-NUSA MAX
 🛠 *ADMIN 1:* @kcepu877  
 🛠 *ADMIN 2:* @epoenk877  
 
-🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)  
+🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)  
 📢 *Channel Telegram:* [Klik di sini](https://t.me/kstore877)  
 👥 *Grup Telegram:* [Klik di sini](https://t.me/+Rs4HvJtagXZlYTNl)  
 👥 *Grup WhatsApp:* [Klik di sini](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
@@ -1043,7 +1043,7 @@ async function checkIPPort(ip, port, chatId) {
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -1112,7 +1112,7 @@ ${proxies}
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -1172,7 +1172,7 @@ proxies:
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://free.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://ns1.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
