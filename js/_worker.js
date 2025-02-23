@@ -9,7 +9,7 @@ const DEFAULT_PROXY_BANK_URL = "https://bmkg.xyz/update_proxyip.txt";
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'gratisan.cloudproxyip.my.id';
+const FAKE_HOSTNAME = 'begal.cloudproxyip.my.id';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -765,7 +765,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListWildcard(chatId) {
-  const wildkere = `gratisan.cloudproxyip.my.id`;
+  const wildkere = `begal.cloudproxyip.my.id`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -1308,17 +1308,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@gratisan.cloudproxyip.my.id:443?encryption=none&security=tls&sni=gratisan.cloudproxyip.my.id&fp=randomized&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@gratisan.cloudproxyip.my.id:80?encryption=none&security=none&sni=gratisan.cloudproxyip.my.id&fp=randomized&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@gratisan.cloudproxyip.my.id:443?encryption=none&security=tls&sni=gratisan.cloudproxyip.my.id&fp=randomized&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@gratisan.cloudproxyip.my.id:80?encryption=none&security=none&sni=gratisan.cloudproxyip.my.id&fp=randomized&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@gratisan.cloudproxyip.my.id:443?encryption=none&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=gratisan.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@gratisan.cloudproxyip.my.id:80?encryption=none&type=ws&host=gratisan.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=gratisan.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@begal.cloudproxyip.my.id:443?encryption=none&security=tls&sni=begal.cloudproxyip.my.id&fp=randomized&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@begal.cloudproxyip.my.id:80?encryption=none&security=none&sni=begal.cloudproxyip.my.id&fp=randomized&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@begal.cloudproxyip.my.id:443?encryption=none&security=tls&sni=begal.cloudproxyip.my.id&fp=randomized&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@begal.cloudproxyip.my.id:80?encryption=none&security=none&sni=begal.cloudproxyip.my.id&fp=randomized&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@begal.cloudproxyip.my.id:443?encryption=none&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=begal.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@begal.cloudproxyip.my.id:80?encryption=none&type=ws&host=begal.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=begal.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: gratisan.cloudproxyip.my.id
+  server: begal.cloudproxyip.my.id
   port: 443
   type: vless
   uuid: ${crypto.randomUUID()}
@@ -1328,7 +1328,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: gratisan.cloudproxyip.my.id
+  servername: begal.cloudproxyip.my.id
   alpn:
     - h2
     - h3
@@ -1336,7 +1336,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: gratisan.cloudproxyip.my.id
+      Host: begal.cloudproxyip.my.id
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1348,7 +1348,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: gratisan.cloudproxyip.my.id
+  server: begal.cloudproxyip.my.id
   port: 443
   type: trojan
   password: ${crypto.randomUUID()}
@@ -1357,7 +1357,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: gratisan.cloudproxyip.my.id
+  sni: begal.cloudproxyip.my.id
   alpn:
     - h2
     - h3
@@ -1365,7 +1365,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: gratisan.cloudproxyip.my.id
+      Host: begal.cloudproxyip.my.id
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1377,7 +1377,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: gratisan.cloudproxyip.my.id
+  server: begal.cloudproxyip.my.id
   port: 443
   type: ss
   cipher: none
@@ -1387,7 +1387,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: gratisan.cloudproxyip.my.id
+    host: begal.cloudproxyip.my.id
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
