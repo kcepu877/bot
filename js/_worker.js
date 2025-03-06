@@ -813,15 +813,15 @@ async function handleListDomain(chatId) {
 🎉 List Domain VPN Tunnel Free Vpn Bot! 
 
 
-🟢 \`free-cf.xhamster.biz.id\`
-🟢 \`free-cf.turah.my.id\`
-🟢 \`free-cf.ndeso.xyz\`
-🟢 \`free-cf.ndeso.web.id\`
-🟢 \`free-cf.kere.us.kg\`
-🟢 \`free-cf.cepu.us.kg\`
-🟢 \`free-cf.najah.biz.id.$\`
-🟢 \`web.bmkg.xyz\`
-🟢 \`loss.cloudproxyip.my.id\`
+✅ \`free-cf.xhamster.biz.id\` ✅
+✅ \`free-cf.turah.my.id\` ✅
+✅ \`free-cf.ndeso.xyz\` ✅
+✅ \`free-cf.ndeso.web.id\` ✅
+✅ \`free-cf.kere.us.kg\` ✅
+✅ \`free-cf.cepu.us.kg\` ✅
+✅ \`free-cf.najah.biz.id.\` ✅
+✅ \`web.bmkg.xyz\` ✅
+✅ \`loss.cloudproxyip.my.id\` ✅
 
 
 
