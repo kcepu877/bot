@@ -9,7 +9,7 @@ const DEFAULT_PROXY_BANK_URL = "https://bmkg.xyz/update_proxyip.txt";
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
+const FAKE_HOSTNAME = 'loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -765,7 +765,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListWildcard(chatId) {
-  const wildkere = `sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const wildkere = `loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -1308,17 +1308,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: vless
   uuid: ${crypto.randomUUID()}
@@ -1328,7 +1328,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  servername: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   alpn:
     - h2
     - h3
@@ -1336,7 +1336,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1348,7 +1348,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: trojan
   password: ${crypto.randomUUID()}
@@ -1357,7 +1357,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  sni: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   alpn:
     - h2
     - h3
@@ -1365,7 +1365,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1377,7 +1377,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: ss
   cipher: none
@@ -1387,7 +1387,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: sakera.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
