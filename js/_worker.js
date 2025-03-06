@@ -439,7 +439,7 @@ async function handleStartCommand(chatId) {
 /getrandomip
 /getcountry
 /listwildcard
-/listdonain
+/listdomain
 /listpremium
 /subapi
 
@@ -807,7 +807,7 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 
-async function handleListDomaim(chatId) {
+async function handleListDomain(chatId) {
   const wildkere = `loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
   const infoMessage = `
 🎉 List Domain VPN Tunnel Free Vpn Bot! 
