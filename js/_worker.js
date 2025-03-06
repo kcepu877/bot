@@ -311,9 +311,13 @@ async function handleMessage(message) {
   } else if (text === '/subapi') {
     await handleGetsubapi(chatId);
 
-  // Menangani perintah /getrandomip
+  // Menangani perintah /listwildcard
   } else if (text === '/listwildcard') {
     await handleListWildcard(chatId);
+    
+      // Menangani perintah /listdomain
+  } else if (text === '/listdomain') {
+    await handleListDomain(chatId);
   
   // Menangani perintah /listpremium
   } else if (text === '/listpremium') {
@@ -435,6 +439,7 @@ async function handleStartCommand(chatId) {
 /getrandomip
 /getcountry
 /listwildcard
+/listdonain
 /listpremium
 /subapi
 
@@ -461,6 +466,7 @@ async function handleGetInfo(chatId) {
 🟢 \`/getrandomip\`
 🟢 \`/getcountry\`
 🟢 \`/listwildcard\`
+🟢 \`/listdomain\`
 🟢 \`/listpremium\`
 🟢 \`/subapi\`
 
@@ -799,6 +805,42 @@ ORDER PREMIUM CONTACT ADMIN
   `;
   await sendTelegramMessage(chatId, infoMessage);
 }
+
+
+async function handleListDomaim(chatId) {
+  const wildkere = `loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const infoMessage = `
+🎉 List Domain VPN Tunnel Free Vpn Bot! 
+
+
+🟢 \`free-cf.xhamster.biz.id\`
+🟢 \`free-cf.turah.my.id\`
+🟢 \`free-cf.ndeso.xyz\`
+🟢 \`free-cf.ndeso.web.id\`
+🟢 \`free-cf.kere.us.kg\`
+🟢 \`free-cf.cepu.us.kg\`
+🟢 \`free-cf.najah.biz.id.$\`
+🟢 \`web.bmkg.xyz\`
+🟢 \`loss.cloudproxyip.my.id\`
+
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+
+  `;
+  await sendTelegramMessage(chatId, infoMessage);
+}
+
 
 async function handleListPremium(chatId) {
   const infoMessage = `
