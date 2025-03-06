@@ -27,7 +27,7 @@ def replace_subdomain_in_worker_js(worker_js_file, new_subdomain, old_subdomain)
     with open(worker_js_file, 'r') as file:
         content = file.read()
 
-    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.cloudproxyip\.my\.id', new_subdomain + '.cloudproxyip.my.id', content)
+    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.zifxoyfpuf0uf0ycphcoyf0684wd\.us\.kg', new_subdomain + '.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', content)
 
     with open(worker_js_file, 'w') as file:
         file.write(updated_content)
