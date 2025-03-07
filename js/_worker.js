@@ -6,6 +6,7 @@ let proxyIP = "";
 let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
 
 const DEFAULT_PROXY_BANK_URL = "https://bmkg.xyz/update_proxyip.txt";
+const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
@@ -1111,8 +1112,8 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleShadowSocksCreation(chatId, ip, port, isp, wildkere) {
-  const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
 
   const proxies = `
 proxies:
@@ -1122,7 +1123,7 @@ proxies:
     port: 443
     type: ss
     cipher: none
-    password: ${crypto.randomUUID()}
+    password: ${UUIDS}
     plugin: v2ray-plugin
     client-fingerprint: chrome
     udp: true
@@ -1171,8 +1172,8 @@ ORDER PREMIUM CONTACT ADMIN
 
 async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
   const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const vlessTLS = `vless://${crypto.randomUUID()}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${crypto.randomUUID()}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
 
   const message = `
 Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
@@ -1189,7 +1190,7 @@ proxies:
     server: ${wildkere}
     port: 443
     type: vless
-    uuid: ${crypto.randomUUID()}
+    uuid: ${UUIDS}
     cipher: auto
     tls: true
     client-fingerprint: chrome
@@ -1230,8 +1231,8 @@ ORDER PREMIUM CONTACT ADMIN
 
 async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
   const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const trojanTLS = `trojan://${crypto.randomUUID()}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${crypto.randomUUID()}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
 
   const message = `
 Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
@@ -1248,7 +1249,7 @@ proxies:
     server: ${wildkere}
     port: 443
     type: trojan
-    password: ${crypto.randomUUID()}
+    password: ${UUIDS}
     tls: true
     client-fingerprint: chrome
     udp: true
@@ -1350,12 +1351,12 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
@@ -1363,7 +1364,7 @@ proxies:
   server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: vless
-  uuid: ${crypto.randomUUID()}
+  uuid: ${UUIDS}
   cipher: auto
   tls: true
   client-fingerprint: chrome
@@ -1393,7 +1394,7 @@ proxies:
   server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: trojan
-  password: ${crypto.randomUUID()}
+  password: ${UUIDS}
   tls: true
   client-fingerprint: chrome
   udp: true
@@ -1423,7 +1424,7 @@ proxies:
   port: 443
   type: ss
   cipher: none
-  password: ${crypto.randomUUID()}
+  password: ${UUIDS}
   plugin: v2ray-plugin
   client-fingerprint: chrome
   udp: true
