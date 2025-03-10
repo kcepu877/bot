@@ -10,7 +10,7 @@ const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
+const FAKE_HOSTNAME = 'bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -772,7 +772,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListWildcard(chatId) {
-  const wildkere = `loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -809,7 +809,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListDomain(chatId) {
-  const wildkere = `loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
   const infoMessage = `
 🎉 List Domain VPN Tunnel Free Vpn Bot! 
 
@@ -1351,17 +1351,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${UUIDS}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: vless
   uuid: ${UUIDS}
@@ -1371,7 +1371,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  servername: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   alpn:
     - h2
     - h3
@@ -1379,7 +1379,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1391,7 +1391,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: trojan
   password: ${UUIDS}
@@ -1400,7 +1400,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  sni: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   alpn:
     - h2
     - h3
@@ -1408,7 +1408,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1420,7 +1420,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
   port: 443
   type: ss
   cipher: none
@@ -1430,7 +1430,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: loss.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
