@@ -1041,19 +1041,6 @@ async function handleGetRandomCountryCommand(chatId, countryId) {
     await sendTelegramMessage(chatId, '⚠️ There was an error fetching the Proxy list. Please try again later.');
   }
 }
-async function handleIPPortCheck(ipPortText, chatId) {
-  const [ip, port] = ipPortText.split(':');
-  const result = await checkIPPort(ip, port, chatId);
-  if (result) await sendTelegramMessage(chatId, result);
-}
-
-
-function isValidIPPortFormat(input) {
-  const regex = /^(\d{1,3}\.){3}\d{1,3}:\d{1,5}$/;
-  return regex.test(input);
-}
-
-
   
 async function handleIPPortCheck(ipPortText, chatId) {
   const [ip, port] = ipPortText.split(':');
