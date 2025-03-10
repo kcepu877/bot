@@ -1207,11 +1207,10 @@ ORDER PREMIUM CONTACT ADMIN
 
     // Kirim hasil cek
     await sendTelegramMessage(chatId, resultMessage);
-
-
+    return resultMessage;
   } catch (error) {
-    // Tampilkan pesan error
-    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
+    console.error("Error checking IP:", error);
+    await sendTelegramMessage(chatId, "⚠️ Error saat mengecek Proxy IP.");
   }
 }
 
