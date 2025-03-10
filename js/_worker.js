@@ -1102,14 +1102,21 @@ async function createVPNConfigs(ip, port, isp, wildkere) {
   const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
 
-  return `
+  
+      return `
 ⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
+
 🔗 **VLESS** 
 1️⃣ **TLS** : 
-\`\`\`${vlessTLS}\`\`\`
+\`\`\`
+${vlessTLS}
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${vlessNTLS}\`\`\`
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1137,12 +1144,19 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
 \`\`\`
+
 ━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan**
+
+🔗 **Trojan** 
 1️⃣ **TLS** : 
-\`\`\`${trojanTLS}\`\`\`
+\`\`\`
+${trojanTLS}
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${trojanNTLS}\`\`\`
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1169,12 +1183,19 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
 \`\`\`
+
 ━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks**
+
+🔗 **ShadowSocks** 
 1️⃣ **TLS** : 
-\`\`\`${ssTls}\`\`\`
+\`\`\`
+${ssTls}
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${ssNTls}\`\`\`
+\`\`\`
+${ssNTls}
+\`\`\`
+
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1190,26 +1211,30 @@ proxies:
     plugin-opts:
       mode: websocket
       host: ${wildkere}
-      path: /Free-CF-Proxy-${ip}-${port}
+      path: ${path}
       tls: true
       mux: false
       skip-cert-verify: true
     headers:
       ip-version: dual
 \`\`\`
+
 ━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
 
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+🌐 **WEB VPN TUNNEL** : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)  
+📺 **CHANNEL** : [Channel](https://t.me/kstore877)  
+👥 **GROUP TELE** : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)  
+👥 **GROUP WA** : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
+
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [ADMIN TELE](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [ADMIN WA](https://wa.me/6281335135082)  
 `;
 }    
+
+
 
 
 // Constant
