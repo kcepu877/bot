@@ -1208,8 +1208,6 @@ ORDER PREMIUM CONTACT ADMIN
     // Kirim hasil cek
     await sendTelegramMessage(chatId, resultMessage);
 
-    // Kirim keyboard interaktif
-    await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
 
   } catch (error) {
     // Tampilkan pesan error
