@@ -1201,10 +1201,7 @@ ORDER PREMIUM CONTACT ADMIN
     // Kirim keyboard interaktif
     await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
 
-  } catch (error) {
-    // Tampilkan pesan error
-    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
-  }
+  } 
 }
 
 
