@@ -1103,19 +1103,93 @@ async function createVPNConfigs(ip, port, isp, wildkere) {
   // ShadowSocks
   const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
   const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
+  const ssProxy = `proxies:
 
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: ss
+    cipher: none
+    password: ${UUIDS}
+    plugin: v2ray-plugin
+    client-fingerprint: chrome
+    udp: true
+    plugin-opts:
+      mode: websocket
+      host: ${wildkere}
+      path: /Free-CF-Proxy-${ip}-${port}
+      tls: true
+      mux: false
+      skip-cert-verify: true
+    headers:
+      custom: value
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false`
   // VLESS
   const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
+  const vlProxy = `proxies:
+          
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: vless
+    uuid: ${UUIDS}
+    cipher: auto
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    skip-cert-verify: true
+    network: ws
+    servername: ${wildkere}
+    alpn:
+       - h2
+       - h3
+       - http/1.1
+    ws-opts:
+      path: ${path}
+      headers:
+        Host: ${wildkere}
+      max-early-data: 0
+      early-data-header-name: Sec-WebSocket-Protocol
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false`
   // Trojan
   const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
+  const trProxy = `proxies:
+       
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: trojan
+    password: ${UUIDS}
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    skip-cert-verify: true
+    network: ws
+    sni: ${wildkere}
+    alpn:
+       - h2
+       - h3
+       - http/1.1
+    ws-opts:
+      path: ${path}
+      headers:
+        Host: ${wildkere}
+      max-early-data: 0
+      early-data-header-name: Sec-WebSocket-Protocol
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false`
   return `
-🔗 **VPN Configurations**:
+⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
-🔹 **VLESS**
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
 1️⃣ **TLS** : 
 \`\`\`
 ${vlessTLS}
@@ -1124,8 +1198,12 @@ ${vlessTLS}
 \`\`\`
 ${vlessNTLS}
 \`\`\`
-
-🔹 **Trojan**
+📄 **Proxies Config**:
+\`\`\`
+${vlProxy}
+\`\`\`
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan**
 1️⃣ **TLS** : 
 \`\`\`
 ${trojanTLS}
@@ -1134,8 +1212,12 @@ ${trojanTLS}
 \`\`\`
 ${trojanNTLS}
 \`\`\`
-
-🔹 **ShadowSocks**
+📄 **Proxies Config**:
+\`\`\`
+${trProxy}
+\`\`\`
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks**
 1️⃣ **TLS** : 
 \`\`\`
 ${ssTls}
@@ -1144,7 +1226,12 @@ ${ssTls}
 \`\`\`
 ${ssNTls}
 \`\`\`
-
+📄 **Proxies Config**:
+\`\`\`
+${ssProxy}
+\`\`\`
+━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
