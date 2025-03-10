@@ -1091,14 +1091,14 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
 
 🔗 **Links ShadowSocks**:
 1️⃣ **TLS** :
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}\`\`\`
 📄 **Proxies Config**:
 \`\`\`proxies:
 
   - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    server: ${wildkere}
     port: 443
     type: ss
     cipher: none
@@ -1108,7 +1108,7 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
     udp: true
     plugin-opts:
       mode: websocket
-      host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      host: ${wildkere}
       path: /Free-CF-Proxy-${ip}-${port}
       tls: true
       mux: false
@@ -1123,15 +1123,15 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
 
 🔗 **Links Vless**:
 1️⃣ **TLS** :
-\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
 2️⃣ **Non-TLS** :
-\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
 
 📄 **Proxies Config** :
 \`\`\`proxies:
           
   - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    server: ${wildkere}
     port: 443
     type: vless
     uuid: ${UUIDS}
@@ -1141,7 +1141,7 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
     udp: true
     skip-cert-verify: true
     network: ws
-    servername: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    servername: ${wildkere}
     alpn:
        - h2
        - h3
@@ -1149,7 +1149,7 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+        Host: ${wildkere}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
@@ -1159,14 +1159,14 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
 
 🔗 **Links Trojan** :
 1️⃣ **TLS** : 
-\`\`\`trojan://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`trojan://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`trojan//${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+\`\`\`trojan//${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
 📄 **Proxies Config** :
 \`\`\`proxies:
        
   - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    server: ${wildkere}
     port: 443
     type: trojan
     password: ${UUIDS}
@@ -1175,7 +1175,7 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
     udp: true
     skip-cert-verify: true
     network: ws
-    sni: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    sni: ${wildkere}
     alpn:
        - h2
        - h3
@@ -1183,7 +1183,7 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+        Host: ${wildkere}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
