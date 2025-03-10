@@ -1085,14 +1085,14 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Links ShadowSocks**:
 1️⃣ **TLS** :
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${FAKE_HOSTNAME}:443?encryption=none&type=ws&host=${FAKE_HOSTNAME}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${FAKE_HOSTNAME}:80?encryption=none&type=ws&host=${FAKE_HOSTNAME}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 📄 **Proxies Config**:
 \`\`\`proxies:
 
   - name: ${isp} - TLS
-    server: ${FAKE_HOSTNAME}
+    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     port: 443
     type: ss
     cipher: none
@@ -1102,7 +1102,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     plugin-opts:
       mode: websocket
-      host: ${FAKE_HOSTNAME}
+      host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
       path: /Free-CF-Proxy-${ip}-${port}
       tls: true
       mux: false
@@ -1116,15 +1116,15 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
 
 🔗 **Links Vless**:
 1️⃣ **TLS** :
-\`\`\`vless://${UUIDS}@${FAKE_HOSTNAME}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 2️⃣ **Non-TLS** :
-\`\`\`vless://${UUIDS}@${FAKE_HOSTNAME}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 
 📄 **Proxies Config** :
 \`\`\`proxies:
           
   - name: ${isp} - TLS
-    server: ${FAKE_HOSTNAME}
+    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     port: 443
     type: vless
     uuid: ${UUIDS}
@@ -1134,7 +1134,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     skip-cert-verify: true
     network: ws
-    servername: ${FAKE_HOSTNAME}
+    servername: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     alpn:
        - h2
        - h3
@@ -1142,7 +1142,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: ${FAKE_HOSTNAME}
+        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
@@ -1151,14 +1151,14 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
  
 🔗 **Links Trojan** :
 1️⃣ **TLS** : 
-\`\`\`trojan://${UUIDS}@${FAKE_HOSTNAME}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`trojan://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`trojan//${UUIDS}@${FAKE_HOSTNAME}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
+\`\`\`trojan//${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
 📄 **Proxies Config** :
 \`\`\`proxies:
        
   - name: ${isp} - TLS
-    server: ${FAKE_HOSTNAME}
+    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     port: 443
     type: trojan
     password: ${UUIDS}
@@ -1167,7 +1167,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     skip-cert-verify: true
     network: ws
-    sni: ${FAKE_HOSTNAME}
+    sni: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
     alpn:
        - h2
        - h3
@@ -1175,7 +1175,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: ${FAKE_HOSTNAME}
+        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
