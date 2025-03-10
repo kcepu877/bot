@@ -1194,13 +1194,6 @@ ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
     `;
-
-    // Kirim hasil cek
-    await sendTelegramMessage(chatId, resultMessage);
-
-    // Kirim keyboard interaktif
-    await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
-
 } 
 }
 
