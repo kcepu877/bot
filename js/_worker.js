@@ -1083,107 +1083,17 @@ async function checkIPPort(ip, port, chatId) {
 🌆 Kota: ${data.KOTA}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Links ShadowSocks**:
-1️⃣ **TLS** :
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
-📄 **Proxies Config**:
-\`\`\`proxies:
 
-  - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-    port: 443
-    type: ss
-    cipher: none
-    password: ${UUIDS}
-    plugin: v2ray-plugin
-    client-fingerprint: chrome
-    udp: true
-    plugin-opts:
-      mode: websocket
-      host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-      path: /Free-CF-Proxy-${ip}-${port}
-      tls: true
-      mux: false
-      skip-cert-verify: true
-    headers:
-      custom: value
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-\`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Links Vless**:
-1️⃣ **TLS** :
-\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
-2️⃣ **Non-TLS** :
-\`\`\`vless://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
+👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
-📄 **Proxies Config** :
-\`\`\`proxies:
-          
-  - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-    port: 443
-    type: vless
-    uuid: ${UUIDS}
-    cipher: auto
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    servername: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: /Free-CF-Proxy-${ip}-${port}
-      headers:
-        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false\`\`\`
- ━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Links Trojan** :
-1️⃣ **TLS** : 
-\`\`\`trojan://${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`trojan//${UUIDS}@bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}\`\`\`
-📄 **Proxies Config** :
-\`\`\`proxies:
-       
-  - name: ${isp} - TLS
-    server: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-    port: 443
-    type: trojan
-    password: ${UUIDS}
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    sni: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: /Free-CF-Proxy-${ip}-${port}
-      headers:
-        Host: bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false\`\`\`
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
-
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
     `;
 
@@ -1376,16 +1286,15 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
         chat_id: chatId,
         text: 'Pilih opsi berikut untuk membuat VPN Tunnel:',
         reply_markup: {
-          👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+          inline_keyboard: [
+            [
+              { text: 'Create VLESS', callback_data: `create_vless|${ip}|${port}|${isp}` },
+              { text: 'Create Trojan', callback_data: `create_trojan|${ip}|${port}|${isp}` },
+            ],
+            [
+              { text: 'Create ShadowSocks', callback_data: `create_ss|${ip}|${port}|${isp}` },
+            ],
+          ],
         },
       }),
     });
