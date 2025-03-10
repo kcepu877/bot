@@ -1032,7 +1032,7 @@ async function handleGetRandomCountryCommand(chatId, countryId) {
         const [ipAddress, port, country, provider] = ip.split(',');
         // Replace dots with spaces in the provider name
         const formattedProvider = provider.replace(/\./g, ' ');
-        return `🌍 **\`${ipAddress}:${port}\`**\n📍 **Country:** ${country}\n💻 **Provider:** ${formattedProvider}\n`;
+        return `🌍 **\`/${ipAddress}:${port}\`**\n📍 **Country:** ${country}\n💻 **Provider:** ${formattedProvider}\n`;
       }).join('\n');
 
     await sendTelegramMessage(chatId, message);
