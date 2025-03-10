@@ -1107,13 +1107,9 @@ async function createVPNConfigs(ip, port, isp, wildkere) {
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
+\`\`\`${vlessTLS}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
+\`\`\`${vlessNTLS}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1144,13 +1140,9 @@ proxies:
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan**
 1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
+\`\`\`${trojanTLS}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
+\`\`\`${trojanNTLS}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1180,13 +1172,9 @@ proxies:
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks**
 1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
+\`\`\`${ssTls}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
+\`\`\`${ssNTls}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
