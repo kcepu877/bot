@@ -1056,24 +1056,17 @@ async function handleGetRandomCountryCommand(chatId, countryId) {
   }
 }
   
-async function handleIPPortCheck(ipPortText, chatId) {
-  const [ip, port] = ipPortText.split(':');
-  const result = await checkIPPort(ip, port, chatId);
-  if (result) await sendTelegramMessage(chatId, result);
-}
-
-function isValidIPPortFormat(input) {
-  const regex = /^(\d{1,3}\.){3}\d{1,3}:\d{1,5}$/;
-  return regex.test(input);
-}
-
 async function checkIPPort(ip, port, chatId) {
   try {
-    await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
+    // Kirim pesan "Checking Proxy..."
+    const checkingMessage = await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
+
+    // Panggil API untuk cek proxy
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
     const data = await response.json();
 
+    // Filter ISP agar tidak terlalu panjang
     const filterISP = (isp) => {
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
       const words = sanitizedISP.split(" ");
@@ -1083,8 +1076,10 @@ async function checkIPPort(ip, port, chatId) {
     const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
-await deleteTelegramMessage(chatId, checkingMessage.message_id);
+    // Hapus pesan "Checking Proxy..."
+    await deleteTelegramMessage(chatId, checkingMessage.message_id);
 
+    // Siapkan hasil pesan
     let resultMessage = `
 🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1169,12 +1164,13 @@ ${ssNTls}
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
-await sendTelegramMessage(chatId, resultMessage);
-
-   catch (error) {
+   // Kirim hasil ke Telegram
+    await sendTelegramMessage(chatId, resultMessage);
+  } catch (error) {
     await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
   }
-}   
+}
+
 
 
 
