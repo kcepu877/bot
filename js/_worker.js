@@ -546,9 +546,8 @@ async function handleGetgetcountry(chatId) {
     { code: "MY", flag: "🇲🇾" }, { code: "NL", flag: "🇳🇱" }, { code: "PH", flag: "🇵🇭" }, { code: "RU", flag: "🇷🇺" },
     { code: "SG", flag: "🇸🇬" }, { code: "TH", flag: "🇹🇭" }, { code: "TR", flag: "🇹🇷" }, { code: "US", flag: "🇺🇸" },
     { code: "VN", flag: "🇻🇳" }, { code: "ZA", flag: "🇿🇦" }
-  ]; // Tambahkan semua negara sesuai kebutuhan
+  ];
 
-  // Menyusun tombol (4 negara per baris)
   const buttons = [];
   for (let i = 0; i < countries.length; i += 4) {
     buttons.push(
@@ -559,8 +558,7 @@ async function handleGetgetcountry(chatId) {
     );
   }
 
-  // Kirim pesan dengan tombol inline
-  await sendTelegramMessage(chatId, "🌍 Pilih negara:", {
+  await sendTelegramMessage(chatId, InfoMessage, {
     reply_markup: { inline_keyboard: buttons }
   });
 }
