@@ -15,14 +15,6 @@ const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tan
 
 
 
-async function deleteTelegramMessage(chatId, messageId) {
-    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/deleteMessage`;
-    await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, message_id: messageId })
-    });
-}
 
 // Fungsi untuk menangani `/active`
 async function handleActive(request) {
@@ -294,15 +286,14 @@ async function handleCallbackQuery(callbackQuery) {
 
 let userChatIds = [];
 
+// Function to handle incoming messages
 async function handleMessage(message) {
   const text = message.text;
   const chatId = message.chat.id;
-  const threadId = message.message_thread_id; // Ambil ID topik jika ada
-
 
   // Menangani perintah /start
   if (text === '/start') {
-    await handleStartCommand(chatId, threadId);
+    await handleStartCommand(chatId);
 
     // Menambahkan pengguna ke daftar jika belum ada
     if (!userChatIds.includes(chatId)) {
@@ -311,37 +302,37 @@ async function handleMessage(message) {
 
   // Menangani perintah /info
   } else if (text === '/info') {
-    await handleGetInfo(chatId, threadId);
+    await handleGetInfo(chatId);
 
     // Menangani perintah /getcountry
   } else if (text === '/getcountry') {
-    await handleGetgetcountry(chatId, threadId);
+    await handleGetgetcountry(chatId);
 
     // Menangani perintah /subapi
   } else if (text === '/subapi') {
-    await handleGetsubapi(chatId, threadId);
+    await handleGetsubapi(chatId);
 
   // Menangani perintah /listwildcard
   } else if (text === '/listwildcard') {
-    await handleListWildcard(chatId, threadId);
+    await handleListWildcard(chatId);
     
       // Menangani perintah /listdomain
   } else if (text === '/listdomain') {
-    await handleListDomain(chatId, threadId);
+    await handleListDomain(chatId);
   
   // Menangani perintah /listpremium
   } else if (text === '/listpremium') {
-    await handleListPremium(chatId, threadId);
+    await handleListPremium(chatId);
     
   // Menangani perintah /getrandomip
   } else if (text === '/getrandomip') {
-    await handleGetRandomIPCommand(chatId, threadId);
+    await handleGetRandomIPCommand(chatId);
 
   // Menangani perintah /getrandom <CountryCode>
   } else if (text.startsWith('/getrandom')) {
     const countryId = text.slice(10); // Mengambil kode negara setelah "/getrandom" tanpa spasi
     if (countryId) {
-        await handleGetRandomCountryCommand(chatId, threadId, countryId);
+        await handleGetRandomCountryCommand(chatId, countryId);
     } else {
         await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
     }
@@ -349,7 +340,7 @@ async function handleMessage(message) {
 
   // Menangani perintah /broadcast
   } else if (text.startsWith('/broadcast')) {
-    await handleBroadcastCommand(message, threadId);
+    await handleBroadcastCommand(message);
 
   // Menangani format IP:Port
   } else if (isValidIPPortFormat(text)) {
@@ -394,11 +385,6 @@ async function handleBroadcastCommand(message) {
       console.error(`Error mengirim pesan ke ${userChatId}:`, error);
     }
   }
-// Memodifikasi fungsi sendTelegramMessage agar mendukung threadId
-async function sendTelegramMessage(chatId, text, threadId = null) {
-  const options = threadId ? { message_thread_id: threadId } : {};
-  await bot.sendMessage(chatId, text, options);
-}
 
   await sendTelegramMessage(chatId, `✅ Pesan telah disebarkan ke ${userChatIds.length} pengguna.`);
 }
@@ -1083,8 +1069,6 @@ async function checkIPPort(ip, port, chatId) {
     const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
-await deleteTelegramMessage(chatId, checkingMessage.message_id);
-
     let resultMessage = `
 🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1169,10 +1153,7 @@ ${ssNTls}
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
-await sendTelegramMessage(chatId, resultMessage);
-
-  }
-
+}    
 
 
 
