@@ -1093,23 +1093,19 @@ async function checkIPPort(ip, port, chatId) {
 async function createVPNConfigs(ip, port, isp, wildkere) {
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
+         
   return `
 ⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 1️⃣ **TLS** : 
-\`\`\`${vlessTLS}\`\`\`
+\`\`\`
+vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${vlessNTLS}\`\`\`
+\`\`\`
+vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}
+\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1140,9 +1136,13 @@ proxies:
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan**
 1️⃣ **TLS** : 
-\`\`\`${trojanTLS}\`\`\`
+\`\`\`
+trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${trojanNTLS}\`\`\`
+\`\`\`
+trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}
+\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
@@ -1172,9 +1172,13 @@ proxies:
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks**
 1️⃣ **TLS** : 
-\`\`\`${ssTls}\`\`\`
+\`\`\`
+ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp} 
+\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`${ssNTls}\`\`\`
+\`\`\`
+ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}
+\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
