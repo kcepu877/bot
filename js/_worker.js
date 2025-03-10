@@ -1145,8 +1145,14 @@ proxies:
 Success Create ShadowSocks \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 
 🔗 **Links ShadowSocks**:\n
-1️⃣ **TLS** : \`\`\`${ssTls}\`\`\`
-2️⃣ **Non-TLS** : \`\`\`${ssNTls}\`\`\`
+1️⃣ **TLS** :
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
 
 📄 **Proxies Config**:
 \`\`\`
@@ -1179,8 +1185,14 @@ async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
 Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 
 🔗 **Links Vless**:\n
-1️⃣ **TLS** : \`\`\`${vlessTLS}\`\`\`
-2️⃣ **Non-TLS** : \`\`\`${vlessNTLS}\`\`\`
+1️⃣ **TLS** :
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** :
+\`\`\`
+${vlessNTLS}
+\`\`\`
 
 📄 **Proxies Config** :
 \`\`\`
@@ -1237,9 +1249,16 @@ async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
   const message = `
 Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 
-🔗 **Links Trojan** :\n
-1️⃣ **TLS** : \`\`\`${trojanTLS}
-2️⃣ **Non-TLS** : \`\`\`${trojanNTLS}\`\`\`
+🔗 **Links Trojan** :
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
 
 📄 **Proxies Config** :
 \`\`\`
