@@ -1083,6 +1083,67 @@ async function checkIPPort(ip, port, chatId) {
 🌆 Kota: ${data.KOTA}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
+`;
+// Tambahkan hasil konfigurasi VPN langsung ke pesan
+    const wildkere = "bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg"; // Ganti dengan domain wildcard yang sesuai
+    resultMessage += await createVPNConfigs(ip, port, filteredISP, wildkere);
+
+    // Kirim hasil cek beserta konfigurasi VPN
+    await sendTelegramMessage(chatId, resultMessage);
+
+  } catch (error) {
+    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
+  }
+}
+
+async function createVPNConfigs(ip, port, isp, wildkere) {
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`"; // Pastikan UUID didefinisikan dengan benar
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // ShadowSocks
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
+
+  // VLESS
+  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+
+  // Trojan
+  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+
+  return `
+🔗 **VPN Configurations**:
+━━━━━━━━━━━━━━━━━━━━━━━
+🔹 **VLESS**
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+🔹 **Trojan**
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+🔹 **ShadowSocks**
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
@@ -1098,236 +1159,13 @@ ORDER PREMIUM CONTACT ADMIN
     `;
 
     // Kirim hasil cek
-    await sendTelegramMessage(chatId, resultMessage);
-
-    // Kirim keyboard interaktif
-    await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
-
-  } catch (error) {
-    // Tampilkan pesan error
-    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
-  }
+    
 }
 
 
+  
 
-async function handleShadowSocksCreation(chatId, ip, port, isp, wildkere) {
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
-
-  const proxies = `
-proxies:
-
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: ss
-    cipher: none
-    password: ${UUIDS}
-    plugin: v2ray-plugin
-    client-fingerprint: chrome
-    udp: true
-    plugin-opts:
-      mode: websocket
-      host: ${wildkere}
-      path: /Free-CF-Proxy-${ip}-${port}
-      tls: true
-      mux: false
-      skip-cert-verify: true
-    headers:
-      custom: value
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-`;
-
-  const message = `
-Success Create ShadowSocks \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links ShadowSocks**:
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
-📄 **Proxies Config**:
-\`\`\`
-${proxies}
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-  `;
-
-  // Kirim pesan melalui Telegram
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  const message = `
-Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Vless**:
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
-📄 **Proxies Config** :
-\`\`\`
-proxies:
-          
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: vless
-    uuid: ${UUIDS}
-    cipher: auto
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    servername: ${wildkere}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-  `;
-
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  const message = `
-Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Trojan** :
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
-📄 **Proxies Config** :
-\`\`\`
-proxies:
-       
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: trojan
-    password: ${UUIDS}
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    sni: ${wildkere}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-`;
-
-  await sendTelegramMessage(chatId, message);
-}
-
-async function sendInlineKeyboard(chatId, ip, port, isp) {
-  try {
-    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: 'Pilih opsi berikut untuk membuat VPN Tunnel:',
-        reply_markup: {
-          inline_keyboard: [
-            [
-              { text: 'Create VLESS', callback_data: `create_vless|${ip}|${port}|${isp}` },
-              { text: 'Create Trojan', callback_data: `create_trojan|${ip}|${port}|${isp}` },
-            ],
-            [
-              { text: 'Create ShadowSocks', callback_data: `create_ss|${ip}|${port}|${isp}` },
-            ],
-          ],
-        },
-      }),
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to send inline keyboard:', errorText);
-    } else {
-      console.log('Inline keyboard sent successfully.');
-    }
-  } catch (error) {
-    console.error('Error sending inline keyboard:', error);
-  }
-}
-
+    
 
 
 // Constant
