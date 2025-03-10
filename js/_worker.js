@@ -15,6 +15,14 @@ const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tan
 
 
 
+async function deleteTelegramMessage(chatId, messageId) {
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/deleteMessage`;
+    await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, message_id: messageId })
+    });
+}
 
 // Fungsi untuk menangani `/active`
 async function handleActive(request) {
@@ -1069,6 +1077,8 @@ async function checkIPPort(ip, port, chatId) {
     const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
+await deleteTelegramMessage(chatId, checkingMessage.message_id);
+
     let resultMessage = `
 🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1153,6 +1163,11 @@ ${ssNTls}
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
+await sendTelegramMessage(chatId, resultMessage);
+
+  } catch (error) {
+    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
+  }
 }    
 
 
