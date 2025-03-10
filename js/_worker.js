@@ -1205,26 +1205,11 @@ ORDER PREMIUM CONTACT ADMIN
 
     `;
 
-    // Kirim hasil cek
-    await sendTelegramMessage(chatId, resultMessage);
-
-    // Kirim keyboard interaktif
-    await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
-
+await sendTelegramMessage(chatId, resultMessage);
+    return resultMessage;
   } catch (error) {
-    // Tampilkan pesan error
-    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
-  }
-}
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to send inline keyboard:', errorText);
-    } else {
-      console.log('Inline keyboard sent successfully.');
-    }
-  } catch (error) {
-    console.error('Error sending inline keyboard:', error);
+    console.error("Error checking IP:", error);
+    await sendTelegramMessage(chatId, "⚠️ Error saat mengecek Proxy IP.");
   }
 }
 
