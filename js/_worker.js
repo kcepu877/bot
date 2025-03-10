@@ -1056,36 +1056,44 @@ function isValidIPPortFormat(input) {
 async function checkIPPort(ip, port, chatId) {
   try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
-    await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
-    const response = await fetch(`${APICF}?ip=${ip}:${port}`);
-if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+    try {
+  await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
+  const response = await fetch(`${APICF}?ip=${ip}:${port}`);
+  
+  if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
 
-const data = await response.json();
+  let data;
+  try {
+    data = await response.json();
+  } catch (jsonError) {
+    throw new Error("Failed to parse API response as JSON");
+  }
 
-// Fungsi untuk membersihkan dan mempersingkat nama ISP
-const filterISP = (isp) => {
-  if (!isp) return "Unknown"; // Jika ISP tidak tersedia, kembalikan "Unknown"
-  const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, ""); // Hapus karakter yang tidak perlu
-  const words = sanitizedISP.split(" ");
-  return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
-};
+  // Fungsi untuk membersihkan dan mempersingkat nama ISP
+  const filterISP = (isp) => {
+    if (!isp) return "Tidak diketahui"; // Jika ISP tidak tersedia
+    const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, ""); // Hapus karakter yang tidak perlu
+    const words = sanitizedISP.split(" ");
+    return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
+  };
 
-const filteredISP = filterISP(data.isp); // Menggunakan field `isp` yang benar
+  const filteredISP = filterISP(data.isp); // Gunakan `data.isp` yang benar
+  const status = data.message && data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif";
 
-// Tentukan status berdasarkan field `message`
-const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif";
-
+  // Kirim hasilnya
+  
+  
 
 
     // Buat pesan hasil cek
     const resultMessage = `
-🌐 Hasil Cek IP dan Port:
+🌐 *Hasil Cek IP dan Port*:
 ━━━━━━━━━━━━━━━━━━━━━━━
-📍 IP: ${data.IP}
-🔌 Port: ${data.PORT}
+📍 IP: ${data.ip || "Tidak tersedia"}
+🔌 Port: ${data.port || "Tidak tersedia"}
 📡 ISP: ${filteredISP}
-🏢 ASN: ${data.ASN}
-🌆 Kota: ${data.KOTA}
+🏢 ASN: ${data.asn || "Tidak tersedia"}
+🌆 Kota: ${data.city || "Tidak diketahui"}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
 
