@@ -1059,7 +1059,6 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
-    const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
     const data = await response.json();
     const filterISP = (isp) => {
       // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
@@ -1084,16 +1083,16 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
 🌆 Kota: ${data.KOTA}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Links ShadowSocks**:\n
+🔗 **Links ShadowSocks**:
 1️⃣ **TLS** :
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${FAKE_HOSTNAME}:443?encryption=none&type=ws&host=${FAKE_HOSTNAME}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}\`\`\`
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${FAKE_HOSTNAME}:80?encryption=none&type=ws&host=${FAKE_HOSTNAME}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 📄 **Proxies Config**:
 \`\`\`proxies:
 
   - name: ${isp} - TLS
-    server: ${wildkere}
+    server: ${FAKE_HOSTNAME}
     port: 443
     type: ss
     cipher: none
@@ -1103,7 +1102,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     plugin-opts:
       mode: websocket
-      host: ${wildkere}
+      host: ${FAKE_HOSTNAME}
       path: /Free-CF-Proxy-${ip}-${port}
       tls: true
       mux: false
@@ -1115,17 +1114,17 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
       v2ray-http-upgrade-fast-open: false
 \`\`\`
 
-🔗 **Links Vless**:\n
+🔗 **Links Vless**:
 1️⃣ **TLS** :
-\`\`\`vless://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@${FAKE_HOSTNAME}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 2️⃣ **Non-TLS** :
-\`\`\`vless://${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+\`\`\`vless://${UUIDS}@${FAKE_HOSTNAME}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 
 📄 **Proxies Config** :
 \`\`\`proxies:
           
   - name: ${isp} - TLS
-    server: ${wildkere}
+    server: ${FAKE_HOSTNAME}
     port: 443
     type: vless
     uuid: ${UUIDS}
@@ -1135,7 +1134,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     skip-cert-verify: true
     network: ws
-    servername: ${wildkere}
+    servername: ${FAKE_HOSTNAME}
     alpn:
        - h2
        - h3
@@ -1143,7 +1142,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: ${wildkere}
+        Host: ${FAKE_HOSTNAME}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
@@ -1152,14 +1151,14 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
  
 🔗 **Links Trojan** :
 1️⃣ **TLS** : 
-\`\`\`trojan://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+\`\`\`trojan://${UUIDS}@${FAKE_HOSTNAME}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`trojan//${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+\`\`\`trojan//${UUIDS}@${FAKE_HOSTNAME}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${FAKE_HOSTNAME}&type=ws&sni=${FAKE_HOSTNAME}#${isp}\`\`\`
 📄 **Proxies Config** :
 \`\`\`proxies:
        
   - name: ${isp} - TLS
-    server: ${wildkere}
+    server: ${FAKE_HOSTNAME}
     port: 443
     type: trojan
     password: ${UUIDS}
@@ -1168,7 +1167,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     udp: true
     skip-cert-verify: true
     network: ws
-    sni: ${wildkere}
+    sni: ${FAKE_HOSTNAME}
     alpn:
        - h2
        - h3
@@ -1176,7 +1175,7 @@ async function checkIPPort(ip, port, chatId, isp, wildkere) {
     ws-opts:
       path: /Free-CF-Proxy-${ip}-${port}
       headers:
-        Host: ${wildkere}
+        Host: ${FAKE_HOSTNAME}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
