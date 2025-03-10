@@ -1104,6 +1104,7 @@ async function createVPNConfigs(ip, port, isp, wildkere) {
 
   
       return `
+━━━━━━━━━━━━━━━━━━━━━━━
 ⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1117,35 +1118,10 @@ ${vlessTLS}
 ${vlessNTLS}
 \`\`\`
 
-📄 **Proxies Config**:
-\`\`\`
-proxies:
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: vless
-    uuid: ${UUIDS}
-    cipher: auto
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    servername: ${wildkere}
-    alpn:
-      - h2
-      - h3
-      - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-\`\`\`
 
+━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${trojanTLS}
@@ -1155,34 +1131,10 @@ ${trojanTLS}
 ${trojanNTLS}
 \`\`\`
 
-📄 **Proxies Config**:
-\`\`\`
-proxies:
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: trojan
-    password: ${UUIDS}
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    sni: ${wildkere}
-    alpn:
-      - h2
-      - h3
-      - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-\`\`\`
 
+━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${ssTls}
@@ -1192,29 +1144,9 @@ ${ssTls}
 ${ssNTls}
 \`\`\`
 
-📄 **Proxies Config**:
-\`\`\`
-proxies:
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: ss
-    cipher: none
-    password: ${UUIDS}
-    plugin: v2ray-plugin
-    client-fingerprint: chrome
-    udp: true
-    plugin-opts:
-      mode: websocket
-      host: ${wildkere}
-      path: ${path}
-      tls: true
-      mux: false
-      skip-cert-verify: true
-    headers:
-      ip-version: dual
-\`\`\`
 
+━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━
 👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
 🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
