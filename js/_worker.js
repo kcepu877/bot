@@ -1172,7 +1172,7 @@ ${ssNTls}
 await sendTelegramMessage(chatId, resultMessage);
 
   }
-}    
+
 
 
 
