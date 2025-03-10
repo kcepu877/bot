@@ -1195,8 +1195,12 @@ ORDER PREMIUM CONTACT ADMIN
 
     `;
     await sendTelegramMessage(chatId, resultMessage);
-return resultMessage;
+    return resultMessage;
+  } catch (error) {
+    console.error("Error checking IP:", error);
+    await sendTelegramMessage(chatId, "⚠️ Error saat mengecek Proxy IP.");
   }
+}
 
 
 
