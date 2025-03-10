@@ -1032,7 +1032,7 @@ async function handleGetRandomCountryCommand(chatId, countryId) {
         const [ipAddress, port, country, provider] = ip.split(',');
         // Replace dots with spaces in the provider name
         const formattedProvider = provider.replace(/\./g, ' ');
-        return `🌍 **\`/${ipAddress}:${port}\`**\n📍 **Country:** ${country}\n💻 **Provider:** ${formattedProvider}\n`;
+        return `🌍 **\`${ipAddress}:${port}\`**\n📍 **Country:** ${country}\n💻 **Provider:** ${formattedProvider}\n`;
       }).join('\n');
 
     await sendTelegramMessage(chatId, message);
@@ -1053,8 +1053,8 @@ function isValidIPPortFormat(input) {
   return regex.test(input);
 }
 
-async function checkIPPort(ip, port, chatId, isp, wildkere) {
-    try {
+async function checkIPPort(ip, port, chatId) {
+  try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
@@ -1201,7 +1201,6 @@ ORDER PREMIUM CONTACT ADMIN
     await sendTelegramMessage(chatId, "⚠️ Error saat mengecek Proxy IP.");
   }
 }
-
 
 
 
