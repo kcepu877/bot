@@ -1194,6 +1194,9 @@ ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
     `;
+    await sendTelegramMessage(chatId, resultMessage);
+return resultMessage;
+
 } 
 }
 
