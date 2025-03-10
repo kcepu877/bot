@@ -1073,7 +1073,7 @@ async function checkIPPort(ip, port, chatId) {
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
     // Buat pesan hasil cek
-    const resultMessage = `
+    let resultMessage = `
 🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
 📍 IP: ${data.IP}
