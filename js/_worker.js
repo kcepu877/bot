@@ -1053,7 +1053,7 @@ function isValidIPPortFormat(input) {
   return regex.test(input);
 }
 
-async function checkIPPort(ip, port, chatId) {
+async function checkIPPort(ip, port, chatId, isp) {
   try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
