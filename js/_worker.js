@@ -1053,7 +1053,7 @@ function isValidIPPortFormat(input) {
   return regex.test(input);
 }
 
-async function checkIPPort(ip, port, chatId, isp) {
+async function checkIPPort(ip, port, chatId) {
   try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
@@ -1089,13 +1089,40 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
 
-🔗 **Links ShadowSocks**:
-1️⃣ **TLS** :
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}\`\`\`
-📄 **Proxies Config**:
-\`\`\`proxies:
+
+👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+    `;
+
+    // Kirim hasil cek
+    await sendTelegramMessage(chatId, resultMessage);
+
+    // Kirim keyboard interaktif
+    await sendInlineKeyboard(chatId, data.IP, data.PORT, filteredISP);
+
+  } catch (error) {
+    // Tampilkan pesan error
+    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
+  }
+}
+
+
+
+async function handleShadowSocksCreation(chatId, ip, port, isp, wildkere) {
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
+
+  const proxies = `
+proxies:
 
   - name: ${isp} - TLS
     server: ${wildkere}
@@ -1118,17 +1145,52 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
       ip-version: dual
       v2ray-http-upgrade: false
       v2ray-http-upgrade-fast-open: false
-\`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
+`;
 
-🔗 **Links Vless**:
-1️⃣ **TLS** :
-\`\`\`vless://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
-2️⃣ **Non-TLS** :
-\`\`\`vless://${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+  const message = `
+Success Create ShadowSocks \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+
+🔗 **Links ShadowSocks**:\n
+1️⃣ **TLS** : \`${ssTls}\`
+2️⃣ **Non-TLS** : \`${ssNTls}\`
+
+📄 **Proxies Config**:
+\`\`\`
+${proxies}
+\`\`\`
+
+👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+  `;
+
+  // Kirim pesan melalui Telegram
+  await sendTelegramMessage(chatId, message);
+}
+
+async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+
+  const message = `
+Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+
+🔗 **Links Vless**:\n
+1️⃣ **TLS** : \`${vlessTLS}\`
+2️⃣ **Non-TLS** : \`${vlessNTLS}\`
 
 📄 **Proxies Config** :
-\`\`\`proxies:
+\`\`\`
+proxies:
           
   - name: ${isp} - TLS
     server: ${wildkere}
@@ -1147,23 +1209,47 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
        - h3
        - http/1.1
     ws-opts:
-      path: /Free-CF-Proxy-${ip}-${port}
+      path: ${path}
       headers:
         Host: ${wildkere}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
       v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false\`\`\`
- ━━━━━━━━━━━━━━━━━━━━━━━
+      v2ray-http-upgrade-fast-open: false
+\`\`\`
 
-🔗 **Links Trojan** :
-1️⃣ **TLS** : 
-\`\`\`trojan://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`trojan//${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+  `;
+
+  await sendTelegramMessage(chatId, message);
+}
+
+async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+
+  const message = `
+Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+
+🔗 **Links Trojan** :\n
+1️⃣ **TLS** : \`${trojanTLS}\`
+2️⃣ **Non-TLS** : \`${trojanNTLS}\`
+
 📄 **Proxies Config** :
-\`\`\`proxies:
+\`\`\`
+proxies:
        
   - name: ${isp} - TLS
     server: ${wildkere}
@@ -1181,35 +1267,52 @@ const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif"
        - h3
        - http/1.1
     ws-opts:
-      path: /Free-CF-Proxy-${ip}-${port}
+      path: ${path}
       headers:
         Host: ${wildkere}
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
       v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false\`\`\`
-
-━━━━━━━━━━━━━━━━━━━━━━━
+      v2ray-http-upgrade-fast-open: false
+\`\`\`
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
+`;
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+  await sendTelegramMessage(chatId, message);
+}
 
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+async function sendInlineKeyboard(chatId, ip, port, isp) {
+  try {
+    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: 'Pilih opsi berikut untuk membuat VPN Tunnel:',
+        reply_markup: {
+          inline_keyboard: [
+            [
+              { text: 'Create VLESS', callback_data: `create_vless|${ip}|${port}|${isp}` },
+              { text: 'Create Trojan', callback_data: `create_trojan|${ip}|${port}|${isp}` },
+            ],
+            [
+              { text: 'Create ShadowSocks', callback_data: `create_ss|${ip}|${port}|${isp}` },
+            ],
+          ],
+        },
+      }),
+    });
 
-    `;
-
-await sendTelegramMessage(chatId, resultMessage);
-    return resultMessage;
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Failed to send inline keyboard:', errorText);
+    } else {
+      console.log('Inline keyboard sent successfully.');
+    }
   } catch (error) {
-    console.error("Error checking IP:", error);
-    await sendTelegramMessage(chatId, "⚠️ Error saat mengecek Proxy IP.");
+    console.error('Error sending inline keyboard:', error);
   }
 }
 
