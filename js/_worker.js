@@ -1054,12 +1054,12 @@ function isValidIPPortFormat(input) {
 }
 
 async function checkIPPort(ip, port, chatId, isp, wildkere) {
-  const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
-  try {
+    try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+    const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
     const data = await response.json();
     const filterISP = (isp) => {
       // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
