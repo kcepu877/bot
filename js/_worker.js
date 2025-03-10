@@ -3,13 +3,13 @@ import { connect } from "cloudflare:sockets";
 // Variables
 let cachedProxyList = [];
 let proxyIP = "";
-let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
+let apiCheck = 'https://api.bmkg.xyz/check?ip=';
 
 const DEFAULT_PROXY_BANK_URL = "https://bmkg.xyz/update_proxyip.txt";
 const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
-const APICF = 'https://ipcf.rmtq.fun/json/';
+const APICF = 'https://api.bmkg.xyz/check';
 const FAKE_HOSTNAME = 'bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
@@ -189,8 +189,8 @@ async function checkIPAndPort(ip, port) {
     const result = {
       ip: ip,
       port: port,
-      status: apiData.STATUS || null
-    };
+      status: apiData.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif", // Menentukan status berdasarkan field `message`
+          };
     return new Response(JSON.stringify(result, null, 2), {
       status: 200,
       headers: { "Content-Type": "application/json;charset=utf-8" }
@@ -1058,19 +1058,24 @@ async function checkIPPort(ip, port, chatId) {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
-    if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
-    const data = await response.json();
-    const filterISP = (isp) => {
-      // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
-      const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
-      const words = sanitizedISP.split(" ");
-      if (words.length <= 3) return sanitizedISP; // Jika ISP memiliki <= 3 kata, kembalikan apa adanya
-      return `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
-    };
-    const filteredISP = filterISP(data.ISP);
+if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
 
-    // Tentukan status aktif/tidak
-    const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
+const data = await response.json();
+
+// Fungsi untuk membersihkan dan mempersingkat nama ISP
+const filterISP = (isp) => {
+  if (!isp) return "Unknown"; // Jika ISP tidak tersedia, kembalikan "Unknown"
+  const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, ""); // Hapus karakter yang tidak perlu
+  const words = sanitizedISP.split(" ");
+  return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
+};
+
+const filteredISP = filterISP(data.isp); // Menggunakan field `isp` yang benar
+
+// Tentukan status berdasarkan field `message`
+const status = data.message.includes("ACTIVE") ? "✅ Aktif" : "❌ Tidak Aktif";
+
+
 
     // Buat pesan hasil cek
     const resultMessage = `
