@@ -1208,27 +1208,7 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 
-async function sendInlineKeyboard(chatId, ip, port, isp) {
-  try {
-    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: 'Pilih opsi berikut untuk membuat VPN Tunnel:',
-        reply_markup: {
-          inline_keyboard: [
-            [
-              { text: 'Create VLESS', callback_data: `create_vless|${ip}|${port}|${isp}` },
-              { text: 'Create Trojan', callback_data: `create_trojan|${ip}|${port}|${isp}` },
-            ],
-            [
-              { text: 'Create ShadowSocks', callback_data: `create_ss|${ip}|${port}|${isp}` },
-            ],
-          ],
-        },
-      }),
-    });
+
 
     if (!response.ok) {
       const errorText = await response.text();
