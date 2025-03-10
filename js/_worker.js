@@ -1210,17 +1210,6 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to send inline keyboard:', errorText);
-    } else {
-      console.log('Inline keyboard sent successfully.');
-    }
-  } catch (error) {
-    console.error('Error sending inline keyboard:', error);
-  }
-}
-
 
 
 // Constant
