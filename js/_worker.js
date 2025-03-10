@@ -1171,10 +1171,10 @@ ${ssNTls}
 `;
 await sendTelegramMessage(chatId, resultMessage);
 
-  } catch (error) {
+   catch (error) {
     await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
   }
-}    
+}   
 
 
 
