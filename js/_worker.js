@@ -1053,82 +1053,79 @@ function isValidIPPortFormat(input) {
   return regex.test(input);
 }
 
+
+  
+async function handleIPPortCheck(ipPortText, chatId) {
+  const [ip, port] = ipPortText.split(':');
+  const result = await checkIPPort(ip, port, chatId);
+  if (result) await sendTelegramMessage(chatId, result);
+}
+
+function isValidIPPortFormat(input) {
+  const regex = /^(\d{1,3}\.){3}\d{1,3}:\d{1,5}$/;
+  return regex.test(input);
+}
+
 async function checkIPPort(ip, port, chatId) {
   try {
-    // Kirim pesan sementara bahwa IP sedang diperiksa
-    await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
+    await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
     const data = await response.json();
+
     const filterISP = (isp) => {
-      // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
       const words = sanitizedISP.split(" ");
-      if (words.length <= 3) return sanitizedISP; // Jika ISP memiliki <= 3 kata, kembalikan apa adanya
-      return `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
+      return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
     };
-    const filteredISP = filterISP(data.ISP);
 
-    // Tentukan status aktif/tidak
+    const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
-    // Buat pesan hasil cek
     let resultMessage = `
 🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
 📍 IP: ${data.IP}
 🔌 Port: ${data.PORT}
 📡 ISP: ${filteredISP}
-🏢 ASN: ${data.ASN}
-🌆 Kota: ${data.KOTA}
+🏢 ASN: ${data.ASN || "Unknown"}
+🌆 Kota: ${data.KOTA || "Unknown"}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
 `;
-// Tambahkan hasil konfigurasi VPN langsung ke pesan
-    const wildkere = "bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg"; // Ganti dengan domain wildcard yang sesuai
+
+    const wildkere = "bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg";
     resultMessage += await createVPNConfigs(ip, port, filteredISP, wildkere);
 
-    // Kirim hasil cek beserta konfigurasi VPN
     await sendTelegramMessage(chatId, resultMessage);
-
   } catch (error) {
     await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
   }
 }
 
 async function createVPNConfigs(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`"; // Pastikan UUID didefinisikan dengan benar
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
-  // ShadowSocks
+  // Konfigurasi Link VPN
   const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
   const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  
-  // VLESS
   const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  
-  // Trojan
   const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
   const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  
+
   return `
 ⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
+\`\`\`${vlessTLS}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
+\`\`\`${vlessNTLS}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
-          
   - name: ${isp} - TLS
     server: ${wildkere}
     port: 443
@@ -1142,9 +1139,9 @@ proxies:
     network: ws
     servername: ${wildkere}
     alpn:
-       - h2
-       - h3
-       - http/1.1
+      - h2
+      - h3
+      - http/1.1
     ws-opts:
       path: ${path}
       headers:
@@ -1152,23 +1149,16 @@ proxies:
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
 \`\`\`
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan**
 1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
+\`\`\`${trojanTLS}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
+\`\`\`${trojanNTLS}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
-       
   - name: ${isp} - TLS
     server: ${wildkere}
     port: 443
@@ -1181,9 +1171,9 @@ proxies:
     network: ws
     sni: ${wildkere}
     alpn:
-       - h2
-       - h3
-       - http/1.1
+      - h2
+      - h3
+      - http/1.1
     ws-opts:
       path: ${path}
       headers:
@@ -1191,23 +1181,16 @@ proxies:
       max-early-data: 0
       early-data-header-name: Sec-WebSocket-Protocol
       ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
 \`\`\`
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks**
 1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
+\`\`\`${ssTls}\`\`\`
 2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
+\`\`\`${ssNTls}\`\`\`
 📄 **Proxies Config**:
 \`\`\`
 proxies:
-
   - name: ${isp} - TLS
     server: ${wildkere}
     port: 443
@@ -1225,12 +1208,8 @@ proxies:
       mux: false
       skip-cert-verify: true
     headers:
-      custom: value
       ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
 \`\`\`
-━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
@@ -1242,17 +1221,8 @@ proxies:
 ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
 🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-    `;
-
-    // Kirim hasil cek
-    
-}
-
-
-  
-
-    
+`;
+}    
 
 
 // Constant
