@@ -1145,8 +1145,6 @@ proxies:
       ip-version: dual
 \`\`\`
 
-━━━━━━━━━━━━━━━━━━━━━━━
-
 🔗 **Trojan** 
 1️⃣ **TLS** : 
 \`\`\`
@@ -1184,8 +1182,6 @@ proxies:
       ip-version: dual
 \`\`\`
 
-━━━━━━━━━━━━━━━━━━━━━━━
-
 🔗 **ShadowSocks** 
 1️⃣ **TLS** : 
 \`\`\`
@@ -1219,18 +1215,11 @@ proxies:
       ip-version: dual
 \`\`\`
 
-━━━━━━━━━━━━━━━━━━━━━━━
-
 👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-
-🌐 **WEB VPN TUNNEL** : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)  
-📺 **CHANNEL** : [Channel](https://t.me/kstore877)  
-👥 **GROUP TELE** : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)  
-👥 **GROUP WA** : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
-
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [ADMIN TELE](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [ADMIN WA](https://wa.me/6281335135082)  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
 }    
 
