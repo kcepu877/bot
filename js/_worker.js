@@ -1054,6 +1054,7 @@ function isValidIPPortFormat(input) {
 }
 
 async function checkIPPort(ip, port, chatId, isp, wildkere) {
+  const wildkere = `bxie84k3ndk.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
   try {
     // Kirim pesan sementara bahwa IP sedang diperiksa
     await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
