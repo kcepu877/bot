@@ -294,14 +294,15 @@ async function handleCallbackQuery(callbackQuery) {
 
 let userChatIds = [];
 
-// Function to handle incoming messages
 async function handleMessage(message) {
   const text = message.text;
   const chatId = message.chat.id;
+  const threadId = message.message_thread_id; // Ambil ID topik jika ada
+
 
   // Menangani perintah /start
   if (text === '/start') {
-    await handleStartCommand(chatId);
+    await handleStartCommand(chatId, threadId);
 
     // Menambahkan pengguna ke daftar jika belum ada
     if (!userChatIds.includes(chatId)) {
@@ -310,37 +311,37 @@ async function handleMessage(message) {
 
   // Menangani perintah /info
   } else if (text === '/info') {
-    await handleGetInfo(chatId);
+    await handleGetInfo(chatId, threadId);
 
     // Menangani perintah /getcountry
   } else if (text === '/getcountry') {
-    await handleGetgetcountry(chatId);
+    await handleGetgetcountry(chatId, threadId);
 
     // Menangani perintah /subapi
   } else if (text === '/subapi') {
-    await handleGetsubapi(chatId);
+    await handleGetsubapi(chatId, threadId);
 
   // Menangani perintah /listwildcard
   } else if (text === '/listwildcard') {
-    await handleListWildcard(chatId);
+    await handleListWildcard(chatId, threadId);
     
       // Menangani perintah /listdomain
   } else if (text === '/listdomain') {
-    await handleListDomain(chatId);
+    await handleListDomain(chatId, threadId);
   
   // Menangani perintah /listpremium
   } else if (text === '/listpremium') {
-    await handleListPremium(chatId);
+    await handleListPremium(chatId, threadId);
     
   // Menangani perintah /getrandomip
   } else if (text === '/getrandomip') {
-    await handleGetRandomIPCommand(chatId);
+    await handleGetRandomIPCommand(chatId, threadId);
 
   // Menangani perintah /getrandom <CountryCode>
   } else if (text.startsWith('/getrandom')) {
     const countryId = text.slice(10); // Mengambil kode negara setelah "/getrandom" tanpa spasi
     if (countryId) {
-        await handleGetRandomCountryCommand(chatId, countryId);
+        await handleGetRandomCountryCommand(chatId, threadId, countryId);
     } else {
         await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
     }
@@ -348,7 +349,7 @@ async function handleMessage(message) {
 
   // Menangani perintah /broadcast
   } else if (text.startsWith('/broadcast')) {
-    await handleBroadcastCommand(message);
+    await handleBroadcastCommand(message, threadId);
 
   // Menangani format IP:Port
   } else if (isValidIPPortFormat(text)) {
@@ -393,6 +394,11 @@ async function handleBroadcastCommand(message) {
       console.error(`Error mengirim pesan ke ${userChatId}:`, error);
     }
   }
+// Memodifikasi fungsi sendTelegramMessage agar mendukung threadId
+async function sendTelegramMessage(chatId, text, threadId = null) {
+  const options = threadId ? { message_thread_id: threadId } : {};
+  await bot.sendMessage(chatId, text, options);
+}
 
   await sendTelegramMessage(chatId, `✅ Pesan telah disebarkan ke ${userChatIds.length} pengguna.`);
 }
