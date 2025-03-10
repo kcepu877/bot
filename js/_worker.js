@@ -1083,6 +1083,104 @@ async function checkIPPort(ip, port, chatId) {
 🌆 Kota: ${data.KOTA}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Links ShadowSocks**:\n
+1️⃣ **TLS** :
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}\`\`\`
+📄 **Proxies Config**:
+\`\`\`proxies:
+
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: ss
+    cipher: none
+    password: ${UUIDS}
+    plugin: v2ray-plugin
+    client-fingerprint: chrome
+    udp: true
+    plugin-opts:
+      mode: websocket
+      host: ${wildkere}
+      path: /Free-CF-Proxy-${ip}-${port}
+      tls: true
+      mux: false
+      skip-cert-verify: true
+    headers:
+      custom: value
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false
+\`\`\`
+
+🔗 **Links Vless**:\n
+1️⃣ **TLS** :
+\`\`\`vless://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+2️⃣ **Non-TLS** :
+\`\`\`vless://${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+
+📄 **Proxies Config** :
+\`\`\`proxies:
+          
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: vless
+    uuid: ${UUIDS}
+    cipher: auto
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    skip-cert-verify: true
+    network: ws
+    servername: ${wildkere}
+    alpn:
+       - h2
+       - h3
+       - http/1.1
+    ws-opts:
+      path: /Free-CF-Proxy-${ip}-${port}
+      headers:
+        Host: ${wildkere}
+      max-early-data: 0
+      early-data-header-name: Sec-WebSocket-Protocol
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false\`\`\`
+ 
+🔗 **Links Trojan** :
+1️⃣ **TLS** : 
+\`\`\`trojan://${UUIDS}@${wildkere}:443?path=/Free-CF-Proxy-${ip}-${port}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`trojan//${UUIDS}@${wildkere}:80?path=/Free-CF-Proxy-${ip}-${port}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}\`\`\`
+📄 **Proxies Config** :
+\`\`\`proxies:
+       
+  - name: ${isp} - TLS
+    server: ${wildkere}
+    port: 443
+    type: trojan
+    password: ${UUIDS}
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    skip-cert-verify: true
+    network: ws
+    sni: ${wildkere}
+    alpn:
+       - h2
+       - h3
+       - http/1.1
+    ws-opts:
+      path: /Free-CF-Proxy-${ip}-${port}
+      headers:
+        Host: ${wildkere}
+      max-early-data: 0
+      early-data-header-name: Sec-WebSocket-Protocol
+      ip-version: dual
+      v2ray-http-upgrade: false
+      v2ray-http-upgrade-fast-open: false\`\`\`
 
 👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
 
@@ -1109,192 +1207,6 @@ ORDER PREMIUM CONTACT ADMIN
   }
 }
 
-
-
-async function handleShadowSocksCreation(chatId, ip, port, isp, wildkere) {
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=%2FFree-CF-Proxy-${ip}-${port}&security=none&sni=${wildkere}#${isp}`;
-
-  const proxies = `
-proxies:
-
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: ss
-    cipher: none
-    password: ${UUIDS}
-    plugin: v2ray-plugin
-    client-fingerprint: chrome
-    udp: true
-    plugin-opts:
-      mode: websocket
-      host: ${wildkere}
-      path: /Free-CF-Proxy-${ip}-${port}
-      tls: true
-      mux: false
-      skip-cert-verify: true
-    headers:
-      custom: value
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-`;
-
-  const message = `
-Success Create ShadowSocks \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links ShadowSocks**:\n
-1️⃣ **TLS** :
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-📄 **Proxies Config**:
-\`\`\`
-${proxies}
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-  `;
-
-  // Kirim pesan melalui Telegram
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleVlessCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  const message = `
-Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Vless**:\n
-1️⃣ **TLS** :
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** :
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-📄 **Proxies Config** :
-\`\`\`
-proxies:
-          
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: vless
-    uuid: ${UUIDS}
-    cipher: auto
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    servername: ${wildkere}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-
-  `;
-
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleTrojanCreation(chatId, ip, port, isp, wildkere) {
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(wildkere)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(wildkere)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  const message = `
-Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Trojan** :
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-📄 **Proxies Config** :
-\`\`\`
-proxies:
-       
-  - name: ${isp} - TLS
-    server: ${wildkere}
-    port: 443
-    type: trojan
-    password: ${UUIDS}
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    sni: ${wildkere}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${wildkere}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-\`\`\`
-
-👨‍💻 Dikembangkan oleh : [Mode](https://t.me/kstore877)
-`;
-
-  await sendTelegramMessage(chatId, message);
-}
 
 async function sendInlineKeyboard(chatId, ip, port, isp) {
   try {
