@@ -531,36 +531,243 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleGetgetcountry(chatId) {
-  const countries = [
-    { code: "AE", flag: "🇦🇪" }, { code: "AF", flag: "🇦🇫" }, { code: "AL", flag: "🇦🇱" }, { code: "DZ", flag: "🇩🇿" },
-    { code: "AS", flag: "🇦🇸" }, { code: "AD", flag: "🇦🇩" }, { code: "AO", flag: "🇦🇴" }, { code: "AI", flag: "🇦🇮" },
-    { code: "AR", flag: "🇦🇷" }, { code: "AM", flag: "🇦🇲" }, { code: "AW", flag: "🇦🇼" }, { code: "AU", flag: "🇦🇺" },
-    { code: "AT", flag: "🇦🇹" }, { code: "AZ", flag: "🇦🇿" }, { code: "BS", flag: "🇧🇸" }, { code: "BH", flag: "🇧🇭" },
-    { code: "BD", flag: "🇧🇩" }, { code: "BB", flag: "🇧🇧" }, { code: "BY", flag: "🇧🇾" }, { code: "BE", flag: "🇧🇪" },
-    { code: "BZ", flag: "🇧🇿" }, { code: "BJ", flag: "🇧🇯" }, { code: "BM", flag: "🇧🇲" }, { code: "BT", flag: "🇧🇹" },
-    { code: "BO", flag: "🇧🇴" }, { code: "BA", flag: "🇧🇦" }, { code: "BW", flag: "🇧🇼" }, { code: "BR", flag: "🇧🇷" },
-    { code: "CA", flag: "🇨🇦" }, { code: "CH", flag: "🇨🇭" }, { code: "CN", flag: "🇨🇳" }, { code: "CO", flag: "🇨🇴" },
-    { code: "DE", flag: "🇩🇪" }, { code: "DK", flag: "🇩🇰" }, { code: "EG", flag: "🇪🇬" }, { code: "ES", flag: "🇪🇸" },
-    { code: "FR", flag: "🇫🇷" }, { code: "GB", flag: "🇬🇧" }, { code: "ID", flag: "🇮🇩" }, { code: "IN", flag: "🇮🇳" },
-    { code: "IT", flag: "🇮🇹" }, { code: "JP", flag: "🇯🇵" }, { code: "KR", flag: "🇰🇷" }, { code: "MX", flag: "🇲🇽" },
-    { code: "MY", flag: "🇲🇾" }, { code: "NL", flag: "🇳🇱" }, { code: "PH", flag: "🇵🇭" }, { code: "RU", flag: "🇷🇺" },
-    { code: "SG", flag: "🇸🇬" }, { code: "TH", flag: "🇹🇭" }, { code: "TR", flag: "🇹🇷" }, { code: "US", flag: "🇺🇸" },
-    { code: "VN", flag: "🇻🇳" }, { code: "ZA", flag: "🇿🇦" }
-  ];
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
 
-  const buttons = [];
-  for (let i = 0; i < countries.length; i += 4) {
-    buttons.push(
-      countries.slice(i, i + 4).map(({ code, flag }) => ({
-        text: `${flag} ${code}`,
-        callback_data: `/getrandom${code}`
-      }))
-    );
-  }
+/getrandomAE
+/getrandomAF
+/getrandomAL
+/getrandomDZ
+/getrandomAS
+/getrandomAD
+/getrandomAO
+/getrandomAI
+/getrandomAR
+/getrandomAM
+/getrandomAW
+/getrandomAU
+/getrandomAT
+/getrandomAZ
+/getrandomBS
+/getrandomBH
+/getrandomBD
+/getrandomBB
+/getrandomBY
+/getrandomBE
+/getrandomBZ
+/getrandomBJ
+/getrandomBM
+/getrandomBT
+/getrandomBO
+/getrandomBA
+/getrandomBW
+/getrandomBR
+/getrandomIO
+/getrandomBN
+/getrandomBG
+/getrandomBF
+/getrandomBI
+/getrandomKH
+/getrandomCM
+/getrandomCA
+/getrandomCV
+/getrandomKY
+/getrandomCF
+/getrandomTD
+/getrandomCL
+/getrandomCN
+/getrandomCX
+/getrandomCC
+/getrandomCO
+/getrandomKM
+/getrandomCD
+/getrandomCG
+/getrandomCK
+/getrandomCR
+/getrandomCI
+/getrandomHR
+/getrandomCU
+/getrandomCW
+/getrandomCY
+/getrandomCZ
+/getrandomDR
+/getrandomDJ
+/getrandomDM
+/getrandomDO
+/getrandomEC
+/getrandomEG
+/getrandomSV
+/getrandomGQ
+/getrandomER
+/getrandomEE
+/getrandomET
+/getrandomFK
+/getrandomFO
+/getrandomFJ
+/getrandomFI
+/getrandomFR
+/getrandomGA
+/getrandomGE
+/getrandomDE
+/getrandomGH
+/getrandomGI
+/getrandomGR
+/getrandomGL
+/getrandomGD
+/getrandomGP
+/getrandomGU
+/getrandomGT
+/getrandomGN
+/getrandomGW
+/getrandomGY
+/getrandomHT
+/getrandomHM
+/getrandomVA
+/getrandomHN
+/getrandomHK
+/getrandomHU
+/getrandomIS
+/getrandomIN
+/getrandomID
+/getrandomIR
+/getrandomIQ
+/getrandomIE
+/getrandomIL
+/getrandomIT
+/getrandomJM
+/getrandomJP
+/getrandomJO
+/getrandomKZ
+/getrandomKE
+/getrandomKI
+/getrandomKP
+/getrandomKR
+/getrandomKW
+/getrandomLA
+/getrandomLB
+/getrandomLS
+/getrandomLR
+/getrandomLY
+/getrandomLT
+/getrandomLU
+/getrandomMO
+/getrandomMG
+/getrandomMW
+/getrandomMY
+/getrandomMV
+/getrandomML
+/getrandomMT
+/getrandomMH
+/getrandomMQ
+/getrandomMR
+/getrandomMU
+/getrandomYT
+/getrandomMX
+/getrandomFM
+/getrandomMD
+/getrandomMC
+/getrandomMN
+/getrandomME
+/getrandomMS
+/getrandomMA
+/getrandomMZ
+/getrandomMM
+/getrandomNA
+/getrandomNR
+/getrandomNP
+/getrandomNL
+/getrandomNC
+/getrandomNZ
+/getrandomNI
+/getrandomNE
+/getrandomNG
+/getrandomNU
+/getrandomNF
+/getrandomMP
+/getrandomNO
+/getrandomOM
+/getrandomPK
+/getrandomPW
+/getrandomPA
+/getrandomPG
+/getrandomPY
+/getrandomPE
+/getrandomPH
+/getrandomPN
+/getrandomPL
+/getrandomPT
+/getrandomPR
+/getrandomQA
+/getrandomRO
+/getrandomRU
+/getrandomRW
+/getrandomRE
+/getrandomBL
+/getrandomSH
+/getrandomKN
+/getrandomLC
+/getrandomMF
+/getrandomPM
+/getrandomVC
+/getrandomWS
+/getrandomSM
+/getrandomST
+/getrandomSA
+/getrandomSN
+/getrandomRS
+/getrandomSC
+/getrandomSL
+/getrandomSG
+/getrandomSX
+/getrandomSY
+/getrandomSK
+/getrandomSI
+/getrandomSO
+/getrandomZA
+/getrandomSS
+/getrandomES
+/getrandomLK
+/getrandomSD
+/getrandomSR
+/getrandomSZ
+/getrandomSE
+/getrandomCH
+/getrandomTJ
+/getrandomTH
+/getrandomTM
+/getrandomTN
+/getrandomTR
+/getrandomTT
+/getrandomTV
+/getrandomTZ
+/getrandomUG
+/getrandomUA
+/getrandomGB
+/getrandomUS
+/getrandomUY
+/getrandomUZ
+/getrandomVU
+/getrandomVE
+/getrandomVN
+/getrandomWF
+/getrandomYE
+/getrandomZM
+/getrandomZW
 
-  await sendTelegramMessage(chatId, InfoMessage, {
-    reply_markup: { inline_keyboard: buttons }
-  });
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
 }
 
 
