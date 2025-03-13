@@ -53,15 +53,18 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.3.0
         with:
           ref: ${{ env.GIT_REF }}
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Cek Versi Node.js
+        run: node -v
 
       - name: 🛸 Env?
         if: github.event.inputs.environment == 'prod' || github.event.inputs.environment == 'one'
@@ -87,7 +90,7 @@ jobs:
         run: npm install
 
       - name: 📚 Wrangler publish
-        uses: cloudflare/wrangler-action@2.0.0
+        uses: cloudflare/wrangler-action@3.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           environment: ${{ env.WORKERS_ENV }}
@@ -104,7 +107,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.3.0
         with:
           ref: ${{ env.GIT_REF }}
           fetch-depth: 0
