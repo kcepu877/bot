@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 10 * * 0'  # Runs every Sunday at 10:00 UTC
 
 jobs:
   deploy:
