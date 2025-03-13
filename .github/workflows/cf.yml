@@ -1,1 +1,40 @@
-jdj
+name: Deploy Cloudflare Worker
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 10 * * 0'  # Runs every Sunday at 10:00 UTC
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instal Wrangler
+        run: npm install -g wrangler
+
+      - name: Deploy ke Cloudflare
+        run: wrangler publish
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+
+      - name: Konfigurasi Git Bot
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit Perubahan Otomatis
+        run: |
+          git add .
+          git commit -m "🤖 Update otomatis setelah deploy" || echo "Tidak ada perubahan yang perlu di-commit"
+          git push
