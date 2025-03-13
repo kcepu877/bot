@@ -2,7 +2,7 @@ name: Replace Subdomain Weekly
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Jalankan setiap minggu pada pukul 00:00 UTC pada hari Minggu
+  - cron: '0 0 * * 0' # Jalankan setiap minggu pada pukul 00:00 UTC pada hari Minggu
   workflow_dispatch:
 
 jobs:
@@ -31,19 +31,29 @@ jobs:
         echo "Displaying js/_worker.js content after update:"
         cat js/_worker.js
 
+    - name: Display updated index.html
+      run: |
+        echo "Displaying index.html content after update:"
+        cat index.html
+
     - name: Check if files are updated
       run: |
-        echo "Checking if 'ns1.cloudproxyip.my.id' is removed from js/_worker.js"
+        echo "Checking if 'ns1.cloudproxyip.my.id' is removed from js/_worker.js and index.html"
         if ! grep -q "ns1.cloudproxyip.my.id" js/_worker.js; then
           echo "js/_worker.js updated successfully"
         else
           echo "js/_worker.js not updated"
         fi
+        if ! grep -q "ns1.cloudproxyip.my.id" index.html; then
+          echo "index.html updated successfully"
+        else
+          echo "index.html not updated"
+        fi
 
-    - name: Commit changes to js/_worker.js and subdomain.yml
+    - name: Commit changes to js/_worker.js and index.html
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git add js/_worker.js subdomain.yml
+        git add js/_worker.js index.html subdomain.yml
         git commit -m "Update subdomain"
         git push
