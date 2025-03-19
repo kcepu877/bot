@@ -1,14 +1,6 @@
-name = "bot" # todo
+name = "bot"
 main = "js/_worker.js"
 compatibility_date = "2024-05-26"
-
-
-[unsafe.metadata.observability]
-enabled = true
-
-[observability.logs]
-enabled = true
-
 
 [[routes]]
 pattern = "xnxx.cloudproxyip.my.id"
