@@ -411,7 +411,7 @@ async function handleBroadcastCommand(message) {
 }
 
 // Fungsi untuk mengirim pesan ke pengguna melalui Telegram API
-async function sendTelegramMessage(chatId, message) {
+async function sendTelegramMessage1(chatId, message) {
   const url = `${TELEGRAM_API_URL}/sendMessage`;
 
   const payload = {
