@@ -10,7 +10,7 @@ const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg';
+const FAKE_HOSTNAME = 'nzi38dkw92.cloudproxyip.my.id';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -256,26 +256,16 @@ async function handleCallbackQuery(callbackQuery) {
 
   const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
-  const domHandlers = {
-    create_dom1: handleDom1Creation,
-    create_dom2: handleDom2Creation,
-    create_dom3: handleDom3Creation,
-    create_dom4: handleDom4Creation,
-    create_dom5: handleDom5Creation,
-    create_dom6: handleDom6Creation,
-    create_dom7: handleDom7Creation,
-    create_dom8: handleDom8Creation,
-    create_dom9: handleDom9Creation,
-    create_dom10: handleDom10Creation,
-  };
-
   try {
-    const [command, ip, port, isp] = callbackData.split('|');
-    
-    if (domHandlers[command]) {
-      await domHandlers[command](chatId, ip, port, isp, wildkere);
-    } else {
-      console.warn(`Perintah tidak dikenali: ${command}`);
+    if (callbackData.startsWith('create_vless')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleVlessCreation(chatId, ip, port, isp, wildkere);
+    } else if (callbackData.startsWith('create_trojan')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleTrojanCreation(chatId, ip, port, isp, wildkere);
+    } else if (callbackData.startsWith('create_ss')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleShadowSocksCreation(chatId, ip, port, isp, wildkere);
     }
 
     // Konfirmasi callback query ke Telegram
@@ -292,7 +282,6 @@ async function handleCallbackQuery(callbackQuery) {
 
   return new Response('OK', { status: 200 });
 }
-
 
 
 let userChatIds = [];
@@ -401,7 +390,7 @@ async function handleBroadcastCommand(message) {
 }
 
 // Fungsi untuk mengirim pesan ke pengguna melalui Telegram API
-async function sendTelegramMessage1(chatId, message) {
+async function sendTelegramMessage(chatId, message) {
   const url = `${TELEGRAM_API_URL}/sendMessage`;
 
   const payload = {
@@ -458,7 +447,7 @@ async function handleStartCommand(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -484,7 +473,7 @@ async function handleGetInfo(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -501,7 +490,7 @@ async function handleGetsubapi(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-URL = https://sublink.bmkg.xyz/api
+URL = https://nzi38dkw92.cloudproxyip.my.id/api
 aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
 Acount = ?type=vless, trojan, ss,
 Bug = &bug=\`quiz.int.vidio.com\`, 
@@ -524,11 +513,11 @@ limit = &limit=10
 Country = &country=RANDOM, all, SG, ID, US, DLL
 
 
-https://sublink.bmkg.xyz/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
+https://nzi38dkw92.cloudproxyip.my.id/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -769,7 +758,7 @@ async function handleGetgetcountry(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -783,7 +772,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListWildcard(chatId) {
-  const wildkere = `bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const wildkere = `nzi38dkw92.cloudproxyip.my.id`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -804,7 +793,7 @@ async function handleListWildcard(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -820,7 +809,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListDomain(chatId) {
-  const wildkere = `bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg`;
+  const wildkere = `nzi38dkw92.cloudproxyip.my.id`;
   const infoMessage = `
 🎉 List Domain VPN Tunnel Free Vpn Bot! 
 
@@ -839,7 +828,7 @@ async function handleListDomain(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -966,7 +955,7 @@ server--🇮🇩ID-NUSA MAX
 🛠 *ADMIN 1:* @kcepu877  
 🛠 *ADMIN 2:* @epoenk877  
 
-🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://sublink.bmkg.xyz)  
+🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)  
 📢 *Channel Telegram:* [Klik di sini](https://t.me/kstore877)  
 👥 *Grup Telegram:* [Klik di sini](https://t.me/+Rs4HvJtagXZlYTNl)  
 👥 *Grup WhatsApp:* [Klik di sini](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
@@ -1069,7 +1058,7 @@ async function checkIPPort(ip, port, chatId) {
     await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
-    
+    const data = await response.json();
 
     const filterISP = (isp) => {
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
@@ -1077,52 +1066,47 @@ async function checkIPPort(ip, port, chatId) {
       return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
     };
 
-    const data = await response.json();
+    const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
-    const resultMessage = `
-🌐 **Hasil Cek IP dan Port**:
+    let resultMessage = `
+🌐 Hasil Cek IP dan Port:
 ━━━━━━━━━━━━━━━━━━━━━━━
-📍 **IP**: ${data.IP}
-🔌 **Port**: ${data.PORT}
-📡 **ISP**: ${data.ISP}
-🏢 **ASN**: ${data.ASN}
-🌆 **Kota**: ${data.KOTA}
-📶 **Status**: ${status}
-━━━━━━━━━━━━━━━━━━━━━━━
-    `;
-    await sendTelegramMessage(chatId, resultMessage);
-
-    if (status === "✅ Aktif") {
-      await sendInlineKeyboard(chatId, data.IP, data.PORT, data.ISP);
-    }
-  } catch (error) {
-    return `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`;
-  }
-}
-
-async function handleAllDomCreation(domains) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";
-  
-  let message = `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
+📍 IP: ${data.IP}
+🔌 Port: ${data.PORT}
+📡 ISP: ${filteredISP}
+🏢 ASN: ${data.ASN || "Unknown"}
+🌆 Kota: ${data.KOTA || "Unknown"}
+📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
 `;
 
-  domains.forEach((wildkere, index) => {
-    const path = `/Free-CF-Proxy-${wildkere}`;
+    const wildkere = "nzi38dkw92.cloudproxyip.my.id";
+    resultMessage += await createVPNConfigs(ip, port, filteredISP, wildkere);
 
-    // Konfigurasi Link VPN
-    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}`;
-    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}`;
-    const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}`;
-    const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}`;
-    const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}`;
-    const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}`;
+    await sendTelegramMessage(chatId, resultMessage);
+  } catch (error) {
+    await sendTelegramMessage(chatId, `⚠️ Terjadi kesalahan saat memeriksa IP dan port: ${error.message}`);
+  }
+}
 
-    message += `
-🌐 **Domain ${index + 1}:** ${wildkere}
+async function createVPNConfigs(ip, port, isp, wildkere) {
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+
+  
+      return `
+━━━━━━━━━━━━━━━━━━━━━━━
+⚜️ **VPN Configurations** ⚜️
+━━━━━━━━━━━━━━━━━━━━━━━
 
 🔗 **VLESS** 
 1️⃣ **TLS** : 
@@ -1134,7 +1118,10 @@ ${vlessTLS}
 ${vlessNTLS}
 \`\`\`
 
+
+━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${trojanTLS}
@@ -1144,7 +1131,10 @@ ${trojanTLS}
 ${trojanNTLS}
 \`\`\`
 
+
+━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${ssTls}
@@ -1154,87 +1144,18 @@ ${ssTls}
 ${ssNTls}
 \`\`\`
 
-━━━━━━━━━━━━━━━━━━━━━━━
-`;
-  });
 
-  // Informasi tambahan
-  message += `
+━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━
 👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://nzi38dkw92.cloudproxyip.my.id)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
-
-  await sendTelegramMessage(chatId, message);
-}
-
-// Contoh pemanggilan fungsi
-const domains = [
-  "example1.com",
-  "example2.com",
-  "example3.com",
-  "example4.com",
-  "example5.com",
-  "example6.com",
-  "example7.com",
-  "example8.com",
-  "example9.com",
-  "example10.com"
-];
-
-handleAllDomCreation(domains);
+}    
 
 
-async function sendTelegramMessage(chatId, text) {
-  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: text,
-      parse_mode: 'Markdown', // Gunakan Markdown untuk format teks
-    }),
-  });
-
-  if (!response.ok) {
-    console.error('Failed to send message:', await response.text());
-  }
-}
-/**
- * Fungsi untuk mengirim inline keyboard
- */
-async function sendInlineKeyboard(chatId, ip, port, isp) {
-  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: '✅ IP dan Port Aktif. Pilih opsi berikut untuk membuat link:',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: 'Create Server bmkg', callback_data: `create_dom1|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server cepu', callback_data: `create_dom2|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server kere', callback_data: `create_dom3|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server ndeso 1', callback_data: `create_dom4|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server ndeso 2', callback_data: `create_dom5|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server xhamster', callback_data: `create_dom6|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server najah', callback_data: `create_dom7|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server cloudproxy', callback_data: `create_dom8|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server suwung', callback_data: `create_dom9|${ip}|${port}|${isp}` }],
-          [{ text: 'Create Server mamamia', callback_data: `create_dom10|${ip}|${port}|${isp}` }],
-        ],
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    console.error('Gagal mengirim pesan:', response.statusText);
-  }
-
-  return response;
-}
 
 
 // Constant
@@ -1276,17 +1197,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${UUIDS}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${UUIDS}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${UUIDS}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&security=tls&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${UUIDS}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&security=none&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&fp=randomized&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&security=tls&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&security=none&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&security=tls&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&security=none&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=nzi38dkw92.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=nzi38dkw92.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: nzi38dkw92.cloudproxyip.my.id
   port: 443
   type: vless
   uuid: ${UUIDS}
@@ -1296,7 +1217,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  servername: nzi38dkw92.cloudproxyip.my.id
   alpn:
     - h2
     - h3
@@ -1304,7 +1225,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: nzi38dkw92.cloudproxyip.my.id
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1316,7 +1237,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: nzi38dkw92.cloudproxyip.my.id
   port: 443
   type: trojan
   password: ${UUIDS}
@@ -1325,7 +1246,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  sni: nzi38dkw92.cloudproxyip.my.id
   alpn:
     - h2
     - h3
@@ -1333,7 +1254,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+      Host: nzi38dkw92.cloudproxyip.my.id
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1345,7 +1266,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+  server: nzi38dkw92.cloudproxyip.my.id
   port: 443
   type: ss
   cipher: none
@@ -1355,7 +1276,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: bzj384jdo.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg
+    host: nzi38dkw92.cloudproxyip.my.id
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
