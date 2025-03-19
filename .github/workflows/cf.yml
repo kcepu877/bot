@@ -62,13 +62,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Cek Versi Node.js
         run: node -v
 
-      - name: 🏗 Install Dependencies
-        run: npm install
+      - name: 🏗 Install Dependencies (Tanpa Lock File)
+        run: npm install --no-package-lock
 
       - name: ⚙️ Install Wrangler v4
         run: npm install --global wrangler@4
