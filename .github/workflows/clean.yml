@@ -1,6 +1,7 @@
 name: Clean Old Logs
 
 on:
+  workflow_dispatch:  # 🔧 Bisa dijalankan manual dari tab Actions
   schedule:
     - cron: '0 0 * * 0'  # Setiap Minggu
 
@@ -8,8 +9,13 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup GitHub CLI
+        run: |
+          sudo apt-get install gh
+
       - name: Delete Workflow Runs
         run: |
-          gh run list --limit 100 | grep "completed" | awk '{print $1}' | xargs -I {} gh run delete {}
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh run list --limit 100 | grep "completed" | awk '{print $1}' | xargs -I {} gh run delete {} -y
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
