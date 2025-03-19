@@ -1079,7 +1079,7 @@ async function checkIPPort(ip, port, chatId) {
     await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
-    const data = await response.json();
+    
 
     const filterISP = (isp) => {
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
