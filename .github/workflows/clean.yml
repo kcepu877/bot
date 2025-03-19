@@ -1,0 +1,15 @@
+name: Clean Old Logs
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Setiap Minggu
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Workflow Runs
+        run: |
+          gh run list --limit 100 | grep "completed" | awk '{print $1}' | xargs -I {} gh run delete {}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
