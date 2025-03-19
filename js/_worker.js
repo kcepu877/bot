@@ -256,38 +256,27 @@ async function handleCallbackQuery(callbackQuery) {
 
   const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
+  const domHandlers = {
+    create_dom1: handleDom1Creation,
+    create_dom2: handleDom2Creation,
+    create_dom3: handleDom3Creation,
+    create_dom4: handleDom4Creation,
+    create_dom5: handleDom5Creation,
+    create_dom6: handleDom6Creation,
+    create_dom7: handleDom7Creation,
+    create_dom8: handleDom8Creation,
+    create_dom9: handleDom9Creation,
+    create_dom10: handleDom10Creation,
+  };
+
   try {
-    if (callbackData.startsWith('create_dom1')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom1Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom2')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom2Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom3')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom3Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom4')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom4Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom5')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom5Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom6')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom6Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom7')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom7Creation(chatId, ip, port, isp, wildkere);
-  } else   if (callbackData.startsWith('create_dom8')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom8Creation(chatId, ip, port, isp, wildkere);
-  } else if (callbackData.startsWith('create_dom9')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom9Creation(chatId, ip, port, isp, wildkere);
-  } else if (callbackData.startsWith('create_dom10')) {
-    const [_, ip, port, isp] = callbackData.split('|');
-    await handleDom10Creation(chatId, ip, port, isp, wildkere);
-  }
+    const [command, ip, port, isp] = callbackData.split('|');
+    
+    if (domHandlers[command]) {
+      await domHandlers[command](chatId, ip, port, isp, wildkere);
+    } else {
+      console.warn(`Perintah tidak dikenali: ${command}`);
+    }
 
     // Konfirmasi callback query ke Telegram
     await fetch(`${TELEGRAM_API_URL}/answerCallbackQuery`, {
@@ -303,6 +292,7 @@ async function handleCallbackQuery(callbackQuery) {
 
   return new Response('OK', { status: 200 });
 }
+
 
 
 let userChatIds = [];
@@ -1111,23 +1101,28 @@ async function checkIPPort(ip, port, chatId) {
   }
 }
 
-async function handleDom1Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
+async function handleAllDomCreation(domains) {
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";
   
-      return `
+  let message = `
 ━━━━━━━━━━━━━━━━━━━━━━━
 ⚜️ **VPN Configurations** ⚜️
 ━━━━━━━━━━━━━━━━━━━━━━━
+`;
+
+  domains.forEach((wildkere, index) => {
+    const path = `/Free-CF-Proxy-${wildkere}`;
+
+    // Konfigurasi Link VPN
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}`;
+    const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}`;
+    const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}`;
+    const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}`;
+    const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}`;
+
+    message += `
+🌐 **Domain ${index + 1}:** ${wildkere}
 
 🔗 **VLESS** 
 1️⃣ **TLS** : 
@@ -1139,10 +1134,7 @@ ${vlessTLS}
 ${vlessNTLS}
 \`\`\`
 
-
-━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${trojanTLS}
@@ -1152,10 +1144,7 @@ ${trojanTLS}
 ${trojanNTLS}
 \`\`\`
 
-
-━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
 1️⃣ **TLS** : 
 \`\`\`
 ${ssTls}
@@ -1165,614 +1154,38 @@ ${ssTls}
 ${ssNTls}
 \`\`\`
 
+━━━━━━━━━━━━━━━━━━━━━━━
+`;
+  });
 
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
+  // Informasi tambahan
+  message += `
 👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
 🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
 `;
-await sendTelegramMessage(chatId, message);
-}    
 
+  await sendTelegramMessage(chatId, message);
+}
+
+// Contoh pemanggilan fungsi
+const domains = [
+  "example1.com",
+  "example2.com",
+  "example3.com",
+  "example4.com",
+  "example5.com",
+  "example6.com",
+  "example7.com",
+  "example8.com",
+  "example9.com",
+  "example10.com"
+];
+
+handleAllDomCreation(domains);
 
-// Generate VLESS configuration
-// VLESS Creation Function
-async function handleDom10Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-async function handleDom2Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom3Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom4Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom5Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom6Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom7Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-async function handleDom8Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
-
-// Trojan Creation Function
-async function handleDom9Creation(ip, port, isp, wildkere) {
-  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
-  const path = `/Free-CF-Proxy-${ip}-${port}`;
-
-  // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-
-  
-      return `
-━━━━━━━━━━━━━━━━━━━━━━━
-⚜️ **VPN Configurations** ⚜️
-━━━━━━━━━━━━━━━━━━━━━━━
-
-🔗 **VLESS** 
-1️⃣ **TLS** : 
-\`\`\`
-${vlessTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${vlessNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **Trojan** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${trojanTLS}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${trojanNTLS}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-🔗 **ShadowSocks** 
-━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
-\`\`\`
-${ssTls}
-\`\`\`
-2️⃣ **Non-TLS** : 
-\`\`\`
-${ssNTls}
-\`\`\`
-
-
-━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://sublink.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
-`;
-await sendTelegramMessage(chatId, message);
-}    
 
 async function sendTelegramMessage(chatId, text) {
   const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
@@ -1801,46 +1214,28 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
       text: '✅ IP dan Port Aktif. Pilih opsi berikut untuk membuat link:',
       reply_markup: {
         inline_keyboard: [
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom1|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom2|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom3|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom4|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom5|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom6|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom7|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom8|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom9|${ip}|${port}|${isp}` },
-          ],
-                    [
-            { text: 'Create Server 1', callback_data: `create_dom10|${ip}|${port}|${isp}` },
-          ],
-                    
+          [{ text: 'Create Server bmkg', callback_data: `create_dom1|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server cepu', callback_data: `create_dom2|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server kere', callback_data: `create_dom3|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server ndeso 1', callback_data: `create_dom4|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server ndeso 2', callback_data: `create_dom5|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server xhamster', callback_data: `create_dom6|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server najah', callback_data: `create_dom7|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server cloudproxy', callback_data: `create_dom8|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server suwung', callback_data: `create_dom9|${ip}|${port}|${isp}` }],
+          [{ text: 'Create Server mamamia', callback_data: `create_dom10|${ip}|${port}|${isp}` }],
         ],
       },
     }),
   });
 
   if (!response.ok) {
-    console.error('Failed to send inline keyboard:', await response.text());
+    console.error('Gagal mengirim pesan:', response.statusText);
   }
+
+  return response;
 }
+
 
 // Constant
 const WS_READY_STATE_OPEN = 1;
