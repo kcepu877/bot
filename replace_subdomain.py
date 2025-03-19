@@ -28,7 +28,7 @@ def replace_subdomain_in_worker_js(worker_js_file, new_subdomain, old_subdomain)
         content = file.read()
 
     # Hanya mengganti subdomain yang sesuai (contoh: xxx.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg) dengan subdomain baru
-    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.zifxoyfpuf0uf0ycphcoyf0684wd\.us\.kg', new_subdomain + '.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', content)
+    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', content)
 
     with open(worker_js_file, 'w') as file:
         file.write(updated_content)
@@ -39,7 +39,7 @@ def replace_subdomain_in_html(html_file, new_subdomain, old_subdomain):
         content = file.read()
 
     # Hanya mengganti subdomain yang sesuai (contoh: xxx.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg) dengan subdomain baru
-    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.zifxoyfpuf0uf0ycphcoyf0684wd\.us\.kg', new_subdomain + '.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', content)
+    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', content)
 
     with open(html_file, 'w') as file:
         file.write(updated_content)
