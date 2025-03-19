@@ -10,7 +10,7 @@ const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
-const FAKE_HOSTNAME = 'nzi38dkw92.cloudproxyip.my.id';
+const FAKE_HOSTNAME = 'nzi38dkw92.bmkg.xyz';
 const ownerId = 7114686701; // Ganti dengan chat_id pemilik bot (angka tanpa tanda kutip)
 
 
@@ -447,7 +447,7 @@ async function handleStartCommand(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -473,7 +473,7 @@ async function handleGetInfo(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -490,7 +490,7 @@ async function handleGetsubapi(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-URL = https://nzi38dkw92.cloudproxyip.my.id/api
+URL = https://nzi38dkw92.bmkg.xyz/api
 aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
 Acount = ?type=vless, trojan, ss,
 Bug = &bug=\`quiz.int.vidio.com\`, 
@@ -513,11 +513,11 @@ limit = &limit=10
 Country = &country=RANDOM, all, SG, ID, US, DLL
 
 
-https://nzi38dkw92.cloudproxyip.my.id/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
+https://nzi38dkw92.bmkg.xyz/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -758,7 +758,7 @@ async function handleGetgetcountry(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -772,7 +772,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListWildcard(chatId) {
-  const wildkere = `nzi38dkw92.cloudproxyip.my.id`;
+  const wildkere = `nzi38dkw92.bmkg.xyz`;
   const infoMessage = `
 🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
 
@@ -793,7 +793,7 @@ async function handleListWildcard(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -809,7 +809,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleListDomain(chatId) {
-  const wildkere = `nzi38dkw92.cloudproxyip.my.id`;
+  const wildkere = `nzi38dkw92.bmkg.xyz`;
   const infoMessage = `
 🎉 List Domain VPN Tunnel Free Vpn Bot! 
 
@@ -828,7 +828,7 @@ async function handleListDomain(chatId) {
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)
 📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
@@ -955,7 +955,7 @@ server--🇮🇩ID-NUSA MAX
 🛠 *ADMIN 1:* @kcepu877  
 🛠 *ADMIN 2:* @epoenk877  
 
-🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://nzi38dkw92.cloudproxyip.my.id)  
+🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://nzi38dkw92.bmkg.xyz)  
 📢 *Channel Telegram:* [Klik di sini](https://t.me/kstore877)  
 👥 *Grup Telegram:* [Klik di sini](https://t.me/+Rs4HvJtagXZlYTNl)  
 👥 *Grup WhatsApp:* [Klik di sini](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
@@ -1081,7 +1081,7 @@ async function checkIPPort(ip, port, chatId) {
 ━━━━━━━━━━━━━━━━━━━━━━━
 `;
 
-    const wildkere = "nzi38dkw92.cloudproxyip.my.id";
+    const wildkere = "nzi38dkw92.bmkg.xyz";
     resultMessage += await createVPNConfigs(ip, port, filteredISP, wildkere);
 
     await sendTelegramMessage(chatId, resultMessage);
@@ -1148,7 +1148,7 @@ ${ssNTls}
 ━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━
 👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://nzi38dkw92.cloudproxyip.my.id)
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://nzi38dkw92.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
 🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
 🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
@@ -1197,17 +1197,17 @@ function getAllConfig(hostName, proxyList) {
     
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&security=tls&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&security=none&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&security=tls&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${UUIDS}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&security=none&sni=nzi38dkw92.cloudproxyip.my.id&fp=randomized&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.cloudproxyip.my.id:443?encryption=none&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=nzi38dkw92.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.cloudproxyip.my.id:80?encryption=none&type=ws&host=nzi38dkw92.cloudproxyip.my.id&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=nzi38dkw92.cloudproxyip.my.id#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${UUIDS}@nzi38dkw92.bmkg.xyz:443?encryption=none&security=tls&sni=nzi38dkw92.bmkg.xyz&fp=randomized&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${UUIDS}@nzi38dkw92.bmkg.xyz:80?encryption=none&security=none&sni=nzi38dkw92.bmkg.xyz&fp=randomized&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${UUIDS}@nzi38dkw92.bmkg.xyz:443?encryption=none&security=tls&sni=nzi38dkw92.bmkg.xyz&fp=randomized&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${UUIDS}@nzi38dkw92.bmkg.xyz:80?encryption=none&security=none&sni=nzi38dkw92.bmkg.xyz&fp=randomized&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.bmkg.xyz:443?encryption=none&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=nzi38dkw92.bmkg.xyz#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@nzi38dkw92.bmkg.xyz:80?encryption=none&type=ws&host=nzi38dkw92.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=nzi38dkw92.bmkg.xyz#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: nzi38dkw92.cloudproxyip.my.id
+  server: nzi38dkw92.bmkg.xyz
   port: 443
   type: vless
   uuid: ${UUIDS}
@@ -1217,7 +1217,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: nzi38dkw92.cloudproxyip.my.id
+  servername: nzi38dkw92.bmkg.xyz
   alpn:
     - h2
     - h3
@@ -1225,7 +1225,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: nzi38dkw92.cloudproxyip.my.id
+      Host: nzi38dkw92.bmkg.xyz
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1237,7 +1237,7 @@ proxies:
 #Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: nzi38dkw92.cloudproxyip.my.id
+  server: nzi38dkw92.bmkg.xyz
   port: 443
   type: trojan
   password: ${UUIDS}
@@ -1246,7 +1246,7 @@ proxies:
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: nzi38dkw92.cloudproxyip.my.id
+  sni: nzi38dkw92.bmkg.xyz
   alpn:
     - h2
     - h3
@@ -1254,7 +1254,7 @@ proxies:
   ws-opts:
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: nzi38dkw92.cloudproxyip.my.id
+      Host: nzi38dkw92.bmkg.xyz
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -1266,7 +1266,7 @@ proxies:
 #Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: nzi38dkw92.cloudproxyip.my.id
+  server: nzi38dkw92.bmkg.xyz
   port: 443
   type: ss
   cipher: none
@@ -1276,7 +1276,7 @@ proxies:
   udp: true
   plugin-opts:
     mode: websocket
-    host: nzi38dkw92.cloudproxyip.my.id
+    host: nzi38dkw92.bmkg.xyz
     path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
