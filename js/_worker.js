@@ -257,42 +257,36 @@ async function handleCallbackQuery(callbackQuery) {
   const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
   try {
-    if (callbackData.startsWith('create_vless')) {
+    if (callbackData.startsWith('create_bmkg')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleVlessCreation(chatId, ip, port, isp, wildkere);
-    } else if (callbackData.startsWith('create_trojan')) {
-      const [_, ip, port, isp] = callbackData.split('|');
-      await handleTrojanCreation(chatId, ip, port, isp, wildkere);
-    } else if (callbackData.startsWith('create_bmkg')) {
-      const [_, ip, port, isp] = callbackData.split('|');
-      await handleBmkgCreation(chatId, ip, port, isp, wildkere);
+      await handleBmkgCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_ndeso')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleNdesoCreation(chatId, ip, port, isp, wildkere);
+      await handleNdesoCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_ndeso1')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleNdeso1Creation(chatId, ip, port, isp, wildkere);
+      await handleNdeso1Creation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_turah')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleTurahCreation(chatId, ip, port, isp, wildkere);
+      await handleTurahCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_najah')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleNajahCreation(chatId, ip, port, isp, wildkere);
+      await handleNajahCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_coudproxy')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleCoudproxyCreation(chatId, ip, port, isp, wildkere);
+      await handleCoudproxyCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_xhamster')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleXhamsterCreation(chatId, ip, port, isp, wildkere);
+      await handleXhamsterCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_cepu')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleCepuCreation(chatId, ip, port, isp, wildkere);
+      await handleCepuCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_kere')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleKereCreation(chatId, ip, port, isp, wildkere);
+      await handleKereCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_xnxxx')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleXnxxxCreation(chatId, ip, port, isp, wildkere);
+      await handleXnxxxCreation(chatId, ip, port, isp);
     } 
 
     // Konfirmasi callback query ke Telegram
