@@ -690,7 +690,7 @@ async function handleGetgetcountry(chatId) {
 { text: '🇹🇼 TW', callback_data: '/getrandomTW' },
 { text: '🇺🇦 UA', callback_data: '/getrandomUA' },
 { text: '🇺🇸 US', callback_data: '/getrandomUS' },
-{ text: '🇺🇿 UZ', callback_data: '/getrandomUZ' },,
+{ text: '🇺🇿 UZ', callback_data: '/getrandomUZ' },
   ],
   // Anda dapat terus melanjutkan dengan menambahkan tombol negara sesuai kebutuhan
 ];
