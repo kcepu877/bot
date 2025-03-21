@@ -1136,17 +1136,18 @@ async function handleBmkgCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1155,11 +1156,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1168,11 +1169,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1205,17 +1206,18 @@ async function handleNdesoCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1224,11 +1226,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1237,11 +1239,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1274,17 +1276,18 @@ async function handleNdeso1Creation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1293,11 +1296,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1306,11 +1309,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1343,17 +1346,18 @@ async function handleTurahCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1362,11 +1366,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1375,11 +1379,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1412,17 +1416,18 @@ async function handleNajahCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1431,11 +1436,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1444,11 +1449,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1481,17 +1486,18 @@ async function handleCoudproxyCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1500,11 +1506,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1513,11 +1519,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1550,17 +1556,18 @@ async function handleXhamsterCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1569,11 +1576,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1582,11 +1589,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1619,17 +1626,18 @@ async function handleCepuCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1638,11 +1646,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1651,11 +1659,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1688,17 +1696,18 @@ async function handleKereCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1707,11 +1716,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1720,11 +1729,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1757,17 +1766,18 @@ async function handleXnxxxCreation(chatId, ip, port, isp) {
 
   
       const message = `
-Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
+Success Create Vpn Server 
+🌍 \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **VLESS** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${vlessTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${vlessNTLS}
 \`\`\`
@@ -1776,11 +1786,11 @@ ${vlessNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **Trojan** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${trojanTLS}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${trojanNTLS}
 \`\`\`
@@ -1789,11 +1799,11 @@ ${trojanNTLS}
 ━━━━━━━━━━━━━━━━━━━━━━━
 🔗 **ShadowSocks** 
 ━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ **TLS** : 
+✅ **TLS** : 
 \`\`\`
 ${ssTls}
 \`\`\`
-2️⃣ **Non-TLS** : 
+✅ **Non-TLS** : 
 \`\`\`
 ${ssNTls}
 \`\`\`
@@ -1823,34 +1833,34 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
           inline_keyboard: [
 
             [
-              { text: 'Server bmkg.xyz', callback_data: `create_bmkg|${ip}|${port}|${isp}` },
+              { text: '🌐 bmkg.xyz', callback_data: `create_bmkg|${ip}|${port}|${isp}` },
             ],
                         [
               { text: 'Server ndeso.xyz', callback_data: `create_ndeso|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Server ndeso.web.id', callback_data: `create_ndeso1|${ip}|${port}|${isp}` },
+              { text: '🌐 ndeso.web.id', callback_data: `create_ndeso1|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Server turah.my.id', callback_data: `create_turah|${ip}|${port}|${isp}` },
+              { text: '🌐 turah.my.id', callback_data: `create_turah|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create najah.biz.id', callback_data: `create_najah|${ip}|${port}|${isp}` },
+              { text: '🌐 najah.biz.id', callback_data: `create_najah|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create cloudproxyip.my.id', callback_data: `create_coudproxy|${ip}|${port}|${isp}` },
+              { text: '🌐 cloudproxyip.my.id', callback_data: `create_coudproxy|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create xhamster.biz.id', callback_data: `create_xhamster|${ip}|${port}|${isp}` },
+              { text: '🌐 xhamster.biz.id', callback_data: `create_xhamster|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create cepu.us.kg', callback_data: `create_cepu|${ip}|${port}|${isp}` },
+              { text: '🌐 cepu.us.kg', callback_data: `create_cepu|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create kere.us.kg', callback_data: `create_kere|${ip}|${port}|${isp}` },
+              { text: '🌐 kere.us.kg', callback_data: `create_kere|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Create zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', callback_data: `create_xnxxx|${ip}|${port}|${isp}` },
+              { text: '🌐 zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', callback_data: `create_xnxxx|${ip}|${port}|${isp}` },
             ],
           ],
         },
