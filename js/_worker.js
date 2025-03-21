@@ -259,32 +259,32 @@ async function handleCallbackQuery(callbackQuery) {
   try {
        if (callbackData.startsWith('/listpremium')) {
     // Menangani /info
-    await sendTelegramMessage(chatId, "Informasi lebih lanjut tentang bot ini...");
+    await handleListPremium(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getrandomip
   else if (callbackData.startsWith('/listwildcard')) {
     // Menangani /info
-    await sendTelegramMessage(chatId, "Informasi lebih lanjut tentang bot ini...");
+    await handleListWildcard(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getrandomip
   else if (callbackData.startsWith('/listdomain')) {
     // Menangani /info
-    await sendTelegramMessage(chatId, "Informasi lebih lanjut tentang bot ini...");
+    await handleListDomain(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getrandomip
   else if (callbackData.startsWith('/subapi')) {
     // Menangani /info
-    await sendTelegramMessage(chatId, "Informasi lebih lanjut tentang bot ini...");
+    await handleGetsubapi(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getrandomip
   else  if (callbackData.startsWith('/info')) {
     // Menangani /info
-    await sendTelegramMessage(chatId, "Informasi lebih lanjut tentang bot ini...");
+    await handleGetInfo(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getrandomip
   else if (callbackData.startsWith('/getrandomip')) {
     // Menangani /getrandomip
-    await sendTelegramMessage(chatId, "Mendapatkan IP acak...");
+    await handleGetRandomIPCommand(chatId);
   }
   // Memeriksa apakah callbackData dimulai dengan /getcountry
   else if (callbackData.startsWith('create_bmkg')) {
@@ -517,11 +517,23 @@ ORDER PREMIUM CONTACT ADMIN
   const inline_keyboard = [
     [
       { text: 'info', callback_data: '/info' },
+       ],
+       [
       { text: 'getrandomip', callback_data: '/getrandomip' },
+      ],
+       [
       { text: 'getcountry', callback_data: '/getcountry' },
+      ],
+       [
       { text: 'listwildcard', callback_data: '/listwildcard' },
+      ],
+       [
       { text: 'listdomain', callback_data: '/listdomain' },
+      ],
+       [
       { text: 'listpremium', callback_data: '/listpremium' },
+      ],
+       [
       { text: 'subapi', callback_data: '/subapi' },
     ],
   ];
