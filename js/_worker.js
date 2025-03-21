@@ -256,16 +256,37 @@ async function handleCallbackQuery(callbackQuery) {
   const afrcloud = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
   try {
-    if (callbackData.startsWith('create_vless')) {
+        if (callbackData.startsWith('create_bmkg')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleVlessCreation(chatId, ip, port, isp, afrcloud);
-    } else if (callbackData.startsWith('create_trojan')) {
+      await handleBmkgCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_ndeso')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleTrojanCreation(chatId, ip, port, isp, afrcloud);
-    } else if (callbackData.startsWith('create_ss')) {
+      await handleNdesoCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_ndeso1')) {
       const [_, ip, port, isp] = callbackData.split('|');
-      await handleShadowSocksCreation(chatId, ip, port, isp, afrcloud);
-    }
+      await handleNdeso1Creation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_turah')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleTurahCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_najah')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleNajahCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_coudproxy')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleCoudproxyCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_xhamster')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleXhamsterCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_cepu')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleCepuCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_kere')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleKereCreation(chatId, ip, port, isp);
+    } else if (callbackData.startsWith('create_xnxxx')) {
+      const [_, ip, port, isp] = callbackData.split('|');
+      await handleXnxxxCreation(chatId, ip, port, isp);
+    } 
 
     // Konfirmasi callback query ke Telegram
     await fetch(`${TELEGRAM_API_URL}/answerCallbackQuery`, {
@@ -600,7 +621,7 @@ async function checkIPPort(ip, port, chatId) {
 
 
 
-async function handleShadowSocksCreation(chatId, ip, port, isp, afrcloud) {
+async function handleBmkgCreation(chatId, ip, port, isp, afrcloud) {
   const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${afrcloud}:443?encryption=none&type=ws&host=${afrcloud}&path=%${ip}%3D${port}&security=tls&sni=${afrcloud}#${isp}`;
   const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${afrcloud}:80?encryption=none&type=ws&host=${afrcloud}&path=%2F${ip}%3D${port}&security=none&sni=${afrcloud}#${isp}`;
 
@@ -649,7 +670,7 @@ ${proxies}
   await sendTelegramMessage(chatId, message);
 }
 
-async function handleVlessCreation(chatId, ip, port, isp, afrcloud) {
+async function handleNdesoCreation(chatId, ip, port, isp, afrcloud) {
   const path = `/${ip}=${port}`;
   const vlessTLS = `vless://${crypto.randomUUID()}@${afrcloud}:443?path=${encodeURIComponent(path)}&security=tls&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
   const vlessNTLS = `vless://${crypto.randomUUID()}@${afrcloud}:80?path=${encodeURIComponent(path)}&security=none&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
@@ -698,7 +719,7 @@ proxies:
   await sendTelegramMessage(chatId, message);
 }
 
-async function handleTrojanCreation(chatId, ip, port, isp, afrcloud) {
+async function handleNdeso1Creation(chatId, ip, port, isp, afrcloud) {
   const path = `/${ip}=${port}`;
   const trojanTLS = `trojan://${crypto.randomUUID()}@${afrcloud}:443?path=${encodeURIComponent(afrcloud)}&security=tls&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
   const trojanNTLS = `trojan://${crypto.randomUUID()}@${afrcloud}:80?path=${encodeURIComponent(afrcloud)}&security=none&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
@@ -757,11 +778,34 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
         reply_markup: {
           inline_keyboard: [
             [
-              { text: 'Create VLESS', callback_data: `create_vless|${ip}|${port}|${isp}` },
-              { text: 'Create Trojan', callback_data: `create_trojan|${ip}|${port}|${isp}` },
+              { text: 'Server bmkg.xyz', callback_data: `create_bmkg|${ip}|${port}|${isp}` },
             ],
-            [
-              { text: 'Create ShadowSocks', callback_data: `create_ss|${ip}|${port}|${isp}` },
+                        [
+              { text: 'Server ndeso.xyz', callback_data: `create_ndeso|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Server ndeso.web.id', callback_data: `create_ndeso1|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Server turah.my.id', callback_data: `create_turah|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create najah.biz.id', callback_data: `create_najah|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create cloudproxyip.my.id', callback_data: `create_coudproxy|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create xhamster.biz.id', callback_data: `create_xhamster|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create cepu.us.kg', callback_data: `create_cepu|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create kere.us.kg', callback_data: `create_kere|${ip}|${port}|${isp}` },
+            ],
+                        [
+              { text: 'Create zifxoyfpuf0uf0ycphcoyf0684wd.us.kg', callback_data: `create_xnxxx|${ip}|${port}|${isp}` },
             ],
           ],
         },
