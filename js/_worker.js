@@ -551,100 +551,244 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 
-async function handleGetCountry(chatId) {
-  try {
-    let InfoMessage = `
+async function handleGetgetcountry(chatId) {
+  const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
-🎮 Pilih Command Negara:
-`;
+/getrandomAE
+/getrandomAF
+/getrandomAL
+/getrandomDZ
+/getrandomAS
+/getrandomAD
+/getrandomAO
+/getrandomAI
+/getrandomAR
+/getrandomAM
+/getrandomAW
+/getrandomAU
+/getrandomAT
+/getrandomAZ
+/getrandomBS
+/getrandomBH
+/getrandomBD
+/getrandomBB
+/getrandomBY
+/getrandomBE
+/getrandomBZ
+/getrandomBJ
+/getrandomBM
+/getrandomBT
+/getrandomBO
+/getrandomBA
+/getrandomBW
+/getrandomBR
+/getrandomIO
+/getrandomBN
+/getrandomBG
+/getrandomBF
+/getrandomBI
+/getrandomKH
+/getrandomCM
+/getrandomCA
+/getrandomCV
+/getrandomKY
+/getrandomCF
+/getrandomTD
+/getrandomCL
+/getrandomCN
+/getrandomCX
+/getrandomCC
+/getrandomCO
+/getrandomKM
+/getrandomCD
+/getrandomCG
+/getrandomCK
+/getrandomCR
+/getrandomCI
+/getrandomHR
+/getrandomCU
+/getrandomCW
+/getrandomCY
+/getrandomCZ
+/getrandomDR
+/getrandomDJ
+/getrandomDM
+/getrandomDO
+/getrandomEC
+/getrandomEG
+/getrandomSV
+/getrandomGQ
+/getrandomER
+/getrandomEE
+/getrandomET
+/getrandomFK
+/getrandomFO
+/getrandomFJ
+/getrandomFI
+/getrandomFR
+/getrandomGA
+/getrandomGE
+/getrandomDE
+/getrandomGH
+/getrandomGI
+/getrandomGR
+/getrandomGL
+/getrandomGD
+/getrandomGP
+/getrandomGU
+/getrandomGT
+/getrandomGN
+/getrandomGW
+/getrandomGY
+/getrandomHT
+/getrandomHM
+/getrandomVA
+/getrandomHN
+/getrandomHK
+/getrandomHU
+/getrandomIS
+/getrandomIN
+/getrandomID
+/getrandomIR
+/getrandomIQ
+/getrandomIE
+/getrandomIL
+/getrandomIT
+/getrandomJM
+/getrandomJP
+/getrandomJO
+/getrandomKZ
+/getrandomKE
+/getrandomKI
+/getrandomKP
+/getrandomKR
+/getrandomKW
+/getrandomLA
+/getrandomLB
+/getrandomLS
+/getrandomLR
+/getrandomLY
+/getrandomLT
+/getrandomLU
+/getrandomMO
+/getrandomMG
+/getrandomMW
+/getrandomMY
+/getrandomMV
+/getrandomML
+/getrandomMT
+/getrandomMH
+/getrandomMQ
+/getrandomMR
+/getrandomMU
+/getrandomYT
+/getrandomMX
+/getrandomFM
+/getrandomMD
+/getrandomMC
+/getrandomMN
+/getrandomME
+/getrandomMS
+/getrandomMA
+/getrandomMZ
+/getrandomMM
+/getrandomNA
+/getrandomNR
+/getrandomNP
+/getrandomNL
+/getrandomNC
+/getrandomNZ
+/getrandomNI
+/getrandomNE
+/getrandomNG
+/getrandomNU
+/getrandomNF
+/getrandomMP
+/getrandomNO
+/getrandomOM
+/getrandomPK
+/getrandomPW
+/getrandomPA
+/getrandomPG
+/getrandomPY
+/getrandomPE
+/getrandomPH
+/getrandomPN
+/getrandomPL
+/getrandomPT
+/getrandomPR
+/getrandomQA
+/getrandomRO
+/getrandomRU
+/getrandomRW
+/getrandomRE
+/getrandomBL
+/getrandomSH
+/getrandomKN
+/getrandomLC
+/getrandomMF
+/getrandomPM
+/getrandomVC
+/getrandomWS
+/getrandomSM
+/getrandomST
+/getrandomSA
+/getrandomSN
+/getrandomRS
+/getrandomSC
+/getrandomSL
+/getrandomSG
+/getrandomSX
+/getrandomSY
+/getrandomSK
+/getrandomSI
+/getrandomSO
+/getrandomZA
+/getrandomSS
+/getrandomES
+/getrandomLK
+/getrandomSD
+/getrandomSR
+/getrandomSZ
+/getrandomSE
+/getrandomCH
+/getrandomTJ
+/getrandomTH
+/getrandomTM
+/getrandomTN
+/getrandomTR
+/getrandomTT
+/getrandomTV
+/getrandomTZ
+/getrandomUG
+/getrandomUA
+/getrandomGB
+/getrandomUS
+/getrandomUY
+/getrandomUZ
+/getrandomVU
+/getrandomVE
+/getrandomVN
+/getrandomWF
+/getrandomYE
+/getrandomZM
+/getrandomZW
 
-    // Daftar tombol inline yang terdiri dari kode negara dan bendera
-    const inline_keyboard = [
-      [
-        { text: '🇦🇪 AE', callback_data: '/getrandomAE' },
-        { text: '🇦🇫 AF', callback_data: '/getrandomAF' },
-        { text: '🇦🇱 AL', callback_data: '/getrandomAL' },
-        { text: '🇩🇿 DZ', callback_data: '/getrandomDZ' },
-      ],
-      [
-        { text: '🇦🇸 AS', callback_data: '/getrandomAS' },
-        { text: '🇦🇩 AD', callback_data: '/getrandomAD' },
-        { text: '🇦🇴 AO', callback_data: '/getrandomAO' },
-        { text: '🇦🇮 AI', callback_data: '/getrandomAI' },
-      ],
-      [
-        { text: '🇦🇷 AR', callback_data: '/getrandomAR' },
-        { text: '🇦🇲 AM', callback_data: '/getrandomAM' },
-        { text: '🇦🇼 AW', callback_data: '/getrandomAW' },
-        { text: '🇦🇺 AU', callback_data: '/getrandomAU' },
-      ],
-      [
-        { text: '🇦🇹 AT', callback_data: '/getrandomAT' },
-        { text: '🇦🇿 AZ', callback_data: '/getrandomAZ' },
-        { text: '🇧🇸 BS', callback_data: '/getrandomBS' },
-        { text: '🇧🇭 BH', callback_data: '/getrandomBH' },
-      ],
-      [
-        { text: '🇧🇩 BD', callback_data: '/getrandomBD' },
-        { text: '🇧🇪 BE', callback_data: '/getrandomBE' },
-        { text: '🇧🇿 BZ', callback_data: '/getrandomBZ' },
-        { text: '🇧🇯 BJ', callback_data: '/getrandomBJ' },
-      ],
-      [
-        { text: '🇧🇲 BM', callback_data: '/getrandomBM' },
-        { text: '🇧🇹 BT', callback_data: '/getrandomBT' },
-        { text: '🇧🇴 BO', callback_data: '/getrandomBO' },
-        { text: '🇧🇦 BA', callback_data: '/getrandomBA' },
-      ],
-      [
-        { text: '🇧🇼 BW', callback_data: '/getrandomBW' },
-        { text: '🇧🇷 BR', callback_data: '/getrandomBR' },
-        { text: '🇮🇴 IO', callback_data: '/getrandomIO' },
-        { text: '🇧🇳 BN', callback_data: '/getrandomBN' },
-      ],
-      [
-        { text: '🇧🇬 BG', callback_data: '/getrandomBG' },
-        { text: '🇧🇫 BF', callback_data: '/getrandomBF' },
-        { text: '🇧🇮 BI', callback_data: '/getrandomBI' },
-        { text: '🇰🇭 KH', callback_data: '/getrandomKH' },
-      ],
-      [
-        { text: '🇨🇲 CM', callback_data: '/getrandomCM' },
-        { text: '🇨🇦 CA', callback_data: '/getrandomCA' },
-        { text: '🇨🇻 CV', callback_data: '/getrandomCV' },
-        { text: '🇧🇧 BB', callback_data: '/getrandomBB' },
-      ],
-      [
-        { text: '🇨🇱 CL', callback_data: '/getrandomCL' },
-        { text: '🇨🇳 CN', callback_data: '/getrandomCN' },
-        { text: '🇨🇴 CO', callback_data: '/getrandomCO' },
-        { text: '🇭🇷 HR', callback_data: '/getrandomHR' },
-      ],
-      // Tambahkan lebih banyak negara sesuai kebutuhan
-    ];
 
-    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: InfoMessage, // Menambahkan pesan utama
-        reply_markup: {
-          inline_keyboard: inline_keyboard,
-        },
-      }),
-    });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to send inline keyboard:', errorText);
-    } else {
-      console.log('Inline keyboard sent successfully.');
-    }
-  } catch (error) {
-    console.error('Error sending inline keyboard:', error);
-  }
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
 }
 
 
