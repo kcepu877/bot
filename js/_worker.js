@@ -585,7 +585,43 @@ async function handleGetCountry(chatId) {
         { text: '🇧🇸 BS', callback_data: '/getrandomBS' },
         { text: '🇧🇭 BH', callback_data: '/getrandomBH' },
       ],
-      // Tambahkan lebih banyak baris tombol sesuai kebutuhan
+      [
+        { text: '🇧🇩 BD', callback_data: '/getrandomBD' },
+        { text: '🇧🇪 BE', callback_data: '/getrandomBE' },
+        { text: '🇧🇿 BZ', callback_data: '/getrandomBZ' },
+        { text: '🇧🇯 BJ', callback_data: '/getrandomBJ' },
+      ],
+      [
+        { text: '🇧🇲 BM', callback_data: '/getrandomBM' },
+        { text: '🇧🇹 BT', callback_data: '/getrandomBT' },
+        { text: '🇧🇴 BO', callback_data: '/getrandomBO' },
+        { text: '🇧🇦 BA', callback_data: '/getrandomBA' },
+      ],
+      [
+        { text: '🇧🇼 BW', callback_data: '/getrandomBW' },
+        { text: '🇧🇷 BR', callback_data: '/getrandomBR' },
+        { text: '🇮🇴 IO', callback_data: '/getrandomIO' },
+        { text: '🇧🇳 BN', callback_data: '/getrandomBN' },
+      ],
+      [
+        { text: '🇧🇬 BG', callback_data: '/getrandomBG' },
+        { text: '🇧🇫 BF', callback_data: '/getrandomBF' },
+        { text: '🇧🇮 BI', callback_data: '/getrandomBI' },
+        { text: '🇰🇭 KH', callback_data: '/getrandomKH' },
+      ],
+      [
+        { text: '🇨🇲 CM', callback_data: '/getrandomCM' },
+        { text: '🇨🇦 CA', callback_data: '/getrandomCA' },
+        { text: '🇨🇻 CV', callback_data: '/getrandomCV' },
+        { text: '🇧🇧 BB', callback_data: '/getrandomBB' },
+      ],
+      [
+        { text: '🇨🇱 CL', callback_data: '/getrandomCL' },
+        { text: '🇨🇳 CN', callback_data: '/getrandomCN' },
+        { text: '🇨🇴 CO', callback_data: '/getrandomCO' },
+        { text: '🇭🇷 HR', callback_data: '/getrandomHR' },
+      ],
+      // Tambahkan lebih banyak negara sesuai kebutuhan
     ];
 
     const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
@@ -610,7 +646,6 @@ async function handleGetCountry(chatId) {
     console.error('Error sending inline keyboard:', error);
   }
 }
-
 
 
 async function handleListWildcard(chatId) {
