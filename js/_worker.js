@@ -257,37 +257,8 @@ async function handleCallbackQuery(callbackQuery) {
   const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
   try {
-       if (callbackData.startsWith('/listpremium')) {
-    // Menangani /info
-    await handleListPremium(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getrandomip
-  else if (callbackData.startsWith('/listwildcard')) {
-    // Menangani /info
-    await handleListWildcard(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getrandomip
-  else if (callbackData.startsWith('/listdomain')) {
-    // Menangani /info
-    await handleListDomain(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getrandomip
-  else if (callbackData.startsWith('/subapi')) {
-    // Menangani /info
-    await handleGetsubapi(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getrandomip
-  else  if (callbackData.startsWith('/info')) {
-    // Menangani /info
-    await handleGetInfo(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getrandomip
-  else if (callbackData.startsWith('/getrandomip')) {
-    // Menangani /getrandomip
-    await handleGetRandomIPCommand(chatId);
-  }
-  // Memeriksa apakah callbackData dimulai dengan /getcountry
-  else if (callbackData.startsWith('create_bmkg')) {
+  
+    if (callbackData.startsWith('create_bmkg')) {
       const [_, ip, port, isp] = callbackData.split('|');
       await handleBmkgCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_ndeso')) {
@@ -497,99 +468,56 @@ async function handleStartCommand(chatId) {
 
 🚀 Mulai sekarang dengan mengirimkan Proxy IP:Port Anda!
 
-
-
-
 📌 Daftar Commands : 
 
-`;
-
-  const inline_keyboard = [
-    [
-
-      { text: 'getrandomip', callback_data: '/getrandomip' },
- 
-      { text: 'getcountry', callback_data: '/getcountry' },
-      
-      ],
-       [
-      
-      { text: 'listpremium', callback_data: '/listpremium' },
-      { text: 'subapi', callback_data: '/subapi' },
-    ],
-  ];
+/info
+/getrandomip
+/getcountry
+/listwildcard
+/listdomain
+/listpremium
+/subapi
 
 
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+  `;
   await sendTelegramMessage(chatId, welcomeMessage);
-
-  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: welcomeMessage,
-      reply_markup: {
-        inline_keyboard: inline_keyboard,
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error('Failed to send inline keyboard:', errorText);
-  } else {
-    console.log('Inline keyboard sent successfully.');
-  }
 }
-
-
-
 
 async function handleGetInfo(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
+🟢 \`/getrandomip\`
+🟢 \`/getcountry\`
+🟢 \`/listwildcard\`
+🟢 \`/listdomain\`
+🟢 \`/listpremium\`
+🟢 \`/subapi\`
 
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
   `;
-  const inline_keyboard = [
-    [
-
-      { text: 'getrandomip', callback_data: '/getrandomip' },
- 
-      { text: 'getcountry', callback_data: '/getcountry' },
-      
-      ],
-       [
-      
-      { text: 'listpremium', callback_data: '/listpremium' },
-      { text: 'subapi', callback_data: '/subapi' },
-    ],
-  ];
-
   await sendTelegramMessage(chatId, InfoMessage);
-
-  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: InfoMessage,
-      reply_markup: {
-        inline_keyboard: inline_keyboard,
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error('Failed to send inline keyboard:', errorText);
-  } else {
-    console.log('Inline keyboard sent successfully.');
-  }
 }
-
-
-
 
 async function handleGetsubapi(chatId) {
   const InfoMessage = `
