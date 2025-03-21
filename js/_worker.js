@@ -498,16 +498,6 @@ async function handleStartCommand(chatId) {
 🚀 Mulai sekarang dengan mengirimkan Proxy IP:Port Anda!
 
 
-👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877)
-👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
 
 📌 Daftar Commands : 
@@ -516,24 +506,19 @@ ORDER PREMIUM CONTACT ADMIN
 
   const inline_keyboard = [
     [
-      { text: 'info', callback_data: '/info' },
 
       { text: 'getrandomip', callback_data: '/getrandomip' },
-      ],
-       [
+ 
       { text: 'getcountry', callback_data: '/getcountry' },
       
-      { text: 'listwildcard', callback_data: '/listwildcard' },
       ],
        [
-      { text: 'listdomain', callback_data: '/listdomain' },
       
       { text: 'listpremium', callback_data: '/listpremium' },
-      ],
-       [
       { text: 'subapi', callback_data: '/subapi' },
     ],
   ];
+
 
   await sendTelegramMessage(chatId, welcomeMessage);
 
@@ -565,17 +550,6 @@ async function handleGetInfo(chatId) {
 🎉 Commands di Free Vpn Bot! 🎉
 
 
-
-👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877
-👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
   `;
   const inline_keyboard = [
     [
