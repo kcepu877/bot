@@ -497,9 +497,6 @@ async function handleStartCommand(chatId) {
 
 🚀 Mulai sekarang dengan mengirimkan Proxy IP:Port Anda!
 
-📌 Daftar Commands : 
-
-
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
@@ -513,24 +510,21 @@ ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
 
 `;
-
+📌 Daftar Commands : 
   const inline_keyboard = [
     [
       { text: 'info', callback_data: '/info' },
-       ],
-       [
+
       { text: 'getrandomip', callback_data: '/getrandomip' },
       ],
        [
       { text: 'getcountry', callback_data: '/getcountry' },
-      ],
-       [
+      
       { text: 'listwildcard', callback_data: '/listwildcard' },
       ],
        [
       { text: 'listdomain', callback_data: '/listdomain' },
-      ],
-       [
+      
       { text: 'listpremium', callback_data: '/listpremium' },
       ],
        [
@@ -567,12 +561,7 @@ async function handleGetInfo(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
-🟢 \`/getrandomip\`
-🟢 \`/getcountry\`
-🟢 \`/listwildcard\`
-🟢 \`/listdomain\`
-🟢 \`/listpremium\`
-🟢 \`/subapi\`
+
 
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
@@ -585,8 +574,51 @@ ORDER PREMIUM CONTACT ADMIN
 🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
 🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
   `;
-  await sendTelegramMessage(chatId, InfoMessage);
+  const inline_keyboard = [
+    [
+      { text: 'info', callback_data: '/info' },
+
+      { text: 'getrandomip', callback_data: '/getrandomip' },
+      ],
+       [
+      { text: 'getcountry', callback_data: '/getcountry' },
+      
+      { text: 'listwildcard', callback_data: '/listwildcard' },
+      ],
+       [
+      { text: 'listdomain', callback_data: '/listdomain' },
+      
+      { text: 'listpremium', callback_data: '/listpremium' },
+      ],
+       [
+      { text: 'subapi', callback_data: '/subapi' },
+    ],
+  ];
+
+  await sendTelegramMessage(chatId, welcomeMessage);
+
+  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: welcomeMessage,
+      reply_markup: {
+        inline_keyboard: inline_keyboard,
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error('Failed to send inline keyboard:', errorText);
+  } else {
+    console.log('Inline keyboard sent successfully.');
+  }
 }
+
+
+
 
 async function handleGetsubapi(chatId) {
   const InfoMessage = `
