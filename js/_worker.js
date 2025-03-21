@@ -5,7 +5,8 @@ let cachedProxyList = [];
 let proxyIP = "";
 let apiCheck = 'https://ipcf.rmtq.fun/json/?ip=';
 
-const DEFAULT_PROXY_BANK_URL = "https://raw.githubusercontent.com/AFRcloud/iptfstore/refs/heads/main/vip.txt";
+const DEFAULT_PROXY_BANK_URL = "https://proxy.xhamster.biz.id/proxyList.txt";
+const UUIDS = `aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1`;
 const TELEGRAM_BOT_TOKEN = '7826108422:AAEmQiVx2TvdAZnvpKw2zJZUvv8fOEGruW0';
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const APICF = 'https://ipcf.rmtq.fun/json/';
@@ -215,7 +216,7 @@ export default {
       const upgradeHeader = request.headers.get("Upgrade");
 
       if (upgradeHeader === "websocket") {
-        const proxyMatch = url.pathname.match(/^\/(.+[:=-]\d+)$/);
+        const proxyMatch = url.pathname.match(/^\/Free-CF-Proxy-(.+[:=-]\d+)$/);
 
         if (proxyMatch) {
           proxyIP = proxyMatch[1];
@@ -253,10 +254,10 @@ async function handleCallbackQuery(callbackQuery) {
   const callbackData = callbackQuery.data;
   const chatId = callbackQuery.message.chat.id;
 
-  const afrcloud = FAKE_HOSTNAME; // Ganti dengan host default yang benar
+  const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
   try {
-        if (callbackData.startsWith('create_bmkg')) {
+    if (callbackData.startsWith('create_bmkg')) {
       const [_, ip, port, isp] = callbackData.split('|');
       await handleBmkgCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('create_ndeso')) {
@@ -324,22 +325,39 @@ async function handleMessage(message) {
   } else if (text === '/info') {
     await handleGetInfo(chatId);
 
-  // Menangani perintah /getrandomip
+    // Menangani perintah /getcountry
+  } else if (text === '/getcountry') {
+    await handleGetgetcountry(chatId);
+
+    // Menangani perintah /subapi
+  } else if (text === '/subapi') {
+    await handleGetsubapi(chatId);
+
+  // Menangani perintah /listwildcard
   } else if (text === '/listwildcard') {
     await handleListWildcard(chatId);
-
+    
+      // Menangani perintah /listdomain
+  } else if (text === '/listdomain') {
+    await handleListDomain(chatId);
+  
+  // Menangani perintah /listpremium
+  } else if (text === '/listpremium') {
+    await handleListPremium(chatId);
+    
   // Menangani perintah /getrandomip
   } else if (text === '/getrandomip') {
     await handleGetRandomIPCommand(chatId);
 
   // Menangani perintah /getrandom <CountryCode>
   } else if (text.startsWith('/getrandom')) {
-    const countryId = text.split(' ')[1]; // Mengambil kode negara setelah "/getrandom"
+    const countryId = text.slice(10); // Mengambil kode negara setelah "/getrandom" tanpa spasi
     if (countryId) {
-      await handleGetRandomCountryCommand(chatId, countryId);
+        await handleGetRandomCountryCommand(chatId, countryId);
     } else {
-      await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandom ID`, `/getrandom US`).');
+        await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
     }
+
 
   // Menangani perintah /broadcast
   } else if (text.startsWith('/broadcast')) {
@@ -423,7 +441,7 @@ async function sendTelegramMessage(chatId, message) {
 // Function to handle the /start command
 async function handleStartCommand(chatId) {
   const welcomeMessage = `
-🎉 Selamat datang di Incognito Bot! 🎉
+🎉 Selamat datang di Free Vpn Bot! 🎉
 
 💡 Cara Penggunaan:
 1️⃣ Kirimkan Proxy IP:Port dalam format yang benar.
@@ -437,67 +455,550 @@ async function handleStartCommand(chatId) {
 
 🚀 Mulai sekarang dengan mengirimkan Proxy IP:Port Anda!
 
-📌 Daftar Commands : /info
+📌 Daftar Commands : 
 
-👨‍💻 Dikembangkan oleh: [Incognito Mode](https://t.me/Inconigt0)
+/info
+/getrandomip
+/getcountry
+/listwildcard
+/listdomain
+/listpremium
+/subapi
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Inconigto Channel](https://t.me/inconigtostore)
-👥 GROUP : [Incognito Grup](https://t.me/+kz5Z_vC2M84xY2Q1)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
   `;
   await sendTelegramMessage(chatId, welcomeMessage);
 }
 
 async function handleGetInfo(chatId) {
   const InfoMessage = `
-🎉 Commands di Incognito Bot! 🎉
+🎉 Commands di Free Vpn Bot! 🎉
 
-1️⃣ \`/getrandomip\`
-2️⃣ \`/getrandom <Country>\`
-3️⃣ \`/listwildcard\`
+🟢 \`/getrandomip\`
+🟢 \`/getcountry\`
+🟢 \`/listwildcard\`
+🟢 \`/listdomain\`
+🟢 \`/listpremium\`
+🟢 \`/subapi\`
 
-👨‍💻 Dikembangkan oleh: [Incognito Mode](https://t.me/Inconigt0)
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Inconigto Channel](https://t.me/inconigtostore)
-👥 GROUP : [Incognito Grup](https://t.me/+kz5Z_vC2M84xY2Q1)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
   `;
   await sendTelegramMessage(chatId, InfoMessage);
 }
- 
 
-async function handleListWildcard(chatId) {
-  const afrcloud = `tunneling.bmkg.xyz`;
-  const infoMessage = `
-🎉 List Wildcard VPN Tunnel Incognito Bot! 🎉
+async function handleGetsubapi(chatId) {
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
 
-1️⃣ \`graph.instagram.com.${afrcloud}\`
-2️⃣ \`ava.game.naver.com.${afrcloud}\`
-3️⃣ \`push.line.me.${afrcloud}\`
-4️⃣ \`connect.facebook.net.${afrcloud}\`
-5️⃣ \`cache.netflix.com.${afrcloud}\`
-6️⃣ \`zaintest.vuclip.com.${afrcloud}\`
-7️⃣ \`client.youtube.com.${afrcloud}\`
-8️⃣ \`mssdk24-normal-useast2a.tiktokv.com.${afrcloud}\`
-9️⃣ \`cdn.appsflayer.com.${afrcloud}\`
-🔟 \`support.zoom.us.${afrcloud}\`
 
-👨‍💻 Dikembangkan oleh: [Incognito Mode](https://t.me/Inconigt0)
+URL = https://tunneling.bmkg.xyz/api
+aplikasi = v2ray, v2rayng, clash, nekobox, singbox, surfboard, husi,
+Acount = ?type=vless, trojan, ss,
+Bug = &bug=\`quiz.int.vidio.com\`, 
+    \`ava.game.naver.com\`,
+    \`business.blibli.com\`,
+    \`graph.instagram.com\`,
+    \`quiz.int.vidio.com\`,
+    \`live.iflix.com\`,
+    \`support.zoom.us\`,
+    \`blog.webex.com\`,
+    \`investors.spotify.com\`,
+    \`cache.netflix.com\`,
+    \`zaintest.vuclip.com\`,
+    \`ads.ruangguru.com\`,
+    \`api.midtrans.com\`,
+    \`investor.fb.com\`,
+tls/ntls = &tls=true, false,
+wildcard = &wildcard=true, false
+limit = &limit=10
+Country = &country=RANDOM, all, SG, ID, US, DLL
+
+
+https://tunneling.bmkg.xyz/api/v2ray?type=vless&bug=quiz.int.vidio.com&tls=true&wildcard=true&limit=10&country=SG
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Inconigto Channel](https://t.me/inconigtostore)
-👥 GROUP : [Incognito Grup](https://t.me/+kz5Z_vC2M84xY2Q1)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
+}
+
+
+async function handleGetgetcountry(chatId) {
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
+
+/getrandomAE
+/getrandomAF
+/getrandomAL
+/getrandomDZ
+/getrandomAS
+/getrandomAD
+/getrandomAO
+/getrandomAI
+/getrandomAR
+/getrandomAM
+/getrandomAW
+/getrandomAU
+/getrandomAT
+/getrandomAZ
+/getrandomBS
+/getrandomBH
+/getrandomBD
+/getrandomBB
+/getrandomBY
+/getrandomBE
+/getrandomBZ
+/getrandomBJ
+/getrandomBM
+/getrandomBT
+/getrandomBO
+/getrandomBA
+/getrandomBW
+/getrandomBR
+/getrandomIO
+/getrandomBN
+/getrandomBG
+/getrandomBF
+/getrandomBI
+/getrandomKH
+/getrandomCM
+/getrandomCA
+/getrandomCV
+/getrandomKY
+/getrandomCF
+/getrandomTD
+/getrandomCL
+/getrandomCN
+/getrandomCX
+/getrandomCC
+/getrandomCO
+/getrandomKM
+/getrandomCD
+/getrandomCG
+/getrandomCK
+/getrandomCR
+/getrandomCI
+/getrandomHR
+/getrandomCU
+/getrandomCW
+/getrandomCY
+/getrandomCZ
+/getrandomDR
+/getrandomDJ
+/getrandomDM
+/getrandomDO
+/getrandomEC
+/getrandomEG
+/getrandomSV
+/getrandomGQ
+/getrandomER
+/getrandomEE
+/getrandomET
+/getrandomFK
+/getrandomFO
+/getrandomFJ
+/getrandomFI
+/getrandomFR
+/getrandomGA
+/getrandomGE
+/getrandomDE
+/getrandomGH
+/getrandomGI
+/getrandomGR
+/getrandomGL
+/getrandomGD
+/getrandomGP
+/getrandomGU
+/getrandomGT
+/getrandomGN
+/getrandomGW
+/getrandomGY
+/getrandomHT
+/getrandomHM
+/getrandomVA
+/getrandomHN
+/getrandomHK
+/getrandomHU
+/getrandomIS
+/getrandomIN
+/getrandomID
+/getrandomIR
+/getrandomIQ
+/getrandomIE
+/getrandomIL
+/getrandomIT
+/getrandomJM
+/getrandomJP
+/getrandomJO
+/getrandomKZ
+/getrandomKE
+/getrandomKI
+/getrandomKP
+/getrandomKR
+/getrandomKW
+/getrandomLA
+/getrandomLB
+/getrandomLS
+/getrandomLR
+/getrandomLY
+/getrandomLT
+/getrandomLU
+/getrandomMO
+/getrandomMG
+/getrandomMW
+/getrandomMY
+/getrandomMV
+/getrandomML
+/getrandomMT
+/getrandomMH
+/getrandomMQ
+/getrandomMR
+/getrandomMU
+/getrandomYT
+/getrandomMX
+/getrandomFM
+/getrandomMD
+/getrandomMC
+/getrandomMN
+/getrandomME
+/getrandomMS
+/getrandomMA
+/getrandomMZ
+/getrandomMM
+/getrandomNA
+/getrandomNR
+/getrandomNP
+/getrandomNL
+/getrandomNC
+/getrandomNZ
+/getrandomNI
+/getrandomNE
+/getrandomNG
+/getrandomNU
+/getrandomNF
+/getrandomMP
+/getrandomNO
+/getrandomOM
+/getrandomPK
+/getrandomPW
+/getrandomPA
+/getrandomPG
+/getrandomPY
+/getrandomPE
+/getrandomPH
+/getrandomPN
+/getrandomPL
+/getrandomPT
+/getrandomPR
+/getrandomQA
+/getrandomRO
+/getrandomRU
+/getrandomRW
+/getrandomRE
+/getrandomBL
+/getrandomSH
+/getrandomKN
+/getrandomLC
+/getrandomMF
+/getrandomPM
+/getrandomVC
+/getrandomWS
+/getrandomSM
+/getrandomST
+/getrandomSA
+/getrandomSN
+/getrandomRS
+/getrandomSC
+/getrandomSL
+/getrandomSG
+/getrandomSX
+/getrandomSY
+/getrandomSK
+/getrandomSI
+/getrandomSO
+/getrandomZA
+/getrandomSS
+/getrandomES
+/getrandomLK
+/getrandomSD
+/getrandomSR
+/getrandomSZ
+/getrandomSE
+/getrandomCH
+/getrandomTJ
+/getrandomTH
+/getrandomTM
+/getrandomTN
+/getrandomTR
+/getrandomTT
+/getrandomTV
+/getrandomTZ
+/getrandomUG
+/getrandomUA
+/getrandomGB
+/getrandomUS
+/getrandomUY
+/getrandomUZ
+/getrandomVU
+/getrandomVE
+/getrandomVN
+/getrandomWF
+/getrandomYE
+/getrandomZM
+/getrandomZW
+
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877
+👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+  `;
+  await sendTelegramMessage(chatId, InfoMessage);
+}
+
+
+async function handleListWildcard(chatId) {
+  const wildkere = `tunneling.bmkg.xyz`;
+  const infoMessage = `
+🎉 List Wildcard VPN Tunnel Free Vpn Bot! 
+
+
+🟢 \`ava.game.naver.com.${wildkere}\`
+🟢 \`business.blibli.com.${wildkere}\`
+🟢 \`graph.instagram.com.${wildkere}\`
+🟢 \`quiz.int.vidio.com.${wildkere}\`
+🟢 \`live.iflix.com.${wildkere}\`
+🟢 \`support.zoom.us.${wildkere}\`
+🟢 \`blog.webex.com.${wildkere}\`
+🟢 \`investors.spotify.com.${wildkere}\`
+🟢 \`cache.netflix.com.${wildkere}\`
+🟢 \`zaintest.vuclip.com.${wildkere}\`
+🟢 \`ads.ruangguru.com.${wildkere}\`
+🟢 \`api.midtrans.com.${wildkere}\`
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
 
   `;
   await sendTelegramMessage(chatId, infoMessage);
 }
 
 
+async function handleListDomain(chatId) {
+  const wildkere = `tunneling.bmkg.xyz`;
+  const infoMessage = `
+🎉 List Domain VPN Tunnel Free Vpn Bot! 
+
+
+✅ \`free-cf.xhamster.biz.id\` ✅
+✅ \`free-cf.turah.my.id\` ✅
+✅ \`free-cf.ndeso.xyz\` ✅
+✅ \`free-cf.ndeso.web.id\` ✅
+✅ \`free-cf.kere.us.kg\` ✅
+✅ \`free-cf.cepu.us.kg\` ✅
+✅ \`free-cf.najah.biz.id.\` ✅
+✅ \`web.bmkg.xyz\` ✅
+✅ \`loss.cloudproxyip.my.id\` ✅
+
+
+
+👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
+
+🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
+📺 CHANNEL : [Channel](https://t.me/kstore877)
+👥 GROUP TELE : [Grup Tele](https://t.me/+Rs4HvJtagXZlYTNl)
+👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
+
+ORDER PREMIUM CONTACT ADMIN
+🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
+🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
+
+
+  `;
+  await sendTelegramMessage(chatId, infoMessage);
+}
+
+
+async function handleListPremium(chatId) {
+  const infoMessage = `
+🎉 *List PREMIUM VPN Tunnel Bot!* 🎉
+
+READY SERVER PREMIUM SSH, VLESS, VMESS & TROJAN. SUPPORT VC, GAME DLL
+[MASA AKTIF 30 HARI & FULL GARANSI]
+
+
+📌 *Daftar Server:*
+
+\`\`\`
+server--🇮🇩ID-BIZNET PRO1 2DEV
+"12K"
+"VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-BIZNET 2
+"10K"
+"VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-UNINET STB1
+"12K"
+"TROJAN"
+\`\`\`
+\`\`\`
+server--🇮🇩ID1-RTRWNET VOCUHERAN
+"65K"
+"VMESS"
+\`\`\`
+\`\`\`
+server--🇮🇩WIJAYA1
+"10K"
+"VMESS & VLESS"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-DEWAWEB2
+"10K"
+"VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-AMS1
+"10K"
+"VMESS & VLESS"
+\`\`\`
+\`\`\`
+server--🇸🇬SGGS-2 STB
+"12K"
+"TROJAN"
+\`\`\`
+\`\`\`
+server--🇸🇬SGGS-1 STB
+"12K"
+"VMESS"
+\`\`\`
+\`\`\`
+server--🇸🇬DO1-NON STB
+"8K"
+"TROJAN"
+\`\`\`
+\`\`\`
+server--🇸🇬SG1-RTRWNET SINGAPORE
+"45K"
+"VMESS"
+\`\`\`
+\`\`\`
+server--🇸🇬DO3-SSH
+"8K"
+"SSH"
+\`\`\`
+\`\`\`
+server--🇸🇬SG1-LINODE
+"10K"
+"SSH, VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇸🇬DO2-NON STB
+"8K"
+"VMESS & VLESS"
+\`\`\`
+\`\`\`
+server--🇸🇬SGDO-2DEV
+"10K"
+"SSH, VLESS, VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇸🇬DO-4 NON STB
+"8K"
+"VMESS & VLESS"
+\`\`\`
+\`\`\`
+server--🇸🇬SG-PREM1
+"10K"
+"VMESS"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-SANTOSA1 50Mbps
+"8K"
+"VMESS & TROJAN"
+\`\`\`
+\`\`\`
+server--🇮🇩ID-NUSA MAX
+"12K"
+"SSH & VMESS"
+\`\`\`
+
+----------------------------------------
+
+👨‍💻 *Admin & Kontak:*  
+🛠 *ADMIN 1:* @kcepu877  
+🛠 *ADMIN 2:* @epoenk877  
+
+🔗 *Website FREE VPN Tunnel:* [FREE VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)  
+📢 *Channel Telegram:* [Klik di sini](https://t.me/kstore877)  
+👥 *Grup Telegram:* [Klik di sini](https://t.me/+Rs4HvJtagXZlYTNl)  
+👥 *Grup WhatsApp:* [Klik di sini](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)  
+
+📩 *Order Premium:*  
+📱 *Admin Telegram:* [Klik di sini](https://t.me/kcepu877)  
+📱 *Admin WhatsApp:* [Klik di sini](https://wa.me/6281335135082)  
+
+----------------------------------------
+  `;
+  await sendTelegramMessage(chatId, infoMessage);
+}
+
+
+
+
+
 // Function to handle the /getrandomip command
 async function handleGetRandomIPCommand(chatId) {
   try {
     // Fetching the Proxy IP list from the GitHub raw URL
-    const response = await fetch('https://raw.githubusercontent.com/AFRcloud/vip/refs/heads/main/vip.txt');
+    const response = await fetch('https://proxy.xhamster.biz.id/proxyList.txt');
     const data = await response.text();
 
     // Split the data into an array of Proxy IPs
@@ -530,7 +1031,7 @@ async function handleGetRandomIPCommand(chatId) {
 // Function to handle the /getrandom <Country> command
 async function handleGetRandomCountryCommand(chatId, countryId) {
   try {
-    const response = await fetch('https://raw.githubusercontent.com/AFRcloud/vip/refs/heads/main/vip.txt');
+    const response = await fetch('https://proxy.xhamster.biz.id/proxyList.txt');
     const data = await response.text();
     const proxyList = data.split('\n').filter(line => line.trim() !== '');
     const filteredProxies = proxyList.filter(ip => {
@@ -561,12 +1062,12 @@ async function handleGetRandomCountryCommand(chatId, countryId) {
     await sendTelegramMessage(chatId, '⚠️ There was an error fetching the Proxy list. Please try again later.');
   }
 }
+  
 async function handleIPPortCheck(ipPortText, chatId) {
   const [ip, port] = ipPortText.split(':');
   const result = await checkIPPort(ip, port, chatId);
   if (result) await sendTelegramMessage(chatId, result);
 }
-
 
 function isValidIPPortFormat(input) {
   const regex = /^(\d{1,3}\.){3}\d{1,3}:\d{1,5}$/;
@@ -575,21 +1076,18 @@ function isValidIPPortFormat(input) {
 
 async function checkIPPort(ip, port, chatId) {
   try {
-    // Kirim pesan sementara bahwa IP sedang diperiksa
-    await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
+    await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
     const data = await response.json();
+
     const filterISP = (isp) => {
-      // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
       const words = sanitizedISP.split(" ");
-      if (words.length <= 3) return sanitizedISP; // Jika ISP memiliki <= 3 kata, kembalikan apa adanya
-      return `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
+      return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
     };
-    const filteredISP = filterISP(data.ISP);
 
-    // Tentukan status aktif/tidak
+    const filteredISP = filterISP(data.ISP);
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
     // Buat pesan hasil cek
@@ -604,7 +1102,12 @@ async function checkIPPort(ip, port, chatId) {
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
 
-👨‍💻 Dikembangkan oleh : [Incognito Mode](https://t.me/Inconigt0)
+━━━━━━━━━━━━━━━━━━━━━━━
+👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
     `;
 
     // Kirim hasil cek
@@ -621,151 +1124,685 @@ async function checkIPPort(ip, port, chatId) {
 
 
 
-async function handleBmkgCreation(chatId, ip, port, isp, afrcloud) {
-  const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${afrcloud}:443?encryption=none&type=ws&host=${afrcloud}&path=%${ip}%3D${port}&security=tls&sni=${afrcloud}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${afrcloud}:80?encryption=none&type=ws&host=${afrcloud}&path=%2F${ip}%3D${port}&security=none&sni=${afrcloud}#${isp}`;
+async function handleBmkgCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
 
-  const proxies = `
-proxies:
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:443?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.bmkg.xyz#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:80?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=${encodeURIComponent(path)}&security=none&sni=tunneling.bmkg.xyz#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.bmkg.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.bmkg.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.bmkg.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.bmkg.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
 
-  - name: ${isp} - TLS
-    server: ${afrcloud}
-    port: 443
-    type: ss
-    cipher: none
-    password: ${crypto.randomUUID()}
-    plugin: v2ray-plugin
-    client-fingerprint: chrome
-    udp: true
-    plugin-opts:
-      mode: websocket
-      host: ${afrcloud}
-      path: /${ip}=${port}
-      tls: true
-      mux: false
-      skip-cert-verify: true
-    headers:
-      custom: value
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
-`;
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
 
-  const message = `
-Success Create ShadowSocks \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links ShadowSocks**:\n
-1️⃣ **TLS** : \`${ssTls}\`
-2️⃣ **Non-TLS** : \`${ssNTls}\`
-
-📄 **Proxies Config**:
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
 \`\`\`
-${proxies}
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
 \`\`\`
 
-👨‍💻 Dikembangkan oleh : [Incognito Mode](https://t.me/Inconigt0)
-  `;
 
-  // Kirim pesan melalui Telegram
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleNdesoCreation(chatId, ip, port, isp, afrcloud) {
-  const path = `/${ip}=${port}`;
-  const vlessTLS = `vless://${crypto.randomUUID()}@${afrcloud}:443?path=${encodeURIComponent(path)}&security=tls&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
-  const vlessNTLS = `vless://${crypto.randomUUID()}@${afrcloud}:80?path=${encodeURIComponent(path)}&security=none&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
-
-  const message = `
-Success Create VLESS \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Vless**:\n
-1️⃣ **TLS** : \`${vlessTLS}\`
-2️⃣ **Non-TLS** : \`${vlessNTLS}\`
-
-📄 **Proxies Config** :
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
 \`\`\`
-proxies:
-          
-  - name: ${isp} - TLS
-    server: ${afrcloud}
-    port: 443
-    type: vless
-    uuid: ${crypto.randomUUID()}
-    cipher: auto
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    servername: ${afrcloud}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${afrcloud}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
 \`\`\`
 
-👨‍💻 Dikembangkan oleh : [Incognito Mode](https://t.me/Inconigt0)
-  `;
 
-  await sendTelegramMessage(chatId, message);
-}
-
-async function handleNdeso1Creation(chatId, ip, port, isp, afrcloud) {
-  const path = `/${ip}=${port}`;
-  const trojanTLS = `trojan://${crypto.randomUUID()}@${afrcloud}:443?path=${encodeURIComponent(afrcloud)}&security=tls&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
-  const trojanNTLS = `trojan://${crypto.randomUUID()}@${afrcloud}:80?path=${encodeURIComponent(afrcloud)}&security=none&host=${afrcloud}&type=ws&sni=${afrcloud}#${isp}`;
-
-  const message = `
-Success Create TROJAN \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
-
-🔗 **Links Trojan** :\n
-1️⃣ **TLS** : \`${trojanTLS}\`
-2️⃣ **Non-TLS** : \`${trojanNTLS}\`
-
-📄 **Proxies Config** :
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
 \`\`\`
-proxies:
-       
-  - name: ${isp} - TLS
-    server: ${afrcloud}
-    port: 443
-    type: trojan
-    password: ${crypto.randomUUID()}
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    skip-cert-verify: true
-    network: ws
-    sni: ${afrcloud}
-    alpn:
-       - h2
-       - h3
-       - http/1.1
-    ws-opts:
-      path: ${path}
-      headers:
-        Host: ${afrcloud}
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
-      ip-version: dual
-      v2ray-http-upgrade: false
-      v2ray-http-upgrade-fast-open: false
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
 \`\`\`
 
-👨‍💻 Dikembangkan oleh : [Incognito Mode](https://t.me/Inconigt0)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
 `;
 
   await sendTelegramMessage(chatId, message);
 }
+ 
+async function handleNdesoCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.xyz:443?encryption=none&type=ws&host=tunneling.ndeso.xyz&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.ndeso.xyz#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.xyz:80?encryption=none&type=ws&host=tunneling.ndeso.xyz&path=${encodeURIComponent(path)}&security=none&sni=tunneling.ndeso.xyz#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.ndeso.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.ndeso.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.ndeso.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleNdeso1Creation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.web.id:443?encryption=none&type=ws&host=tunneling.ndeso.web.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.ndeso.web.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.web.id:80?encryption=none&type=ws&host=tunneling.ndeso.web.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.ndeso.web.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.ndeso.web.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.ndeso.web.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.ndeso.web.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.web.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleTurahCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.turah.my.id:443?encryption=none&type=ws&host=tunneling.turah.my.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.turah.my.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.turah.my.id:80?encryption=none&type=ws&host=tunneling.turah.my.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.turah.my.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.turah.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.turah.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.turah.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.turah.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleNajahCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.najah.biz.id:443?encryption=none&type=ws&host=tunneling.najah.biz.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.najah.biz.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.najah.biz.id:80?encryption=none&type=ws&host=tunneling.najah.biz.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.najah.biz.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.najah.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.najah.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.najah.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.najah.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleCoudproxyCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cloudproxyip.my.id:443?encryption=none&type=ws&host=tunneling.cloudproxyip.my.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cloudproxyip.my.id:80?encryption=none&type=ws&host=tunneling.cloudproxyip.my.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.cloudproxyip.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.cloudproxyip.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.cloudproxyip.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.cloudproxyip.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleXhamsterCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.xhamster.biz.id:443?encryption=none&type=ws&host=tunneling.xhamster.biz.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.xhamster.biz.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.xhamster.biz.id:80?encryption=none&type=ws&host=tunneling.xhamster.biz.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.xhamster.biz.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.xhamster.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.xhamster.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.xhamster.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.xhamster.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleCepuCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cepu.us.kg:443?encryption=none&type=ws&host=tunneling.cepu.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.cepu.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cepu.us.kg:80?encryption=none&type=ws&host=tunneling.cepu.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.cepu.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.cepu.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.cepu.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.cepu.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.cepu.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleKereCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.kere.us.kg:443?encryption=none&type=ws&host=tunneling.kere.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.kere.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.kere.us.kg:80?encryption=none&type=ws&host=tunneling.kere.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.kere.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.kere.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.kere.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.kere.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.kere.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
+async function handleXnxxxCreation(chatId, ip, port, isp) {
+  
+  const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
+  const path = `/Free-CF-Proxy-${ip}-${port}`;
+
+  // Konfigurasi Link VPN
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+
+  
+      return `
+⚜️ **VPN Configurations** ⚜️
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **VLESS** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${vlessTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${vlessNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **Trojan** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${trojanTLS}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${trojanNTLS}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🔗 **ShadowSocks** 
+━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ **TLS** : 
+\`\`\`
+${ssTls}
+\`\`\`
+2️⃣ **Non-TLS** : 
+\`\`\`
+${ssNTls}
+\`\`\`
+
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+🚀 **ORDER PREMIUM CONTACT ADMIN**  
+🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
+🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+
+`;
+
+  await sendTelegramMessage(chatId, message);
+}
+ 
 
 async function sendInlineKeyboard(chatId, ip, port, isp) {
   try {
@@ -777,6 +1814,7 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
         text: 'Pilih opsi berikut untuk membuat VPN Tunnel:',
         reply_markup: {
           inline_keyboard: [
+
             [
               { text: 'Server bmkg.xyz', callback_data: `create_bmkg|${ip}|${port}|${isp}` },
             ],
@@ -861,38 +1899,38 @@ function getAllConfig(hostName, proxyList) {
     const pathcode = encodePath(proxyIP, proxyPort);
     const encodedCountry = encodeSpace(country);
     const encodedOrg = encodeSpace(org);
-    const clashpath = `/${proxyIP}-${proxyPort}`.replace(/\s+/g, '');
+    
 
     const status = `${proxyIP}:${proxyPort}`;
-    const vlessTls = `vless://${crypto.randomUUID()}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const vlessNTls = `vless://${crypto.randomUUID()}@${hostName}:80?encryption=none&security=none&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const trojanTls = `trojan://${crypto.randomUUID()}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[Tls]`;
-    const trojanNTls = `trojan://${crypto.randomUUID()}@${hostName}:80?encryption=none&security=none&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=${pathcode}#(${encodedCountry})${encodedOrg}-[NTls]`;
-    const ssTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${hostName}:443?encryption=none&type=ws&host=${hostName}&path=${pathcode}&security=tls&sni=${hostName}#${encodedCountry}${encodedOrg}-[Tls]`;
-    const ssNTls = `ss://${btoa(`none:${crypto.randomUUID()}`)}@${hostName}:80?encryption=none&type=ws&host=${hostName}&path=${pathcode}&security=none&sni=${hostName}#${encodedCountry}${encodedOrg}-[NTls]`;
+    const vlessTls = `vless://${UUIDS}@tunneling.bmkg.xyz:443?encryption=none&security=tls&sni=tunneling.bmkg.xyz&fp=randomized&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const vlessNTls = `vless://${UUIDS}@tunneling.bmkg.xyz:80?encryption=none&security=none&sni=tunneling.bmkg.xyz&fp=randomized&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const trojanTls = `trojan://${UUIDS}@tunneling.bmkg.xyz:443?encryption=none&security=tls&sni=tunneling.bmkg.xyz&fp=randomized&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[Tls]`;
+    const trojanNTls = `trojan://${UUIDS}@tunneling.bmkg.xyz:80?encryption=none&security=none&sni=tunneling.bmkg.xyz&fp=randomized&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}#(${encodedCountry})${encodedOrg}-[NTls]`;
+    const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:443?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=tls&sni=tunneling.bmkg.xyz#${encodedCountry}${encodedOrg}-[Tls]`;
+    const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:80?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=/Free-CF-Proxy-${proxyIP}-${proxyPort}&security=none&sni=tunneling.bmkg.xyz#${encodedCountry}${encodedOrg}-[NTls]`;
     const clashVLTls = `
-#InconigtoVPN
+#Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[VL]
-  server: ${hostName}
+  server: tunneling.bmkg.xyz
   port: 443
   type: vless
-  uuid: ${crypto.randomUUID()}
+  uuid: ${UUIDS}
   cipher: auto
   tls: true
   client-fingerprint: chrome
   udp: true
   skip-cert-verify: true
   network: ws
-  servername: ${hostName}
+  servername: tunneling.bmkg.xyz
   alpn:
     - h2
     - h3
     - http/1.1
   ws-opts:
-    path: ${clashpath}
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: ${hostName}
+      Host: tunneling.bmkg.xyz
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -901,27 +1939,27 @@ proxies:
     `;
 
     const clashTRTls =`
-#InconigtoVPN
+#Free VPN
 proxies:      
 - name: (${country}) ${org}-[Tls]-[TR]
-  server: ${hostName}
+  server: tunneling.bmkg.xyz
   port: 443
   type: trojan
-  password: ${crypto.randomUUID()}
+  password: ${UUIDS}
   tls: true
   client-fingerprint: chrome
   udp: true
   skip-cert-verify: true
   network: ws
-  sni: ${hostName}
+  sni: tunneling.bmkg.xyz
   alpn:
     - h2
     - h3
     - http/1.1
   ws-opts:
-    path: ${clashpath}
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     headers:
-      Host: ${hostName}
+      Host: tunneling.bmkg.xyz
     max-early-data: 0
     early-data-header-name: Sec-WebSocket-Protocol
     ip-version: dual
@@ -930,21 +1968,21 @@ proxies:
     `;
 
     const clashSSTls =`
-#InconigtoVPN
+#Free VPN
 proxies:
 - name: (${country}) ${org}-[Tls]-[SS]
-  server: ${hostName}
+  server: tunneling.bmkg.xyz
   port: 443
   type: ss
   cipher: none
-  password: ${crypto.randomUUID()}
+  password: ${UUIDS}
   plugin: v2ray-plugin
   client-fingerprint: chrome
   udp: true
   plugin-opts:
     mode: websocket
-    host: ${hostName}
-    path: ${clashpath}
+    host: tunneling.bmkg.xyz
+    path: /Free-CF-Proxy-${proxyIP}-${proxyPort}
     tls: true
     mux: false
     skip-cert-verify: true
@@ -974,7 +2012,7 @@ proxies:
     
     return `
       <div class="content ${index === 0 ? "active" : ""}">
-        <h2>Inconigto-VPN</h2>
+        <h2>Free-VPN</h2>
         <hr class="config-divider" />
         <h2>VLESS TROJAN SHADOWSOCKS</h2>
         <h2>CloudFlare</h2>
@@ -1032,32 +2070,32 @@ proxies:
       <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-      <title>Inconigto-VPN | VPN Tunnel | CloudFlare</title>
+      <title>Free-VPN | VPN Tunnel | CloudFlare</title>
       
       <!-- SEO Meta Tags -->
-      <meta name="description" content="Akun Vless Gratis. Inconigto-VPN offers free Vless accounts with Cloudflare and Trojan support. Secure and fast VPN tunnel services.">
-      <meta name="keywords" content="Inconigto-VPN, Free Vless, Vless CF, Trojan CF, Cloudflare, VPN Tunnel, Akun Vless Gratis">
-      <meta name="author" content="Inconigto-VPN">
+      <meta name="description" content="Akun Vless Gratis. Free-VPN offers free Vless accounts with Cloudflare and Trojan support. Secure and fast VPN tunnel services.">
+      <meta name="keywords" content="Free-VPN, Free Vless, Vless CF, Trojan CF, Cloudflare, VPN Tunnel, Akun Vless Gratis">
+      <meta name="author" content="Free-VPN">
       <meta name="robots" content="index, follow"> <!-- Enable search engines to index the page -->
       <meta name="robots" content="noarchive"> <!-- Prevent storing a cached version of the page -->
       <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"> <!-- Improve visibility in search snippets -->
       
       <!-- Social Media Meta Tags -->
-      <meta property="og:title" content="Inconigto-VPN | Free Vless & Trojan Accounts">
-      <meta property="og:description" content="Inconigto-VPN provides free Vless accounts and VPN tunnels via Cloudflare. Secure, fast, and easy setup.">
+      <meta property="og:title" content="Free-VPN | Free Vless & Trojan Accounts">
+      <meta property="og:description" content="Free-VPN provides free Vless accounts and VPN tunnels via Cloudflare. Secure, fast, and easy setup.">
       <meta property="og:image" content="https://raw.githubusercontent.com/akulelaki696/bg/refs/heads/main/20250106_010158.jpg"> <!-- Image to appear in previews -->
       <meta property="og:url" content="https://vip.rtmq.fun"> <!-- Your website URL -->
       <meta property="og:type" content="website">
-      <meta property="og:site_name" content="Inconigto-VPN">
+      <meta property="og:site_name" content="Free-VPN">
       <meta property="og:locale" content="en_US"> <!-- Set to your language/locale -->
       
       <!-- Twitter Card Meta Tags -->
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Inconigto-VPN | Free Vless & Trojan Accounts">
-      <meta name="twitter:description" content="Get free Vless accounts and fast VPN services via Cloudflare with Inconigto-VPN. Privacy and security guaranteed.">
+      <meta name="twitter:title" content="Free-VPN | Free Vless & Trojan Accounts">
+      <meta name="twitter:description" content="Get free Vless accounts and fast VPN services via Cloudflare with Free-VPN. Privacy and security guaranteed.">
       <meta name="twitter:image" content="https://raw.githubusercontent.com/akulelaki696/bg/refs/heads/main/20250106_010158.jpg"> <!-- Image for Twitter -->
-      <meta name="twitter:site" content="@InconigtoVPN">
-      <meta name="twitter:creator" content="@InconigtoVPN">
+      <meta name="twitter:site" content="@Free VPN">
+      <meta name="twitter:creator" content="@Free VPN">
       
       <!-- Telegram Meta Tags -->
       <meta property="og:image:type" content="image/jpeg"> <!-- Specify the image type for Telegram and other platforms -->
@@ -1068,13 +2106,13 @@ proxies:
       <!-- Additional Meta Tags -->
       <meta name="theme-color" content="#000000"> <!-- Mobile browser theme color -->
       <meta name="format-detection" content="telephone=no"> <!-- Prevent automatic phone number detection -->
-      <meta name="generator" content="Inconigto-VPN">
+      <meta name="generator" content="Free-VPN">
       <meta name="google-site-verification" content="google-site-verification-code"> <!-- Google verification -->
       
       <!-- Open Graph Tags for Rich Links -->
       <meta property="og:image:width" content="1200">
       <meta property="og:image:height" content="630">
-      <meta property="og:image:alt" content="Inconigto-VPN Image Preview">
+      <meta property="og:image:alt" content="Free-VPN Image Preview">
       
       <!-- Favicon and Icon links -->
       <link rel="icon" href="https://raw.githubusercontent.com/AFRcloud/BG/main/icons8-film-noir-80.png" type="image/png">
@@ -1327,8 +2365,8 @@ proxies:
       <div class="tab-content">${proxyListElements}</div>
     </div>
     <br>
-    <a href="https://t.me/inconigtobot" class="watermark" target="_blank">Inconigto-Bot</a>
-    <a href="https://t.me/Inconigt0" class="author-link" target="_blank">Inconigto-VPN</a>
+    <a href="https://t.me/kcepu_bot" class="watermark" target="_blank">Free-Bot</a>
+    <a href="https://t.me/kstore877" class="author-link" target="_blank">Free-VPN</a>
     <script>
   function filterTabs() {
     const query = document.getElementById('search').value.toLowerCase();
