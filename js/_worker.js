@@ -470,11 +470,10 @@ async function handleStartCommand(chatId) {
 
 📌 Daftar Commands : 
 
-/info
+
 /getrandomip
 /getcountry
 /listwildcard
-/listdomain
 /listpremium
 /subapi
 
@@ -501,7 +500,6 @@ async function handleGetInfo(chatId) {
 🟢 \`/getrandomip\`
 🟢 \`/getcountry\`
 🟢 \`/listwildcard\`
-🟢 \`/listdomain\`
 🟢 \`/listpremium\`
 🟢 \`/subapi\`
 
