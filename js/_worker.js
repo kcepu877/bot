@@ -1762,7 +1762,7 @@ async function sendInlineKeyboard(chatId, ip, port, isp) {
               { text: '🌐 bmkg.xyz', callback_data: `create_bmkg|${ip}|${port}|${isp}` },
             ],
                         [
-              { text: 'Server ndeso.xyz', callback_data: `create_ndeso|${ip}|${port}|${isp}` },
+              { text: '🌐 Server ndeso.xyz', callback_data: `create_ndeso|${ip}|${port}|${isp}` },
             ],
                         [
               { text: '🌐 ndeso.web.id', callback_data: `create_ndeso1|${ip}|${port}|${isp}` },
