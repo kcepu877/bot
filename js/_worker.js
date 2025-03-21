@@ -289,10 +289,12 @@ async function handleCallbackQuery(callbackQuery) {
       const [_, ip, port, isp] = callbackData.split('|');
       await handleXnxxxCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('/getrandom')) {
-    const countryCode = callbackData.replace('/getrandom', '');
-    const message = `/getrandom${countryCode}`;
-await sendTelegramMessage(chatId, message);
-  }
+    const countryId = text.slice(10); // Mengambil kode negara setelah "/getrandom" tanpa spasi
+    if (countryId) {
+        await handleGetRandomCountryCommand(chatId, countryId);
+    } else {
+        await sendTelegramMessage(chatId, '⚠️ Harap tentukan kode negara setelah `/getrandom` (contoh: `/getrandomID`, `/getrandomUS`).');
+    }
 
     // Misalnya, memanggil fungsi untuk memberikan informasi negara atau proxy
     
