@@ -552,7 +552,7 @@ ORDER PREMIUM CONTACT ADMIN
 
 
 async function handleGetgetcountry(chatId) {
-  const InfoMessage = `
+  let InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
 🎮 Pilih Command Negara:
