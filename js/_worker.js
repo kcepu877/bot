@@ -579,21 +579,15 @@ ORDER PREMIUM CONTACT ADMIN
   `;
   const inline_keyboard = [
     [
-      { text: 'info', callback_data: '/info' },
 
       { text: 'getrandomip', callback_data: '/getrandomip' },
-      ],
-       [
+ 
       { text: 'getcountry', callback_data: '/getcountry' },
       
-      { text: 'listwildcard', callback_data: '/listwildcard' },
       ],
        [
-      { text: 'listdomain', callback_data: '/listdomain' },
       
       { text: 'listpremium', callback_data: '/listpremium' },
-      ],
-       [
       { text: 'subapi', callback_data: '/subapi' },
     ],
   ];
