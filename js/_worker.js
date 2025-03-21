@@ -555,232 +555,241 @@ async function handleGetgetcountry(chatId) {
   const InfoMessage = `
 🎉 Commands di Free Vpn Bot! 🎉
 
-/getrandomAE
-/getrandomAF
-/getrandomAL
-/getrandomDZ
-/getrandomAS
-/getrandomAD
-/getrandomAO
-/getrandomAI
-/getrandomAR
-/getrandomAM
-/getrandomAW
-/getrandomAU
-/getrandomAT
-/getrandomAZ
-/getrandomBS
-/getrandomBH
-/getrandomBD
-/getrandomBB
-/getrandomBY
-/getrandomBE
-/getrandomBZ
-/getrandomBJ
-/getrandomBM
-/getrandomBT
-/getrandomBO
-/getrandomBA
-/getrandomBW
-/getrandomBR
-/getrandomIO
-/getrandomBN
-/getrandomBG
-/getrandomBF
-/getrandomBI
-/getrandomKH
-/getrandomCM
-/getrandomCA
-/getrandomCV
-/getrandomKY
-/getrandomCF
-/getrandomTD
-/getrandomCL
-/getrandomCN
-/getrandomCX
-/getrandomCC
-/getrandomCO
-/getrandomKM
-/getrandomCD
-/getrandomCG
-/getrandomCK
-/getrandomCR
-/getrandomCI
-/getrandomHR
-/getrandomCU
-/getrandomCW
-/getrandomCY
-/getrandomCZ
-/getrandomDR
-/getrandomDJ
-/getrandomDM
-/getrandomDO
-/getrandomEC
-/getrandomEG
-/getrandomSV
-/getrandomGQ
-/getrandomER
-/getrandomEE
-/getrandomET
-/getrandomFK
-/getrandomFO
-/getrandomFJ
-/getrandomFI
-/getrandomFR
-/getrandomGA
-/getrandomGE
-/getrandomDE
-/getrandomGH
-/getrandomGI
-/getrandomGR
-/getrandomGL
-/getrandomGD
-/getrandomGP
-/getrandomGU
-/getrandomGT
-/getrandomGN
-/getrandomGW
-/getrandomGY
-/getrandomHT
-/getrandomHM
-/getrandomVA
-/getrandomHN
-/getrandomHK
-/getrandomHU
-/getrandomIS
-/getrandomIN
-/getrandomID
-/getrandomIR
-/getrandomIQ
-/getrandomIE
-/getrandomIL
-/getrandomIT
-/getrandomJM
-/getrandomJP
-/getrandomJO
-/getrandomKZ
-/getrandomKE
-/getrandomKI
-/getrandomKP
-/getrandomKR
-/getrandomKW
-/getrandomLA
-/getrandomLB
-/getrandomLS
-/getrandomLR
-/getrandomLY
-/getrandomLT
-/getrandomLU
-/getrandomMO
-/getrandomMG
-/getrandomMW
-/getrandomMY
-/getrandomMV
-/getrandomML
-/getrandomMT
-/getrandomMH
-/getrandomMQ
-/getrandomMR
-/getrandomMU
-/getrandomYT
-/getrandomMX
-/getrandomFM
-/getrandomMD
-/getrandomMC
-/getrandomMN
-/getrandomME
-/getrandomMS
-/getrandomMA
-/getrandomMZ
-/getrandomMM
-/getrandomNA
-/getrandomNR
-/getrandomNP
-/getrandomNL
-/getrandomNC
-/getrandomNZ
-/getrandomNI
-/getrandomNE
-/getrandomNG
-/getrandomNU
-/getrandomNF
-/getrandomMP
-/getrandomNO
-/getrandomOM
-/getrandomPK
-/getrandomPW
-/getrandomPA
-/getrandomPG
-/getrandomPY
-/getrandomPE
-/getrandomPH
-/getrandomPN
-/getrandomPL
-/getrandomPT
-/getrandomPR
-/getrandomQA
-/getrandomRO
-/getrandomRU
-/getrandomRW
-/getrandomRE
-/getrandomBL
-/getrandomSH
-/getrandomKN
-/getrandomLC
-/getrandomMF
-/getrandomPM
-/getrandomVC
-/getrandomWS
-/getrandomSM
-/getrandomST
-/getrandomSA
-/getrandomSN
-/getrandomRS
-/getrandomSC
-/getrandomSL
-/getrandomSG
-/getrandomSX
-/getrandomSY
-/getrandomSK
-/getrandomSI
-/getrandomSO
-/getrandomZA
-/getrandomSS
-/getrandomES
-/getrandomLK
-/getrandomSD
-/getrandomSR
-/getrandomSZ
-/getrandomSE
-/getrandomCH
-/getrandomTJ
-/getrandomTH
-/getrandomTM
-/getrandomTN
-/getrandomTR
-/getrandomTT
-/getrandomTV
-/getrandomTZ
-/getrandomUG
-/getrandomUA
-/getrandomGB
-/getrandomUS
-/getrandomUY
-/getrandomUZ
-/getrandomVU
-/getrandomVE
-/getrandomVN
-/getrandomWF
-/getrandomYE
-/getrandomZM
-/getrandomZW
+🎮 Pilih Command Negara:
+`;
 
+  // Daftar negara dengan bendera emoji lengkap
+  const countries = [
+    { code: '/getrandomAE', flag: '🇦🇪', name: 'AE' },
+    { code: '/getrandomAF', flag: '🇦🇫', name: 'AF' },
+    { code: '/getrandomAL', flag: '🇦🇱', name: 'AL' },
+    { code: '/getrandomDZ', flag: '🇩🇿', name: 'DZ' },
+    { code: '/getrandomAS', flag: '🇦🇸', name: 'AS' },
+    { code: '/getrandomAD', flag: '🇦🇩', name: 'AD' },
+    { code: '/getrandomAO', flag: '🇦🇴', name: 'AO' },
+    { code: '/getrandomAI', flag: '🇦🇮', name: 'AI' },
+    { code: '/getrandomAR', flag: '🇦🇷', name: 'AR' },
+    { code: '/getrandomAM', flag: '🇦🇲', name: 'AM' },
+    { code: '/getrandomAW', flag: '🇦🇼', name: 'AW' },
+    { code: '/getrandomAU', flag: '🇦🇺', name: 'AU' },
+    { code: '/getrandomAT', flag: '🇦🇹', name: 'AT' },
+    { code: '/getrandomAZ', flag: '🇦🇿', name: 'AZ' },
+    { code: '/getrandomBS', flag: '🇧🇸', name: 'BS' },
+    { code: '/getrandomBH', flag: '🇧🇭', name: 'BH' },
+    { code: '/getrandomBD', flag: '🇧🇩', name: 'BD' },
+    { code: '/getrandomBB', flag: '🇧🇧', name: 'BB' },
+    { code: '/getrandomBY', flag: '🇧🇾', name: 'BY' },
+    { code: '/getrandomBE', flag: '🇧🇪', name: 'BE' },
+    { code: '/getrandomBZ', flag: '🇧🇿', name: 'BZ' },
+    { code: '/getrandomBJ', flag: '🇧🇯', name: 'BJ' },
+    { code: '/getrandomBM', flag: '🇧🇲', name: 'BM' },
+    { code: '/getrandomBT', flag: '🇧🇹', name: 'BT' },
+    { code: '/getrandomBO', flag: '🇧🇴', name: 'BO' },
+    { code: '/getrandomBA', flag: '🇧🇦', name: 'BA' },
+    { code: '/getrandomBW', flag: '🇧🇼', name: 'BW' },
+    { code: '/getrandomBR', flag: '🇧🇷', name: 'BR' },
+    { code: '/getrandomIO', flag: '🇮🇴', name: 'IO' },
+    { code: '/getrandomBN', flag: '🇧🇳', name: 'BN' },
+    { code: '/getrandomBG', flag: '🇧🇬', name: 'BG' },
+    { code: '/getrandomBF', flag: '🇧🇫', name: 'BF' },
+    { code: '/getrandomBI', flag: '🇧🇮', name: 'BI' },
+    { code: '/getrandomKH', flag: '🇰🇭', name: 'KH' },
+    { code: '/getrandomCM', flag: '🇨🇲', name: 'CM' },
+    { code: '/getrandomCA', flag: '🇨🇦', name: 'CA' },
+    { code: '/getrandomCV', flag: '🇨🇻', name: 'CV' },
+    { code: '/getrandomKY', flag: '🇰🇾', name: 'KY' },
+    { code: '/getrandomCF', flag: '🇨🇫', name: 'CF' },
+    { code: '/getrandomTD', flag: '🇹🇩', name: 'TD' },
+    { code: '/getrandomCL', flag: '🇨🇱', name: 'CL' },
+    { code: '/getrandomCN', flag: '🇨🇳', name: 'CN' },
+    { code: '/getrandomCX', flag: '🇨🇽', name: 'CX' },
+    { code: '/getrandomCC', flag: '🇨🇨', name: 'CC' },
+    { code: '/getrandomCO', flag: '🇨🇴', name: 'CO' },
+    { code: '/getrandomKM', flag: '🇰🇲', name: 'KM' },
+    { code: '/getrandomCD', flag: '🇨🇩', name: 'CD' },
+    { code: '/getrandomCG', flag: '🇨🇬', name: 'CG' },
+    { code: '/getrandomCK', flag: '🇨🇰', name: 'CK' },
+    { code: '/getrandomCR', flag: '🇨🇷', name: 'CR' },
+    { code: '/getrandomCI', flag: '🇨🇮', name: 'CI' },
+    { code: '/getrandomHR', flag: '🇭🇷', name: 'HR' },
+    { code: '/getrandomCU', flag: '🇨🇺', name: 'CU' },
+    { code: '/getrandomCW', flag: '🇨🇼', name: 'CW' },
+    { code: '/getrandomCY', flag: '🇨🇾', name: 'CY' },
+    { code: '/getrandomCZ', flag: '🇨🇿', name: 'CZ' },
+    { code: '/getrandomDR', flag: '🇩🇴', name: 'DR' },
+    { code: '/getrandomDJ', flag: '🇩🇯', name: 'DJ' },
+    { code: '/getrandomDM', flag: '🇩🇲', name: 'DM' },
+    { code: '/getrandomDO', flag: '🇩🇴', name: 'DO' },
+    { code: '/getrandomEC', flag: '🇪🇨', name: 'EC' },
+    { code: '/getrandomEG', flag: '🇪🇬', name: 'EG' },
+    { code: '/getrandomSV', flag: '🇸🇻', name: 'SV' },
+    { code: '/getrandomGQ', flag: '🇬🇶', name: 'GQ' },
+    { code: '/getrandomER', flag: '🇪🇷', name: 'ER' },
+    { code: '/getrandomEE', flag: '🇪🇪', name: 'EE' },
+    { code: '/getrandomET', flag: '🇪🇹', name: 'ET' },
+    { code: '/getrandomFK', flag: '🇫🇰', name: 'FK' },
+    { code: '/getrandomFO', flag: '🇫🇴', name: 'FO' },
+    { code: '/getrandomFJ', flag: '🇫🇯', name: 'FJ' },
+    { code: '/getrandomFI', flag: '🇫🇮', name: 'FI' },
+    { code: '/getrandomFR', flag: '🇫🇷', name: 'FR' },
+    { code: '/getrandomGA', flag: '🇬🇦', name: 'GA' },
+    { code: '/getrandomGE', flag: '🇬🇪', name: 'GE' },
+    { code: '/getrandomDE', flag: '🇩🇪', name: 'DE' },
+    { code: '/getrandomGH', flag: '🇬🇭', name: 'GH' },
+    { code: '/getrandomGI', flag: '🇬🇮', name: 'GI' },
+    { code: '/getrandomGR', flag: '🇬🇷', name: 'GR' },
+    { code: '/getrandomGL', flag: '🇬🇱', name: 'GL' },
+    { code: '/getrandomGD', flag: '🇬🇩', name: 'GD' },
+    { code: '/getrandomGP', flag: '🇬🇵', name: 'GP' },
+    { code: '/getrandomGU', flag: '🇬🇺', name: 'GU' },
+    { code: '/getrandomGT', flag: '🇬🇹', name: 'GT' },
+    { code: '/getrandomGN', flag: '🇬🇳', name: 'GN' },
+    { code: '/getrandomGW', flag: '🇬🇼', name: 'GW' },
+    { code: '/getrandomGY', flag: '🇬🇾', name: 'GY' },
+    { code: '/getrandomHT', flag: '🇭🇹', name: 'HT' },
+    { code: '/getrandomHM', flag: '🇭🇲', name: 'HM' },
+    { code: '/getrandomVA', flag: '🇻🇦', name: 'VA' },
+    { code: '/getrandomHN', flag: '🇭🇳', name: 'HN' },
+    { code: '/getrandomHK', flag: '🇭🇰', name: 'HK' },
+    { code: '/getrandomHU', flag: '🇭🇺', name: 'HU' },
+    { code: '/getrandomIS', flag: '🇮🇸', name: 'IS' },
+    { code: '/getrandomIN', flag: '🇮🇳', name: 'IN' },
+    { code: '/getrandomID', flag: '🇮🇩', name: 'ID' },
+    { code: '/getrandomIR', flag: '🇮🇷', name: 'IR' },
+    { code: '/getrandomIQ', flag: '🇮🇶', name: 'IQ' },
+    { code: '/getrandomIE', flag: '🇮🇪', name: 'IE' },
+    { code: '/getrandomIL', flag: '🇮🇱', name: 'IL' },
+    { code: '/getrandomIT', flag: '🇮🇹', name: 'IT' },
+    { code: '/getrandomJM', flag: '🇯🇲', name: 'JM' },
+    { code: '/getrandomJP', flag: '🇯🇵', name: 'JP' },
+    { code: '/getrandomJO', flag: '🇯🇴', name: 'JO' },
+    { code: '/getrandomKZ', flag: '🇰🇿', name: 'KZ' },
+    { code: '/getrandomKE', flag: '🇰🇪', name: 'KE' },
+    { code: '/getrandomKI', flag: '🇰🇮', name: 'KI' },
+    { code: '/getrandomKP', flag: '🇰🇵', name: 'KP' },
+    { code: '/getrandomKR', flag: '🇰🇷', name: 'KR' },
+    { code: '/getrandomKW', flag: '🇰🇼', name: 'KW' },
+    { code: '/getrandomLA', flag: '🇱🇦', name: 'LA' },
+    { code: '/getrandomLB', flag: '🇱🇧', name: 'LB' },
+    { code: '/getrandomLS', flag: '🇱🇸', name: 'LS' },
+    { code: '/getrandomLR', flag: '🇱🇷', name: 'LR' },
+    { code: '/getrandomLY', flag: '🇱🇾', name: 'LY' },
+    { code: '/getrandomLT', flag: '🇱🇹', name: 'LT' },
+    { code: '/getrandomLU', flag: '🇱🇺', name: 'LU' },
+    { code: '/getrandomMO', flag: '🇲🇴', name: 'MO' },
+    { code: '/getrandomMG', flag: '🇲🇬', name: 'MG' },
+    { code: '/getrandomMW', flag: '🇲🇼', name: 'MW' },
+    { code: '/getrandomMY', flag: '🇲🇾', name: 'MY' },
+    { code: '/getrandomMV', flag: '🇲🇻', name: 'MV' },
+    { code: '/getrandomML', flag: '🇲🇱', name: 'ML' },
+    { code: '/getrandomMT', flag: '🇲🇹', name: 'MT' },
+    { code: '/getrandomMH', flag: '🇲🇭', name: 'MH' },
+    { code: '/getrandomMQ', flag: '🇲🇶', name: 'MQ' },
+    { code: '/getrandomMR', flag: '🇲🇷', name: 'MR' },
+    { code: '/getrandomMU', flag: '🇲🇺', name: 'MU' },
+    { code: '/getrandomYT', flag: '🇾🇹', name: 'YT' },
+    { code: '/getrandomMX', flag: '🇲🇽', name: 'MX' },
+    { code: '/getrandomFM', flag: '🇫🇲', name: 'FM' },
+    { code: '/getrandomMD', flag: '🇲🇩', name: 'MD' },
+    { code: '/getrandomMC', flag: '🇲🇨', name: 'MC' },
+    { code: '/getrandomMN', flag: '🇲🇳', name: 'MN' },
+    { code: '/getrandomME', flag: '🇲🇪', name: 'ME' },
+    { code: '/getrandomMS', flag: '🇲🇸', name: 'MS' },
+    { code: '/getrandomMA', flag: '🇲🇦', name: 'MA' },
+    { code: '/getrandomMZ', flag: '🇲🇿', name: 'MZ' },
+    { code: '/getrandomMM', flag: '🇲🇲', name: 'MM' },
+    { code: '/getrandomNA', flag: '🇳🇦', name: 'NA' },
+    { code: '/getrandomNR', flag: '🇳🇷', name: 'NR' },
+    { code: '/getrandomNP', flag: '🇳🇵', name: 'NP' },
+    { code: '/getrandomNL', flag: '🇳🇱', name: 'NL' },
+    { code: '/getrandomNC', flag: '🇳🇨', name: 'NC' },
+    { code: '/getrandomNZ', flag: '🇳🇿', name: 'NZ' },
+    { code: '/getrandomNI', flag: '🇳🇮', name: 'NI' },
+    { code: '/getrandomNE', flag: '🇳🇪', name: 'NE' },
+    { code: '/getrandomNG', flag: '🇳🇬', name: 'NG' },
+    { code: '/getrandomNU', flag: '🇳🇺', name: 'NU' },
+    { code: '/getrandomNF', flag: '🇳🇫', name: 'NF' },
+    { code: '/getrandomMP', flag: '🇲🇵', name: 'MP' },
+    { code: '/getrandomNO', flag: '🇳🇴', name: 'NO' },
+    { code: '/getrandomOM', flag: '🇴🇲', name: 'OM' },
+    { code: '/getrandomPK', flag: '🇵🇰', name: 'PK' },
+    { code: '/getrandomPW', flag: '🇵🇼', name: 'PW' },
+    { code: '/getrandomPA', flag: '🇵🇦', name: 'PA' },
+    { code: '/getrandomPG', flag: '🇵🇬', name: 'PG' },
+    { code: '/getrandomPY', flag: '🇵🇾', name: 'PY' },
+    { code: '/getrandomPE', flag: '🇵🇪', name: 'PE' },
+    { code: '/getrandomPH', flag: '🇵🇭', name: 'PH' },
+    { code: '/getrandomPN', flag: '🇵🇳', name: 'PN' },
+    { code: '/getrandomPL', flag: '🇵🇱', name: 'PL' },
+    { code: '/getrandomPT', flag: '🇵🇹', name: 'PT' },
+    { code: '/getrandomPR', flag: '🇵🇷', name: 'PR' },
+    { code: '/getrandomQA', flag: '🇶🇦', name: 'QA' },
+    { code: '/getrandomRO', flag: '🇷🇴', name: 'RO' },
+    { code: '/getrandomRU', flag: '🇷🇺', name: 'RU' },
+    { code: '/getrandomRW', flag: '🇷🇼', name: 'RW' },
+    { code: '/getrandomRE', flag: '🇷🇪', name: 'RE' },
+    { code: '/getrandomBL', flag: '🇧🇱', name: 'BL' },
+    { code: '/getrandomSH', flag: '🇸🇭', name: 'SH' },
+    { code: '/getrandomKN', flag: '🇰🇳', name: 'KN' },
+    { code: '/getrandomLC', flag: '🇱🇨', name: 'LC' },
+    { code: '/getrandomMF', flag: '🇲🇫', name: 'MF' },
+    { code: '/getrandomPM', flag: '🇵🇲', name: 'PM' },
+    { code: '/getrandomVC', flag: '🇻🇨', name: 'VC' },
+    { code: '/getrandomWS', flag: '🇼🇸', name: 'WS' },
+    { code: '/getrandomSM', flag: '🇸🇲', name: 'SM' },
+    { code: '/getrandomST', flag: '🇸🇹', name: 'ST' },
+    { code: '/getrandomSA', flag: '🇸🇦', name: 'SA' },
+    { code: '/getrandomSN', flag: '🇸🇳', name: 'SN' },
+    { code: '/getrandomRS', flag: '🇷🇸', name: 'RS' },
+    { code: '/getrandomSC', flag: '🇸🇨', name: 'SC' },
+    { code: '/getrandomSL', flag: '🇸🇱', name: 'SL' },
+    { code: '/getrandomSG', flag: '🇸🇬', name: 'SG' },
+    { code: '/getrandomSX', flag: '🇸🇽', name: 'SX' },
+    { code: '/getrandomSY', flag: '🇸🇾', name: 'SY' },
+    { code: '/getrandomSK', flag: '🇸🇰', name: 'SK' },
+    { code: '/getrandomSI', flag: '🇸🇮', name: 'SI' },
+    { code: '/getrandomSO', flag: '🇸🇴', name: 'SO' },
+    { code: '/getrandomZA', flag: '🇿🇦', name: 'ZA' },
+    { code: '/getrandomSS', flag: '🇸🇸', name: 'SS' },
+    { code: '/getrandomES', flag: '🇪🇸', name: 'ES' },
+    { code: '/getrandomLK', flag: '🇱🇰', name: 'LK' },
+    { code: '/getrandomSD', flag: '🇸🇩', name: 'SD' },
+    { code: '/getrandomSR', flag: '🇸🇷', name: 'SR' },
+    { code: '/getrandomSZ', flag: '🇸🇿', name: 'SZ' },
+    { code: '/getrandomSE', flag: '🇸🇪', name: 'SE' },
+    { code: '/getrandomCH', flag: '🇨🇭', name: 'CH' },
+    { code: '/getrandomTJ', flag: '🇹🇯', name: 'TJ' },
+    { code: '/getrandomTH', flag: '🇹🇭', name: 'TH' },
+    { code: '/getrandomTM', flag: '🇹🇲', name: 'TM' },
+    { code: '/getrandomTN', flag: '🇹🇳', name: 'TN' },
+    { code: '/getrandomTR', flag: '🇹🇷', name: 'TR' },
+    { code: '/getrandomTT', flag: '🇹🇹', name: 'TT' },
+    { code: '/getrandomTV', flag: '🇹🇻', name: 'TV' },
+    { code: '/getrandomTZ', flag: '🇹🇿', name: 'TZ' },
+    { code: '/getrandomUG', flag: '🇺🇬', name: 'UG' },
+    { code: '/getrandomUA', flag: '🇺🇦', name: 'UA' },
+    { code: '/getrandomGB', flag: '🇬🇧', name: 'GB' },
+    { code: '/getrandomUS', flag: '🇺🇸', name: 'US' },
+    { code: '/getrandomUY', flag: '🇺🇾', name: 'UY' },
+    { code: '/getrandomUZ', flag: '🇺🇿', name: 'UZ' },
+    { code: '/getrandomVU', flag: '🇻🇺', name: 'VU' },
+    { code: '/getrandomVE', flag: '🇻🇪', name: 'VE' },
+    { code: '/getrandomVN', flag: '🇻🇳', name: 'VN' },
+    { code: '/getrandomWF', flag: '🇼🇫', name: 'WF' },
+    { code: '/getrandomYE', flag: '🇾🇪', name: 'YE' },
+    { code: '/getrandomZM', flag: '🇿🇲', name: 'ZM' },
+    { code: '/getrandomZW', flag: '🇿🇼', name: 'ZW' }
+  ];
 
+  countries.forEach(country => {
+    InfoMessage += `${country.flag} ${country.code}\n`;
+  });
 
+  InfoMessage += `
 👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
 
 🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877
+📺 CHANNEL : [Channel](https://t.me/kstore877)
 👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
 👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
 
@@ -790,6 +799,7 @@ ORDER PREMIUM CONTACT ADMIN
   `;
   await sendTelegramMessage(chatId, InfoMessage);
 }
+
 
 
 async function handleListWildcard(chatId) {
