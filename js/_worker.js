@@ -1076,18 +1076,21 @@ function isValidIPPortFormat(input) {
 
 async function checkIPPort(ip, port, chatId) {
   try {
-    await sendTelegramMessage(chatId, `🔍 *Checking Proxy IP ${ip}:${port}...*`);
+    // Kirim pesan sementara bahwa IP sedang diperiksa
+    await sendTelegramMessage(chatId, `🔍 *Cheking ProxyIP ${ip}:${port}...*`);
     const response = await fetch(`${APICF}?ip=${ip}:${port}`);
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
     const data = await response.json();
-
     const filterISP = (isp) => {
+      // Hapus karakter selain huruf, angka, spasi, dan tanda kurung ( )
       const sanitizedISP = isp.replace(/[^a-zA-Z0-9\s()]/g, "");
       const words = sanitizedISP.split(" ");
-      return words.length <= 3 ? sanitizedISP : `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
+      if (words.length <= 3) return sanitizedISP; // Jika ISP memiliki <= 3 kata, kembalikan apa adanya
+      return `${words.slice(0, 2).join(" ")} ${words[words.length - 1]}`;
     };
-
     const filteredISP = filterISP(data.ISP);
+
+    // Tentukan status aktif/tidak
     const status = data.STATUS === "✔ AKTIF ✔" ? "✅ Aktif" : "❌ Tidak Aktif";
 
     // Buat pesan hasil cek
@@ -1101,13 +1104,7 @@ async function checkIPPort(ip, port, chatId) {
 🌆 Kota: ${data.KOTA}
 📶 Status: ${status}
 ━━━━━━━━━━━━━━━━━━━━━━━
-
-━━━━━━━━━━━━━━━━━━━━━━━
-👨‍💻 **Dikembangkan oleh** : [Mode](https://t.me/kstore877)
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
-🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+ 
     `;
 
     // Kirim hasil cek
@@ -1138,7 +1135,8 @@ async function handleBmkgCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.bmkg.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1182,10 +1180,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1206,7 +1204,8 @@ async function handleNdesoCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1250,10 +1249,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1274,7 +1273,8 @@ async function handleNdeso1Creation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.web.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1318,10 +1318,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1342,7 +1342,8 @@ async function handleTurahCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.turah.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1386,10 +1387,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1410,7 +1411,8 @@ async function handleNajahCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.najah.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1454,10 +1456,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1478,7 +1480,8 @@ async function handleCoudproxyCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.cloudproxyip.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1522,10 +1525,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1546,7 +1549,8 @@ async function handleXhamsterCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.xhamster.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1590,10 +1594,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1614,7 +1618,8 @@ async function handleCepuCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.cepu.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1658,10 +1663,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1682,7 +1687,8 @@ async function handleKereCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.kere.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1726,10 +1732,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
@@ -1750,7 +1756,8 @@ async function handleXnxxxCreation(chatId, ip, port, isp) {
   const trojanNTLS = `trojan://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
 
   
-      return `
+      const message = `
+Success Create Vpn Server \`${isp}\` \n⚜️ \`${ip}:${port}\` ⚜️
 ⚜️ **VPN Configurations** ⚜️
 
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -1793,10 +1800,10 @@ ${ssNTls}
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🌐 **WEB VPN TUNNEL** : [WEB FREE VPN](https://tunneling.bmkg.xyz)
+[WEB FREE VPN](https://tunneling.bmkg.xyz)
 🚀 **ORDER PREMIUM CONTACT ADMIN**  
-🧔 **ADMIN TELE** : [LINK](https://t.me/kcepu877)  
-🧔 **ADMIN WA** : [LINK](https://wa.me/6281335135082)  
+[ADMIN TELE](https://t.me/kcepu877)  
+[ADMIN WA](https://wa.me/6281335135082)  
 
 `;
 
