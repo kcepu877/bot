@@ -551,58 +551,66 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 
-// Fungsi untuk mengirimkan negara acak
-async function handleGetRandom(chatId, countryCode) {
-  try {
-    // Daftar negara dan informasi terkaitnya
-    const countries = {
-      AE: 'Uni Emirat Arab',
-      AF: 'Afganistan',
-      AL: 'Albania',
-      DZ: 'Aljazair',
-      // Anda bisa menambah lebih banyak negara sesuai kebutuhan
-    };
+async function handleGetgetcountry(chatId) {
+  const InfoMessage = `
+🎉 Commands di Free Vpn Bot! 🎉
 
-    const countryName = countries[countryCode];
-    const randomInfo = `Berikut adalah info acak untuk negara ${countryName} 🇦🇪`;
+🎮 Pilih Command Negara:
+`;
 
-    // Mengirim pesan dengan informasi acak negara
-    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: randomInfo,
-      }),
-    });
+  // Daftar tombol inline yang terdiri dari bendera dan kode negara
+  const inline_keyboard = [
+    [
+      { text: '🇦🇪 AE', callback_data: '/getrandomAE' },
+      { text: '🇦🇫 AF', callback_data: '/getrandomAF' },
+      { text: '🇦🇱 AL', callback_data: '/getrandomAL' },
+      { text: '🇩🇿 DZ', callback_data: '/getrandomDZ' },
+    ],
+    [
+      { text: '🇦🇸 AS', callback_data: '/getrandomAS' },
+      { text: '🇦🇩 AD', callback_data: '/getrandomAD' },
+      { text: '🇦🇴 AO', callback_data: '/getrandomAO' },
+      { text: '🇦🇮 AI', callback_data: '/getrandomAI' },
+    ],
+    [
+      { text: '🇦🇷 AR', callback_data: '/getrandomAR' },
+      { text: '🇦🇲 AM', callback_data: '/getrandomAM' },
+      { text: '🇦🇼 AW', callback_data: '/getrandomAW' },
+      { text: '🇦🇺 AU', callback_data: '/getrandomAU' },
+    ],
+    [
+      { text: '🇧🇸 BS', callback_data: '/getrandomBS' },
+      { text: '🇧🇭 BH', callback_data: '/getrandomBH' },
+      { text: '🇧🇩 BD', callback_data: '/getrandomBD' },
+      { text: '🇧🇧 BB', callback_data: '/getrandomBB' },
+    ],
+    [
+      { text: '🇧🇾 BY', callback_data: '/getrandomBY' },
+      { text: '🇧🇪 BE', callback_data: '/getrandomBE' },
+      { text: '🇧🇿 BZ', callback_data: '/getrandomBZ' },
+      { text: '🇧🇯 BJ', callback_data: '/getrandomBJ' },
+    ],
+    // Tambahkan baris lainnya sesuai dengan kebutuhan Anda
+  ];
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to send random country message:', errorText);
-    } else {
-      console.log(`Sent random info for ${countryName}.`);
-    }
-  } catch (error) {
-    console.error('Error sending random country info:', error);
-  }
-}
+  // Kirimkan pesan dengan tombol inline
+  const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: InfoMessage, // Menambahkan pesan utama
+      reply_markup: {
+        inline_keyboard: inline_keyboard,
+      },
+    }),
+  });
 
-// Callback untuk menangani request getrandom
-async function handleCallbackQuery(callbackQuery) {
-  const chatId = callbackQuery.message.chat.id;
-  const data = callbackQuery.data;
-
-  // Menangani command /getrandom dan mengidentifikasi kode negara
-  if (data.startsWith('/getrandom')) {
-    const countryCode = data.split('getrandom')[1];  // Mendapatkan kode negara dari data callback
-    await handleGetRandom(chatId, countryCode);  // Panggil fungsi handleGetRandom
-  }
-}
-
-// Menangani callback query Telegram
-async function handleUpdate(update) {
-  if (update.callback_query) {
-    await handleCallbackQuery(update.callback_query);
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error('Failed to send inline keyboard:', errorText);
+  } else {
+    console.log('Inline keyboard sent successfully.');
   }
 }
 
