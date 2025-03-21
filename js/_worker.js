@@ -551,245 +551,61 @@ ORDER PREMIUM CONTACT ADMIN
 }
 
 
-async function handleGetgetcountry(chatId) {
-  const InfoMessage = `
-🎉 Commands di Free Vpn Bot! 🎉
+// Fungsi untuk mengirimkan negara acak
+async function handleGetRandom(chatId, countryCode) {
+  try {
+    // Daftar negara dan informasi terkaitnya
+    const countries = {
+      AE: 'Uni Emirat Arab',
+      AF: 'Afganistan',
+      AL: 'Albania',
+      DZ: 'Aljazair',
+      // Anda bisa menambah lebih banyak negara sesuai kebutuhan
+    };
 
-/getrandomAE
-/getrandomAF
-/getrandomAL
-/getrandomDZ
-/getrandomAS
-/getrandomAD
-/getrandomAO
-/getrandomAI
-/getrandomAR
-/getrandomAM
-/getrandomAW
-/getrandomAU
-/getrandomAT
-/getrandomAZ
-/getrandomBS
-/getrandomBH
-/getrandomBD
-/getrandomBB
-/getrandomBY
-/getrandomBE
-/getrandomBZ
-/getrandomBJ
-/getrandomBM
-/getrandomBT
-/getrandomBO
-/getrandomBA
-/getrandomBW
-/getrandomBR
-/getrandomIO
-/getrandomBN
-/getrandomBG
-/getrandomBF
-/getrandomBI
-/getrandomKH
-/getrandomCM
-/getrandomCA
-/getrandomCV
-/getrandomKY
-/getrandomCF
-/getrandomTD
-/getrandomCL
-/getrandomCN
-/getrandomCX
-/getrandomCC
-/getrandomCO
-/getrandomKM
-/getrandomCD
-/getrandomCG
-/getrandomCK
-/getrandomCR
-/getrandomCI
-/getrandomHR
-/getrandomCU
-/getrandomCW
-/getrandomCY
-/getrandomCZ
-/getrandomDR
-/getrandomDJ
-/getrandomDM
-/getrandomDO
-/getrandomEC
-/getrandomEG
-/getrandomSV
-/getrandomGQ
-/getrandomER
-/getrandomEE
-/getrandomET
-/getrandomFK
-/getrandomFO
-/getrandomFJ
-/getrandomFI
-/getrandomFR
-/getrandomGA
-/getrandomGE
-/getrandomDE
-/getrandomGH
-/getrandomGI
-/getrandomGR
-/getrandomGL
-/getrandomGD
-/getrandomGP
-/getrandomGU
-/getrandomGT
-/getrandomGN
-/getrandomGW
-/getrandomGY
-/getrandomHT
-/getrandomHM
-/getrandomVA
-/getrandomHN
-/getrandomHK
-/getrandomHU
-/getrandomIS
-/getrandomIN
-/getrandomID
-/getrandomIR
-/getrandomIQ
-/getrandomIE
-/getrandomIL
-/getrandomIT
-/getrandomJM
-/getrandomJP
-/getrandomJO
-/getrandomKZ
-/getrandomKE
-/getrandomKI
-/getrandomKP
-/getrandomKR
-/getrandomKW
-/getrandomLA
-/getrandomLB
-/getrandomLS
-/getrandomLR
-/getrandomLY
-/getrandomLT
-/getrandomLU
-/getrandomMO
-/getrandomMG
-/getrandomMW
-/getrandomMY
-/getrandomMV
-/getrandomML
-/getrandomMT
-/getrandomMH
-/getrandomMQ
-/getrandomMR
-/getrandomMU
-/getrandomYT
-/getrandomMX
-/getrandomFM
-/getrandomMD
-/getrandomMC
-/getrandomMN
-/getrandomME
-/getrandomMS
-/getrandomMA
-/getrandomMZ
-/getrandomMM
-/getrandomNA
-/getrandomNR
-/getrandomNP
-/getrandomNL
-/getrandomNC
-/getrandomNZ
-/getrandomNI
-/getrandomNE
-/getrandomNG
-/getrandomNU
-/getrandomNF
-/getrandomMP
-/getrandomNO
-/getrandomOM
-/getrandomPK
-/getrandomPW
-/getrandomPA
-/getrandomPG
-/getrandomPY
-/getrandomPE
-/getrandomPH
-/getrandomPN
-/getrandomPL
-/getrandomPT
-/getrandomPR
-/getrandomQA
-/getrandomRO
-/getrandomRU
-/getrandomRW
-/getrandomRE
-/getrandomBL
-/getrandomSH
-/getrandomKN
-/getrandomLC
-/getrandomMF
-/getrandomPM
-/getrandomVC
-/getrandomWS
-/getrandomSM
-/getrandomST
-/getrandomSA
-/getrandomSN
-/getrandomRS
-/getrandomSC
-/getrandomSL
-/getrandomSG
-/getrandomSX
-/getrandomSY
-/getrandomSK
-/getrandomSI
-/getrandomSO
-/getrandomZA
-/getrandomSS
-/getrandomES
-/getrandomLK
-/getrandomSD
-/getrandomSR
-/getrandomSZ
-/getrandomSE
-/getrandomCH
-/getrandomTJ
-/getrandomTH
-/getrandomTM
-/getrandomTN
-/getrandomTR
-/getrandomTT
-/getrandomTV
-/getrandomTZ
-/getrandomUG
-/getrandomUA
-/getrandomGB
-/getrandomUS
-/getrandomUY
-/getrandomUZ
-/getrandomVU
-/getrandomVE
-/getrandomVN
-/getrandomWF
-/getrandomYE
-/getrandomZM
-/getrandomZW
+    const countryName = countries[countryCode];
+    const randomInfo = `Berikut adalah info acak untuk negara ${countryName} 🇦🇪`;
 
+    // Mengirim pesan dengan informasi acak negara
+    const response = await fetch(`${TELEGRAM_API_URL}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: randomInfo,
+      }),
+    });
 
-
-👨‍💻 Dikembangkan oleh: [Mode](https://t.me/kstore877)
-
-🌐 WEB VPN TUNNEL : [VPN Tunnel CloudFlare](https://tunneling.bmkg.xyz)
-📺 CHANNEL : [Channel](https://t.me/kstore877
-👥 GROUP TELE : [Grup](https://t.me/+Rs4HvJtagXZlYTNl)
-👥 GROUP WA : [Grup WA](https://chat.whatsapp.com/L9bbkRbzyozEFJHgGc9pPh)
-
-ORDER PREMIUM CONTACT ADMIN
-🧔 ADMIN TELE : [ADMIN TELE](https://t.me/kcepu877)
-🧔 ADMIN WA : [ADMIN WA](https://wa.me/6281335135082)
-  `;
-  await sendTelegramMessage(chatId, InfoMessage);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Failed to send random country message:', errorText);
+    } else {
+      console.log(`Sent random info for ${countryName}.`);
+    }
+  } catch (error) {
+    console.error('Error sending random country info:', error);
+  }
 }
+
+// Callback untuk menangani request getrandom
+async function handleCallbackQuery(callbackQuery) {
+  const chatId = callbackQuery.message.chat.id;
+  const data = callbackQuery.data;
+
+  // Menangani command /getrandom dan mengidentifikasi kode negara
+  if (data.startsWith('/getrandom')) {
+    const countryCode = data.split('getrandom')[1];  // Mendapatkan kode negara dari data callback
+    await handleGetRandom(chatId, countryCode);  // Panggil fungsi handleGetRandom
+  }
+}
+
+// Menangani callback query Telegram
+async function handleUpdate(update) {
+  if (update.callback_query) {
+    await handleCallbackQuery(update.callback_query);
+  }
+}
+
 
 
 async function handleListWildcard(chatId) {
