@@ -257,6 +257,7 @@ async function handleCallbackQuery(callbackQuery) {
   const wildkere = FAKE_HOSTNAME; // Ganti dengan host default yang benar
 
   try {
+  
     if (callbackData.startsWith('create_bmkg')) {
       const [_, ip, port, isp] = callbackData.split('|');
       await handleBmkgCreation(chatId, ip, port, isp);
@@ -287,7 +288,14 @@ async function handleCallbackQuery(callbackQuery) {
     } else if (callbackData.startsWith('create_xnxxx')) {
       const [_, ip, port, isp] = callbackData.split('|');
       await handleXnxxxCreation(chatId, ip, port, isp);
-    } 
+    } else if (callbackData.startsWith('/getrandom')) {
+    const countryCode = callbackData.replace('/getrandom', '');
+    await sendTelegramMessage(chatId, message);
+  }
+
+    // Misalnya, memanggil fungsi untuk memberikan informasi negara atau proxy
+    const message = `Memilih negara dengan kode: ${countryCode}`;
+
 
     // Konfirmasi callback query ke Telegram
     await fetch(`${TELEGRAM_API_URL}/answerCallbackQuery`, {
