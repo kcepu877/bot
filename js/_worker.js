@@ -1130,18 +1130,18 @@ async function checkIPPort(ip, port, chatId) {
 
 
 
-async function handleBmkgCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.bmkg.xyz";
+async function handleBmkgCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:443?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.bmkg.xyz#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.bmkg.xyz:80?encryption=none&type=ws&host=tunneling.bmkg.xyz&path=${encodeURIComponent(path)}&security=none&sni=tunneling.bmkg.xyz#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.bmkg.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.bmkg.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.bmkg.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.bmkg.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.bmkg.xyz&type=ws&sni=tunneling.bmkg.xyz#${isp}`;
 
   
       return `
@@ -1199,18 +1199,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleNdesoCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.ndeso.xyz";
+async function handleNdesoCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.xyz:443?encryption=none&type=ws&host=tunneling.ndeso.xyz&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.ndeso.xyz#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.xyz:80?encryption=none&type=ws&host=tunneling.ndeso.xyz&path=${encodeURIComponent(path)}&security=none&sni=tunneling.ndeso.xyz#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.ndeso.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.ndeso.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.ndeso.xyz:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.xyz:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.xyz&type=ws&sni=tunneling.ndeso.xyz#${isp}`;
 
   
       return `
@@ -1268,18 +1268,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleNdeso1Creation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.ndeso.web.id";
+async function handleNdeso1Creation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.web.id:443?encryption=none&type=ws&host=tunneling.ndeso.web.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.ndeso.web.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.ndeso.web.id:80?encryption=none&type=ws&host=tunneling.ndeso.web.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.ndeso.web.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.ndeso.web.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.ndeso.web.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.ndeso.web.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.ndeso.web.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.ndeso.web.id&type=ws&sni=tunneling.ndeso.web.id#${isp}`;
 
   
       return `
@@ -1337,18 +1337,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleTurahCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.turah.my.id";
+async function handleTurahCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.turah.my.id:443?encryption=none&type=ws&host=tunneling.turah.my.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.turah.my.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.turah.my.id:80?encryption=none&type=ws&host=tunneling.turah.my.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.turah.my.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.turah.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.turah.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.turah.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.turah.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.turah.my.id&type=ws&sni=tunneling.turah.my.id#${isp}`;
 
   
       return `
@@ -1406,18 +1406,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleNajahCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.najah.biz.id";
+async function handleNajahCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.najah.biz.id:443?encryption=none&type=ws&host=tunneling.najah.biz.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.najah.biz.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.najah.biz.id:80?encryption=none&type=ws&host=tunneling.najah.biz.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.najah.biz.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.najah.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.najah.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.najah.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.najah.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.najah.biz.id&type=ws&sni=tunneling.najah.biz.id#${isp}`;
 
   
       return `
@@ -1475,18 +1475,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleCoudproxyCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.cloudproxyip.my.id";
+async function handleCoudproxyCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cloudproxyip.my.id:443?encryption=none&type=ws&host=tunneling.cloudproxyip.my.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cloudproxyip.my.id:80?encryption=none&type=ws&host=tunneling.cloudproxyip.my.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.cloudproxyip.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.cloudproxyip.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.cloudproxyip.my.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.cloudproxyip.my.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cloudproxyip.my.id&type=ws&sni=tunneling.cloudproxyip.my.id#${isp}`;
 
   
       return `
@@ -1544,18 +1544,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleXhamsterCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.xhamster.biz.id";
+async function handleXhamsterCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.xhamster.biz.id:443?encryption=none&type=ws&host=tunneling.xhamster.biz.id&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.xhamster.biz.id#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.xhamster.biz.id:80?encryption=none&type=ws&host=tunneling.xhamster.biz.id&path=${encodeURIComponent(path)}&security=none&sni=tunneling.xhamster.biz.id#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.xhamster.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.xhamster.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.xhamster.biz.id:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.xhamster.biz.id:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.xhamster.biz.id&type=ws&sni=tunneling.xhamster.biz.id#${isp}`;
 
   
       return `
@@ -1613,18 +1613,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleCepuCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.cepu.us.kg";
+async function handleCepuCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cepu.us.kg:443?encryption=none&type=ws&host=tunneling.cepu.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.cepu.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.cepu.us.kg:80?encryption=none&type=ws&host=tunneling.cepu.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.cepu.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.cepu.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.cepu.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.cepu.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.cepu.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.cepu.us.kg&type=ws&sni=tunneling.cepu.us.kg#${isp}`;
 
   
       return `
@@ -1682,18 +1682,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleKereCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.kere.us.kg";
+async function handleKereCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.kere.us.kg:443?encryption=none&type=ws&host=tunneling.kere.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.kere.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.kere.us.kg:80?encryption=none&type=ws&host=tunneling.kere.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.kere.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.kere.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.kere.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.kere.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.kere.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.kere.us.kg&type=ws&sni=tunneling.kere.us.kg#${isp}`;
 
   
       return `
@@ -1751,18 +1751,18 @@ ${ssNTls}
   await sendTelegramMessage(chatId, message);
 }
  
-async function handleXnxxxCreation(chatId, ip, port, isp, wildkere) {
-  const wildkere = "tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg";
+async function handleXnxxxCreation(chatId, ip, port, isp) {
+  
   const UUIDS = "aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1";  // Perbaiki UUID tanpa backtick yang berlebihan
   const path = `/Free-CF-Proxy-${ip}-${port}`;
 
   // Konfigurasi Link VPN
-  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:443?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=tls&sni=${wildkere}#${isp}`;
-  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@${wildkere}:80?encryption=none&type=ws&host=${wildkere}&path=${encodeURIComponent(path)}&security=none&sni=${wildkere}#${isp}`;
-  const vlessTLS = `vless://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const vlessNTLS = `vless://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanTLS = `trojan://${UUIDS}@${wildkere}:443?path=${encodeURIComponent(path)}&security=tls&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
-  const trojanNTLS = `trojan://${UUIDS}@${wildkere}:80?path=${encodeURIComponent(path)}&security=none&host=${wildkere}&type=ws&sni=${wildkere}#${isp}`;
+  const ssTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?encryption=none&type=ws&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=${encodeURIComponent(path)}&security=tls&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const ssNTls = `ss://${btoa(`none:${UUIDS}`)}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?encryption=none&type=ws&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&path=${encodeURIComponent(path)}&security=none&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const vlessTLS = `vless://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const vlessNTLS = `vless://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const trojanTLS = `trojan://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:443?path=${encodeURIComponent(path)}&security=tls&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
+  const trojanNTLS = `trojan://${UUIDS}@tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg:80?path=${encodeURIComponent(path)}&security=none&host=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg&type=ws&sni=tunneling.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg#${isp}`;
 
   
       return `
