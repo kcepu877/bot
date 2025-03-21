@@ -290,7 +290,7 @@ async function handleCallbackQuery(callbackQuery) {
       await handleXnxxxCreation(chatId, ip, port, isp);
     } else if (callbackData.startsWith('/getrandom')) {
     const countryCode = callbackData.replace('/getrandom', '');
-    const message = `'/getrandom${countryCode}'`;
+    const message = `/getrandom${countryCode}`;
 await sendTelegramMessage(chatId, message);
   }
 
