@@ -2,83 +2,94 @@ import os
 import yaml
 import re
 
-# Fungsi untuk membaca daftar subdomain dari file
+# === Fungsi baca/tulis YAML ===
+def read_yaml(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            return yaml.load(file, Loader=yaml.FullLoader)
+    return {}
+
+def write_yaml(data, file_path):
+    with open(file_path, 'w') as file:
+        yaml.dump(data, file)
+
+# === Baca daftar subdomain ===
 def read_subdomain_list(file_path):
     if os.path.exists(file_path):
         with open(file_path, 'r') as file:
             return [line.strip() for line in file if line.strip()]
     return []
 
-# Fungsi untuk menyimpan subdomain yang digunakan ke file YAML
-def save_subdomain_to_yaml(subdomain, yaml_file):
-    with open(yaml_file, 'w') as file:
-        yaml.dump({'subdomain': subdomain}, file)
+# === Fungsi mengganti subdomain di file ===
+def replace_subdomain_in_file(file_path, old_subdomain, new_subdomain, domains):
+    if not os.path.exists(file_path):
+        print(f"File not found: {file_path}")
+        return
 
-# Fungsi untuk membaca subdomain terakhir dari file YAML
-def read_subdomain_from_yaml(yaml_file):
-    if os.path.exists(yaml_file):
-        with open(yaml_file, 'r') as file:
-            data = yaml.load(file, Loader=yaml.FullLoader)
-            return data.get('subdomain', None)
-    return None
-
-# Fungsi untuk mengganti subdomain di js/_worker.js
-def replace_subdomain_in_worker_js(worker_js_file, new_subdomain, old_subdomain):
-    with open(worker_js_file, 'r') as file:
+    with open(file_path, 'r') as file:
         content = file.read()
 
-    # Hanya mengganti subdomain yang sesuai (contoh: xxx.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg) dengan subdomain baru
-    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', content)
+    for domain in domains:
+        # Pola untuk mencari subdomain sebelum domain utama
+        pattern = rf'(?<!\w){re.escape(old_subdomain)}(?=\.{re.escape(domain)})'
+        # Ganti semua kemunculan subdomain yang cocok
+        content = re.sub(pattern, new_subdomain, content)
 
-    with open(worker_js_file, 'w') as file:
-        file.write(updated_content)
-
-# Fungsi untuk mengganti subdomain di index.html
-def replace_subdomain_in_html(html_file, new_subdomain, old_subdomain):
-    with open(html_file, 'r') as file:
-        content = file.read()
-
-    # Hanya mengganti subdomain yang sesuai (contoh: xxx.zifxoyfpuf0uf0ycphcoyf0684wd.us.kg) dengan subdomain baru
-    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', content)
-
-    with open(html_file, 'w') as file:
-        file.write(updated_content)
+    with open(file_path, 'w') as file:
+        file.write(content)
 
 def main():
+    # File konfigurasi
     yaml_file = 'subdomain.yml'
-    worker_js_file = 'js/_worker.js'  # Mengganti _worker.js menjadi js/_worker.js
-    html_file = 'index.html'          # Menambahkan index.html
     list_file = 'subdomain_list.txt'
+    
+    # 10 Domain utama
+    domains = [
+        'zifxoyfpuf0uf0ycphcoyf0684wd.us.kg',
+        'xhamster.biz.id',
+        'bmkg.xyz',
+        'ndeso.xyz',
+        'ndeso.web.id',
+        'kere.us.kg',
+        'cepu.us.kg',
+        'turah.my.id',
+        'najah.biz.id',
+        'cloudproxyip.my.id'
+    ]
+    
+    # Daftar file yang akan diproses
+    worker_js_file = 'js/_worker.js'  # Tambahan file worker.js
+    html_files = [
+        'index.html'
+    ]
 
-    # Baca daftar subdomain dari file
+    # Baca daftar subdomain dan subdomain terakhir
     subdomain_list = read_subdomain_list(list_file)
     if not subdomain_list:
         print("Subdomain list is empty or not found!")
         return
 
-    # Baca subdomain terakhir dari YAML
-    last_subdomain = read_subdomain_from_yaml(yaml_file)
-
-    if last_subdomain is None:
-        print("No subdomain found in subdomain.yml!")
-        return
+    config = read_yaml(yaml_file)
+    last_subdomain = config.get('subdomain', subdomain_list[0])
 
     # Pastikan subdomain terakhir ada dalam daftar
     if last_subdomain not in subdomain_list:
         print(f"Last subdomain '{last_subdomain}' not in subdomain list!")
         return
 
-    # Cari subdomain berikutnya berdasarkan urutan di daftar
+    # Cari subdomain berikutnya
     current_index = subdomain_list.index(last_subdomain)
     next_index = (current_index + 1) % len(subdomain_list)
     next_subdomain = subdomain_list[next_index]
 
-    # Ganti subdomain di js/_worker.js dan index.html
-    replace_subdomain_in_worker_js(worker_js_file, next_subdomain, last_subdomain)
-    replace_subdomain_in_html(html_file, next_subdomain, last_subdomain)
+    # Ganti subdomain hanya di bagian awal sebelum domain utama
+    replace_subdomain_in_file(worker_js_file, last_subdomain, next_subdomain, domains)  # Ganti di worker.js
+    for html_file in html_files:
+        replace_subdomain_in_file(html_file, last_subdomain, next_subdomain, domains)
 
-    # Simpan subdomain yang digunakan ke file YAML
-    save_subdomain_to_yaml(next_subdomain, yaml_file)
+    # Simpan subdomain yang digunakan
+    config['subdomain'] = next_subdomain
+    write_yaml(config, yaml_file)
     print(f"Subdomain updated to: {next_subdomain}")
 
 if __name__ == "__main__":
