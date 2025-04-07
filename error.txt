@@ -1,6 +1,5 @@
-Error checking 86.110.56.9:2053: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 188.245.145.207:2052: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=188.245.145.207:2052
-Error checking 5.144.181.231:2053: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 5.178.110.223:2053: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 45.131.60.99:443: HTTPSConnectionPool(host='proxy.ndeso.xyz', port=443): Read timed out. (read timeout=180)
-Error checking 45.144.154.221:443: HTTPSConnectionPool(host='proxy.ndeso.xyz', port=443): Read timed out. (read timeout=180)
+Error checking 89.35.131.5:443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error checking 185.186.246.210:443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=185.186.246.210:443
+Error checking 168.119.157.89:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=168.119.157.89:8443
+Error checking 5.75.210.206:39347: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=5.75.210.206:39347
+Error checking 210.91.54.201:16814: HTTPSConnectionPool(host='proxy.ndeso.xyz', port=443): Max retries exceeded with url: /check?ip=210.91.54.201:16814 (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_DECODE_ERROR] tlsv1 alert decode error (_ssl.c:1028)')))
