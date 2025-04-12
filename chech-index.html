@@ -1450,10 +1450,10 @@ document.addEventListener('DOMContentLoaded', function() {
             select.innerHTML = '';
             
             // Add options for each domain
-            path.forEach(domain => {
+            path.forEach(path => {
                 const option = document.createElement('option');
-                option.value = domain;
-                option.textContent = domain;
+                option.value = path;
+                option.textContent = path;
                 select.appendChild(option);
             });
             
@@ -2113,7 +2113,8 @@ async function selectProxy(index) {
     
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
-    const path =  ['`/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}', '`/Free-CF-Proxy/${selectedProxy.country}', ]`;
+    const path =  [
+    '`/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}', '`/Free-CF-Proxy/${selectedProxy.country}', ]`;
     
     let selectedPathid = path[0]; // Default to first domain
     
