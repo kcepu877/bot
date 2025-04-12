@@ -32,6 +32,9 @@ jobs:
         API_URL: 'https://proxy.ndeso.xyz/check?ip={ip}:{port}'
       run: python update_proxy.py
 
+    - name: Debug check update_proxyip.json
+      run: cat update_proxyip.json || echo "update_proxyip.json tidak ditemukan"
+
     - name: Ensure update_proxyip.txt exists
       run: |
         if [ -s "update_proxyip.txt" ]; then
@@ -45,7 +48,7 @@ jobs:
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git add update_proxyip.txt error.txt
+        git add update_proxyip.txt error.txt update_proxyip.json
         if git diff --cached --exit-code; then
           echo "No changes to commit"
         else
