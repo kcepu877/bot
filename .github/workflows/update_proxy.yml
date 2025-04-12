@@ -53,5 +53,6 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Update proxy IP status"
+          git pull --rebase
           git push
         fi
