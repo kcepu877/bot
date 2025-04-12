@@ -1530,7 +1530,6 @@ function uuidv4() {
         // Create a row with innerHTML to make it more manageable
         const row = document.createElement('tr');
 
-
 row.innerHTML = `
   <td colspan="7">
     <div class="flag-container">
@@ -1538,14 +1537,14 @@ row.innerHTML = `
       <span class="flag-circle flag-icon flag-icon-${id.toLowerCase()}"></span>
       <span>${ip}:${port}</span>
     </div>
-    <div id="main-menu-${uniqueId}">
+    <div id="main-menu-${ip}-${port}">
       <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
-      <select class="service-selector" style="...">
+      <select class="service-selector" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
         <option value="">NO WILDCARD</option>
         <option value="business.blibli.com">business.blibli.com</option>
         <option value="ava.game.naver.com">ava.game.naver.com</option>
         <option value="graph.instagram.com">graph.instagram.com</option>
-        <!-- Tambahkan opsi lainnya -->
+        <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
       </select>
       <button class="button0" onclick="toggleDetail('${ip}-${port}')">SHOW</button>
     </div>
@@ -1567,7 +1566,6 @@ row.innerHTML = `
 
 proxyList.appendChild(row);
 
-
 function toggleDetail(id, forceClose = false) {
   const menu = document.getElementById('main-menu-' + id);
   const detail = document.getElementById('detail-config-' + id);
@@ -1579,6 +1577,7 @@ function toggleDetail(id, forceClose = false) {
     menu.style.display = 'none';
   }
 }
+
 
         // Append the row to the proxy list
         
