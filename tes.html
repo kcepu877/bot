@@ -1536,51 +1536,93 @@ function uuidv4() {
         const shadowsocks = '';
 
         // Create a row with innerHTML to make it more manageable
-        const row = document.createElement('tr');
+        const row = document.createElement('div');
         row.innerHTML = `
-         <div id="proxy-box-${ip}-${port}">
-  <!-- Bagian info utama -->
-  <div class="main-info" id="main-${ip}-${port}">
-    <span>${isp} || ${id}</span>
-    <span class="flag-icon flag-icon-${id.toLowerCase()}"></span>
-    <span>${ip}${prot}</span>
-    <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
-    <select class="service-selector">
-      <option value="">NO WILDCARD</option>
-      <option value="business.blibli.com">business.blibli.com</option>
-      <option value="ava.game.naver.com">ava.game.naver.com</option>
-      <!-- dan seterusnya -->
-    </select>
-    <button class="button-show" onclick="toggleDetail('${ip}', '${port}', true)">SHOW</button>
-  </div>
-
-  <!-- Bagian detail (disembunyikan dulu) -->
-  <div class="detail-info" id="detail-${ip}-${port}" style="display: none;">
-    <hr/>
-    » ISP         : ${isp}<br>
-    » Country     : ${id} <span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
-    » IP:PORT     : ${ip}-${port}<br><br>
-
-    <strong>VLESS</strong><br>
-    PATH: /Free-CF-Proxy/${ip}-${port}<br>
-    <button class="copy-vless">COPY VLESS</button><br><br>
-
-    <strong>TROJAN</strong><br>
-    PATH: /Free-CF-Proxy/${ip}-${port}<br>
-    <button class="copy-trojan">COPY TROJAN</button><br><br>
-
-    <strong>SHADOWSOCK</strong><br>
-    PATH: /Free-CF-Proxy/${ip}-${port}<br>
-    <button class="copy-ss">COPY SHADOWSOCK</button><br><br>
-
-    <strong>VMESS</strong><br>
-    PATH: /Free-CF-Proxy/${ip}-${port}<br>
-    <button class="copy-vmess">COPY VMESS</button><br><br>
-
-    <button class="button-close" onclick="toggleDetail('${ip}', '${port}', false)">CLOSE</button>
-  </div>
+          <span><div class="flag-container">
+            <span>${isp} || ${id}</span>           
+            <span class="flag-circle flag-icon flag-icon-${id.toLowerCase()}"></span>
+            <span>${ip}${prot}</span>
+            </div></span>
+          <span>
+            <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
+          </span>
+          <span><select class="service-selector" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+          <option value="">NO WILDCARD</option>
+          <option value="business.blibli.com">business.blibli.com</option>          
+          <option value="ava.game.naver.com">ava.game.naver.com</option>
+          <option value="graph.instagram.com">graph.instagram.com</option>
+          <option value="quiz.int.vidio.com">quiz.int.vidio.com</option>
+          <option value="live.iflix.com.com">live.iflix.com</option>
+          <option value="support.zoom.us">support.zoom.us</option>
+          <option value="blog.webex.com">blog.webex.com</option>
+          <option value="investors.spotify.com">investors.spotify.com</option>
+          <option value="cache.netflix.com">cache.netflix.com</option>
+          <option value="zaintest.vuclip.com">zaintest.vuclip.com</option>
+          <option value="ads.ruangguru.com">io.ruangguru.com</option>
+          <option value="api.midtrans.com">api.midtrans.com</option>
+	  <option value="investor.fb.com">investor.fb.com</option>		
+          <option value="bakrie.ac.id">bakrie.ac.id</option>		
+              </select></span>
+          <span><button class="button1" onclick="showPopup('vtls${ip}-${port}')">VLESS</button>
+      <div class="popup" id="vtls${ip}-${port}">
+      <div class="popup-content"><hr/><br>
+      » ISP         : ${isp}<br>
+      » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
+      » IP:PORT      : ${ip}-${port}<br>
+      <hr/>VLESS TLS 443<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-vless">COPY VLESS 443</button>
+      <br><hr/>VLESS NTLS 80<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS 80</button>
+      <hr/>
+      <button class="button8" onclick="hidePopup('vtls${ip}-${port}')">Close</button> 
 </div>
-
+</div></span>
+          <span><button class="button2" onclick="showPopup('trojan${ip}-${port}')">TROJAN</button>
+      <div class="popup" id="trojan${ip}-${port}">
+      <div class="popup-content"><hr/><br>
+      » ISP         : ${isp}<br>
+      » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
+      » IP:PORT      : ${ip}-${port}<br>
+      <hr/>TROJAN TLS 443<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-trojan">COPY TROJAN 443</button>
+      <br><hr/>TROJAN NTLS 80<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br><button class="copy-trojan-clash877">COPY TROJAN 80</button> 
+      <hr/>
+      <button class="button8" onclick="hidePopup('trojan${ip}-${port}')">Close</button> 
+    </div>
+    </div></span>
+          <span><button class="button3" onclick="showPopup('ss${ip}-${port}')">SHADOWSOCK</button>
+      <div class="popup" id="ss${ip}-${port}">
+      <div class="popup-content"><hr/><br>
+      » ISP         : ${isp}<br>
+      » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
+      » IP:PORT      : ${ip}-${port}<br>
+      <hr/>SHADOWSOCK TLS 443<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-ss">COPY SHADOWSOCK 443</button>
+      <br><hr/>SHADOWSOCK NTLS 80<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-ss1">COPY SHADOWSOCK 80</button>
+     <hr/> <button class="button8" onclick="hidePopup('ss${ip}-${port}')">Close</button> 
+    </div>
+    </div></span>
+    <span><button class="button4" onclick="showPopup('vmess${ip}-${port}')">VMESS</button>
+      <div class="popup" id="vmess${ip}-${port}">
+      <div class="popup-content"><hr/><br>
+      » ISP         : ${isp}<br>
+      » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
+      » IP:PORT      : ${ip}-${port}<br>
+      <hr/>VMESS TLS 443<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-vmess">COPY VMESS 443</button>
+      <br><hr/>VMESS NTLS 80<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
+      <button class="copy-vmess1">COPY VMESS 80</button>
+     <hr/> <button class="button8" onclick="hidePopup('vmess${ip}-${port}')">Close</button> 
+    </div>
+    </div></span>
         `;
 
         // Append the row to the proxy list
