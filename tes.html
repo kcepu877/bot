@@ -1628,6 +1628,18 @@ function uuidv4() {
         // Append the row to the proxy list
         proxyList.appendChild(row);
 
+function toggleDetail(id, forceClose = false) {
+  const menu = document.getElementById('main-menu-' + id);
+  const detail = document.getElementById('detail-config-' + id);
+  if (forceClose || detail.style.display === 'block') {
+    detail.style.display = 'none';
+    menu.style.display = 'block';
+  } else {
+    detail.style.display = 'block';
+    menu.style.display = 'none';
+  }
+}
+	      
 function getSelectedHosts() {
   const checkboxes = document.querySelectorAll('#host-checkboxes input[name="host"]:checked');
   return Array.from(checkboxes).map(cb => cb.value);
