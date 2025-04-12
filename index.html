@@ -906,7 +906,11 @@ body {
                             
                             <div>
                                 <label for="vmess-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="vmess-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
+<select id="vmess-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm">
+    <option value="/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}">IP-Port</option>
+    <option value="/Free-CF-Proxy/${selectedProxy.country}">Country</option>
+</select>
+
                             </div>
                             
                             <div>
@@ -1327,7 +1331,7 @@ const defaultProxyUrl = 'https://cf.cloudproxyip.my.id/update_proxyip.txt';
 // const serverDomain = 'inconigto-mode.web.id';
 
 // To:
-const serverDomains = ['dns-google.xhamster.biz.id', 'privasi.bmkg.xyz', 'privasi.ndeso.web.id', 'privasi.xhamster.biz.id', 'privasi.turah.my.id', 'privasi.najah.biz.id', 'privasi.cloudproxyip.my.id', 'privasi.ndeso.xyz', ];
+const serverDomains = ['privasi.bmkg.xyz', 'privasi.ndeso.web.id', 'privasi.xhamster.biz.id', 'privasi.turah.my.id', 'privasi.najah.biz.id', 'privasi.cloudproxyip.my.id', 'privasi.ndeso.xyz', ];
 let selectedServerDomain = serverDomains[0]; // Default to first domain
 const defaultUUID = 'aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1';
 const default1UUID = '0fbf4f81-2598-4b6a-a623-0ead4cb9efa8';
@@ -2081,6 +2085,7 @@ async function selectProxy(index) {
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
     const path = `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`;
+    const path1 = `/Free-CF-Proxy/${selectedProxy.country}`;
     
     document.getElementById('vmess-name').value = accountName;
     document.getElementById('vless-name').value = accountName;
