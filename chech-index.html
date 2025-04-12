@@ -1396,8 +1396,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (searchTerm === '') {
             filteredProxyList = [...proxyList];
         } else {
-            filteredProxyList = proxyList.filter(proxy => 
-                proxy.provider.toLowerCase().includes(searchTerm) || 
+            filteredProxyList = proxyList.filter(proxy =>             
                 proxy.country.toLowerCase().includes(searchTerm)
             );
         }
