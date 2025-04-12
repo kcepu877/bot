@@ -906,9 +906,7 @@ body {
                             
                             <div>
                                 <label for="vmess-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-<select id="vmess-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm"></select>
-
-
+                                <input type="text" id="vmess-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
                             </div>
                             
                             <div>
@@ -983,8 +981,7 @@ body {
                             
                             <div>
                                 <label for="vless-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                               <select id="vless-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm"></select>
-
+                                <input type="text" id="vless-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
                             </div>
                             
                             <div>
@@ -1058,8 +1055,7 @@ body {
                             
                             <div>
                                 <label for="trojan-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <select id="trojan-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm"></select>
-
+                                <input type="text" id="trojan-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
                             </div>
                             
                             <div>
@@ -1133,8 +1129,7 @@ body {
                             
                             <div>
                                 <label for="ss-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <select id="ss-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm"></select>
-
+                                <input type="text" id="ss-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
                             </div>
                             
                             <div>
@@ -1329,7 +1324,7 @@ let filteredProxyList = [];
 let selectedProxy = null;
 const defaultProxyUrl = 'https://cf.cloudproxyip.my.id/update_proxyip.txt';
 // Change from:
-// const serverDomain = 'inconigto-mode.web.id';
+
 
 // To:
 const serverDomains = ['privasi.bmkg.xyz', 'privasi.ndeso.web.id', 'privasi.xhamster.biz.id', 'privasi.turah.my.id', 'privasi.najah.biz.id', 'privasi.cloudproxyip.my.id', 'privasi.ndeso.xyz', ];
@@ -1434,34 +1429,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = tab.getAttribute('data-target');
             document.getElementById(targetId).classList.remove('hidden');
         });
-    });
-    
-    
-            const pathSelects = [
-        document.getElementById('vmess-path'),
-        document.getElementById('vless-path'),
-        document.getElementById('trojan-path'),
-        document.getElementById('ss-path')
-    ];
-    
-    pathSelects.forEach(select => {
-        if (select) {
-            // Clear existing options
-            select.innerHTML = '';
-            
-            // Add options for each domain
-            path.forEach(path => {
-                const option = document.createElement('option');
-                option.value = path;
-                option.textContent = path;
-                select.appendChild(option);
-            });
-            
-            // Add event listener to update selected domain
-            select.addEventListener('change', function() {
-                selectedPathid = this.value;
-            });
-        }
     });
     
     // Populate server domain dropdowns
@@ -2113,10 +2080,7 @@ async function selectProxy(index) {
     
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
-    const path =  [
-    '`/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}', '`/Free-CF-Proxy/${selectedProxy.country}', ]`;
-    
-    let selectedPathid = path[0]; // Default to first domain
+    const path = `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`;
     
     document.getElementById('vmess-name').value = accountName;
     document.getElementById('vless-name').value = accountName;
