@@ -1529,7 +1529,7 @@ function uuidv4() {
 
         // Create a row with innerHTML to make it more manageable
         const row = document.createElement('tr');
-const uniqueId = `${ip}-${port}`; // supaya ID-nya unik
+
 
 row.innerHTML = `
   <td colspan="7">
@@ -1547,9 +1547,9 @@ row.innerHTML = `
         <option value="graph.instagram.com">graph.instagram.com</option>
         <!-- Tambahkan opsi lainnya -->
       </select>
-      <button class="button0" onclick="toggleDetail('${uniqueId}')">SHOW</button>
+      <button class="button0" onclick="toggleDetail('${ip}-${port}')">SHOW</button>
     </div>
-    <div id="detail-config-${uniqueId}" style="display: none; margin-top: 10px;">
+    <div id="detail-config-${ip}-${port}" style="display: none; margin-top: 10px;">
       <hr/>
       » ISP: ${isp}<br/>
       » Country: ${id} <span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br/>
@@ -1560,7 +1560,7 @@ row.innerHTML = `
       <button>COPY TROJAN</button><br/><hr/>
       VMESS PATH: /Free-CF-Proxy/${ip}-${port}<br/>
       <button>COPY VMESS</button><br/>
-      <button class="button8" onclick="toggleDetail('${uniqueId}', true)">CLOSE</button>
+      <button class="button8" onclick="toggleDetail('${ip}-${port}', true)">CLOSE</button>
     </div>
   </td>
 `;
