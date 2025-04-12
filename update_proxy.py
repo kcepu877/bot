@@ -1,6 +1,8 @@
 import requests
 import csv
 import os
+import json
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def check_proxy(row, api_url_template):
@@ -13,7 +15,7 @@ def check_proxy(row, api_url_template):
 
         message = data.get("message", "").strip().upper()
         if "ACTIVE ✅" in message:
-            proxy_id = data.get("country", "Unknown").split()[0]  # Ambil kode negara saja
+            proxy_id = data.get("country", "Unknown").split()[0]
             isp = data.get("isp", "Unknown")
 
             if proxy_id != "Unknown" and isp != "Unknown":
@@ -34,11 +36,13 @@ def check_proxy(row, api_url_template):
 def main():
     input_file = os.getenv('IP_FILE', 'proxyip.txt')
     update_file = 'update_proxyip.txt'
+    json_file = 'update_proxyip.json'
     error_file = 'error.txt'
     api_url_template = os.getenv('API_URL', 'https://proxy.ndeso.xyz/check?ip={ip}:{port}')
 
     alive_proxies = []
     error_logs = []
+    proxy_dict = defaultdict(list)
 
     try:
         with open(input_file, "r") as f:
@@ -55,13 +59,14 @@ def main():
             alive, error = future.result()
             if alive:
                 alive_proxies.append(alive)
+                ip, port, proxy_id, _ = alive
+                proxy_dict[proxy_id].append(f"{ip}:{port}")
             if error:
                 error_logs.append(error)
 
-    # Urutkan hasil berdasarkan proxy_id (kolom ketiga)
-    alive_proxies.sort(key=lambda x: x[2])  # Urutkan berdasarkan proxy_id (ID negara)
+    # Urutkan hasil berdasarkan proxy_id
+    alive_proxies.sort(key=lambda x: x[2])
 
-    # Simpan hasil proxy yang aktif
     try:
         with open(update_file, "w", newline="") as f:
             writer = csv.writer(f)
@@ -69,9 +74,14 @@ def main():
         print(f"Proxy yang ALIVE telah disimpan di {update_file}.")
     except Exception as e:
         print(f"Error menulis ke {update_file}: {e}")
-        return
 
-    # Simpan log error jika ada
+    try:
+        with open(json_file, "w") as f:
+            json.dump(proxy_dict, f, indent=2)
+        print(f"Data JSON proxy yang ALIVE telah disimpan di {json_file}.")
+    except Exception as e:
+        print(f"Error menulis ke {json_file}: {e}")
+
     if error_logs:
         try:
             with open(error_file, "w") as f:
@@ -80,7 +90,6 @@ def main():
             print(f"Beberapa error telah dicatat di {error_file}.")
         except Exception as e:
             print(f"Error menulis ke {error_file}: {e}")
-            return
 
 if __name__ == "__main__":
     main()
