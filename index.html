@@ -25,6 +25,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  
     <style>
 
     :root {
@@ -895,11 +900,11 @@ body111 {
     }
     
 
-    .paginationkdid {
+    .pagination {
       text-align: center;
     }
 
-    .paginationkdid button {
+    .pagination button {
       margin: 5px;
       padding: 12px 12px;
       border: 1px solid rgba(197, 51, 6, 0.89); /* Border dengan warna abu-abu */
@@ -909,11 +914,11 @@ body111 {
       cursor: pointer;
     }
 
-    .paginationkdid button:hover {
+    .pagination button:hover {
       background-color: rgba(50, 0, 63, 0.84);
     }
 
-    .paginationkdid .active {
+    .pagination .active {
       background-color: rgba(0, 15, 123, 0.78);
     }
 
@@ -960,7 +965,7 @@ body111 {
       }
 
 
-      .paginationkdid button {
+      .pagination button {
         padding: 12px;
         font-size: 18px;
       }
@@ -1242,7 +1247,7 @@ body111 {
 }
 
 
-	    .pagination {
+	    .quantum-pagination {
         display: flex;
         justify-content: center;
         gap: 0.8rem;
@@ -1250,7 +1255,7 @@ body111 {
         flex-wrap: wrap;
       }
 
-      .pagination a {
+      .quantum-pagination a {
         padding: 0.8rem 1.5rem;
         background: rgba(0, 255, 136, 0.1);
         color: var(--primary);
@@ -1264,20 +1269,20 @@ body111 {
         text-align: center;
       }
 
-      .pagination a:hover,
-      .pagination a.active {
+      .quantum-pagination a:hover,
+      .quantum-pagination a.active {
         background: var(--primary);
         color: var(--dark);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
       }
 
-	    .pagination {
+	    .quantum-pagination {
           gap: 0.5rem;
           flex-wrap: wrap;
         }
     
-        .pagination a {
+        .quantum-pagination a {
           padding: 0.5rem 0.7rem;
           font-size: 0.7rem;
           min-width: 30px;
@@ -1397,7 +1402,7 @@ body111 {
         </div>
     <div class="total-proxy" id="total-proxy"></div>
    <div class="filtered-proxy" id="filtered-proxy"></div>
- <div class="pagination" id="pagination"></div>
+ <div class="quantum-pagination" id="pagination"></div>
   </div> 
 
     <div class="popup" id="list-domain">
