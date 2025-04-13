@@ -153,7 +153,31 @@
     margin-left: 10px;
     font-weight: bold; /* Menambahkan ketebalan pada teks */
 }
+.form-group {
+            margin-bottom: 1rem;
+        }
 
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 8px;
+            color: var(--color-text);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+        }
 .quantum-title {
           font-size: 2rem;
           margin-bottom: 1rem;
@@ -733,7 +757,17 @@ body111 {
     .copy-ss,
     .copy-ss11,
     .copy-vmess,
-    .copy-vmess15 {      
+    .copy-vmess15,
+    .copy-1vless,
+    .copy-1vless877,
+    .copy-1vless1, 
+    .copy-1vless1877, 
+    .copy-1trojan, 
+    .copy-1trojan877, 
+    .copy-1ss,
+    .copy-1ss11,
+    .copy-1vmess,
+    .copy-1vmess15 {      
       margin: 5px;
       background-color: #D35400; /* Orange Gelap */
       color: white;
@@ -759,7 +793,17 @@ body111 {
     .copy-ss:active, 
     .copy-ss11:active,
     .copy-vmess:active,
-    .copy-vmess11:active {
+    .copy-vmess11:active,
+    .copy-1vless:active,
+    .copy-1vless877:active,
+    .copy-1vless1:active, 
+    .copy-1vless1877:active, 
+    .copy-1trojan:active, 
+    .copy-1trojan877:active, 
+    .copy-1ss:active, 
+    .copy-1ss11:active,
+    .copy-1vmess:active,
+    .copy-1vmess11:active {
       background-color: #E67E22; /* Warna berubah saat diklik */
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
       transform: scale(0.98);
@@ -774,7 +818,16 @@ body111 {
     .copy-trojan-clash877, 
     .copy-ss1,
     .copy-vmess11,
-    .copy-vmess1 {
+    .copy-vmess1,
+    .copy-1vless-clash,
+    .copy-1vless-clash877,
+    .copy-1vless2, 
+    .copy-1vless2877, 
+    .copy-1trojan-clash, 
+    .copy-1trojan-clash877, 
+    .copy-1ss1,
+    .copy-1vmess11,
+    .copy-1vmess1 {
       margin: 5px;
       background-color: #196F3D; /* Hijau Gelap */
       color: white;
@@ -799,7 +852,17 @@ body111 {
     .copy-ss1:active,
     .copy-ss11:active,
     .copy-vmess22:active,
-    .copy-vmess1:active {
+    .copy-vmess1:active,
+     .copy-1vless-clash:active,
+    .copy-1vless-clash877:active,
+    .copy-1vless2:active, 
+    .copy-1vless2877:active, 
+    .copy-1trojan-clash:active, 
+    .copy-1trojan-clash877:active, 
+    .copy-1ss1:active,
+    .copy-1ss11:active,
+    .copy-1vmess22:active,
+    .copy-1vmess1:active {
       background-color: #27AE60; /* Warna berubah saat diklik */
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
       transform: scale(0.98);
@@ -1178,6 +1241,47 @@ body111 {
     color: blue;
 }
 
+
+	    .quantum-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .quantum-pagination a {
+        padding: 0.8rem 1.5rem;
+        background: rgba(0, 255, 136, 0.1);
+        color: var(--primary);
+        text-decoration: none;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 255, 136, 0.3);
+        transition: all 0.3s ease;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 600;
+        min-width: 45px;
+        text-align: center;
+      }
+
+      .quantum-pagination a:hover,
+      .quantum-pagination a.active {
+        background: var(--primary);
+        color: var(--dark);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+      }
+
+	    .quantum-pagination {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+    
+        .quantum-pagination a {
+          padding: 0.5rem 0.7rem;
+          font-size: 0.7rem;
+          min-width: 30px;
+        }
     </style>
     
 </head>
@@ -1221,7 +1325,7 @@ body111 {
       <img src="https://bmkg.xyz/img/mobile.png" alt="menu" width="40">
     </a>
   </span>
-  <span><a href="https://bmkg.xyz/sub-api" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+  <span><a href="https://bmkg.xyz/sub-api.html" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
     <img src="https://bmkg.xyz/img/linksub.png" alt="menu" width="40" style="margin-top: 5px;"></a></span>
         
 		  <span><a href="https://bmkg.xyz/check-api.html" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
@@ -1257,7 +1361,7 @@ body111 {
       <img src="https://bmkg.xyz/img/menu.png" alt="menu" width="40" style="margin-top: 5px;">
     </div>		
 <span>Page:</span>
-<select id="items-per-page" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+<select id="items-per-page" class="form-control" required>
     <option value="10" style="background-color: #f0f0f0;">10/Page</option>
     <option value="25" style="background-color: #f0f0f0;">25/Page</option>
     <option value="50" style="background-color: #f0f0f0;">50/Page</option>
@@ -1266,7 +1370,7 @@ body111 {
 </select>
 
 		<span class="filter-label">Search:</span>
-    <input type="text" id="search-bar" placeholder="Search ID" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+    <input type="text" id="search-bar" placeholder="Search ID"  class="form-control" required>
 
 </div>
   <div><center></center></div><br/><br>
@@ -1551,7 +1655,7 @@ function uuidv4() {
           <td>
             <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
           </td>
-          <td><select class="service-selector" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+          <td><select id="service-selector" class="form-control" required>
           <option value="">NO WILDCARD</option>
           <option value="business.blibli.com">business.blibli.com</option>          
           <option value="ava.game.naver.com">ava.game.naver.com</option>
@@ -1574,11 +1678,11 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>VLESS TLS 443<br>
+      <hr/>VLESS /IP-PORT<br>
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-vless">COPY VLESS 443</button>
-      <br><hr/>VLESS NTLS 80<br>
-      PATH: /Free-CF-Proxy/${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS 80</button>
+      <button class="copy-vless">COPY VLESS 443</button>-<button class="copy-vless-clash">COPY VLESS 80</button>
+      <br><hr/>VLESS /SIMPLE<br>
+      PATH: /Free-CF-Proxy/${id}<br><button class="copy-1vless">COPY VLESS 443</button>-<button class="copy-1vless-clash">COPY VLESS 80</button>
       <hr/>
       <button class="button8" onclick="hidePopup('vtls${ip}-${port}')">Close</button> 
 </div>
@@ -1589,11 +1693,11 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>TROJAN TLS 443<br>
+      <hr/>TROJAN /IP-PORT<br>
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-trojan">COPY TROJAN 443</button>
-      <br><hr/>TROJAN NTLS 80<br>
-      PATH: /Free-CF-Proxy/${ip}-${port}<br><button class="copy-trojan-clash877">COPY TROJAN 80</button> 
+      <button class="copy-trojan">COPY TROJAN 443</button>-<button class="copy-trojan-clash877">COPY TROJAN 80</button> 
+      <br><hr/>TROJAN /SIMPLE<br>
+      PATH: /Free-CF-Proxy/${id}<br><button class="copy-1trojan">COPY TROJAN 443</button>-<button class="copy-1trojan-clash877">COPY TROJAN 80</button> 
       <hr/>
       <button class="button8" onclick="hidePopup('trojan${ip}-${port}')">Close</button> 
     </div>
@@ -1604,12 +1708,12 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>SHADOWSOCK TLS 443<br>
+      <hr/>SHADOWSOCK /IP-PORT<br>
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-ss">COPY SHADOWSOCK 443</button>
-      <br><hr/>SHADOWSOCK NTLS 80<br>
-      PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-ss1">COPY SHADOWSOCK 80</button>
+      <button class="copy-ss">COPY SHADOWSOCK 443</button>-<button class="copy-ss1">COPY SHADOWSOCK 80</button>
+      <br><hr/>SHADOWSOCK /SIMPLE<br>
+      PATH: /Free-CF-Proxy/${id}<br>
+       <button class="copy-1ss">COPY SHADOWSOCK 443</button>-<button class="copy-1ss1">COPY SHADOWSOCK 80</button>
      <hr/> <button class="button8" onclick="hidePopup('ss${ip}-${port}')">Close</button> 
     </div>
     </div></td>
@@ -1619,12 +1723,12 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>VMESS TLS 443<br>
+      <hr/>VMESS /IP-PORT<br>
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-vmess">COPY VMESS 443</button>
-      <br><hr/>VMESS NTLS 80<br>
+      <button class="copy-vmess">COPY VMESS 443</button>-<button class="copy-vmess1">COPY VMESS 80</button>
+      <br><hr/>VMESS /SIMPLE<br>
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
-      <button class="copy-vmess1">COPY VMESS 80</button>
+      <button class="copy-1vmess">COPY VMESS 443</button>-<button class="copy-1vmess1">COPY VMESS 80</button>
      <hr/> <button class="button8" onclick="hidePopup('vmess${ip}-${port}')">Close</button> 
     </div>
     </div></td>
@@ -1683,6 +1787,8 @@ row.querySelector('.copy-vless-clash').addEventListener('click', () => {
     });
   });
 });
+
+
 
 // --- TROJAN TLS ---
 row.querySelector('.copy-trojan').addEventListener('click', () => {
@@ -1764,6 +1870,118 @@ row.querySelector('.copy-vmess1').addEventListener('click', () => {
       type: "none",
       host: domain,
       path: `/Free-CF-Proxy/${ip}-${port}`,
+      tls: "none"
+    };
+    const vmess = `vmess://${btoa(JSON.stringify(config))}`;
+    navigator.clipboard.writeText(vmess).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY VMESS NTLS 80!', `vmess${ip}-${port}`);
+    });
+  });
+});
+
+
+// --- VLESS TLS ---
+row.querySelector('.copy-1vless').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const VLESS = `vless://aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=tls&sni=${domain}#VLESS+${id}+${isp}`;
+    navigator.clipboard.writeText(VLESS).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY VLESS TLS 443!', `vtls${ip}-${port}`);
+    });
+  });
+});
+
+// --- VLESS NTLS ---
+row.querySelector('.copy-1vless-clash').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const VLESSC = `vless://aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1@${selectedService}:80?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=none#VLESS+${id}+${isp}`;
+    navigator.clipboard.writeText(VLESSC).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY VLESS NTLS 80!', `vtls${ip}-${port}`);
+    });
+  });
+});
+
+
+
+// --- TROJAN TLS ---
+row.querySelector('.copy-1trojan').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const TROJAN = `trojan://aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1@${selectedService}:443?type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=tls&sni=${domain}#TROJAN+${id}+${isp}`;
+    navigator.clipboard.writeText(TROJAN).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY TROJAN TLS 443!', `trojan${ip}-${port}`);
+    });
+  });
+});
+
+// --- TROJAN NTLS ---
+row.querySelector('.copy-1trojan-clash877').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const TROJANC877 = `trojan://aaaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1@${selectedService}:80?type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=none#TROJAN+${id}+${isp}`;
+    navigator.clipboard.writeText(TROJANC877).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY TROJAN NTLS 80!', `trojan${ip}-${port}`);
+    });
+  });
+});
+
+// --- SHADOWSOCKS TLS ---
+row.querySelector('.copy-1ss').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const SS = `ss://bm9uZTphYWFhYWFhMS1iYmJiLTRjY2MtYWNjYy1lZWVlZWVlZWVlZTE=%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=tls&sni=${domain}#SHADOWSOCK+${id}+${isp}`;
+    navigator.clipboard.writeText(SS).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY SHADOWSOCK TLS 443!', `ss${ip}-${port}`);
+    });
+  });
+});
+
+// --- SHADOWSOCKS NTLS ---
+row.querySelector('.copy-1ss1').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const SS1 = `ss://bm9uZTphYWFhYWFhMS1iYmJiLTRjY2MtYWNjYy1lZWVlZWVlZWVlZTE=%3D@${selectedService}:80?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy/${id}&security=none#SHADOWSOCK+${id}+${isp}`;
+    navigator.clipboard.writeText(SS1).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY SHADOWSOCK NTLS 80!', `ss${ip}-${port}`);
+    });
+  });
+});
+
+// --- VMESS TLS ---
+row.querySelector('.copy-1vmess').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const config = {
+      v: "2",
+      ps: `VMESS ${id} ${isp}`,
+      add: selectedService,
+      port: "443",
+      id: "0fbf4f81-2598-4b6a-a623-0ead4cb9efa8",
+      aid: "0",
+      scy: "zero",
+      net: "ws",
+      type: "none",
+      host: domain,
+      path: `/Free-CF-Proxy/${id}`,
+      tls: "tls",
+      sni: domain
+    };
+    const vmess = `vmess://${btoa(JSON.stringify(config))}`;
+    navigator.clipboard.writeText(vmess).then(() => {
+      showCopiedAlert('Berhasil!', 'COPY VMESS TLS 443!', `vmess${ip}-${port}`);
+    });
+  });
+});
+
+// --- VMESS NTLS ---
+row.querySelector('.copy-1vmess1').addEventListener('click', () => {
+  processEachHost(({ selectedService, domain }) => {
+    const config = {
+      v: "2",
+      ps: `VMESS ${id} ${isp}`,
+      add: selectedService,
+      port: "80",
+      id: "0fbf4f81-2598-4b6a-a623-0ead4cb9efa8",
+      aid: "0",
+      scy: "zero",
+      net: "ws",
+      type: "none",
+      host: domain,
+      path: `/Free-CF-Proxy/${id}`,
       tls: "none"
     };
     const vmess = `vmess://${btoa(JSON.stringify(config))}`;
