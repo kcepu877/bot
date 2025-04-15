@@ -1487,14 +1487,14 @@ function uuidv4() {
       } else {
         // Proxy status mati
         statusElement.innerHTML = `
-          <strong><i class="fas fa-times-circle"></i> DEAD</strong>
+          <strong><i class="fas fa-times-circle"></i> DEAD ☠</strong>
         `;
         statusElement.style.color = 'red';
       }
     })
     .catch(error => {
       // Menghapus alert dan menampilkan error di status element
-      statusElement.innerHTML = `<strong><i class="fas fa-exclamation-triangle"></i> Error</strong>`;
+      statusElement.innerHTML = `<strong><i class="fas fa-exclamation-triangle"></i> Error ☠</strong>`;
       statusElement.style.color = 'cyan';
       console.error("Fetch error:", error); // Log error ke console
     });
