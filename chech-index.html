@@ -981,12 +981,11 @@ body {
                                     </button>
                                 </div>
                             </div>
-                            
-                            <div>
-                                
-  <label for="vless-path" class="block text-sm font-medium text-gray-300 mb-2">Pilih Path</label>
-  <select id="vless-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm">
-    <option disabled selected>Pilih Path</option>
+                           
+  <div>
+  <label for="vless-path" class="block text-sm font-medium text-gray-300 mb-2">Select Path</label>
+  <select id="vless-path" name="path" class="w-full px-4 py-2.5 glass-select rounded-lg text-sm">
+    <!-- Options will be populated dynamically -->
   </select>
 </div>
                             
@@ -2094,17 +2093,29 @@ async function selectProxy(index) {
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
     const options = [
-  `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
-  `/Free-CF-Proxy/${selectedProxy.country}`,
+  `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,  // Path based on IP and Port
+  `/Free-CF-Proxy/${selectedProxy.country}`                   // Path based on Country
 ];
 
-const select = document.getElementById('vless-path');
+// Default selection (set to the first option)
+let selectedOptions = options[0]; // Default to the first path
 
-options.forEach(path => {
+// Get the select element
+const selectPath = document.getElementById('vless-path');
+
+// Loop through the options and create option elements
+options.forEach(optionValue => {
   const option = document.createElement('option');
-  option.value = path;
-  option.textContent = path;
-  select.appendChild(option);
+  option.value = optionValue;
+  option.textContent = optionValue;
+
+  // If this is the default option, set it as selected
+  if (optionValue === selectedOptions) {
+    option.selected = true;
+  }
+
+  // Append the option to the select element
+  selectPath.appendChild(option);
 });
  
     document.getElementById('vmess-name').value = accountName;
