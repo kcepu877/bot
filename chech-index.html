@@ -2089,14 +2089,11 @@ async function selectProxy(index) {
     
 const countryCounter = {};
 
-function generatePath(proxy) {
-  const country = proxy.country;
-
-  if (!countryCounter[country]) {
-    countryCounter[country] = 0;
-  }
-  countryCounter[country]++;
-  const count = countryCounter[country];
+if (!countryCounter[country]) {
+  countryCounter[country] = 0;
+}
+countryCounter[country]++;
+const count = countryCounter[country];
 
 // Array dari paths untuk setiap jenis
 const paths = {
