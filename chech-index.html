@@ -1763,30 +1763,6 @@ function downloadQRCode() {
     }
 }
 
-// Function to display fallback proxy list
-function displayFallbackProxyList() {
-    // Add a fallback proxy list for immediate display
-    proxyList = [
-        { ip: '103.6.207.108', port: '8080', country: 'ID', provider: 'PT Pusat Media Indonesia' },
-        { ip: '45.8.107.73', port: '80', country: 'US', provider: 'Cloudflare Inc' },
-        { ip: '172.67.181.52', port: '443', country: 'US', provider: 'Cloudflare Inc' },
-        { ip: '104.21.69.85', port: '443', country: 'US', provider: 'Cloudflare Inc' },
-        { ip: '185.219.132.181', port: '8080', country: 'NL', provider: 'Netherlands Provider' },
-        { ip: '45.8.107.73', port: '80', country: 'UK', provider: 'British Telecom' },
-        { ip: '172.67.182.77', port: '443', country: 'JP', provider: 'Japan Telecom' },
-        { ip: '104.21.70.123', port: '8080', country: 'SG', provider: 'Singapore Telecom' },
-        { ip: '185.219.133.45', port: '3128', country: 'DE', provider: 'Deutsche Telekom' },
-        { ip: '45.8.105.26', port: '80', country: 'FR', provider: 'Orange France' },
-        { ip: '172.67.183.98', port: '443', country: 'CA', provider: 'Bell Canada' },
-        { ip: '104.21.71.205', port: '8080', country: 'AU', provider: 'Telstra Australia' },
-        { ip: '185.219.134.67', port: '3128', country: 'IT', provider: 'Telecom Italia' },
-        { ip: '45.8.104.83', port: '80', country: 'BR', provider: 'Brazil Telecom' },
-        { ip: '172.67.184.12', port: '443', country: 'RU', provider: 'Russian Telecom' }
-    ];
-    
-    filteredProxyList = [...proxyList];
-    renderProxyList();
-}
 
 // Process proxy list data
 function processProxyData(text) {
