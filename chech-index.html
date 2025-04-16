@@ -2089,11 +2089,11 @@ async function selectProxy(index) {
     
 const countryCounter = {};
 
-function getCountForCountry(country) {
-  if (!countryCounter[country]) {
-    countryCounter[country] = 0;
+function getCountForCountry(proxy.country) {
+  if (!countryCounter[proxy.country]) {
+    countryCounter[proxy.country] = 0;
   }
-  return ++countryCounter[country];
+  return ++countryCounter[proxy.country];
 }
 
 // Pakai
