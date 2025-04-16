@@ -1431,7 +1431,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     
     // Custom Bug dan Wildcard functionality
-    const bugInputs = [
+    const selectedBug = bug[0]; = [
         document.getElementById('vmess-bug'),
         document.getElementById('vless-bug'),
         document.getElementById('trojan-bug'),
@@ -2045,13 +2045,13 @@ async function selectProxy(index) {
     
     
     const bug = ['', 'business.blibli.com', 'ava.game.naver.com', 'graph.instagram.com', 'quiz.int.vidio.com', 'live.iflix.com', 'support.zoom.us', 'blog.webex.com',  'investors.spotify.com', 'cache.netflix.com', 'zaintest.vuclip.com', 'ads.ruangguru.com', 'api.midtrans.com', 'investor.fb.com', 'bakrie.ac.id'];
-let selectedBug = bug[0]; // default selected value (empty string)
+let selectedBug1 = bug[0]; // default selected value (empty string)
 
 // Get the <select> element
-const selectElement = document.getElementById('vmess-bug');
-const selectElement = document.getElementById('vless-bug');
-const selectElement = document.getElementById('ss-bug');
-const selectElement = document.getElementById('trojan-bug');
+const selectElement = document.getElementById('vmess-bug1');
+const selectElement = document.getElementById('vless-bug2');
+const selectElement = document.getElementById('ss-bug1');
+const selectElement = document.getElementById('trojan-bug1');
 
 // Populate the <select> with options
 bug.forEach((item) => {
