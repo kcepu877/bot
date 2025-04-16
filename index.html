@@ -1420,7 +1420,7 @@ document.addEventListener('DOMContentLoaded', function() {
             filteredProxyList = [...proxyList];
         } else {
             filteredProxyList = proxyList.filter(proxy => 
-                proxy.provider.toLowerCase().includes(searchTerm) || 
+                
                 proxy.country.toLowerCase().includes(searchTerm)
             );
         }
