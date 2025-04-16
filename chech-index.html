@@ -2087,9 +2087,16 @@ async function selectProxy(index) {
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
     
-// Array of options for each path type
-// Variabel count yang ingin ditambahkan
-let count = 1;  // Misalnya, angka ini bisa berubah atau dihitung sesuai kebutuhan
+const countryCounter = {};
+
+function generatePath(proxy) {
+  const country = proxy.country;
+
+  if (!countryCounter[country]) {
+    countryCounter[country] = 0;
+  }
+  countryCounter[country]++;
+  const count = countryCounter[country];
 
 // Array dari paths untuk setiap jenis
 const paths = {
