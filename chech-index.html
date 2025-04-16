@@ -704,15 +704,25 @@ body {
             <!-- Proxy List Section -->
             <div id="proxy-list-section">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5">
-                    <div class="flex items-center mb-3 sm:mb-0">
-                        <i class="fas fa-server mr-2 text-indigo-400"></i>
-                        <h2 class="text-xl font-semibold">Proxy List</h2><span><a href="/api" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
-    <img src="https://bmkg.xyz/img/linksub.png" alt="menu" width="40" style="margin-top: 5px;"></a></span>
-        
-		  <span><a href="/proxy" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
-    <img src="https://bmkg.xyz/img/vpn.png" alt="menu" width="40" style="margin-top: 5px;"></a></span>
-       
-                    </div>
+                    <div class="flex items-center mb-3 sm:mb-0 justify-between w-full">
+    <div class="flex items-center">
+        <i class="fas fa-server mr-2 text-indigo-400"></i>
+        <h2 class="text-xl font-semibold">Proxy List</h2>
+    </div>
+    <div class="flex items-center space-x-2">
+        <span>
+            <a href="/api" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+                <img src="https://bmkg.xyz/img/linksub.png" alt="menu" width="40" style="margin-top: 5px;">
+            </a>
+        </span>
+        <span>
+            <a href="/proxy" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+                <img src="https://bmkg.xyz/img/vpn.png" alt="menu" width="40" style="margin-top: 5px;">
+            </a>
+        </span>
+    </div>
+</div>
+
                     <div class="flex flex-col sm:flex-row w-full sm:w-auto space-y-2 sm:space-y-0 sm:space-x-3">
                         <button id="refresh-btn" class="primary-btn py-2 px-4 rounded-lg flex items-center justify-center text-sm">
                             <i class="fas fa-sync-alt mr-2"></i>Refresh
