@@ -25,7 +25,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  
     <style>
+
     :root {
         --primary: #000;
         --secondary: #fff;
@@ -214,6 +220,41 @@
   }
 }
 
+
+#link1 {
+      width: 100%; /* Mengatur lebar penuh */
+      padding: 10px; /* Menambahkan padding agar teks tidak menempel */
+      border: 1px solid #ccc; /* Memberikan border agar lebih terlihat */
+      font-size: 14px; /* Ukuran font agar teks mudah dibaca */
+      color: #333; /* Warna teks */
+      background-color: #fff; /* Latar belakang putih */
+      word-wrap: break-word; /* Membungkus teks panjang */
+      text-align: left; /* Rata kiri untuk teks */
+      white-space: normal; /* Membuat teks panjang bisa terbungkus */
+    }
+
+
+
+#link1:focus {
+    border-color: #0056b3; /* Warna saat input terfokus */
+    outline: none; /* Menghapus garis luar bawaan browser */
+}
+
+
+#link2 {
+    border: 2px solid #007bff; /* Warna biru */
+    border-radius: 5px; /* Opsional: Membuat sudut melengkung */
+    padding: 10px; /* Opsional: Memberi jarak dalam input */
+    background-color: #f9f9f9; /* Opsional: Warna latar belakang */
+    color: #333; /* Opsional: Warna teks */
+    width: 100%; /* Opsional: Menyesuaikan lebar */
+    box-sizing: border-box; /* Opsional: Memastikan padding tidak menambah ukuran total */
+}
+
+#link2:focus {
+    border-color: #0056b3; /* Warna saat input terfokus */
+    outline: none; /* Menghapus garis luar bawaan browser */
+}
 body {
   background: url('https://raw.githubusercontent.com/bitzblack/ip/refs/heads/main/shubham-dhage-5LQ_h5cXB6U-unsplash.jpg') no-repeat center center fixed;
         background-size: cover;
@@ -252,6 +293,15 @@ body {
   animation: moveColors 5s linear infinite;
 }
 
+
+
+    
+body111 {
+      background-color: rgba(63, 63, 63, 1); /* Hitam pekat (dark mode) */
+      color: #fff; /* Teks hijau agar kontras dengan background */
+      margin: 0;
+      font-family: Arial, sans-serif; /* Font sederhana dan bersih */
+    }
 .flag-icon {
     position: relative; /* Pastikan posisinya tidak fixed atau absolute */
     z-index: 1; /* Memberi prioritas lebih rendah daripada header */
@@ -329,10 +379,12 @@ body {
         color: #333; /* Warna teks */
         transition: background-color 0.3s, border-color 0.3s;
     }
+
     .service-selector:hover, .link1:hover, .link2:hover {
         background-color: #e0f7fa; /* Warna latar belakang saat hover */
         border-color: #00796b; /* Warna border saat hover */
     }
+
     .service-selector option {
         padding: 10px;
     }  
@@ -370,6 +422,8 @@ body {
     margin-right: auto;
   }
 }
+
+
 	    .navbartedjo {
     position: fixed;
     top: 0;
@@ -387,6 +441,10 @@ body {
     align-items: center; /* Menempatkan item di tengah secara horizontal */
     height: 100vh; /* Membuat navbar setinggi 100% viewport */
 }
+
+
+
+
       .navbarconten {
     width: 100%;
     overflow-x: auto; /* Mengaktifkan scroll horizontal */
@@ -456,6 +514,8 @@ body {
         50% { transform: scale(1.02); filter: brightness(1.2); }
       }
       
+      
+          
     .filters {
       display: flex;
       justify-content: space-between;
@@ -472,8 +532,11 @@ body {
     .filter-label {
       margin-right: 10px;
     }
+
+
     /* Memberikan sudut melengkung pada tabel */
     table {
+      
       border-collapse: separate;
       border-spacing: 0;
       border: 0px solid rgba(26, 4, 83, 0.81); /* Warna border hijau */
@@ -493,9 +556,13 @@ body {
     background-color: rgba(0, 0, 0, 0.82); /* Warna latar belakang */
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), /* Glow putih */
               0 0 30px rgba(0, 150, 255, 0.5);   /* Glow biru */
-    }
+
     
-  th {
+    }
+
+
+
+        th {
       background-color: rgba(0, 255, 136, 0.1); /* Warna hijau */
       color: white; /* Warna teks putih */
       font-weight: bold;
@@ -540,12 +607,14 @@ body {
     .column-3 {
       width: 20%; /* Kolom ketiga 20% dari tabel */
     }
+    
     /* General Button Styling */
     .button, .button1, .button2, .button3, .button4  {
       white-space: nowrap; /* Mencegah teks melipat */
-      position: relative; /* Pastikan tombol berada di atas elemen lainnya */
-      z-index: 2; /* Tingkatkan prioritas tombol */
-      pointer-events: auto; /* Aktifkan interaksi pointer */
+     position: relative; /* Pastikan tombol berada di atas elemen lainnya */
+  z-index: 2; /* Tingkatkan prioritas tombol */
+  pointer-events: auto; /* Aktifkan interaksi pointer */
+
       padding: 10px 10px;
       margin: 10px 5px;
       border: 0px solid #fff;
@@ -554,6 +623,7 @@ body {
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
+
     /* Button Colors */
     .button1 { 
       margin: 10px;
@@ -565,10 +635,11 @@ body {
       color: #fff;
       cursor: pointer;
       position: relative; /* Pastikan tombol berada di atas elemen lainnya */
-      z-index: 2; /* Tingkatkan prioritas tombol */
-      pointer-events: auto; /* Aktifkan interaksi pointer */    
+  z-index: 2; /* Tingkatkan prioritas tombol */
+  pointer-events: auto; /* Aktifkan interaksi pointer */
+
+      
     }
-	    
     .button2 { 
       margin: 10px;
       padding: 10px 10px;
@@ -580,9 +651,10 @@ body {
       cursor: pointer;
       position: relative; /* Pastikan tombol berada di atas elemen lainnya */
   z-index: 2; /* Tingkatkan prioritas tombol */
-  pointer-events: auto; /* Aktifkan interaksi pointer */      
+  pointer-events: auto; /* Aktifkan interaksi pointer */
+
+      
     }
-	    
     .button3 { 
       margin: 10px;
       padding: 10px 10px;
@@ -594,7 +666,10 @@ body {
       cursor: pointer;
       position: relative; /* Pastikan tombol berada di atas elemen lainnya */
   z-index: 2; /* Tingkatkan prioritas tombol */
-  pointer-events: auto; /* Aktifkan interaksi pointer */      
+  pointer-events: auto; /* Aktifkan interaksi pointer */
+
+
+      
     }
     
      .button4 { 
@@ -630,7 +705,9 @@ body {
     }
     .button:hover {
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
-    }  
+    }
+
+  
 
 .menu1 {
   display: flex; /* Mengubah elemen menjadi flexbox */
@@ -670,7 +747,11 @@ body {
 .menu:nth-child(even) {
   color: #fff; /* Warna teks untuk baris genap */
   background-color: rgba(3, 117, 1, 0.87); /* Warna latar belakang untuk baris genap */
-}   
+}
+
+
+
+    
           /* Warna 1 - Orange Gelap */
     .copy-vless,
     .copy-vless877,
@@ -840,7 +921,8 @@ body {
     .pagination .active {
       background-color: rgba(0, 15, 123, 0.78);
     }
-	    
+
+    
         #search-bar {
       padding: 13px;
       width: 100px;
@@ -874,6 +956,7 @@ body {
         border-radius: 5px; 
       }
 
+
       #items-per-page {
         width: 30px;
         max-width: none;
@@ -881,12 +964,15 @@ body {
         border-radius: 5px; 
       }
 
+
       .pagination button {
         padding: 12px;
         font-size: 18px;
       }
     }
      
+
+
     .popupnav {
     display: none; /* Popup disembunyikan secara default */
     position: fixed;
@@ -1205,6 +1291,12 @@ body {
     
 </head>
 <body>
+
+
+    <!-- Modal -->
+    
+
+    
 <script>
         let navbartedjoOpen = false;
 
@@ -1212,6 +1304,7 @@ body {
             const navbartedjo = document.getElementById("navbartedjo");
             const menuBtn = document.getElementById("menu-btn");
             const img = menuBtn.querySelector('img');
+
 		
             if (navbartedjoOpen) {
                 navbartedjo.style.left = "-80px";
@@ -1237,10 +1330,10 @@ body {
       <img src="https://bmkg.xyz/img/mobile.png" alt="menu" width="40">
     </a>
   </span>
-  <span><a href="/api" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+  <span><a href="https://bmkg.xyz/sub-api.html" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
     <img src="https://bmkg.xyz/img/linksub.png" alt="menu" width="40" style="margin-top: 5px;"></a></span>
         
-		  <span><a href="/proxy" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+		  <span><a href="https://bmkg.xyz/check-api.html" target="_self" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
     <img src="https://bmkg.xyz/img/vpn.png" alt="menu" width="40" style="margin-top: 5px;"></a></span>
        
   <span>
@@ -1263,9 +1356,12 @@ body {
 </div>
 	  </div>
   <main class="content">
+
+    
 <div class="filters" style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; ">
     </div>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;">    
+        <div style="display: flex; justify-content: center; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;">
+    
 <div onclick="showPopup('list-domain')" style="background: transparent; border: none; padding: 0;">
       <img src="https://bmkg.xyz/img/menu.png" alt="menu" width="40" style="margin-top: 5px;">
     </div>		
@@ -1277,11 +1373,18 @@ body {
     <option value="100" style="background-color: #f0f0f0;">100/Page</option>
     <option value="250" style="background-color: #f0f0f0;">250/Page</option>
 </select>
-    <span class="filter-label">Search:</span>
+
+		<span class="filter-label">Search:</span>
     <input type="text" id="search-bar" placeholder="Search ID"  class="form-control" required>
+
 </div>
-  <div><center></center></div><br/><br>    
-  <div class="table-container">
+  <div><center></center></div><br/><br>
+
+
+
+
+    
+      <div class="table-container">
     <table>
       <thead>
         <tr>          
@@ -1308,6 +1411,8 @@ body {
     <span class="menu" style="color: #000; text-decoration: none; display: block; text-align: center;"><center><strong>LIST SERVER DOMAIN
   </strong></center></span>
 <!-- Checklist Host -->
+
+
 <style>
   #host-checkboxes {
     text-align: left;
@@ -1362,14 +1467,18 @@ body {
     });
   });
 </script>
+
                 <br>
    </div>
    <button class="button7" id="close" onclick="hidePopup('list-domain')">Close</button>
     </div>
   </div>
+
   <footer class="footer">
     <h2>&copy; 2024 FREE PROXY CF LIFETIME</h2>
   </footer>
+
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // Function to show a popup
@@ -1487,25 +1596,30 @@ function uuidv4() {
       } else {
         // Proxy status mati
         statusElement.innerHTML = `
-          <strong><i class="fas fa-times-circle"></i> DEAD ☠</strong>
+          <strong><i class="fas fa-times-circle"></i> DEAD</strong>
         `;
         statusElement.style.color = 'red';
       }
     })
     .catch(error => {
       // Menghapus alert dan menampilkan error di status element
-      statusElement.innerHTML = `<strong><i class="fas fa-exclamation-triangle"></i> Error ☠</strong>`;
+      statusElement.innerHTML = `<strong><i class="fas fa-exclamation-triangle"></i> Error</strong>`;
       statusElement.style.color = 'cyan';
       console.error("Fetch error:", error); // Log error ke console
     });
 }
 
+
+
   // Fungsi untuk render proxies dengan pagination
   function renderProxies(proxies, proxyList, pagination, itemsPerPage) {
     const totalPages = Math.ceil(proxies.length / itemsPerPage);
-    let currentPage = 1;	  
+    let currentPage = 1;
+
+
    const countryCounter = {}; // Move this line outside of the renderProxies function to persist counts
-	  
+
+
     function updatePage(page) {
       if (page < 1 || page > totalPages) return;
       currentPage = page;
@@ -1520,13 +1634,15 @@ function uuidv4() {
       // Render proxies for the current page
       pageProxies.forEach(proxy => {
         const [ip, port, id, isp] = proxy.split(','); // Split the proxy data into individual parts
-                
+        
+        
         // Increment counter for country
             if (!countryCounter[id]) {
                 countryCounter[id] = 0;
             }
             countryCounter[id]++;
             const cons = countryCounter[id]; // Use the country counter
+
         
         // Set placeholder values (you can modify this to extract from proxy data if available)
         const wildcard = '';
@@ -1544,7 +1660,8 @@ function uuidv4() {
           <td>
             <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
           </td>
-          <td><select id="service-selector" class="form-control" required>
+          <td><select class="form-control service-selector" required>
+
           <option value="">NO WILDCARD</option>
           <option value="business.blibli.com">business.blibli.com</option>          
           <option value="ava.game.naver.com">ava.game.naver.com</option>
@@ -1616,12 +1733,13 @@ function uuidv4() {
       PATH: /Free-CF-Proxy/${ip}-${port}<br>
       <button class="copy-vmess">COPY VMESS 443</button>-<button class="copy-vmess1">COPY VMESS 80</button>
       <br><hr/>VMESS /SIMPLE<br>
-      PATH: /Free-CF-Proxy/${id}<br>
+      PATH: /Free-CF-Proxy/${ip}-${port}<br>
       <button class="copy-1vmess">COPY VMESS 443</button>-<button class="copy-1vmess1">COPY VMESS 80</button>
      <hr/> <button class="button8" onclick="hidePopup('vmess${ip}-${port}')">Close</button> 
     </div>
     </div></td>
         `;
+
         // Append the row to the proxy list
         proxyList.appendChild(row);
 
@@ -1878,7 +1996,12 @@ row.querySelector('.copy-1vmess1').addEventListener('click', () => {
     });
   });
 });
-                
+
+
+
+
+        
+        
         // Update status as per your logic
         checkProxyStatus(ip, port, document.getElementById(`status-${ip}-${port}`));
       });
@@ -1931,6 +2054,9 @@ row.querySelector('.copy-1vmess1').addEventListener('click', () => {
     updatePage(1);
   }
 
+
 </script>
+
+
 </body>
 </html>
