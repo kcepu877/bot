@@ -905,12 +905,10 @@ body {
                             </div>
                             
                             <div>
-                                <label for="vmess-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="vmess-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
-                            </div>
-                            <div>
-                                <label for="vmess-path1" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="vmess-path1" name="path1" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
+                                <label for="vmess-path" class="block text-sm font-medium text-gray-300 mb-2">Select VMESS Path</label>
+  <select id="vmess-path" name="vmess-path" class="w-full px-4 py-2.5 glass-select rounded-lg text-sm">
+    <!-- Options for VMESS will be populated dynamically -->
+  </select>
                             </div>
                             <div>
                                 <label for="vmess-security" class="block text-sm font-medium text-gray-300 mb-2">TLS</label>
@@ -1060,12 +1058,10 @@ body {
                             </div>
                             
                             <div>
-                                <label for="trojan-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="trojan-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
-                            </div>
-                            <div>
-                                <label for="trojan-path1" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="trojan-path1" name="path1" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
+                                <label for="trojan-path" class="block text-sm font-medium text-gray-300 mb-2">Select VMESS Path</label>
+  <select id="trojan-path" name="trojan-path" class="w-full px-4 py-2.5 glass-select rounded-lg text-sm">
+    <!-- Options for VMESS will be populated dynamically -->
+  </select>
                             </div>
                             <div>
                                 <label for="trojan-security" class="block text-sm font-medium text-gray-300 mb-2">TLS</label>
@@ -1137,12 +1133,10 @@ body {
                             </div>
                             
                             <div>
-                                <label for="ss-path" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="ss-path" name="path" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
-                            </div>
-                            <div>
-                                <label for="ss-path1" class="block text-sm font-medium text-gray-300 mb-2">Path</label>
-                                <input type="text" id="ss-path1" name="path1" class="w-full px-4 py-2.5 glass-input rounded-lg text-sm" readonly>
+                                <label for="ss-path" class="block text-sm font-medium text-gray-300 mb-2">Select VMESS Path</label>
+  <select id="ss-path" name="ss-path" class="w-full px-4 py-2.5 glass-select rounded-lg text-sm">
+    <!-- Options for VMESS will be populated dynamically -->
+  </select>
                             </div>
                             <div>
                                 <label for="ss-security" class="block text-sm font-medium text-gray-300 mb-2">TLS</label>
@@ -2092,31 +2086,51 @@ async function selectProxy(index) {
     
     // Update form fields
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
-    const options = [
-  `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,  // Path based on IP and Port
-  `/Free-CF-Proxy/${selectedProxy.country}`                   // Path based on Country
-];
+    
+// Array of options for each path type
+const paths = {
+  vless: [
+    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+    `/Free-CF-Proxy/${selectedProxy.country}`
+  ],
+  vmess: [
+    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+    `/Free-CF-Proxy/${selectedProxy.country}`
+  ],
+  trojan: [
+    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+    `/Free-CF-Proxy/${selectedProxy.country}`
+  ],
+  ss: [
+    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+    `/Free-CF-Proxy/${selectedProxy.country}`
+  ]
+};
 
-// Default selection (set to the first option)
-let selectedOptions = options[0]; // Default to the first path
+// Function to populate dropdown with options
+function populateDropdown(dropdownId, options, selectedOption) {
+  const selectElement = document.getElementById(dropdownId);
 
-// Get the select element
-const selectPath = document.getElementById('vless-path');
+  options.forEach(optionValue => {
+    const option = document.createElement('option');
+    option.value = optionValue;
+    option.textContent = optionValue;
 
-// Loop through the options and create option elements
-options.forEach(optionValue => {
-  const option = document.createElement('option');
-  option.value = optionValue;
-  option.textContent = optionValue;
+    // Set the default selected option
+    if (optionValue === selectedOption) {
+      option.selected = true;
+    }
 
-  // If this is the default option, set it as selected
-  if (optionValue === selectedOptions) {
-    option.selected = true;
-  }
+    selectElement.appendChild(option);
+  });
+}
 
-  // Append the option to the select element
-  selectPath.appendChild(option);
-});
+// Populate each dropdown with options
+populateDropdown('vless-path', paths.vless, paths.vless[0]);  // Default for VLESS
+populateDropdown('vmess-path', paths.vmess, paths.vmess[0]);  // Default for VMESS
+populateDropdown('trojan-path', paths.trojan, paths.trojan[0]);  // Default for TROJAN
+populateDropdown('ss-path', paths.ss, paths.ss[0]);  // Default for SS
+
  
     document.getElementById('vmess-name').value = accountName;
     document.getElementById('vless-name').value = accountName;
