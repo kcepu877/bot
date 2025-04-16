@@ -2154,7 +2154,24 @@ async function selectProxy(index) {
       `/Free-CF-Proxy/AFRIC`
     ]
   };
-  
+
+ // Fungsi untuk mengisi dropdown
+function populateDropdown(dropdownId, options, selectedOption) {
+  const selectElement = document.getElementById(dropdownId);
+
+  options.forEach(optionValue => {
+    const option = document.createElement('option');
+    option.value = optionValue;
+    option.textContent = optionValue;
+
+    // Menetapkan pilihan default
+    if (optionValue === selectedOption) {
+      option.selected = true;
+    }
+
+    selectElement.appendChild(option);
+  });
+}
   // Memasukkan paths ke dropdown
   populateDropdown('vless-path', paths.vless, paths.vless[0]);
   populateDropdown('vmess-path', paths.vmess, paths.vmess[0]);
