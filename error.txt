@@ -1,1 +1,15 @@
-Error checking 109.107.185.44:2053: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=109.107.185.44:2053
+Error checking 141.94.207.7:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=141.94.207.7:8443
+Error checking 193.70.0.150:8443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error checking 146.103.49.75:2053: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error checking 77.83.246.133:24443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=77.83.246.133:24443
+Error checking 47.236.25.107:27903: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=47.236.25.107:27903
+Error checking 8.217.26.121:38767: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=8.217.26.121:38767
+Error checking 138.2.32.76:15821: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=138.2.32.76:15821
+Error checking 183.100.144.36:21789: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=183.100.144.36:21789
+Error checking 51.195.107.5:2053: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=51.195.107.5:2053
+Error checking 51.83.172.80:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=51.83.172.80:8443
+Error checking 57.128.177.198:443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=57.128.177.198:443
+Error checking 57.128.183.138:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=57.128.183.138:8443
+Error checking 23.226.8.80:443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=23.226.8.80:443
+Error checking 178.236.246.125:8443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error checking 38.76.144.76:13514: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
