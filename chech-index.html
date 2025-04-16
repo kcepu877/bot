@@ -2075,7 +2075,17 @@ function renderPagination(totalPages) {
 }
 
 
-   
+   const countryCounter = {};
+
+// Fungsi untuk menghitung atau mereset count untuk setiap negara
+function getCountForCountry(country) {
+    if (!countryCounter[country]) {
+        countryCounter[country] = 0; // Set count menjadi 0 jika negara pertama kali muncul
+    }
+    countryCounter[country]++;
+    return countryCounter[country]; // Increment count dan kembalikan
+}
+
 // Function to select a proxy
 async function selectProxy(index) {
   selectedProxy = filteredProxyList[index];
@@ -2090,13 +2100,10 @@ async function selectProxy(index) {
   const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
 
 
- if (!countryCounter[selectedProxy.country]) {
-                countryCounter[selectedProxy.country] = 0;
-            }
-            countryCounter[selectedProxy.country]++;
-            const count = countryCounter[selectedProxy.country]; // Use the country counter
+ const count = getCountForCountry(selectedProxy.country);
 
-  // Dapatkan count untuk negara yang dipilih
+    // Cetak count ke konsol untuk debugging
+    console.log(`Count for country ${selectedProxy.country}: ${count}`);
   
   // Array dari paths untuk setiap jenis
   const paths = {
