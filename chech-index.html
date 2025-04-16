@@ -2087,104 +2087,80 @@ function getCountForCountry(country) {
   return ++countryCounter[country]; // Increment count dan kembalikan
 }
 
-
 // Function to select a proxy
 async function selectProxy(index) {
-    selectedProxy = filteredProxyList[index];
-    
-    // Update selected proxy info
-    document.getElementById('selected-ip').textContent = selectedProxy.ip;
-    document.getElementById('selected-port').textContent = selectedProxy.port;
-    document.getElementById('selected-country').textContent = selectedProxy.country;
-    document.getElementById('selected-provider').textContent = selectedProxy.provider;
-    
-    // Update form fields
-    const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
-    
-
-// Pakai
-const count = getCountForCountry(selectedProxy.country);
-
-// Array dari paths untuk setiap jenis
-const paths = {
-  vless: [
-    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
-    `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/${selectedProxy.country}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/ALLIN`,
-    `/Free-CF-Proxy/ASIAN`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/EUROP`,
-    `/Free-CF-Proxy/SOUTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/OCEAN`,
-    `/Free-CF-Proxy/NORTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/AFRIC`
-      // Menggunakan `count` di sini
-  ],
-  vmess: [
-    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
-    `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/${selectedProxy.country}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/ALLIN`,
-    `/Free-CF-Proxy/ASIAN`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/EUROP`,
-    `/Free-CF-Proxy/SOUTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/OCEAN`,
-    `/Free-CF-Proxy/NORTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/AFRIC`
-    
-  ],
-  trojan: [
-    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
-    `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/${selectedProxy.country}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/ALLIN`,
-    `/Free-CF-Proxy/ASIAN`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/EUROP`,
-    `/Free-CF-Proxy/SOUTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/OCEAN`,
-    `/Free-CF-Proxy/NORTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/AFRIC`
-    
-  ],
-  ss: [
-    `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
-    `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/${selectedProxy.country}`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/ALLIN`,
-    `/Free-CF-Proxy/ASIAN`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/EUROP`,
-    `/Free-CF-Proxy/SOUTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/OCEAN`,
-    `/Free-CF-Proxy/NORTH`,  // Menggunakan `count` di sini
-    `/Free-CF-Proxy/AFRIC`
-    
-  ]
-};
-
-// Fungsi untuk mengisi dropdown
-function populateDropdown(dropdownId, options, selectedOption) {
-  const selectElement = document.getElementById(dropdownId);
-
-  options.forEach(optionValue => {
-    const option = document.createElement('option');
-    option.value = optionValue;
-    option.textContent = optionValue;
-
-    // Menetapkan pilihan default
-    if (optionValue === selectedOption) {
-      option.selected = true;
-    }
-
-    selectElement.appendChild(option);
-  });
+  selectedProxy = filteredProxyList[index];
+  
+  // Update selected proxy info
+  document.getElementById('selected-ip').textContent = selectedProxy.ip;
+  document.getElementById('selected-port').textContent = selectedProxy.port;
+  document.getElementById('selected-country').textContent = selectedProxy.country;
+  document.getElementById('selected-provider').textContent = selectedProxy.provider;
+  
+  // Update form fields
+  const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
+  
+  // Dapatkan count untuk negara yang dipilih
+  const count = getCountForCountry(selectedProxy.country);
+  
+  // Array dari paths untuk setiap jenis
+  const paths = {
+    vless: [
+      `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+      `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan count yang ter-update
+      `/Free-CF-Proxy/${selectedProxy.country}`,
+      `/Free-CF-Proxy/ALLIN`,
+      `/Free-CF-Proxy/ASIAN`,
+      `/Free-CF-Proxy/EUROP`,
+      `/Free-CF-Proxy/SOUTH`,
+      `/Free-CF-Proxy/OCEAN`,
+      `/Free-CF-Proxy/NORTH`,
+      `/Free-CF-Proxy/AFRIC`
+    ],
+    vmess: [
+      `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+      `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan count yang ter-update
+      `/Free-CF-Proxy/${selectedProxy.country}`,
+      `/Free-CF-Proxy/ALLIN`,
+      `/Free-CF-Proxy/ASIAN`,
+      `/Free-CF-Proxy/EUROP`,
+      `/Free-CF-Proxy/SOUTH`,
+      `/Free-CF-Proxy/OCEAN`,
+      `/Free-CF-Proxy/NORTH`,
+      `/Free-CF-Proxy/AFRIC`
+    ],
+    trojan: [
+      `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+      `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan count yang ter-update
+      `/Free-CF-Proxy/${selectedProxy.country}`,
+      `/Free-CF-Proxy/ALLIN`,
+      `/Free-CF-Proxy/ASIAN`,
+      `/Free-CF-Proxy/EUROP`,
+      `/Free-CF-Proxy/SOUTH`,
+      `/Free-CF-Proxy/OCEAN`,
+      `/Free-CF-Proxy/NORTH`,
+      `/Free-CF-Proxy/AFRIC`
+    ],
+    ss: [
+      `/Free-CF-Proxy/${selectedProxy.ip}-${selectedProxy.port}`,
+      `/Free-CF-Proxy/${selectedProxy.country}${count}`,  // Menggunakan count yang ter-update
+      `/Free-CF-Proxy/${selectedProxy.country}`,
+      `/Free-CF-Proxy/ALLIN`,
+      `/Free-CF-Proxy/ASIAN`,
+      `/Free-CF-Proxy/EUROP`,
+      `/Free-CF-Proxy/SOUTH`,
+      `/Free-CF-Proxy/OCEAN`,
+      `/Free-CF-Proxy/NORTH`,
+      `/Free-CF-Proxy/AFRIC`
+    ]
+  };
+  
+  // Memasukkan paths ke dropdown
+  populateDropdown('vless-path', paths.vless, paths.vless[0]);
+  populateDropdown('vmess-path', paths.vmess, paths.vmess[0]);
+  populateDropdown('trojan-path', paths.trojan, paths.trojan[0]);
+  populateDropdown('ss-path', paths.ss, paths.ss[0]);
 }
-
-// Mengisi dropdown dengan opsi-opsi
-populateDropdown('vless-path', paths.vless, paths.vless[0]);
-populateDropdown('vmess-path', paths.vmess, paths.vmess[0]);
-populateDropdown('trojan-path', paths.trojan, paths.trojan[0]);
-populateDropdown('ss-path', paths.ss, paths.ss[0]);
-
 
 
     document.getElementById('vmess-name').value = accountName;
