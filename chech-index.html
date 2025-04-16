@@ -2101,7 +2101,7 @@ async function selectProxy(index) {
   const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
   
   // Dapatkan count untuk negara yang dipilih
-  const count = getCountForCountry(selectedProxy.country);
+  const count = getCountForCountry(selectedProxy.country); // Ini menghitung count berdasarkan negara yang dipilih
   
   // Array dari paths untuk setiap jenis
   const paths = {
