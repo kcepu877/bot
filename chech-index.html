@@ -2089,11 +2089,11 @@ async function selectProxy(index) {
     
 const countryCounter = {};
 
-if (!countryCounter[country]) {
-  countryCounter[country] = 0;
+if (!countryCounter[selectedProxy.country]) {
+  countryCounter[selectedProxy.country] = 0;
 }
-countryCounter[country]++;
-const count = countryCounter[country];
+countryCounter[selectedProxy.country]++;
+const count = countryCounter[selectedProxy.country];
 
 // Array dari paths untuk setiap jenis
 const paths = {
@@ -2177,7 +2177,6 @@ populateDropdown('ss-path', paths.ss, paths.ss[0]);
 
 
 
- 
     document.getElementById('vmess-name').value = accountName;
     document.getElementById('vless-name').value = accountName;
     document.getElementById('trojan-name').value = accountName;
