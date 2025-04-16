@@ -1558,7 +1558,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     net: 'ws', // Always WebSocket
                     type: 'none',
                     host: host,
-                    path: formData.get('path1'),
+                    path: formData.get('path'),
                     tls: security === 'tls' ? 'tls' : '',
                     sni: sni,
                     scy: 'zero'
@@ -1567,27 +1567,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 connectionUrl = 'vmess://' + btoa(JSON.stringify(vmessConfig));
             } else if (formType === 'vless') {
                 const uuid = formData.get('uuid');
-                const path = encodeURIComponent(formData.get('path1'));
+                const path = encodeURIComponent(formData.get('path'));
                 const security = formData.get('security');
                 const encryption = 'none';
                 const name = encodeURIComponent(formData.get('name'));
                 // Set port based on TLS setting
                 const port = security === 'tls' ? 443 : 80;
                 
-                connectionUrl = `vless://${uuid}@${server}:${port}?encryption=${encryption}&security=${security}&type=ws&host=${host}&path=${path1}&sni=${sni}#${name}`;
+                connectionUrl = `vless://${uuid}@${server}:${port}?encryption=${encryption}&security=${security}&type=ws&host=${host}&path=${path}&sni=${sni}#${name}`;
             } else if (formType === 'trojan') {
                 const password = formData.get('password');
-                const path = encodeURIComponent(formData.get('path1'));
+                const path = encodeURIComponent(formData.get('path'));
                 const security = formData.get('security');
                 const name = encodeURIComponent(formData.get('name'));
                 // Set port based on TLS setting
                 const port = security === 'tls' ? 443 : 80;
                 
-                connectionUrl = `trojan://${password}@${server}:${port}?security=${security}&type=ws&host=${host}&path=${path1}&sni=${sni}#${name}`;
+                connectionUrl = `trojan://${password}@${server}:${port}?security=${security}&type=ws&host=${host}&path=${path}&sni=${sni}#${name}`;
             } else if (formType === 'ss') {
                 const password = formData.get('password');
                 const name = encodeURIComponent(formData.get('name'));
-                const path = encodeURIComponent(formData.get('path1'));
+                const path = encodeURIComponent(formData.get('path'));
                 const security = formData.get('security');
                 
                 // Set port based on TLS setting
@@ -1600,7 +1600,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userInfo = btoa(`${method}:${password}`);
                 
                 // Create the new format SS URL with dynamic port
-                connectionUrl = `ss://${userInfo}@${server}:${port}?encryption=none&type=ws&host=${host}&path=${path1}&security=${security}&sni=${sni}#${name}`;
+                connectionUrl = `ss://${userInfo}@${server}:${port}?encryption=none&type=ws&host=${host}&path=${path}&security=${security}&sni=${sni}#${name}`;
             }
             
             // Display the result
