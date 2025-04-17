@@ -1936,12 +1936,10 @@ function checkProxyStatusInList(proxy, statusBadge) {
     // Spinner saat loading
     statusBadge.className = 'flex items-center space-x-2 text-sm';
     statusBadge.innerHTML = `
-        <div class="flex items-center">
-  &nbsp;&nbsp;
-  <div class="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center mr-2 border border-indigo-500/30">
-    <div class="loading-spinner-sm w-4 h-4"></div>
-  </div>
-</div>
+        <div class="flex items-center">&nbsp;&nbsp; 
+        <div class="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center mr-3 border border-indigo-500/30">
+            <div class="loading-spinner-sm"></div>
+        </div></div>
 
     `;
     statusBadge.title = 'Memeriksa proxy...';
