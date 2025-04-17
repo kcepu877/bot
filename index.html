@@ -2108,6 +2108,7 @@ async function selectProxy(index) {
     const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
     
 
+
 // Array dari paths untuk setiap jenis
 const paths = {
   vless: [
@@ -2161,28 +2162,32 @@ const paths = {
 };
 
 // Fungsi untuk mengisi dropdown
-function populateDropdown(dropdownId, options, selectedOption) {
-  const selectElement = document.getElementById(dropdownId);
-
-  options.forEach(optionValue => {
+function isiDropdown(id, items) {
+  const dropdown = document.getElementById(id);
+  if (!dropdown) return;
+  
+  // Bersihkan dulu
+  dropdown.innerHTML = '';
+  
+  // Tambahkan opsi
+  items.forEach(item => {
     const option = document.createElement('option');
-    option.value = optionValue;
-    option.textContent = optionValue;
-
-    // Menetapkan pilihan default
-    if (optionValue === selectedOption) {
-      option.selected = true;
-    }
-
-    selectElement.appendChild(option);
+    option.value = item;
+    option.text = item;
+    dropdown.appendChild(option);
   });
+  
+  
+    if (items.length > 0) {
+    dropdown.selectedIndex = 0;
+  }
 }
 
-// Mengisi dropdown dengan opsi-opsi
-populateDropdown('vless-path', paths.vless, paths.vless[0]);
-populateDropdown('vmess-path', paths.vmess, paths.vmess[0]);
-populateDropdown('trojan-path', paths.trojan, paths.trojan[0]);
-populateDropdown('ss-path', paths.ss, paths.ss[0]);
+// [3] Cara pakai
+isiDropdown('vless-path', paths.vless);
+isiDropdown('vmess-path', paths.vmess); 
+isiDropdown('trojan-path', paths.trojan);
+isiDropdown('ss-path', paths.ss);
 
 
 
