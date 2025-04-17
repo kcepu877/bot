@@ -1888,8 +1888,8 @@ function renderProxyList() {
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'text-xs text-gray-400 mt-1 truncate';
         detailsDiv.innerHTML = `
-            ${proxy.country} | ${proxy.ip}:${proxy.port} | 
-            <span class="text-gray-400">Checking...</span>
+            ${proxy.country} | ${proxy.ip}:${proxy.port} | Latency: 
+            <span class="text-gray-400">Check</span>
         `;
         detailsDiv.id = `proxy-delay-${actualIndex}`;
         infoDiv.appendChild(detailsDiv);
@@ -1945,7 +1945,7 @@ function checkProxyStatusInList(proxy, statusBadge) {
             // [2] UPDATE TAMPILAN LATENCY DENGAN WARNA
             if(delayElement) {
                 delayElement.innerHTML = `
-                    ${proxy.country} | ${proxy.ip}:${proxy.port} | 
+                    ${proxy.country} | ${proxy.ip}:${proxy.port} | Latency: 
                     <span class="${getDelayColor(delay)}">
                         ${typeof delay === 'number' ? delay + 'ms' : delay}
                     </span>
@@ -1982,7 +1982,7 @@ function checkProxyStatusInList(proxy, statusBadge) {
             
             if(delayElement) {
                 delayElement.innerHTML = `
-                    ${proxy.country} | ${proxy.ip}:${proxy.port} | 
+                    ${proxy.country} | ${proxy.ip}:${proxy.port} | Latency: 
                     <span class="text-red-500">Error</span>
                 `;
             }
