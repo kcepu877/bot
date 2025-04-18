@@ -35,6 +35,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
+      
 <style>
     
     
@@ -1928,7 +1930,8 @@ function renderProxyList() {
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'text-xs text-gray-400 mt-1 truncate';
         detailsDiv.innerHTML = `
-            ${proxy.country} | ${proxy.ip}:${proxy.port} | Ping: 
+            
+           ${proxy.country} <span class="flag-circle flag-icon flag-icon-${proxy.country.toLowerCase()}"></span> | ${proxy.ip}:${proxy.port} | Ping: 
             <span class="text-gray-400">Check</span>
         `;
         detailsDiv.id = `proxy-delay-${actualIndex}`;
@@ -1992,7 +1995,7 @@ function checkProxyStatusInList(proxy, statusBadge) {
             // [2] UPDATE TAMPILAN LATENCY DENGAN WARNA
             if(delayElement) {
                 delayElement.innerHTML = `
-                    ${proxy.country} | ${proxy.ip}:${proxy.port} | Ping: 
+                     ${proxy.country} <span class="flag-circle flag-icon flag-icon-${proxy.country.toLowerCase()}"></span> | ${proxy.ip}:${proxy.port} | Ping: 
                     <span class="${getDelayColor(delay)}">
                         ${typeof delay === 'number' ? delay + 'ms' : delay}
                     </span>
@@ -2029,7 +2032,7 @@ function checkProxyStatusInList(proxy, statusBadge) {
             
             if(delayElement) {
                 delayElement.innerHTML = `
-                    ${proxy.country} | ${proxy.ip}:${proxy.port} | Ping: 
+                     ${proxy.country} <span class="flag-circle flag-icon flag-icon-${proxy.country.toLowerCase()}"></span> | ${proxy.ip}:${proxy.port} | Ping: 
                     <span class="text-red-500">Error</span>
                 `;
             }
@@ -2139,13 +2142,22 @@ async function selectProxy(index) {
     selectedProxy = filteredProxyList[index];
     
     // Update selected proxy info
-    document.getElementById('selected-ip').textContent = selectedProxy.ip;
-    document.getElementById('selected-port').textContent = selectedProxy.port;
-    document.getElementById('selected-country').textContent = selectedProxy.country;
-    document.getElementById('selected-provider').textContent = selectedProxy.provider;
+  // Update selected proxy info
+document.getElementById('selected-ip').textContent = selectedProxy.ip;
+document.getElementById('selected-port').textContent = selectedProxy.port;
+
+// Gabungkan ikon bendera dengan nama negara
+const countryCode = selectedProxy.country.toLowerCase();
+document.getElementById('selected-country').innerHTML = `
+  <span class="flag-circle flag-icon flag-icon-${countryCode}"></span>
+  ${selectedProxy.country}
+`;
+
+document.getElementById('selected-provider').textContent = selectedProxy.provider;
+
     
     // Update form fields
-    const accountName = `${selectedProxy.country} - ${selectedProxy.provider}`;
+    const accountName = ` ${selectedProxy.country} - ${selectedProxy.provider}`;
     
 
 
