@@ -1,0 +1,346 @@
+name = "dns-cloud"
+main = "js/_worker.js"
+compatibility_date = "2024-05-23"
+minify = true
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "V2RAY"
+id = "0b28d5e78ba4429b8843a7f4dd6f212a"
+
+
+
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install -q worker-build && worker-build --dev" }
+
+
+[vars]
+#UUID = "0fbf4f81-2598-4b6a-a623-0ead4cb9efa8"
+UUID = "0fbf4f81-2598-4b6a-a623-0ead4cb9efa8"
+#, "aaaaaa1-bbbb-4ccc-accc-eeeeeeeeeee1", "00000000-0000-0000-0000-000000000000"]
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/kcepu877/bot/refs/heads/main/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/kcepu877/bot/refs/heads/main/api.html"
+LINK_PAGE_URL = "https://raw.githubusercontent.com/kcepu877/bot/refs/heads/main/proxy.html"
+
+[[routes]]
+pattern = "dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.xhamster.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.turah.my.id"
+custom_domain = true
+[[routes]]
+pattern = "dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.ndeso.xyz"
+custom_domain = true
+[[routes]]
+pattern = "dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.ndeso.web.id"
+custom_domain = true
+[[routes]]
+pattern = "dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.najah.biz.id"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.najah.biz.id"
+custom_domain = true
+
+[[routes]]
+pattern = "dns-cloudflare.bmkg.xyz"
+custom_domain = true
+
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.bmkg.xyz"
+custom_domain = true
+
+[[routes]]
+pattern = "dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "ads.ruangguru.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "investor.fb.com.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
+[[routes]]
+pattern = "bakrie.ac.id.dns-cloudflare.cloudproxyip.my.id"
+custom_domain = true
