@@ -21,13 +21,14 @@ jobs:
       - name: Install JQ
         run: sudo apt-get install -y jq
 
-            - name: Update DNS Records
+      - name: Update DNS Records
         run: |
           while IFS='=' read -r DOMAIN VALUE; do
             [[ "$DOMAIN" =~ ^#.*$ || -z "$DOMAIN" ]] && continue
 
-            RELATIVE_NAME="$DOMAIN"  # Tidak dipotong!
+            RELATIVE_NAME="${DOMAIN%.$ZONE_NAME}"
 
+            # Deteksi apakah VALUE adalah IP
             if [[ "$VALUE" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               RECORD_TYPE="A"
             else
@@ -36,7 +37,7 @@ jobs:
 
             echo "Processing $RELATIVE_NAME ($RECORD_TYPE) -> $VALUE"
 
-            RECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=$RECORD_TYPE&name=$RELATIVE_NAME" \
+            RECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=$RECORD_TYPE&name=$RELATIVE_NAME.$ZONE_NAME" \
               -H "Authorization: Bearer $CF_API_TOKEN" \
               -H "Content-Type: application/json" | jq -r '.result[0].id')
 
