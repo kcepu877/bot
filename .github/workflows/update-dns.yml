@@ -10,7 +10,7 @@ jobs:
   update-dns:
     runs-on: ubuntu-latest
     env:
-      ZONE_NAME: xhamster.biz.id
+      ZONE_NAME: dns-sgdo.xhamster.biz.id
       CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
       CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
 
