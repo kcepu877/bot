@@ -1,47 +1,50 @@
-name: Update Cloudflare DNS (Multiple Records)
+name: Update DNS Records on Cloudflare
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   update-dns:
     runs-on: ubuntu-latest
+    env:
+      ZONE_NAME: xhamster.biz.id
+      CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+      CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
 
     steps:
-      - name: Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Load .env.domains and update DNS
+      - name: Install JQ
+        run: sudo apt-get install -y jq
+
+      - name: Update DNS Records
         run: |
           while IFS='=' read -r DOMAIN IP; do
-            # Skip comments and empty lines
             [[ "$DOMAIN" =~ ^#.*$ || -z "$DOMAIN" ]] && continue
 
-            echo "Updating $DOMAIN to $IP"
+            RELATIVE_NAME="${DOMAIN%.$ZONE_NAME}"
 
-            # Get record ID (if exists)
-            RECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/dns_records?type=A&name=$DOMAIN" \
-              -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            echo "Processing $RELATIVE_NAME -> $IP"
+
+            RECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records?type=A&name=$RELATIVE_NAME.$ZONE_NAME" \
+              -H "Authorization: Bearer $CF_API_TOKEN" \
               -H "Content-Type: application/json" | jq -r '.result[0].id')
 
-            # If record exists, update it
             if [[ "$RECORD_ID" != "null" && -n "$RECORD_ID" ]]; then
-              curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/dns_records/$RECORD_ID" \
-                -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+              echo "Updating $RELATIVE_NAME"
+              curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records/$RECORD_ID" \
+                -H "Authorization: Bearer $CF_API_TOKEN" \
                 -H "Content-Type: application/json" \
-                --data "{\"type\":\"A\",\"name\":\"$DOMAIN\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" > /dev/null
-              echo "Updated $DOMAIN"
+                --data "{\"type\":\"A\",\"name\":\"$RELATIVE_NAME\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" > /dev/null
             else
-              # Else, create new record
-              curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/dns_records" \
-                -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+              echo "Creating $RELATIVE_NAME"
+              curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records" \
+                -H "Authorization: Bearer $CF_API_TOKEN" \
                 -H "Content-Type: application/json" \
-                --data "{\"type\":\"A\",\"name\":\"$DOMAIN\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" > /dev/null
-              echo "Created $DOMAIN"
+                --data "{\"type\":\"A\",\"name\":\"$RELATIVE_NAME\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" > /dev/null
             fi
           done < .env.domains
-
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
