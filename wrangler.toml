@@ -1,0 +1,10 @@
+name = "web-auth-app"
+compatibility_date = "2025-05-22"
+
+[vars]
+JWT_SECRET = "Lz!n8X5@c9Vp4#Mf1WqT"
+
+[d1_databases]
+bindings = [
+  { name = "DB", database_name = "c1e0dccd-a96e-438d-8efa-1baca59d3b54" }
+]
