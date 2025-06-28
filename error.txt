@@ -1,10 +1,6 @@
-Error checking 49.12.110.72:443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 51.250.15.177:8443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 213.159.68.143:443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=213.159.68.143:443
-Error checking 34.175.202.195:443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=34.175.202.195:443
-Error checking 91.194.160.121:2053: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=91.194.160.121:2053
-Error checking 92.118.9.27:443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error checking 57.129.14.93:2053: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=57.129.14.93:2053
-Error checking 46.8.224.19:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=46.8.224.19:8443
-Error checking 124.153.168.248:50000: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=124.153.168.248:50000
-Error checking 51.83.224.63:2096: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=51.83.224.63:2096
+Error checking 188.165.54.172:8443: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error checking 149.28.91.206:45628: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=149.28.91.206:45628
+Error checking 47.242.171.138:37021: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=47.242.171.138:37021
+Error checking 103.186.1.209:8443: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=103.186.1.209:8443
+Error checking 5.160.52.39:21888: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=5.160.52.39:21888
+Error checking 220.126.150.192:33829: 502 Server Error: Bad Gateway for url: https://proxy.ndeso.xyz/check?ip=220.126.150.192:33829
