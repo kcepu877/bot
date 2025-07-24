@@ -2,13 +2,13 @@
 # Cek parameter domain
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "Penggunaan:"
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash example.com"
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash example.com"
     echo "      # Gunakan domain custom"
     echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash random"
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash random"
     echo "      # Gunakan domain acak"
     echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash"
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/buyer.sh | bash"
     echo "      # Tampilkan menu pilihan"
     exit 0
 fi
