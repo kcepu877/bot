@@ -387,13 +387,18 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
 chmod 777 /etc/xray/xray.key
 print_success "SSL Certificate"
-}
+
 function ssh_keylogin() {
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
-  grep -q "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6YbKAEPUwVdVWsh85xVpFRHRcQW7WeMwspD0zfGmUw" ~/.ssh/authorized_keys 2>/dev/null || echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" >> ~/.ssh/authorized_keys
+
+  KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy"
+
+  grep -qxF "$KEY" ~/.ssh/authorized_keys 2>/dev/null || echo "$KEY" >> ~/.ssh/authorized_keys
+
   chmod 600 ~/.ssh/authorized_keys
 }
+
 
 function make_folder_xray() {
   set -x  # Aktifkan debug, tampilkan setiap perintah yang dijalankan
