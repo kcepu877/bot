@@ -2,9 +2,14 @@
 # Cek parameter domain
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "Penggunaan:"
-    echo "  ./v5.sh example.com    # Gunakan domain custom"
-    echo "  ./v5.sh random         # Gunakan random domain"
-    echo "  ./v5.sh                # Tampilkan menu pilihan"
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash example.com"
+    echo "      # Gunakan domain custom"
+    echo
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash random"
+    echo "      # Gunakan domain acak"
+    echo
+    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash"
+    echo "      # Tampilkan menu pilihan"
     exit 0
 fi
 apt update -y
@@ -813,7 +818,7 @@ print_success "All Packet"
 function menu(){
 clear
 print_install "Memasang Menu Packet"
-wget ${REPO}Cdy/menu.zip
+wget ${REPO}bot1/menu.zip
 7z x -paiman321 menu.zip
 chmod +x menu/*
 mv menu/* /usr/local/sbin
