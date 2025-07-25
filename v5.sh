@@ -881,6 +881,7 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 systemctl restart sshd
 clear
+echo -e ""
 wget https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit-ip -O /usr/bin/limit-ip
 chmod +x /usr/bin/limit-ip
 echo -e ""
