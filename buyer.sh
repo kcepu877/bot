@@ -905,8 +905,9 @@ chmod 600 ~/.ssh/authorized_keys
 systemctl restart sshd
 clear
 echo -e ""
-wget https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit-ip -O /usr/bin/limit-ip
-chmod +x /usr/bin/limit-ip
+wget -O /usr/local/sbin/limit.sh https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit.sh
+chmod +x /usr/local/sbin/limit.sh
+/usr/local/sbin/limit.sh
 echo -e ""
 wget -O /usr/bin/ws "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws" >/dev/null 2>&1 && wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Cfg/tun.conf" >/dev/null 2>&1 && wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws.service" >/dev/null 2>&1 && chmod +x /etc/systemd/system/ws.service && chmod +x /usr/bin/ws && chmod 644 /usr/bin/tun.conf && systemctl disable ws && systemctl stop ws && systemctl enable ws && systemctl start ws && systemctl restart ws
 clear
