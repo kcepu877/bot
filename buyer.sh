@@ -905,12 +905,13 @@ chmod 600 ~/.ssh/authorized_keys
 systemctl restart sshd
 clear
 echo -e ""
+wget https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit-ip -O /usr/bin/limit-ip
+chmod +x /usr/bin/limit-ip
+echo -e ""
 wget -O /usr/bin/ws "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws" >/dev/null 2>&1 && wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Cfg/tun.conf" >/dev/null 2>&1 && wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws.service" >/dev/null 2>&1 && chmod +x /etc/systemd/system/ws.service && chmod +x /usr/bin/ws && chmod 644 /usr/bin/tun.conf && systemctl disable ws && systemctl stop ws && systemctl enable ws && systemctl start ws && systemctl restart ws
 clear
 echo -e "\033[96m==========================\033[0m"
 echo -e "\033[92m      INSTALL SUCCES      \033[0m"
 echo -e "\033[96m==========================\033[0m"
-echo -e ""
-sudo mkdir -p /etc/limit/trojan
 echo -e ""
 reboot
