@@ -893,41 +893,5 @@ echo -e "\033[92m      INSTALL SUCCES      \033[0m"
 echo -e "\033[96m==========================\033[0m"
 echo -e ""
 
-#!/bin/bash
-# ADD THIS TO YOUR v5.sh
 
-# Detect Ubuntu version
-UBUNTU_VERSION=$(lsb_release -rs)
-
-# Version-specific fixes
-case $UBUNTU_VERSION in
-    "20.04")
-        # Ubuntu 20 specific
-        PACKAGES="python2.7 openssh-server"
-        ;;
-    "22.04")
-        # Ubuntu 22 specific  
-        PACKAGES="python3 openssh-server"
-        ;;
-    "24.04"|"24.10")
-        # Ubuntu 24 specific
-        PACKAGES="python3 openssh-server net-tools"
-        ;;
-    *)
-        # Default
-        PACKAGES="python3 openssh-server"
-        ;;
-esac
-
-# Install packages
-apt-get install -y $PACKAGES
-
-# Universal service start
-if command -v systemctl &> /dev/null; then
-    systemctl enable ssh
-    systemctl start ssh
-else
-    service ssh enable
-    service ssh start
-fi
 reboot
