@@ -290,7 +290,6 @@ print_install "Random Subdomain/Domain is Used"
 clear
 fi
 }
-
 clear
 restart_system() {
 USRSC=$(wget -qO- ${izinsc} | grep $ipsaya | awk '{print $2}')
@@ -333,81 +332,58 @@ chmod 777 /etc/xray/xray.key
 print_success "SSL Certificate"
 }
 function make_folder_xray() {
-  set -x  # Aktifkan debug, tampilkan setiap perintah yang dijalankan
-
-  # Hapus file database lama
-  rm -f /etc/vmess/.vmess.db || echo "Gagal hapus /etc/vmess/.vmess.db"
-  rm -f /etc/vless/.vless.db || echo "Gagal hapus /etc/vless/.vless.db"
-  rm -f /etc/trojan/.trojan.db || echo "Gagal hapus /etc/trojan/.trojan.db"
-  rm -f /etc/shadowsocks/.shadowsocks.db || echo "Gagal hapus /etc/shadowsocks/.shadowsocks.db"
-  rm -f /etc/ssh/.ssh.db || echo "Gagal hapus /etc/ssh/.ssh.db"
-  rm -f /etc/bot/.bot.db || echo "Gagal hapus /etc/bot/.bot.db"
-
-  # Fungsi bantu buat folder dan cek error
-  make_dir() {
-    sudo mkdir -p "$1"
-    if [ $? -ne 0 ]; then
-      echo "Gagal membuat folder $1"
-    else
-      echo "Berhasil membuat folder $1"
-    fi
-  }
-
-  # Buat folder-folder yang dibutuhkan
-  make_dir /etc/bot
-  make_dir /etc/xray
-  make_dir /etc/vmess
-  make_dir /etc/vless
-  make_dir /etc/trojan
-  make_dir /etc/shadowsocks
-  make_dir /etc/ssh
-  make_dir /usr/bin/xray
-  make_dir /var/log/xray
-  make_dir /var/www/html
-  make_dir /etc/kyt/limit/vmess/ip
-  make_dir /etc/kyt/limit/vless/ip
-  make_dir /etc/kyt/limit/trojan/ip
-  make_dir /etc/kyt/limit/ssh/ip
-  make_dir /etc/limit/vmess
-  make_dir /etc/limit/vless
-  make_dir /etc/limit/trojan
-  make_dir /etc/limit/ssh
-
-  # Set permission folder log
-  sudo chmod 755 /var/log/xray || echo "Gagal set permission /var/log/xray"
-
-  # Buat file jika belum ada
-  touch /etc/xray/domain || echo "Gagal buat file /etc/xray/domain"
-  touch /var/log/xray/access.log || echo "Gagal buat file access.log"
-  touch /var/log/xray/error.log || echo "Gagal buat file error.log"
-  touch /etc/vmess/.vmess.db || echo "Gagal buat file .vmess.db"
-  touch /etc/vless/.vless.db || echo "Gagal buat file .vless.db"
-  touch /etc/trojan/.trojan.db || echo "Gagal buat file .trojan.db"
-  touch /etc/shadowsocks/.shadowsocks.db || echo "Gagal buat file .shadowsocks.db"
-  touch /etc/ssh/.ssh.db || echo "Gagal buat file .ssh.db"
-  touch /etc/bot/.bot.db || echo "Gagal buat file .bot.db"
-
-  # Isi file dengan header plugin (gunakan > supaya tidak duplikat)
-  echo "& plughin Account" > /etc/vmess/.vmess.db
-  echo "& plughin Account" > /etc/vless/.vless.db
-  echo "& plughin Account" > /etc/trojan/.trojan.db
-  echo "& plughin Account" > /etc/shadowsocks/.shadowsocks.db
-  echo "& plughin Account" > /etc/ssh/.ssh.db
-
-  set +x  # Matikan debug
+rm -rf /etc/vmess/.vmess.db
+rm -rf /etc/vless/.vless.db
+rm -rf /etc/trojan/.trojan.db
+rm -rf /etc/shadowsocks/.shadowsocks.db
+rm -rf /etc/ssh/.ssh.db
+rm -rf /etc/bot/.bot.db
+mkdir -p /etc/bot
+mkdir -p /etc/xray
+mkdir -p /etc/vmess
+mkdir -p /etc/vless
+mkdir -p /etc/trojan
+mkdir -p /etc/shadowsocks
+mkdir -p /etc/ssh
+mkdir -p /usr/bin/xray/
+mkdir -p /var/log/xray/
+mkdir -p /var/www/html
+mkdir -p /etc/kyt/limit/vmess/ip
+mkdir -p /etc/kyt/limit/vless/ip
+mkdir -p /etc/kyt/limit/trojan/ip
+mkdir -p /etc/kyt/limit/ssh/ip
+mkdir -p /etc/limit/vmess
+mkdir -p /etc/limit/vless
+mkdir -p /etc/limit/trojan
+mkdir -p /etc/limit/ssh
+chmod +x /var/log/xray
+touch /etc/xray/domain
+touch /var/log/xray/access.log
+touch /var/log/xray/error.log
+touch /etc/vmess/.vmess.db
+touch /etc/vless/.vless.db
+touch /etc/trojan/.trojan.db
+touch /etc/shadowsocks/.shadowsocks.db
+touch /etc/ssh/.ssh.db
+touch /etc/bot/.bot.db
+echo "& plughin Account" >>/etc/vmess/.vmess.db
+echo "& plughin Account" >>/etc/vless/.vless.db
+echo "& plughin Account" >>/etc/trojan/.trojan.db
+echo "& plughin Account" >>/etc/shadowsocks/.shadowsocks.db
+echo "& plughin Account" >>/etc/ssh/.ssh.db
 }
 function install_xray() {
 clear
-print_install "Core Xray 1.8.1 Latest Version"
+print_install "Core Xray 1.8.24 Latest Version"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.8.24
 wget -O /etc/xray/config.json "${REPO}Cfg/config.json" >/dev/null 2>&1
 wget -O /etc/systemd/system/runn.service "${REPO}Fls/runn.service" >/dev/null 2>&1
 domain=$(cat /etc/xray/domain)
 IPVS=$(cat /etc/xray/ipvps)
-print_success "Core Xray 1.8.1 Latest Version"
+print_success "Core Xray 1.8.24 Latest Version"
 clear
 curl -s ipinfo.io/city >>/etc/xray/city
 curl -s ipinfo.io/org | cut -d " " -f 2-10 >>/etc/xray/isp
@@ -421,6 +397,7 @@ cat /etc/xray/xray.crt /etc/xray/xray.key | tee /etc/haproxy/hap.pem
 chmod +x /etc/systemd/system/runn.service
 rm -rf /etc/systemd/system/xray.service.d
 cat >/etc/systemd/system/xray.service <<EOF
+[Unit]
 Description=Xray Service
 Documentation=https://github.com
 After=network.target nss-lookup.target
@@ -432,8 +409,8 @@ NoNewPrivileges=true
 ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
-filesNPROC=10000
-filesNOFILE=1000000
+LimitNOFILE=1000000
+LimitNPROC=65535
 [Install]
 WantedBy=multi-user.target
 EOF
