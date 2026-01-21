@@ -473,11 +473,11 @@ wget -q https://raw.githubusercontent.com/kcepu877/V1/main/config/fv-tunnel && c
 
 # // Installing UDP Mini
 mkdir -p /usr/local/
-wget -q -O /usr/local/udp-mini "${REPO}files/udp-mini"
+wget -q -O /usr/local/udp-mini "${REPO}Fls/udp-mini"
 chmod +x /usr/local/udp-mini
-wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}files/udp-mini-1.service"
-wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}files/udp-mini-2.service"
-wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}files/udp-mini-3.service"
+wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}Fls/udp-mini-1.service"
+wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}Fls/udp-mini-2.service"
+wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}Fls/udp-mini-3.service"
 systemctl disable udp-mini-1
 systemctl stop udp-mini-1
 systemctl enable udp-mini-1
