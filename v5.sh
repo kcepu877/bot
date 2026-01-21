@@ -466,6 +466,10 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 print_success "Password SSH"
 }
+
+function api_tunnel() { 
+apt install dos2unix; wget ${REPO}api.sh && chmod +x api.sh && dos2unix api.sh && bash api.sh; clear; }
+
 function udp_mini(){
 clear
 print_install "Memasang Service Limit IP & Quota"
@@ -846,6 +850,7 @@ password_default
 pasang_ssl
 install_xray
 ssh
+apu_tunnel
 udp_mini
 ssh_slow
 ins_SSHD
