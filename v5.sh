@@ -117,7 +117,7 @@ mai="datediff "$Exp" "$DATE""
 Info="(${green}Active${NC})"
 Error="(${RED}ExpiRED${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl ${uzinsc} | grep $MYIP | awk '{print $4}')
+Exp1=$(curl ${izinsc} | grep $MYIP | awk '{print $4}')
 if [[ $today < $Exp1 ]]; then
 sts="${Info}"
 else
@@ -716,7 +716,7 @@ function menu(){
 clear
 print_install "Memasang Menu Packet"
 wget ${REPO}bot1/menu.zip
-7z x -paiman321 menu.zip
+7z x -pkcepu877 menu.zip
 chmod +x menu/*
 mv menu/* /usr/local/sbin
 rm -rf menu
