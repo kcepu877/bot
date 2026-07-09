@@ -850,7 +850,7 @@ password_default
 pasang_ssl
 install_xray
 ssh
-apu_tunnel
+api_tunnel
 udp_mini
 ssh_slow
 ins_SSHD
